@@ -11,7 +11,7 @@ const sectionOne =()=>{
                 </div>
                 <div className="trackerLogo">
                 <div>
-                <img src={require('../../../assets/images/furbaby-logo.png')} />
+                <img src={require('../../../assets/images/furbaby-logo.png')} alt = "pic" />
                 </div>
                 <div className="formMain">
                 <div className="form">

@@ -21,7 +21,13 @@ import Treatmentmassmesseage from "./treatment-mass-message";
 import Babydatabase from "./baby-Database";
 import Databaseform from "./database-form";
 import Toolssetting from "./tools-setting";
-
+import Dashboard from "./dashboard";
+import trackerRecord from "./trackerRecord";
+import treatmentInprogress from "./treatmentInprogress";
+import treatmentComplete from "./treatmentComplete";
+import treatmentBoarder from "./treatmentBoarder";
+import updateBoarder from "./updateBoarder";
+import clinicUsers from "./clinicUsers";
 const Routes = () => {
     return (
         <BrowserRouter>
@@ -47,9 +53,13 @@ const Routes = () => {
                 <Route path={"/baby-Database"} component={Babydatabase}/>
                 <Route path={"/database-form"} component={Databaseform}/>
                 <Route path={"/tools-setting"} component={Toolssetting}/>
-                
-                
-
+                <Route path={"/dashboard"} component={Dashboard}/>
+                <Route path={"/tracker-record"} component={trackerRecord}/>
+                <Route path={"/treatment-inprogress"} component = {treatmentInprogress} />
+                <Route path={"/treatment-complete"} component = {treatmentComplete} />
+                <Route path={"/treatment-boarder"} component = {treatmentBoarder} />
+                <Route path={"/update-boarder"} component = {updateBoarder} />
+                <Route path={"/clinic-users"} component = {clinicUsers} />
                 {/* <Route path={"/"} exact component={About}/>?
                 <Route path={"/signup"} component={}/>
                 <Route path={"/login"} component={ContactUs}/> */}

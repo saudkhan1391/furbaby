@@ -72,7 +72,7 @@ const SectionTwo =()=>{
       <div class="flex h-12 ml-10 form">
       <input type="text" name="fname" placeholder="  Search for a schedule pet"></input>
      <div class=" img"> 
-         <img src={require('../../../assets/images/download.png')} />
+         <img src={require('../../../assets/images/download.png')} alt = "pic"/>
      </div>
       </div>
       <div class="px-2">
@@ -84,7 +84,7 @@ const SectionTwo =()=>{
   
   <div class="px-6 py-4 flex justify-center m-auto pt-12">
   <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder.png')} />
+  <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
@@ -100,7 +100,7 @@ const SectionTwo =()=>{
   
   <div class="px-6 py-4 flex justify-center m-auto pt-12">
     <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder1.png')} />
+  <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
   </div>
   </div>
   <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
@@ -133,7 +133,7 @@ const SectionTwo =()=>{
   
   <div class="px-6 py-4 flex justify-center m-auto pt-12">
   <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder2.png')} />
+  <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
   </div>
   </div>
   <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">

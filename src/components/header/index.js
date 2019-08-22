@@ -1,13 +1,13 @@
 import React from 'react';
 import Style from './style';
 import { Link } from 'react-router-dom';
-const Header = () => {
+const Header=()=>{
   return (
     <div>
       <nav class="flex items-center justify-between flex-wrap p-4 borderline">
         <div class="flex items-center flex-shrink-0 mr-6 pr-12">
           <div class="ml-10 pad">
-            <img src={require('../../assets/images/furbaby-logo2.png')} />
+            <img src={require('../../assets/images/furbaby-logo2.png')} alt = "pic"/>
           </div>
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">

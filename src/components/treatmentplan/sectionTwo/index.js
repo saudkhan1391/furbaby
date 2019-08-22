@@ -76,7 +76,7 @@ const SectionTwo =()=>{
       <div class="flex h-12 ml-10 form">
       <input type="text" name="fname" placeholder="  Search for a schedule pet"></input>
      <div class=" img"> 
-         <img src={require('../../../assets/images/download.png')} />
+         <img src={require('../../../assets/images/download.png')} alt = "pic"/>
      </div>
       </div>
       <div class="pl-10 mt-4">

@@ -31,7 +31,7 @@ const SectionThree=()=>{
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
-  <img src={require('../../../assets/images/img1-placeholder.png')} />
+  <img src={require('../../../assets/images/img1-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
@@ -49,7 +49,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
     <div class="img2">
-  <img src={require('../../../assets/images/img2-placeholder.png')} />
+  <img src={require('../../../assets/images/img2-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -69,7 +69,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img3">
-  <img src={require('../../../assets/images/img3-placeholder.png')} />
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -89,7 +89,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} />
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -108,7 +108,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img5">
-  <img src={require('../../../assets/images/img3-placeholder.png')} />
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -128,7 +128,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} />
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -147,7 +147,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img7">
-  <img src={require('../../../assets/images/img2-placeholder.png')} />
+  <img src={require('../../../assets/images/img2-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -172,7 +172,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img8">
-  <img src={require('../../../assets/images/img3-placeholder.png')} />
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
@@ -190,7 +190,7 @@ const SectionThree=()=>{
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
   <div class="img9">
-  <img src={require('../../../assets/images/img4-placeholder.png')} />
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
   </div>
   </div>
   </div>
