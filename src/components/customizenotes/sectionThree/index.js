@@ -10,82 +10,131 @@ const SectionThree=()=>{
   <div class="flex mt-6">
 <div class="pl-12  label">
     
-<label class="container1">Label
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Label</label>
+</div>
      </div>
 
-     <div class="pl-12 label ml-64">
-    
-<label class="container1">Label
+     <div class="label">
+  <div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container1">Label
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Label</label>
+</div>
+
      </div>
 
-     <div class="pl-12 label ml-64">
+     <div class="label">
     
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
+     <div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
+   
          </div>
 
-         <div class="pl-12 label ml-64">
+         <div class="label">
     
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Label
+         <div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Label</label>
+</div>
          </div>
      </div>
   </div>

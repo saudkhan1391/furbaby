@@ -18,6 +18,9 @@ import Customizenotes from "./customizenotes";
 import Globalmass from "./globalmass";
 import Massmessage from "./massmessage";
 import Treatmentmassmesseage from "./treatment-mass-message";
+import Babydatabase from "./baby-Database";
+import Databaseform from "./database-form";
+import Toolssetting from "./tools-setting";
 
 const Routes = () => {
     return (
@@ -41,6 +44,9 @@ const Routes = () => {
                 <Route path={"/globalmass"} component={Globalmass}/>
                 <Route path={"/massmessage"} component={Massmessage}/>
                 <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
+                <Route path={"/baby-Database"} component={Babydatabase}/>
+                <Route path={"/database-form"} component={Databaseform}/>
+                <Route path={"/tools-setting"} component={Toolssetting}/>
                 
                 
 

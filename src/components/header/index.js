@@ -24,12 +24,12 @@ const Header = () => {
             <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">
               NOTIFICATIONS
       </a>
-            <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">
+      <Link to="/baby-database"><a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">
               DATABASE
-      </a>
-            <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">
+      </a></Link>
+      <Link to="/tools-setting"><a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">
               TOOLS & SETTINGS
-      </a>
+      </a></Link>
           </div>
           <div class="mr-12 oval">
             <a  class="inline-block px-2 mt-4 lg:mt-0"><span class="span1">?</span></a>

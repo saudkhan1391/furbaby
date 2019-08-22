@@ -11,6 +11,9 @@ export default () => (
     letter-spacing: normal;
     color: #313541;
 }
+.label{
+  width:70%;
+}
 .forBg-clr{
     background-color: #fcfcfc;
     border:solid 1px #e5e5e4;
@@ -55,8 +58,8 @@ label.container1{
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 26px;
+    width: 26px;
     background-color: #eee;
   }
   
@@ -106,6 +109,10 @@ label.container1{
     width: 25px;
     border-radius: 4px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+  }
+  .check-mar{
+    margin-right:10%;
+    width:224px;
   }
  
     `}

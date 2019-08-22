@@ -190,32 +190,54 @@ const SectionTwo =()=>{
     
      <div class="flex pl-12 mt-16 label">
     <div class="checkbox1">
-<label class="container">Checkbox Label
+    <div class="flex mr-12 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Checkbox Label</label>
+</div>
+
+   
      </div>
      <div class="checkbox1">
-     <label class="container">Checkbox Label
+     <div class="flex mr-12 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Checkbox Label</label>
+</div>
+
+   
 
      </div>
     </div>

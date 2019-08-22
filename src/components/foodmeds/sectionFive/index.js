@@ -28,18 +28,27 @@ const SectionFive =()=>{
     
     <div class="flex ml-8 label">
     
-    <label class="container1">Canine
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="ml-32 container1">Feline
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="ml-32 container1">Other Species
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
+    <div class="flex mr-12 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Canine</label>
+</div>
+<div class="flex mr-12 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Feline</label>
+</div>
+<div class="flex mr-12 check-mar">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Other Species</label>
+</div>
     </div>
     
               
