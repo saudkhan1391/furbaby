@@ -18,6 +18,13 @@ import Customizenotes from "./customizenotes";
 import Globalmass from "./globalmass";
 import Massmessage from "./massmessage";
 import Treatmentmassmesseage from "./treatment-mass-message";
+import Dashboard from "./dashboard";
+import trackerRecord from "./trackerRecord";
+import treatmentInprogress from "./treatmentInprogress";
+import treatmentComplete from "./treatmentComplete";
+import treatmentBoarder from "./treatmentBoarder";
+import updateBoarder from "./updateBoarder";
+import clinicUsers from "./clinicUsers";
 
 const Routes = () => {
     return (
@@ -41,8 +48,13 @@ const Routes = () => {
                 <Route path={"/globalmass"} component={Globalmass}/>
                 <Route path={"/massmessage"} component={Massmessage}/>
                 <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
-                
-                
+                <Route path={"/dashboard"} component={Dashboard}/>
+                <Route path={"/tracker-record"} component={trackerRecord}/>
+                <Route path={"/treatment-inprogress"} component = {treatmentInprogress} />
+                <Route path={"/treatment-complete"} component = {treatmentComplete} />
+                <Route path={"/treatment-boarder"} component = {treatmentBoarder} />
+                <Route path={"/update-boarder"} component = {updateBoarder} />
+                <Route path={"/clinic-users"} component = {clinicUsers} />                
 
                 {/* <Route path={"/"} exact component={About}/>?
                 <Route path={"/signup"} component={}/>

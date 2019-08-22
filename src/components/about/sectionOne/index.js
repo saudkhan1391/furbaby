@@ -10,7 +10,7 @@ const SectionOne = () => {
                 </div>
                 <div className="trackerLogo">
                     <div>
-                <img src={require('../../../assets/images/furbaby-logo.png')} /></div>
+                <img src={require('../../../assets/images/furbaby-logo.png')} alt = "pic"/></div>
                 <div>
                     <p className="para1 text-6xl">PEACE OF MIND, WHEN THEY NEED IT MOST</p>
                 </div>
