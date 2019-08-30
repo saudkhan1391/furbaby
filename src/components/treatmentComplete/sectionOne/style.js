@@ -77,40 +77,7 @@ export default () => (
       .main {
           border:1px solid #e2e8f0;
       }
-      .data-div {
-        width: 450px;
-    }
-    .data-div label {
-        width: 144px;
-        height: 30px;
-        font-family: Lato;
-        font-size: 16px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 2;
-        letter-spacing: normal;
-        color: #6d7278;
-    }
-    .data-div p{
-        width: 163px;
-        height: 30px;
-        font-family: Lato;
-        font-size: 16px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 2;
-        letter-spacing: normal;
-        color: #6d7278;
-    }
-    .text-area{
-        height:123px;
-        border:1px solid #e2e8f0;
-    }
-    .text-area textarea {
-        resize: none;
-    }
+
     .heading{
         width:172px;
         font-family: Lato;

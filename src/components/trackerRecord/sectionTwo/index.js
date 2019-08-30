@@ -19,8 +19,10 @@ const SectionTwo = () => {
                             
                             <div class="act-data justify-between px-5 py-5">
                                 <h3>Posted Activities</h3>
-                                <p class="mt-2">Tramadol 7:25 AM</p>
-                                <p class="mt-2">Amoxicillin 3:41 PM</p>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Tramadol 7:25 AM</p><br/>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Amoxicillin 3:41 PM</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +36,8 @@ const SectionTwo = () => {
                             
                             <div class="act-data justify-between px-5 py-5">
                                 <h3>Posted Activities</h3>
-                                <p class="mt-2">Royal Canin Breed Health, 1/2 Cup</p>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Royal Canin Breed Health, 1/2 Cup</p>
                             </div>
                         </div>
                     </div>
@@ -48,8 +51,10 @@ const SectionTwo = () => {
                             
                             <div class="act-data justify-between px-5 py-5">
                                 <h3>Posted Activities</h3>
-                                <p class="mt-2">Pee 8:11 AM</p>
-                                <p class="mt-2">Pee &amp; Poop 12:37 PM</p>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Pee 8:11 AM</p><br/>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Pee &amp; Poop 12:37 PM</p>
                             </div>
                         </div>
                     </div>
@@ -63,7 +68,8 @@ const SectionTwo = () => {
                             
                             <div class="act-data justify-between px-5 py-5">
                                 <h3>Posted Activities</h3>
-                                <p class="mt-2">Tobby is doing great and is getting settled in. We will update her tracker when she goes into diagnostics.</p>
+                                <img class="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic"/>
+                                <p class="mt-2 inline">Tobby is doing great and is getting settled in. We will update her tracker when she goes into diagnostics.</p>
                             </div>
                         </div>
                     </div>

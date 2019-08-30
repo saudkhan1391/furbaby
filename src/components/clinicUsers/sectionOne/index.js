@@ -103,7 +103,7 @@ const SectionOne = () => {
                     </div>{/*Checkboxes*/}
                     <div class="mt-8">
                         <button class="inline btn-chk1 mr-4">ADD &amp; SEND INVITE</button>
-                        <button class="inline btn-chk2">DEACTIVATE USER</button>
+                        {/*<button class="inline btn-chk2">DEACTIVATE USER</button>*/}
                     </div>
                     <div class="mt-12 mb-8">
                         <h2 class="heading-2">USER MANAGEMENT</h2>
@@ -123,7 +123,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">joyce.lynch@company.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-g mr-3"></div>Active</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
                                 <tr class="data-back">
                                     <td class="py-5 pl-5 img"><img class="inline" src={require('../../../assets/images/oval-2.png')} alt = "pic"/></td>
@@ -131,7 +131,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">hellophilip@gmail.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-r mr-3"></div>Inactive</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
 
                                 <tr class="data-back-g">
@@ -140,7 +140,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">castro.marilyn@microsoft.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-r mr-3"></div>Inactive</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
 
                                 <tr class="data-back">
@@ -149,7 +149,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">jacqueline.thomas@gmail.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-g mr-3"></div>Active</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
 
                                 <tr class="data-back-g">
@@ -158,7 +158,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">angela-davidson@me.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-r mr-3"></div>Inactive</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
 
                                     <tr class="data-back">
@@ -167,7 +167,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">christine.k@op25.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-g mr-3"></div>Active</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
 
                                 <tr class="data-back-g">
@@ -176,7 +176,7 @@ const SectionOne = () => {
                                     <td class="py-5 email text">heyiamron@swanson.com</td>
                                     <td class="py-5 pr-5 text">Techinian</td>
                                     <td class="py-5 pr-5 flex text"><div class="oval-g mr-3"></div>Active</td>
-                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">Edit User</button><button class="action-btn2">Reset Password</button></td>
+                                    <td class="py-5 pr-5 last text"><button class="action-btn1 mr-4">EDIT USER</button><button class="action-btn3 mr-4">DEACTIVATE USER</button><button class="action-btn2">RESET PASSWORD</button></td>
                                 </tr>
                             </tbody>
                         </table>

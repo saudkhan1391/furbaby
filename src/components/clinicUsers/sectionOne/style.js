@@ -247,6 +247,21 @@ export default () => (
             text-align: center;
             color: #ffffff;
         }
+        .action-btn3{
+            width: 119px;
+            height: 24px;
+            border-radius: 4px;
+            background-color: #8bc53f;
+            font-family: Lato;
+            font-size: 10px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+        }
         .data-back-g{
             background-color:#f1f1f1;
         }
@@ -276,7 +291,7 @@ export default () => (
             border-radius: 50%;
         }
         .last{
-            width: 15%;
+            width: 23%;
         }
         .email {
             width: 28%;

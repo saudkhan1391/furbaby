@@ -36,6 +36,18 @@ export default () => (
         border-bottom: 2px solid #8080801c;
         width: 100%;
     }
+    .CircularProgressbar .CircularProgressbar-path {
+        stroke: #00c6ff;
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.5s ease 0s;
+            transition-duration: 0.5s;
+    }
+    .CircularProgressbar .CircularProgressbar-trail {
+
+        stroke: #d6d6d65c;
+        stroke-linecap: round;
+    
+    }
     .forText{
         text-align: -webkit-center;
         font-size: 16px;
@@ -60,11 +72,10 @@ export default () => (
     
     }
     .img3{
-        border: solid 12px #ffffff;
+        border:12px solid #ffff;
         border-radius: 50%;
         overflow: hidden;
-        border-top: solid 10px #32c5ff;
-        border-right: solid 10px #32c5ff;
+
       }
       .bordercheck{
         border: solid 1px #32c5ff;
@@ -74,40 +85,7 @@ export default () => (
       .main {
           border:1px solid #e2e8f0;
       }
-      .data-div {
-        width: 450px;
-    }
-    .data-div label {
-        width: 107px;
-        height: 30px;
-        font-family: Lato;
-        font-size: 16px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 2;
-        letter-spacing: normal;
-        color: #6d7278;
-    }
-    .data-div p{
-        width: 163px;
-        height: 30px;
-        font-family: Lato;
-        font-size: 16px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 2;
-        letter-spacing: normal;
-        color: #6d7278;
-    }
-    .text-area{
-        height:123px;
-        border:1px solid #e2e8f0;
-    }
-    .text-area textarea {
-        resize: none;
-    }
+
     .heading{
         width:172px;
         font-family: Lato;
@@ -163,5 +141,9 @@ export default () => (
         text-align: center;
         color: #ffffff;
     }
+    #cll {
+        background-image:url('../../../assets/images/fill-3.png');
+    }
+
     `}</style>
 )
