@@ -172,8 +172,67 @@ export default () => (
         top: -8px;
         left: 67px;
       }
+      .foursided-border{
+        border: solid 1px #e5e5e4;
+      }
       
-        
+      
+    
+
+
+
+
+
+      .carousel {
+        position: relative;
+    }
+    
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+    .carousel-control {
+      cursor: pointer;
+      display: none;
+      position: absolute;
+      top: 34%;
+      -webkit-transform: translate(0, -50%);
+      cursor: pointer;
+      -ms-transform: translate(0, -50%);
+       width: 40px;
+    }
+    .carousel-control.prev {
+        left: 1%;
+    }
+    .carousel-control.next {
+        right: 1%;
+    }
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet 
+    `}
     `}
 
     </style>

@@ -17,10 +17,9 @@ export default () => (
     padding:0px;
    }
    .oval{
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: solid 1px #32c5ff;
     background-color: #9c1f60;
    }
    .span1{
@@ -30,8 +29,8 @@ export default () => (
     justify-content: center;
     color: #ffffff;
     font-weight: bold;
-    font-size: 18px;
-    margin-left: 1px;
+    font-size: 20px;
+    margin-left: 3px
    }
    .pad{
        padding:14px;

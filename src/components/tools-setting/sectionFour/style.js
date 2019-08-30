@@ -203,7 +203,8 @@ export default () => (
             left: 0;
             height: 26px;
             width: 26px;
-            background-color: #eee;
+            // background-color: #eee;
+            border: 1px solid #dfe6ee;
           }
           
           /* On mouse-over, add a grey background color */
@@ -251,7 +252,8 @@ export default () => (
             height: 23px;
             width: 25px;
             border-radius: 4px;
-            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+            // box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+            border: 1px solid #dfe6ee;
           }
           .save-change-blue-btn button{
             font-size: 10px;
@@ -266,7 +268,7 @@ export default () => (
             padding: 6px 20px;
             color: #32c5ff;
           }
-          .reset-default-gray-btn{
+          .reset-default-gray-btn button{
             font-size: 10px;
             font-weight: bold;
             font-style: normal;

@@ -218,7 +218,7 @@ export default () => (
       
       }
       .reviewBtn{
-      padding:10px 18px 10px 18px;
+      padding:10px 40px 10px 40px;
       border-radius: 4px;
       border: solid 1px #9c1f60;
       font-size: 10px;
@@ -245,7 +245,7 @@ export default () => (
           color: #ffffff;
           border-radius: 3px;
           background-color: #32c5ff;
-          padding:14px 26px;
+          padding:15px 34px;
         }
         .cnclBtn{
           font-size: 12px;
@@ -258,7 +258,7 @@ export default () => (
           color: #ffffff;
           border-radius: 3px;
           background-color: #6d7278;
-          padding:14px 34px;
+          padding:15px 55px;
         }
         
         .inputvision select{

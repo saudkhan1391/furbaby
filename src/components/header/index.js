@@ -7,14 +7,14 @@ const Header=()=>{
       <nav class="flex items-center justify-between flex-wrap p-4 borderline">
         <div class="flex items-center flex-shrink-0 mr-6 pr-12">
           <div class="ml-10 pad">
-            <img src={require('../../assets/images/furbaby-logo2.png')} alt = "pic"/>
+            <img src={require('../../assets/images/fbt1-logo.png')} alt = "pic"/>
           </div>
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div class="lg:flex-grow">
-            <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart">
+            <Link to="/dashboard"> <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart">
               CLINIC DASHBOARD
-      </a>
+      </a></Link>
             <Link to="/progress"><a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart">
               IN PROGRESS
       </a></Link>

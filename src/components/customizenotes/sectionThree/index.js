@@ -5,138 +5,178 @@ const SectionThree=()=>{
         <div>
 
 <div class="container mx-auto">
-<div class="flex mb-4">
-  <div class="w-full h-64 mt-8 forBg-clr">
-  <div class="flex mt-6">
-<div class="pl-12  label">
+<div class="px-2">
+  <div class="flex -mx-2">
+    <div class="w-1/2 pr-2">
+      <div class="bordersBoxes h-14 mt-4">
+        <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+      <div class="bordersBoxes h-14 mt-2">
+      <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+      <div class="bordersBoxes h-14 mt-2">
+      <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+      <div class="bordersBoxes h-14 mt-2">
+      <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+      <div class="bordersBoxes h-14 mt-2">
+      <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-     </div>
-
-     <div class="label">
-  <div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-
-     </div>
-
-     <div class="label">
     
-     <div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
-  <input type="checkbox"/>
-  <span class="checkmark"></span>
-</label>
-<label>Label</label>
-</div>
-   
-         </div>
 
-         <div class="label">
-    
-         <div class="flex mr-12 mt-4 check-mar">  
+
+    <div class="w-1/2 px-2 pr-4 pl-2">
+      <div class="bordersBoxes h-14 mt-4">
+      <div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
 <label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label>Label</label>
+<label>Note Title</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div>
+      </div>
+      <div class="bordersBoxes h-14 mt-2"><div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
 <label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label>Label</label>
+<label>Note Title</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div></div>
+      <div class="bordersBoxes h-14 mt-2"><div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
 <label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label>Label</label>
+<label>Note Title</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div></div>
+      <div class="bordersBoxes h-14 mt-2"><div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
 <label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label>Label</label>
+<label>Note Title</label>
 </div>
-         </div>
-     </div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div></div>
+      <div class="bordersBoxes h-14 mt-2"><div class="flex px-4 py-3 justify-between">
+          <div>
+          <div class="flex">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Note Title</label>
+</div>
+          </div>
+          <div>
+            <button class="mr-2 blueBtn18">EDIT</button>
+            <button class="greyBtn18">DELETE</button>
+          </div>
+        </div></div>
+    </div>
   </div>
 </div>
 </div>

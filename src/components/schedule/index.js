@@ -6,7 +6,7 @@ const Schedule=()=>{
     return(
         <div>
            <Layout>
-            <div style={{display:"flex"}}>
+            <div>
             <SectionOne/>
             <SectionTwo/>
             </div>

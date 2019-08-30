@@ -3,7 +3,6 @@ import Style from './style';
 const SectionTwo =()=>{
     return(
         <div>
-           <h1>Haseeb sectionTwo</h1>
         <Style/>
         </div>
     );

@@ -1,8 +1,9 @@
 import React from 'react';
 export default () => (
     <style>{`
-    .container {
-        max-width: 1591px;
+    
+    .borderBox1{
+      border:1px solid #e5e5e4;
     }
     .massUpdate{
         border-radius: 3px;
@@ -123,7 +124,7 @@ export default () => (
       }
       .card1{
         width: 211px;
-        height: 247px;
+        height: 259px !important;
     
       }
     

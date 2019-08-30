@@ -12,10 +12,10 @@ const SectionTwo =()=>{
   <div class="flex -mx-2">
     <div class="w-1/2">
       <div class="h-12">
-      <div class="flex h-12 form">
+      <div class="flex h-12 form1">
       <input type="text" name="fname" placeholder=" SEARCH..."></input>
      <div class=" img"> 
-         <img src={require('../../../assets/images/download.png')}/>
+         <img src={require('../../../assets/images/search.png')}/>
      </div>
       </div>
 <div>
@@ -103,7 +103,7 @@ const SectionTwo =()=>{
  
 
     
-    <div class="w-1/2 px-2">
+    <div class="w-1/2 px-2 pl-16">
      <div class="holtHeading">
        <h1>HOLT, THOMAS  |  610-444-0098</h1>
      </div>
@@ -117,7 +117,7 @@ const SectionTwo =()=>{
     
     <div class="px-8 pl-0">
       <div class="h-12">
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -133,7 +133,7 @@ const SectionTwo =()=>{
       </div>
     </div>
     <div class="px-8 pl-0">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
     <div class="img1">
@@ -149,7 +149,7 @@ const SectionTwo =()=>{
 </div>
     </div>
     <div class="px-8 pl-0">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -195,7 +195,7 @@ const SectionTwo =()=>{
     
     <div class="px-8 pl-0">
       <div class="h-12">
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-8 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -211,20 +211,30 @@ const SectionTwo =()=>{
      <div class="flex justify-center m-auto items-center content-center "> 
      <hr class="style2"/>
      </div>
-     <div class="label pl-4 pt-2">
+     <div class="label pl-4 pt-2 pb-4">
     
-    <label class="container1">checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
+     
+     <div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
          </div>
      
   </div>
@@ -232,7 +242,7 @@ const SectionTwo =()=>{
       </div>
     </div>
     <div class="px-8 pl-0">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-8 py-4 flex justify-center m-auto pt-5">
     <div class="img1">
@@ -249,20 +259,29 @@ const SectionTwo =()=>{
      <div class="flex justify-center m-auto items-center content-center "> 
      <hr class="style2"/>
      </div>
-     <div class="label pl-4 pt-2">
+     <div class="label pl-4 pt-2 pb-4">
     
-    <label class="container1">checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
+     <div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
          </div>
      
      
@@ -270,7 +289,7 @@ const SectionTwo =()=>{
 </div>
     </div>
     <div class="px-8 pl-0">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="max-w-sm rounded overflow-hidden shadow-border">
   
   <div class="px-8 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -287,21 +306,29 @@ const SectionTwo =()=>{
      <div class="flex justify-center m-auto items-center content-center "> 
      <hr class="style2"/>
      </div>
-     <div class="label pl-4 pt-2">
+     <div class="label pl-4 pt-2 pb-4">
     
-    <label class="container1">checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-      
-    </label>
-    <label class="container1">Checkbox Label
-      <input type="checkbox"/>
-      <span class="checkmark"></span>
-    </label>
+     <div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar2">  
+<label class="container1">
+  <input type="checkbox"/>
+  <span class="checkmark"></span>
+</label>
+<label>Checkbox Label</label>
+</div>
          </div>
 
          

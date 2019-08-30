@@ -21,7 +21,7 @@ const SectionFour=()=>{
 
 <div class="flex mb-4">
   <div class="w-fullh-12">
-  <div class="fotText-area"><textarea rows="5" cols="209"></textarea></div>
+  <div class="fotText-area"><textarea rows="5" cols="206"></textarea></div>
   </div>
 </div>
 <div class="savebtnText h-16">

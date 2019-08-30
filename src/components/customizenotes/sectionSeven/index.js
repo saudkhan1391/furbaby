@@ -8,7 +8,7 @@ const SectionFour=()=>{
 <div class="flex mb-4">
   <div class="w-fullh-12">
   <p class="note mt-4">Note</p>
-  <div class="fotText-area mt-2"><textarea rows="5" cols="209"></textarea></div>
+  <div class="fotText-area mt-2"><textarea rows="5" cols="206"></textarea></div>
   </div>
 </div>
 <div class="flex h-32">

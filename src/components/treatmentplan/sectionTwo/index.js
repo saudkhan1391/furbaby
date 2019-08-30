@@ -76,7 +76,7 @@ const SectionTwo =()=>{
       <div class="flex h-12 ml-10 form">
       <input type="text" name="fname" placeholder="  Search for a schedule pet"></input>
      <div class=" img"> 
-         <img src={require('../../../assets/images/download.png')} alt = "pic"/>
+         <img src={require('../../../assets/images/search.png')} alt = "pic"/>
      </div>
       </div>
       <div class="pl-10 mt-4">
@@ -185,9 +185,7 @@ const SectionTwo =()=>{
     </div>
      </div>
     
-     <div class="pl-12 mt-10">
-        <button class="reviewBtn">OPTIONAL: REVIEW & CUSTOMIZE TREATMENT PLAN</button>
-      </div>
+     
 
       <div class="flex justify-between pl-12 mt-10 treatment">
           <div>
@@ -201,39 +199,57 @@ const SectionTwo =()=>{
           <p>OPTIONAL - CUSTOMIZE TREATMENT PLAN</p>
       </div>
     
-     <div class="flex pl-12 mt-16 label">
+     <div class="flex pl-12 mt-8 label">
     <div class="checkbox1">
-<label class="container">Checkbox Label
+    <div class="flex mr-12 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Checkbox Label</label>
+</div>
      </div>
      <div class="checkbox1">
-     <label class="container">Checkbox Label
+     <div class="flex mr-12 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
-<label class="container">Checkbox Label
+<label>Checkbox Label</label>
+</div>
+<div class="flex mr-12 mt-4 check-mar">  
+<label class="container1">
   <input type="checkbox"/>
   <span class="checkmark"></span>
 </label>
+<label>Checkbox Label</label>
+</div>
 
      </div>
     </div>
 
-    <div class="pl-12 mt-12">
+    <div class="pl-12 mt-8">
         <div class="addCustom">
             <p>Add custom plan components</p>
         </div>

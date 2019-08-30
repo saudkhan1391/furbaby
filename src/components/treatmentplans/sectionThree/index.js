@@ -6,7 +6,7 @@ const SectionThree=()=>{
 
 <div class="container mx-auto">
 <div class="flex mb-4">
-  <div class="w-full h-64 mt-8 forBg-clr">
+  <div class="width-full h-64 mt-8 forBg-clr">
   <div class="flex mt-6">
 <div class="pl-12  label">
     

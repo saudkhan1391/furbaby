@@ -104,9 +104,10 @@ export default () => (
             position: absolute;
             top: 0;
             left: 0;
-            height: 25px;
-            width: 25px;
-            background-color: #eee;
+            height: 26px;
+            width: 26px;
+            // background-color: #eee;
+            border: 1px solid #dfe6ee;
           }
           
           /* On mouse-over, add a grey background color */
@@ -154,7 +155,8 @@ export default () => (
             height: 26px;
             width: 26px;
             border-radius: 4px;
-            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+            // box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+            border: 1px solid #dfe6ee;
           }
           .check-mar {
             margin-right: 10%;
@@ -206,7 +208,7 @@ export default () => (
         }
         .inline.pl-10 {
             font-family: Lato;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;

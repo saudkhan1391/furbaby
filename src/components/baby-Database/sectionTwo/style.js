@@ -16,20 +16,23 @@ export default () => (
     .forCard-border{
         border: solid 1px #e5e5e4;
         background-color: #ffffff;
-        width:93%;
+        width:100%;
         height:128px;
     }
     .forCard-border1{
         border: solid 1px #e5e5e4;
         background-color: #ffffff;
-        width:93%;
+        width:100%;
         height:152px;
     }
     .forCard-border2{
         border: solid 1px #e5e5e4;
         background-color: #ffffff;
-        width:93%;
+        width:100%;
         height:100px;
+    }
+    .shadow-border{
+      border: solid 1px #e5e5e4;
     }
     .amanda{
         font-size: 16px;
@@ -63,8 +66,8 @@ export default () => (
         padding: 7px 22px;
 
     }
-      .form input{
-        width: 739px;
+      .form1 input{
+        width: 795px;
         height: 40px;
         border-radius: 4px;
         border: solid 1px #dcdddf;
@@ -147,7 +150,7 @@ export default () => (
         letter-spacing: normal;
         text-align: center;
         color: #6d7278;
-        padding: 5px 18px;
+        padding: 5px 28px;
       }
       .schedule-Repeat-Visit-Heading h1{
         font-size: 18px;
@@ -230,9 +233,10 @@ export default () => (
         position: absolute;
         top: 0;
         left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
+        height: 26px;
+        width: 26px;
+        // background-color: #eee;
+        border: solid 1px #dfe6ee;
       }
       
       /* On mouse-over, add a grey background color */
@@ -280,7 +284,12 @@ export default () => (
         height: 23px;
         width: 25px;
         border-radius: 4px;
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+        // box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+        border: solid 1px #dfe6ee;
+      }
+      .check-mar2{
+        margin-right:10%;
+        width:150px;
       }
       .schedule-Selected-Button button{
         border-radius: 4px;
