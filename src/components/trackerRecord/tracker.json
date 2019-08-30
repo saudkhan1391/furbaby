@@ -1,0 +1,38 @@
+{
+ "data":[
+     {
+         "id":1,
+         "title":"Diagnostics",
+         "value":false
+     },
+     {
+        "id":2,
+        "title":"Surgical Preparation",
+         "value":false
+    },
+    {
+        "id":3,
+        "title":"Surgery"
+    },
+    {
+        "id":4,
+        "title":"Laser Therapy"
+    },
+    {
+        "id":5,
+        "title":"Medicated"
+    },
+    {
+        "id":6,
+        "title":"Nail Trim"
+    },
+    {
+        "id":7,
+        "title":"Recovery"
+    },
+    {
+        "id":8,
+        "title":"Ready for Pick-Up"        
+    }
+ ]   
+}

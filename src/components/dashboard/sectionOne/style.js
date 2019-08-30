@@ -238,5 +238,12 @@ export default () => (
         border: 1px solid #8080801c;
     
     }
+    
+
+
+
+
+
+
     `}</style>
 )

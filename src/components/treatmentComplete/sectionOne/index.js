@@ -1,5 +1,6 @@
 import React from 'react';
 import Style from './style';
+import Profile from '../../../commoncomponents/profile';
 
 const SectionOne = () => {
     return(
@@ -33,33 +34,7 @@ const SectionOne = () => {
                         </div>
                     </div>
 
-                    <div class="data-div flex-2">
-                        <div class="flex justify-between ">
-                            <label class=" ml-12 ">
-                            Ready for Pick-Up @
-                            </label>
-                            <p>2:00 PM     11/25/2019</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <label class=" ml-12">
-                                Owner:
-                            </label>
-                            <p>Amanda Hoffmeyer</p>
-                        </div>
-                        <div class="flex justify-between text-left">
-                            <label class=" ml-12"> 
-                                Phone:
-                            </label>
-                            <p>610-563-3294</p>
-                        </div>
-
-                        <div class="ml-12 mt-8">
-                            <label>Notes from owner</label>
-                        </div>
-                        <div class="ml-12 mt-2 text-area pl-2 pt-2">
-                            <textarea placeholder="Text Area"  />
-                        </div>
-                    </div>
+                    <Profile />
 
                     <div class="flex-1 ml-12 pl-12">
                         <div class="heading"><h3>FUR BABY TRACKER</h3></div>

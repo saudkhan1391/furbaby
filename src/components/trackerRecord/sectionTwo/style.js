@@ -79,5 +79,9 @@ export default ()=>(
             width:43px;
             height:43px;
         }
+        .bin-img{
+            width:12px !important;
+            height:14px !important;
+        }
     `}</style>
 )
