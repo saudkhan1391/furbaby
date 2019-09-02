@@ -237,7 +237,7 @@ const SectionOne = () => {
                                     <label class="inline track-txt">Laser Therapy</label>
                                 </div>
                                 <div>
-                                <img class="inline mr-6" src={require('../../../assets/images/'+ image8 + '.png')} alt = "pic" onClick={() => bgColor(8)} />
+                                <img class="inline mr-5" src={require('../../../assets/images/'+ image8 + '.png')} alt = "pic" onClick={() => bgColor(8)} />
                                     <label class="inline track-txt">Ready for Pick-Up</label>
                                 </div>
                             </div> 
