@@ -139,7 +139,8 @@ export default ()=>(
               margin:9% auto;
               padding:40px;
               width:588px;
-              height:510px;    
+              height:510px; 
+               
           }
           .activityBtn-popup{
             border-radius: 4px;

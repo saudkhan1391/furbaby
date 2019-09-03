@@ -235,13 +235,13 @@ export default () => (
   padding: 0px!important;
   background: none;
   flex-basis: 14.2857%;
-  height:65px!important;
+  height:75px!important;
   width:65px!important;
   display: flex;
   justify-content: center;
-  // max-width: 10.2857%!important;
-  
-  // flex-basis: 5.2857%!important;
+}
+.react-calendar__tile--active{
+  width:10px !important;
 }
 
 
