@@ -42,11 +42,11 @@ const SectionOne = () => {
                 <div className="mainDiv">
                 <div className="text1">
                     <label>Phone Number</label>
-                    <input type="text"></input>
+                    <input type="number"></input>
                 </div>
                 <div className="text2">
                     <label>Password</label>
-                    <input type="text"></input>
+                    <input type="password"></input>
                 </div>
                 </div>
                 
@@ -79,7 +79,7 @@ const SectionOne = () => {
                 </div>
                 <div className="text2">
                     <label>Zip Code</label>
-                    <input type="text"></input>
+                    <input type="number"></input>
                 </div>
                 </div>
                 
@@ -90,18 +90,18 @@ const SectionOne = () => {
                 </div>
                 <div className="text2">
                     <label>Card Number</label>
-                    <input type="text"></input>
+                    <input type="number"></input>
                 </div>
                 </div>
                 
                 <div className="mainDiv">
                 <div className="text1">
                     <label>Expiry Date</label>
-                    <input type="text"></input>
+                    <input type="date"></input>
                 </div>
                 <div className="text2">
                     <label>CW Number</label>
-                    <input type="text"></input>
+                    <input type="number"></input>
                 </div>
                 </div>
                 <div className="btn4">

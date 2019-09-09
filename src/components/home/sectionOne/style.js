@@ -58,6 +58,7 @@ export default () => (
     border-radius: 4px;
     border: solid 1px #dcdddf;
     background-color: #ffffff;
+    padding:4px;
 }
 .text2 input {
     margin-top: 6px;
@@ -68,6 +69,7 @@ export default () => (
     border-radius: 4px;
     border: solid 1px #dcdddf;
     background-color: #ffffff;
+    padding:4px;
 }
 
     border-radius: 4px;
@@ -169,5 +171,9 @@ export default () => (
         color: #6d7278;
         margin-left: 14px;
       }
+      input[type="date"] {
+        padding: 5px;
+        display: flex;
+    }
     `}</style>
 )
