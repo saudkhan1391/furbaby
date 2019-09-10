@@ -21,7 +21,7 @@ const SectionFour=()=>{
 
 <div class="flex mb-4">
   <div class="flex-1 h-12">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -38,7 +38,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -58,7 +58,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -78,7 +78,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -97,7 +97,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -117,7 +117,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -136,7 +136,7 @@ const SectionFour=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">

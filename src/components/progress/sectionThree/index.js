@@ -27,7 +27,7 @@ const SectionThree=()=>{
 
 <div class="flex mb-4">
   <div class="flex-1 h-12">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="img1">
@@ -44,7 +44,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -64,7 +64,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -84,7 +84,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -103,7 +103,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -123,7 +123,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -142,7 +142,7 @@ const SectionThree=()=>{
 </div>
   </div>
   <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="max-w-sm rounded overflow-hidden borderBox1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -167,7 +167,7 @@ const SectionThree=()=>{
 
 
   <div class="flex h-12 mt-56">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg card1">
+  <div class="max-w-sm rounded overflow-hidden borderBox1 card1">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">
@@ -185,7 +185,7 @@ const SectionThree=()=>{
   </div>
 </div>
 
-<div class="max-w-sm rounded overflow-hidden shadow-lg card1 ml-5">
+<div class="max-w-sm rounded overflow-hidden borderBox1 card1 ml-5">
   
   <div class="px-6 py-4 flex justify-center m-auto pt-5">
   <div class="bordercheck">

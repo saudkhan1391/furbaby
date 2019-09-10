@@ -34,6 +34,9 @@ export default () => (
         letter-spacing: normal;
         color: #444444;
     }
+    .borderBox1{
+      border: solid 1px #e5e5e4;
+    }
 
     .img{
         width: 22px;
