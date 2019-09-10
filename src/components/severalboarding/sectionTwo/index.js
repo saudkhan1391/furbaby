@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Style from './style';
+import Calendar from 'react-calendar';
 const SectionTwo =()=>{
+  const[date,setDate] = useState(new Date())
+
+  console.log(date)
     return(
         <div>
     
@@ -8,62 +12,16 @@ const SectionTwo =()=>{
   <div class="flex -mx-2">
     <div class="w-1/2 px-2">
       <div class="h-12 ml-12">
-      <div class="month">      
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li class="">
-      JANUARY
-      <span>2019</span>
-    </li>
-  </ul>
-</div>
-<div>
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
 
-<ul class="days">  
-  <li class="clr relative">1<span class="absolute ovalGreen">8</span></li>
-  <li class="clr relative">2<span class="absolute ovalGreen">8</span></li>
-  <li class="clr relative">3<span class="absolute ovalGreen">8</span></li>
-  <li class="clr relative">4<span class="absolute ovalGreen">8</span></li>
-  <li class="clr relative">5<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">6<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">7<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">8<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">9<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">10<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">11<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">12<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">13<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">14<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">15<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">16<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">17<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">18<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">19<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">20<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">21<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">22<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">23<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">24<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">25<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">26<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">27<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">28<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">29<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">30<span class="absolute ovalGreen">8</span></li>
-  <li class="relative">31<span class="absolute ovalGreen">8</span></li>
-</ul>
+{/* ========================= */}
+        
+     
+<div class="calendar-div">
+<Calendar 
+          value={date && date}/>
 </div>
       
+  {/* =========================     */}
       
       
       </div>
