@@ -3,49 +3,49 @@ import Style from './style';
 const SectionTwo =()=>{
     return(
         <div>
-           <div class="container mx-auto">
-            <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                <div class="flex justify-between mt-12">
-                <div class="medicationHeading2">
+           <div className="container mx-auto">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
+                <div className="flex justify-between mt-12">
+                <div className="medicationHeading2">
                     <h1>CUSTOMIZE PET FOOD DROPDOWNS</h1>
                 </div>
-                <div class="flex mr-4">
+                <div className="flex mr-4">
                     <div>
-                        <button class="deselectbtn">DESELECT ALL</button>
+                        <button className="deselectbtn">DESELECT ALL</button>
                     </div>
                     <div>
-                        <button class="defaultbtn ml-4">RESET TO DEFAULTS</button>
+                        <button className="defaultbtn ml-4">RESET TO DEFAULTS</button>
                     </div>
                 </div>
             </div>
-            <div class="mt-4 optionspara">
+            <div className="mt-4 optionspara">
                 <p>All selected options will display in the pet food dropdown</p>
             </div>
-            <div class="flex mt-8">
-                <div class="showing">
+            <div className="flex mt-8">
+                <div className="showing">
                     <p>Showing food options for:</p>
            </div>
     
-    <div class="flex ml-8 label">
+    <div className="flex ml-8 label">
     
-    <div class="flex mr-12 check-mar">  
-<label class="container1">
+    <div className="flex mr-12 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Canine</label>
 </div>
-<div class="flex mr-12 check-mar">  
-<label class="container1">
+<div className="flex mr-12 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Feline</label>
 </div>
-<div class="flex mr-12 check-mar">  
-<label class="container1">
+<div className="flex mr-12 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Other Species</label>
 </div>

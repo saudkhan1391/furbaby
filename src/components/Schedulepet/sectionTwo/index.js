@@ -2,20 +2,20 @@ import React,{useState} from 'react';
 import Style from './style';
 import Calendar from 'react-calendar';
 const SectionTwo =()=>{
-  const[date,setDate] = useState(new Date())
+  const[date,setDate]=useState(new Date())
 
 console.log(date)
     return(
         <div>
-           <div class="px-2 mt-10">
-  <div class="flex -mx-2">
-    <div class="w-1/2 px-2">
-      <div class="h-12 ml-12">
+           <div className="px-2 mt-10">
+  <div className="flex -mx-2">
+    <div className="w-1/2 px-2">
+      <div className="h-12 ml-12">
 
         {/* ========================= */}
         
      
-<div class="calendar-div">
+<div className="calendar-div">
 <Calendar 
           value={date && date}/>
 </div>
@@ -26,72 +26,72 @@ console.log(date)
       
     </div>
     
-    <div class="w-1/2 px-2">
-      <div class="flex h-12 ml-10 form">
+    <div className="w-1/2 px-2">
+      <div className="flex h-12 ml-10 form">
       <input type="text" name="fname" placeholder="  Search for a schedule pet"></input>
-     <div class=" img"> 
-         <img src={require('../../../assets/images/search.png')} alt = "pic"/>
+     <div className=" img">
+         <img src={require('../../../assets/images/search.png')} alt="pic"/>
      </div>
       </div>
-      <div class="px-2">
-      <div class="carousel">
-        <div class="carousel-inner">
-          <input class="carousel-open hidden" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked"/>
-          <div class="carousel-item">
-          <div class="flex -mx-2 pt-6">
+      <div className="px-2">
+      <div className="carousel">
+        <div className="carousel-inner">
+          <input className="carousel-open hidden" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked"/>
+          <div className="carousel-item">
+          <div className="flex -mx-2 pt-6">
       
-      <div class="w-1/3 px-8 middle">
-        <div class="h-12">
-        <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle">
+        <div className="h-12">
+        <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>Todd Capitanio<br></br>
-          <span class="normal">Boarding</span>
+          <span className="normal">Boarding</span>
       </p>
     </div>
     </div>
         </div>
       </div>
-      <div class="w-1/3 px-8">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-      <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+      <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>
       Tobby Torres<br></br>
-          <span class="normal"> Spay </span>
+          <span className="normal"> Spay </span>
       </p>
     </div>
-    <div class="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
-        <div class="flex justify-center m-auto items-center content-center "> 
-        <hr class="style2"/>
+    <div className="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
+        <div className="flex justify-center m-auto items-center content-center ">
+        <hr className="style2"/>
         </div>
-        <p class="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
+        <p className="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
         
     </div>
     </div>
       </div>
-      <div class="w-1/3 px-8 middle2">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle2">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
           <p>
           Daisy Stevens<br></br>
-            <span class="normal"> Dental </span>
+            <span className="normal"> Dental </span>
           </p>
     </div>
     </div>
@@ -100,62 +100,62 @@ console.log(date)
 
     </div>
           </div>
-          <input class="carousel-open hidden" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden=""/>
-          <div class="carousel-item">
-          <div class="flex -mx-2 pt-6">
+          <input className="carousel-open hidden" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden=""/>
+          <div className="carousel-item">
+          <div className="flex -mx-2 pt-6">
       
-      <div class="w-1/3 px-8 middle">
-        <div class="h-12">
-        <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle">
+        <div className="h-12">
+        <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>Todd Capitanio<br></br>
-          <span class="normal">Boarding</span>
+          <span className="normal">Boarding</span>
       </p>
     </div>
     </div>
         </div>
       </div>
-      <div class="w-1/3 px-8">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-      <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+      <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>
       Tobby Torres<br></br>
-          <span class="normal"> Spay </span>
+          <span className="normal"> Spay </span>
       </p>
     </div>
-    <div class="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
-        <div class="flex justify-center m-auto items-center content-center "> 
-        <hr class="style2"/>
+    <div className="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
+        <div className="flex justify-center m-auto items-center content-center ">
+        <hr className="style2"/>
         </div>
-        <p class="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
+        <p className="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
         
     </div>
     </div>
       </div>
-      <div class="w-1/3 px-8 middle2">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle2">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
           <p>
           Daisy Stevens<br></br>
-            <span class="normal"> Dental </span>
+            <span className="normal"> Dental </span>
           </p>
     </div>
     </div>
@@ -164,62 +164,62 @@ console.log(date)
 
     </div>
           </div>
-          <input class="carousel-open hidden" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden=""/>
-          <div class="carousel-item">
-          <div class="flex -mx-2 pt-6">
+          <input className="carousel-open hidden" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden=""/>
+          <div className="carousel-item">
+          <div className="flex -mx-2 pt-6">
       
-      <div class="w-1/3 px-8 middle">
-        <div class="h-12">
-        <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle">
+        <div className="h-12">
+        <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>Todd Capitanio<br></br>
-          <span class="normal">Boarding</span>
+          <span className="normal">Boarding</span>
       </p>
     </div>
     </div>
         </div>
       </div>
-      <div class="w-1/3 px-8">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-      <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+      <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
       <p>
       Tobby Torres<br></br>
-          <span class="normal"> Spay </span>
+          <span className="normal"> Spay </span>
       </p>
     </div>
-    <div class="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
-        <div class="flex justify-center m-auto items-center content-center "> 
-        <hr class="style2"/>
+    <div className="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0">
+        <div className="flex justify-center m-auto items-center content-center ">
+        <hr className="style2"/>
         </div>
-        <p class="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
+        <p className="px-6 pt-4 pb-1 py-4 flex justify-center m-auto items-center content-center visit">Edit: Visit</p>
         
     </div>
     </div>
       </div>
-      <div class="w-1/3 px-8 middle2">
-      <div class="max-w-sm rounded overflow-hidden again-border">
+      <div className="w-1/3 px-8 middle2">
+      <div className="max-w-sm rounded overflow-hidden again-border">
 
-    <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-    <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+    <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+    <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
     </div>
     </div>
-    <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+    <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
           <p>
           Daisy Stevens<br></br>
-            <span class="normal"> Dental </span>
+            <span className="normal"> Dental </span>
           </p>
     </div>
     </div>
@@ -228,33 +228,33 @@ console.log(date)
 
     </div>
           </div>
-          <label for="carousel-3" class="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-          <label for="carousel-2" class="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
-          <label for="carousel-1" class="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-          <label for="carousel-3" class="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
-          <label for="carousel-2" class="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-          <label for="carousel-1" class="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
+          <label for="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label for="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+          <label for="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label for="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+          <label for="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label for="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
         </div>
 </div>
  
  
  
  
-  <div class="px-2">
-  <div class="flex -mx-2 mt-8 ml-10">
-    <div class="w-1/2 px-2">
-      <div class="h-12">
-      <div class="flex flex-col mb-4 inputvision">
-    <label class="mb-2" for="first_name">Visit Reason</label>
-    <input class="border py-2 px-3 " type="text"></input>
+  <div className="px-2">
+  <div className="flex -mx-2 mt-8 ml-10">
+    <div className="w-1/2 px-2">
+      <div className="h-12">
+      <div className="flex flex-col mb-4 inputvision">
+    <label className="mb-2" for="first_name">Visit Reason</label>
+    <input className="border py-2 px-3 " type="text"></input>
   </div>
       </div>
     </div>
-    <div class="w-1/2 px-2">
-      <div class=" h-12">
-      <div class="flex flex-col mb-4 inputvision">
-    <label class="mb-2" for="first_name">Schedule Date</label>
-    <input class="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
+    <div className="w-1/2 px-2">
+      <div className=" h-12">
+      <div className="flex flex-col mb-4 inputvision">
+    <label className="mb-2" for="first_name">Schedule Date</label>
+    <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
   </div>
       </div>
       
@@ -264,24 +264,24 @@ console.log(date)
    
   </div>
 
-  <div class="flex mb-4 mt-5 ml-12 allButtons">
-  <div class="w-1/4 h-12"> 
+  <div className="flex mb-4 mt-5 ml-12 allButtons">
+  <div className="w-1/4 h-12">
   <div>
-     <button class="rmvBtn">REMOVE FROM SCHEDULE</button>
+     <button className="rmvBtn">REMOVE FROM SCHEDULE</button>
   </div>
   </div>
-  <div class="w-1/4 h-12">
+  <div className="w-1/4 h-12">
   <div>
-     <button class="rmvBtn">VIEW PATIENT RECORD</button>
+     <button className="rmvBtn">VIEW PATIENT RECORD</button>
   </div>
   </div>
-  <div class="flex w-1/4 h-12">
-  <div class="saveButton">
-     <button class="saveBtn">SAVE CHANGES</button>
+  <div className="flex w-1/4 h-12">
+  <div className="saveButton">
+     <button className="saveBtn">SAVE CHANGES</button>
   </div>
-  <div class="w-1/4 h-12">
-  <div class="cancelButton">
-     <button class="cancelBtn">CANCEL</button>
+  <div className="w-1/4 h-12">
+  <div className="cancelButton">
+     <button className="cancelBtn">CANCEL</button>
   </div>
   </div>
   </div>

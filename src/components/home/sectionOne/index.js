@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './style'
 import { Link } from 'react-router-dom';
-const SectionOne = () => {
+const SectionOne=() => {
     return (
         <div>
              <section>
@@ -13,7 +13,7 @@ const SectionOne = () => {
                             <h2>HOW IT WORKS</h2>
                             <h4>$19.99 Monthly Subscription<br></br> 
                              + Only pay for what you use</h4>
-                            <p class="mt-8">Track 10 treatments as part of your monthly subscription,
+                            <p className="mt-8">Track 10 treatments as part of your monthly subscription,
                                  then pay $3 per treatment tracked after your initial 10. 
                                   Pass on a nominal technology fee for each treatment tracking
                                    and make money with Fur Baby Tracker.  The average clinic

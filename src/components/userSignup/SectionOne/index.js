@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './style';
 
-const SectionOne = () => {
+const SectionOne=() => {
     return (
         <section>
         <div className="d-flex">

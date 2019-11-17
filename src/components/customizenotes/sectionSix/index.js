@@ -4,10 +4,10 @@ const SectionFour=()=>{
     return(
         <div>
 
-<div class="container mx-auto">
-<div class="flex mb-4">
-  <div class="w-full mt-12">
-      <div class="customMedication">
+<div className="container mx-auto">
+<div className="flex mb-4">
+  <div className="w-full mt-12">
+      <div className="customMedication">
           <h1>
           ADD A NEW NOTE
           </h1>
@@ -15,10 +15,10 @@ const SectionFour=()=>{
   </div>
 </div>
 
-<div class="flex mb-4"> 
-  <div class="w-fullh-12">
-  <p class="noteTtle mt-4">Note Title</p>
-  <div class="fotText-area mt-2"><textarea rows="1" cols="206"></textarea></div>
+<div className="flex mb-4">
+  <div className="w-fullh-12">
+  <p className="noteTtle mt-4">Note Title</p>
+  <div className="fotText-area mt-2"><textarea rows="1" cols="206"></textarea></div>
   </div>
 </div>
     </div>

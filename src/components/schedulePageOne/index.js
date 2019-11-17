@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionOne from './sectionOne';
 import SectionTwo from './sectionTwo';
-import Layout from '../layout';
+import Layout from '../layout/container';
 const SchedulePageOne=()=>{
     return(
         <div>

@@ -2,7 +2,7 @@ import React from 'react';
 // import Layout from '../layout'
 import SectionOne from './sectionOne'
 import SectionTwo from './sectionTwo'
-const Home = () => {
+const Home=() => {
     return (
         <div>
             <SectionOne/>

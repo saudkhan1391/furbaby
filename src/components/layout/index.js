@@ -1,12 +1,12 @@
-import React from 'react';
-import Header from '../header'
-// import Footer from '../footer'
-const Layout = (props) => {
+import React, { useEffect } from 'react';
+import Header from '../header';
+
+const Layout=(props) => {
+    let { children } = props;
     return (
         <div>
             <Header/>
-                {props.children}
-            {/* <Footer/> */}
+            {children}
         </div>
     )
 };

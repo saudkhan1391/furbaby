@@ -4,26 +4,26 @@ const SectionSeven=()=>{
     return(
         <div>
 
-<div class="container mx-auto">
-<div class="flex mb-4">
-  <div class="w-full">
-      <div class="customMedication">
+<div className="container mx-auto">
+<div className="flex mb-4">
+  <div className="w-full">
+      <div className="customMedication">
           <h1>
           ADD CUSTOM PLAN COMPONENT
           </h1>
       </div>
-      <div class="multiplepara mt-4">
+      <div className="multiplepara mt-4">
           <p>Enter the name exactly as you wish it to appear as a step on your treatment plan.  To add multiple plan components seperate by a line break.</p>
       </div>
   </div>
 </div>
 
-<div class="flex mb-4">
-  <div class="w-fullh-12">
-  <div class="fotText-area"><textarea rows="5" cols="206"></textarea></div>
+<div className="flex mb-4">
+  <div className="w-fullh-12">
+  <div className="fotText-area"><textarea rows="5" cols="206"></textarea></div>
   </div>
 </div>
-<div class="savebtnText h-40">
+<div className="savebtnText h-40">
     <button>SAVE CHANGES</button>
 </div>
     </div>

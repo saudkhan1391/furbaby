@@ -218,5 +218,13 @@ export default ()=>(
             text-align: center;
             color: #444444;  
         }
+        .imageCont{
+            display: flex;
+            flex-direction: row;
+            padding-top: 5px;
+        }
+        .imageCont img {
+            border-radius: 50%;
+        }
     `}</style>
 )

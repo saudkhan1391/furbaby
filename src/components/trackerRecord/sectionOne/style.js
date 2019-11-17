@@ -5,6 +5,13 @@ export default () => (
     .container {
         max-width: 1591px;
     }
+    .coverPhoto{
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover;
+    }
     .lbl-2 {
         width: 494px;
         height: 38px;
@@ -99,6 +106,12 @@ export default () => (
     }
     .tracks {
         width: 700px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .tracks div{
+        width: 50%;
+        padding-top: 27px;
     }
     .tracks-comp {
         width: 500px;
@@ -130,7 +143,7 @@ export default () => (
         height: 41px;
         border-radius: 3px;
         background-color: #32c5ff;
-        opacity: 0.5;
+
         font-family: Lato;
         font-size: 12px;
         font-weight: bold;
@@ -141,8 +154,60 @@ export default () => (
         text-align: center;
         color: #ffffff;
     }
+    button:disabled,
+    button[disabled]{
+        opacity: 0.5;
+    }
     #cll {
         background-image:url('../../../assets/images/fill-3.png');
+    }
+    .inline.markers{
+            width: 45px;
+    }
+    .data-div p{
+        width: 250px;
+        height: 30px;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2;
+        letter-spacing: normal;
+        color: #6d7278;
+    }
+    .text-area {
+        height: 122px;
+        border: 1px solid #e2e8f0;
+        width: 100%;
+        resize: none;
+    }
+    .data-div {
+        width: 520px;
+    }
+    .data-div label {
+        width: 107px;
+        height: 30px;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2;
+        letter-spacing: normal;
+        color: #6d7278;
+    }
+    .head-img{
+        width:24px;
+        height:24px;
+    }
+    .completed{
+        position: absolute;
+        top: 15px;
+        left: 9px;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
     }
 
     `}</style>

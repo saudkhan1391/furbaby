@@ -141,10 +141,10 @@ export default () => (
         color: #ffffff;
     }
     .left-col{
-        width:22%;
+
     }
     .right-body{
-        width:100%;
+
     }
     .right-body label{
         font-family: Lato;

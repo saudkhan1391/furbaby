@@ -29,4 +29,22 @@ body{
     width: 584px;
     margin: auto;
 }
+ .loaderContainer{
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background-color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .loader{
+     width: 70px;
+     height: 70px;
+ }
+ .carousel-container{
+     padding: 59px 0 0 40px;
+ }
  

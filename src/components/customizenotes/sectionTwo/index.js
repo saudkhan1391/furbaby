@@ -3,15 +3,15 @@ import Style from './style';
 const SectionTwo =()=>{
     return(
         <div>
-           <div class="container mx-auto">
-            <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                <div class="flex justify-between mt-12">
-                <div class="medicationHeading2">
+           <div className="container mx-auto">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
+                <div className="flex justify-between mt-12">
+                <div className="medicationHeading2">
                     <h1>NOTES</h1>
                 </div>
-                <div class="flex mr-4">
+                <div className="flex mr-4">
                     <div>
-                        <button class="deselectbtn">DELETE</button>
+                        <button className="deselectbtn">DELETE</button>
                     </div>
                  
                 </div>

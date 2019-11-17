@@ -4,18 +4,18 @@ const SectionFour=()=>{
     return(
         <div>
 
-<div class="container mx-auto">
-<div class="flex mb-4">
-  <div class="w-fullh-12">
-  <p class="note mt-4">Note</p>
-  <div class="fotText-area mt-2"><textarea rows="5" cols="206"></textarea></div>
+<div className="container mx-auto">
+<div className="flex mb-4">
+  <div className="w-fullh-12">
+  <p className="note mt-4">Note</p>
+  <div className="fotText-area mt-2"><textarea rows="5" cols="206"></textarea></div>
   </div>
 </div>
-<div class="flex h-32">
-<div class="savebtnText">
+<div className="flex h-32">
+<div className="savebtnText">
     <button>SAVE CHANGES</button>
 </div>
-<div class="attachmentbtn ml-4">
+<div className="attachmentbtn ml-4">
     <button>ADD / EDIT PHOTO ATTACHMENTS TO NOTE</button>
 </div>
 </div>

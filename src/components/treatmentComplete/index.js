@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../layout';
+import Layout from '../layout/container';
 import SectionOne from '../treatmentComplete/sectionOne';
 import SectionTwo from '../trackerRecord/sectionTwo';
 
-const treatmentComplete = () => {
+const treatmentComplete=() => {
     return (
         <div>
             <Layout>

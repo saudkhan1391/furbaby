@@ -3,18 +3,18 @@ import Style from './style';
 const SectionTwo =()=>{
     return(
         <div>
-           <div class="container mx-auto">
-            <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                <div class="flex justify-between mt-12">
-                <div class="medicationHeading2">
+           <div className="container mx-auto">
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
+                <div className="flex justify-between mt-12">
+                <div className="medicationHeading2">
                     <h1>SELECT TREATMENT PLAN TO VIEW OR CUSTOMIZE</h1>
                 </div>
-                <div class="flex mr-4">
+                <div className="flex mr-4">
                     <div>
-                        <button class="deselectbtn">DESELECT ALL</button>
+                        <button className="deselectbtn">DESELECT ALL</button>
                     </div>
                     <div>
-                        <button class="defaultbtn ml-4">RESET TO DEFAULTS</button>
+                        <button className="defaultbtn ml-4">RESET TO DEFAULTS</button>
                     </div>
                 </div>
             </div>

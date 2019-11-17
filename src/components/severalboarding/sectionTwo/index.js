@@ -2,21 +2,21 @@ import React,{useState} from 'react';
 import Style from './style';
 import Calendar from 'react-calendar';
 const SectionTwo =()=>{
-  const[date,setDate] = useState(new Date())
+  const[date,setDate]=useState(new Date())
 
   console.log(date)
     return(
         <div>
     
-    <div class="px-2 mt-10">
-  <div class="flex -mx-2">
-    <div class="w-1/2 px-2">
-      <div class="h-12 ml-12">
+    <div className="px-2 mt-10">
+  <div className="flex -mx-2">
+    <div className="w-1/2 px-2">
+      <div className="h-12 ml-12">
 
 {/* ========================= */}
         
      
-<div class="calendar-div">
+<div className="calendar-div">
 <Calendar 
           value={date && date}/>
 </div>
@@ -28,64 +28,64 @@ const SectionTwo =()=>{
     </div>
     
     
-    <div class="w-1/2 px-2">
+    <div className="w-1/2 px-2">
 
 
 
     
-      <div class="px-2">
-      <div class="carousel">
-    <div class="carousel-inner">
-        <input class="carousel-open hidden" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked"/>
-        <div class="carousel-item">
-        <div class="flex -mx-2">
+      <div className="px-2">
+      <div className="carousel">
+    <div className="carousel-inner">
+        <input className="carousel-open hidden" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked"/>
+        <div className="carousel-item">
+        <div className="flex -mx-2">
     
-    <div class="w-1/3 px-8 middle">
-      <div class="h-12">
-      <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle">
+      <div className="h-12">
+      <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
    <p>Todd Capitanio<br></br>
-        <span class="normal">Boarding</span>
+        <span className="normal">Boarding</span>
     </p>
   </div>
 </div>
       </div>
     </div>
-    <div class="w-1/3 px-8">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
     <p>
     Tobby Torres<br></br>
-       <span class="normal"> Spay </span>
+       <span className="normal"> Spay </span>
     </p>
   </div>
   
 </div>
     </div>
-    <div class="w-1/3 px-8 middle2">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle2">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Daisy Stevens<br></br>
-          <span class="normal"> Dental </span>
+          <span className="normal"> Dental </span>
         </p>
   </div>
 </div>
@@ -95,56 +95,56 @@ const SectionTwo =()=>{
   </div>
 
         </div>
-        <input class="carousel-open hidden" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden=""/>
-        <div class="carousel-item">
-        <div class="flex -mx-2">
+        <input className="carousel-open hidden" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden=""/>
+        <div className="carousel-item">
+        <div className="flex -mx-2">
     
-    <div class="w-1/3 px-8 middle">
-      <div class="h-12">
-      <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle">
+      <div className="h-12">
+      <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
    <p>Todd Capitanio<br></br>
-        <span class="normal">Boarding</span>
+        <span className="normal">Boarding</span>
     </p>
   </div>
 </div>
       </div>
     </div>
-    <div class="w-1/3 px-8">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
     <p>
     Tobby Torres<br></br>
-       <span class="normal"> Spay </span>
+       <span className="normal"> Spay </span>
     </p>
   </div>
   
 </div>
     </div>
-    <div class="w-1/3 px-8 middle2">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle2">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Daisy Stevens<br></br>
-          <span class="normal"> Dental </span>
+          <span className="normal"> Dental </span>
         </p>
   </div>
 </div>
@@ -153,56 +153,56 @@ const SectionTwo =()=>{
  
   </div>
         </div>
-        <input class="carousel-open hidden" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden=""/>
-        <div class="carousel-item">
-        <div class="flex -mx-2">
+        <input className="carousel-open hidden" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden=""/>
+        <div className="carousel-item">
+        <div className="flex -mx-2">
     
-    <div class="w-1/3 px-8 middle">
-      <div class="h-12">
-      <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle">
+      <div className="h-12">
+      <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
    <p>Todd Capitanio<br></br>
-        <span class="normal">Boarding</span>
+        <span className="normal">Boarding</span>
     </p>
   </div>
 </div>
       </div>
     </div>
-    <div class="w-1/3 px-8">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-    <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder1.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+    <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder1.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
     <p>
     Tobby Torres<br></br>
-       <span class="normal"> Spay </span>
+       <span className="normal"> Spay </span>
     </p>
   </div>
   
 </div>
     </div>
-    <div class="w-1/3 px-8 middle2">
-    <div class="max-w-sm rounded overflow-hidden border-boxes">
+    <div className="w-1/3 px-8 middle2">
+    <div className="max-w-sm rounded overflow-hidden border-boxes">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img-placeholder2.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img-placeholder2.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Daisy Stevens<br></br>
-          <span class="normal"> Dental </span>
+          <span className="normal"> Dental </span>
         </p>
   </div>
 </div>
@@ -211,12 +211,12 @@ const SectionTwo =()=>{
  
   </div>
         </div>
-        <label for="carousel-3" class="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-        <label for="carousel-2" class="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
-        <label for="carousel-1" class="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-        <label for="carousel-3" class="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
-        <label for="carousel-2" class="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt = "pic"/></label>
-        <label for="carousel-1" class="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt = "pic"/></label>
+        <label for="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label for="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+        <label for="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label for="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+        <label for="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label for="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
        
     </div>
 </div>
@@ -239,12 +239,12 @@ const SectionTwo =()=>{
 
 
         
-  <div class="flex -mx-2 mt-8 ml-10">
-    <div class="w-1/2 px-2">
-      <div class="h-12">
-      <div class="flex flex-col mb-4 inputvision">
-    <label class="mb-2" for="first_name">Visit Reason</label>
-    <select class="border py-2 px-3 " type="text">
+  <div className="flex -mx-2 mt-8 ml-10">
+    <div className="w-1/2 px-2">
+      <div className="h-12">
+      <div className="flex flex-col mb-4 inputvision">
+    <label className="mb-2" for="first_name">Visit Reason</label>
+    <select className="border py-2 px-3 " type="text">
       <option value="">select</option>
       <option>First</option>
       <option>Second</option>
@@ -253,11 +253,11 @@ const SectionTwo =()=>{
   </div>
       </div>
     </div>
-    <div class="w-1/2 px-2">
-      <div class=" h-12">
-      <div class="flex flex-col mb-4 inputvision">
-    <label class="mb-2" for="first_name">Schedule Arrival Date</label>
-    <input class="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
+    <div className="w-1/2 px-2">
+      <div className=" h-12">
+      <div className="flex flex-col mb-4 inputvision">
+    <label className="mb-2" for="first_name">Schedule Arrival Date</label>
+    <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
   </div>
       </div>
       
@@ -267,17 +267,17 @@ const SectionTwo =()=>{
    
   </div>
 
-  <div class="flex -mx-2 mt-12 ml-10">
-    <div class="w-1/2 px-2">
-      <div class="h-12">
-      <div class="flex flex-col mb-4 inputvision">
-    <label class="mb-2" for="first_name">Schedule Departure Date</label>
-    <input class="border py-2 px-3 " type="text" placeholder="06/22/2019"></input>
+  <div className="flex -mx-2 mt-12 ml-10">
+    <div className="w-1/2 px-2">
+      <div className="h-12">
+      <div className="flex flex-col mb-4 inputvision">
+    <label className="mb-2" for="first_name">Schedule Departure Date</label>
+    <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"></input>
   </div>
       </div>
     </div>
-    <div class="w-1/2 px-2">
-      <div class=" h-12">
+    <div className="w-1/2 px-2">
+      <div className=" h-12">
      
       </div>
       
@@ -290,61 +290,61 @@ const SectionTwo =()=>{
  
 
 
-      <div class="flex justify-between pl-12 mt-16 treatment">
+      <div className="flex justify-between pl-12 mt-16 treatment">
           <div>
               <h1>DEFAULT TREATMENT PLAN INCLUDES</h1>
           </div>
-          <div class="mr-16">
+          <div className="mr-16">
               <button>REMOVE</button>
           </div>
       </div>
-      <div class="pl-12 mt-4 optional">
+      <div className="pl-12 mt-4 optional">
           <p>OPTIONAL - CUSTOMIZE TREATMENT PLAN</p>
       </div>
     
-     <div class="flex pl-12 mt-16 label">
-     <div class="checkbox1">
-    <div class="flex mr-12 check-mar">  
-<label class="container1">
+     <div className="flex pl-12 mt-16 label">
+     <div className="checkbox1">
+    <div className="flex mr-12 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
+<div className="flex mr-12 mt-4 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
+<div className="flex mr-12 mt-4 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
      </div>
-     <div class="checkbox1">
-     <div class="flex mr-12 check-mar">  
-<label class="container1">
+     <div className="checkbox1">
+     <div className="flex mr-12 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
+<div className="flex mr-12 mt-4 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
-<div class="flex mr-12 mt-4 check-mar">  
-<label class="container1">
+<div className="flex mr-12 mt-4 check-mar">
+<label className="container1">
   <input type="checkbox"/>
-  <span class="checkmark"></span>
+  <span className="checkmark"></span>
 </label>
 <label>Checkbox Label</label>
 </div>
@@ -352,24 +352,24 @@ const SectionTwo =()=>{
      </div>
     </div>
 
-    <div class="pl-12 mt-12">
-        <div class="addCustom">
+    <div className="pl-12 mt-12">
+        <div className="addCustom">
             <p>Add custom plan components</p>
         </div>
-        <div class="fotText-area">
+        <div className="fotText-area">
             <textarea  rows="5" cols="80"></textarea>
         </div>
     </div>
 
-    <div class="flex mb-4 mt-5 ml-12 h-24 allButtons">
-  <div class="w-1/1 h-12"> 
+    <div className="flex mb-4 mt-5 ml-12 h-24 allButtons">
+  <div className="w-1/1 h-12">
   <div>
-     <button class="addBtn">ADD TO SCHEDULE</button>
+     <button className="addBtn">ADD TO SCHEDULE</button>
   </div>
   </div>
-  <div class="w-1/1 ml-4 h-12">
+  <div className="w-1/1 ml-4 h-12">
   <div>
-     <button class="cnclBtn">CANCEL</button>
+     <button className="cnclBtn">CANCEL</button>
   </div>
   </div>
 </div>

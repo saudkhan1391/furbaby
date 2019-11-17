@@ -4,159 +4,159 @@ const SectionThree=()=>{
     return(
         <div>
 
-<div class="container mx-auto mt-64">
-  <div class="ml-12 forline-again"></div>
+<div className="container mx-auto mt-64">
+  <div className="ml-12 forline-again"></div>
   <div>
-  <div class="container mx-auto">
-      <div class="bottomSpace">
-   <div class="flex mb-4">
-  <div class="w-1/2 h-12">
-      <div class="mt-6 boarders">
+  <div className="container mx-auto">
+      <div className="bottomSpace">
+   <div className="flex mb-4">
+  <div className="w-1/2 h-12">
+      <div className="mt-6 boarders">
       <h1>BOARDERS</h1>
       </div>
   </div>
-  <div class="w-1/2 h-12 mt-6 flex justify-end">
+  <div className="w-1/2 h-12 mt-6 flex justify-end">
       <div>
       <div>
-          <button class="sendMass">SEND MASS BOARDER MESSAGE</button>
+          <button className="sendMass">SEND MASS BOARDER MESSAGE</button>
       </div>
       </div>
   </div>
 </div>
 
 
-<div class="flex mb-4">
-  <div class="flex-1 h-12">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+<div className="flex mb-4">
+  <div className="flex-1 h-12">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="img1">
-  <img src={require('../../../assets/images/img1-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="img1">
+  <img src={require('../../../assets/images/img1-placeholder.png')} alt="pic"/>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Todd Capitanio
          <br></br>
-          <span class="normal"> Day 2/2 </span>
+          <span className="normal"> Day 2/2 </span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-    <div class="img2">
-  <img src={require('../../../assets/images/img2-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+    <div className="img2">
+  <img src={require('../../../assets/images/img2-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Daisy Stevens
 
          <br></br>
-          <span class="normal"> Day 1/5</span>
+          <span className="normal"> Day 1/5</span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img3">
-  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img3">
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Toby Torres
 
          <br></br>
-          <span class="normal"> Day 1/2 </span>
+          <span className="normal"> Day 1/2 </span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img2">
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Todd Capitanio
          <br></br>
-          <span class="normal"> Day 2/2 </span>
+          <span className="normal"> Day 2/2 </span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img5">
-  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img5">
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Toby Torres
 
          <br></br>
-          <span class="normal"> Day 1/2 </span>
+          <span className="normal"> Day 1/2 </span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img2">
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Todd Capitanio
          <br></br>
-          <span class="normal"> Day 2/2 </span>
+          <span className="normal"> Day 2/2 </span>
         </p>
   </div>
 </div>
   </div>
-  <div class="flex-1 h-12 ml-4">
-  <div class="max-w-sm rounded overflow-hidden borderBox1">
+  <div className="flex-1 h-12 ml-4">
+  <div className="max-w-sm rounded overflow-hidden borderBox1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img7">
-  <img src={require('../../../assets/images/img2-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img7">
+  <img src={require('../../../assets/images/img2-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Daisy Stevens
 
          <br></br>
-          <span class="normal"> Day 1/5</span>
+          <span className="normal"> Day 1/5</span>
         </p>
   </div>
 </div>
@@ -166,39 +166,39 @@ const SectionThree=()=>{
 </div>
 
 
-  <div class="flex h-12 mt-56">
-  <div class="max-w-sm rounded overflow-hidden borderBox1 card1">
+  <div className="flex h-12 mt-56">
+  <div className="max-w-sm rounded overflow-hidden borderBox1 card1">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img8">
-  <img src={require('../../../assets/images/img3-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img8">
+  <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Todd Capitanio
          <br></br>
-          <span class="normal"> Day 2/2 </span>
+          <span className="normal"> Day 2/2 </span>
         </p>
   </div>
 </div>
 
-<div class="max-w-sm rounded overflow-hidden borderBox1 card1 ml-5">
+<div className="max-w-sm rounded overflow-hidden borderBox1 card1 ml-5">
   
-  <div class="px-6 py-4 flex justify-center m-auto pt-5">
-  <div class="bordercheck">
-  <div class="img9">
-  <img src={require('../../../assets/images/img4-placeholder.png')} alt = "pic"/>
+  <div className="px-6 py-4 flex justify-center m-auto pt-5">
+  <div className="bordercheck">
+  <div className="img9">
+  <img src={require('../../../assets/images/img4-placeholder.png')} alt="pic"/>
   </div>
   </div>
   </div>
-  <div class="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
+  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
         <p>
         Todd Capitanio
          <br></br>
-          <span class="normal"> Day 2/2 </span>
+          <span className="normal"> Day 2/2 </span>
         </p>
   </div>
 </div>

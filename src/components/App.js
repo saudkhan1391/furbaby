@@ -1,8 +1,15 @@
-import React, {Component} from 'react';
-import Routes from './Routes'
-const App = () => {
+import React  from 'react';
+import Routes from './container';
+import { FurbabyProvider } from '../store';
+import {BrowserRouter} from "react-router-dom";
+const App=() => {
+
     return (
-        <Routes/>
+        <BrowserRouter>
+            <FurbabyProvider>
+                <Routes/>
+            </FurbabyProvider>
+        </BrowserRouter>
     );
 };
 

@@ -6,7 +6,7 @@ import SectionFour from './sectionFour';
 import SectionFive from './sectionFive';
 import SectionSix from './sectionSix';
 import SectionSeven from './sectionSeven';
-import Layout from '../layout';
+import Layout from '../layout/container';
 const Schedule=()=>{
     return(
         <div>

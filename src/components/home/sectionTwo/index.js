@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './style'
-const SectionTwo = () => {
+const SectionTwo=() => {
     return (
         <div>
            

@@ -39,6 +39,5 @@ export default () => (
     border-bottom: 2px solid #32c5ff;
     padding: 30px 0px 26px 0px;
 }
-   }
     `}</style>
 )
