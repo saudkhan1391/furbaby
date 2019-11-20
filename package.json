@@ -9,10 +9,13 @@
     "react-bootstrap": "^1.0.0-beta.10",
     "react-calendar": "^2.19.1",
     "react-circular-progressbar": "^2.0.2",
+    "react-credit-card-input": "^1.1.5",
+    "react-credit-cards": "^0.8.0",
     "react-dom": "^16.8.6",
     "react-multi-carousel": "^2.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "0.9.5",
+    "styled-components": "^4.4.1",
     "tailwind-react-ui": "^0.8.1",
     "uuid": "^3.3.3",
     "with-router": "^1.0.1"
