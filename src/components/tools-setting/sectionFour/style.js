@@ -303,6 +303,26 @@ export default () => (
             margin-right:10%;
             width:350px;
           }
+          .green{
+            color: green;
+            padding: 2px;
+          }
+          .red{
+            color: red;
+            padding: 2px;
+          }
+          .rccs{
+            margin: 0!important
+          }
+          .red-Content {
+              color: red;
+              height: 10px;
+              padding-top: 4px;
+              padding-left: 4px;
+          }
+          .red-border {
+              border: 1px solid red !important;
+          }
     `}
 
     </style>

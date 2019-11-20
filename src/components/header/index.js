@@ -1,5 +1,6 @@
 import React from 'react';
 import Style from './style';
+import 'react-credit-cards/lib/styles-compiled.css';
 import { Link, withRouter } from 'react-router-dom';
 import firebase from "../../utils/firebase";
 

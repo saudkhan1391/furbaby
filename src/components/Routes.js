@@ -19,7 +19,7 @@ import Massmessage from "./massmessage";
 import Treatmentmassmesseage from "./treatment-mass-message";
 import Babydatabase from "./baby-Database";
 import Databaseform from "./database-form";
-import Toolssetting from "./tools-setting";
+import Toolssetting from "./tools-setting/container";
 import Dashboard from "./dashboard/container";
 import trackerRecord from "./trackerRecord/container";
 import treatmentInprogress from "./treatmentInprogress";
