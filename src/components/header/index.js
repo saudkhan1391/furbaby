@@ -27,7 +27,7 @@ const Header=(props)=>{
                         <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("dashboard")}>
                             CLINIC DASHBOARD
                         </Link>
-                        <Link to="/progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("progress")}>
+                        <Link to="/in-progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("progress")}>
                             IN PROGRESS
                         </Link>
                         <Link to="/schedule" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("schedule")}>

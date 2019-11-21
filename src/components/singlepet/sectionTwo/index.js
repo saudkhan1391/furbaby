@@ -88,7 +88,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Visit Reason</label>
+    <label className="mb-2" htmlFor="first_name">Visit Reason</label>
     <select className="border py-2 px-3 " type="text">
       <option value="">select</option>
       <option>First</option>
@@ -101,7 +101,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Schedule Arrival Date</label>
+    <label className="mb-2" htmlFor="first_name">Schedule Arrival Date</label>
     <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
   </div>
       </div>
@@ -116,7 +116,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Schedule Departure Date</label>
+    <label className="mb-2" htmlFor="first_name">Schedule Departure Date</label>
     <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"></input>
   </div>
       </div>

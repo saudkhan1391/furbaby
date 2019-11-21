@@ -228,12 +228,12 @@ console.log(date)
 
     </div>
           </div>
-          <label for="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-          <label for="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
-          <label for="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-          <label for="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
-          <label for="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-          <label for="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+          <label htmlFor="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
         </div>
 </div>
  
@@ -245,7 +245,7 @@ console.log(date)
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Visit Reason</label>
+    <label className="mb-2" htmlFor="first_name">Visit Reason</label>
     <input className="border py-2 px-3 " type="text"></input>
   </div>
       </div>
@@ -253,7 +253,7 @@ console.log(date)
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Schedule Date</label>
+    <label className="mb-2" htmlFor="first_name">Schedule Date</label>
     <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
   </div>
       </div>

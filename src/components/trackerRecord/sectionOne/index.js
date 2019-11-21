@@ -5,6 +5,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import axios from "axios";
 import { apiPath, placeholderPet } from "../../../config";
 import Single from "./singleTracker";
+import CompleteTracker from "./completeTracker";
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
 
@@ -204,6 +205,18 @@ const SectionOne=(props) => {
                                         )
                                     })
                                 }
+                                <CompleteTracker
+                                    setLoad={setLoad}
+                                    setCurrentName={setCurrentName}
+                                    setCurrentStatus={setCurrentStatus}
+                                    load={load}
+                                    furBaby={current}
+                                    setCurrent={setCurrent}
+                                    setTracker={setTracker}
+                                    setDisabled={setDisabled}
+                                    title={"Ready for Pick Up"}
+                                    data={tracker}
+                                />
                             </div>
                         </div>
 

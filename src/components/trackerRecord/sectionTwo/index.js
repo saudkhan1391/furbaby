@@ -111,7 +111,7 @@ const SectionTwo=(props) => {
                                 <p>Select the medication administered from the dropdown below. Click add activity to send the update to the pet owner.</p>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" for="first_name">Medication</label>
+                                <label className="mb-1" htmlFor="first_name">Medication</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>
@@ -120,7 +120,7 @@ const SectionTwo=(props) => {
                                 </select>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-6">
-                                <label className="mb-1" for="first_name">Dose Administered</label>
+                                <label className="mb-1" htmlFor="first_name">Dose Administered</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>
@@ -168,7 +168,7 @@ const SectionTwo=(props) => {
                                 <p>Select the food given from the dropdown below. Click add activity to send the update to the pet owner.</p>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" for="first_name">Food</label>
+                                <label className="mb-1" htmlFor="first_name">Food</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>
@@ -177,7 +177,7 @@ const SectionTwo=(props) => {
                                 </select>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-6">
-                                <label className="mb-1" for="first_name">Select The Amount Given (Optional)</label>
+                                <label className="mb-1" htmlFor="first_name">Select The Amount Given (Optional)</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>
@@ -226,7 +226,7 @@ const SectionTwo=(props) => {
                                 <p>Select the pee or poop icon below. Click add activity to send the update to the pet owner.</p>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" for="first_name">Food</label>
+                                <label className="mb-1" htmlFor="first_name">Food</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>
@@ -286,7 +286,7 @@ const SectionTwo=(props) => {
                                 <p>Select the food given from the dropdown below. Click add activity to send the update to the pet owner.</p>
                             </div>
                             <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" for="first_name">Notes</label>
+                                <label className="mb-1" htmlFor="first_name">Notes</label>
                                 <select className="border py-2 px-3 " type="text">
                                     <option value="" selected="">Select</option>
                                     <option>FIRST</option>

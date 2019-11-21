@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function Tracker(props){
     const [value, setValue] = useState(1);
-    let { title, data, index, setDisabled, furBaby, setLoad, load, setCurrent , setTracker, status, setCurrentStatus, setCurrentName } = props;
+    let { title, data, index, setDisabled, furBaby, setCurrent , setTracker, status, setCurrentStatus, setCurrentName } = props;
 
     useEffect(() => {
         setValue(status);
@@ -31,15 +31,7 @@ function Tracker(props){
         }
         if(value === 2){
             setCurrentStatus("Completed");
-            if(newData.length - 1 === index){
-                newData.forEach(item => {
-                    item.value = true;
-                    item.status = 3;
-                });
-                setLoad(!load);
-            }else {
-                newData[index].value = true;
-            }
+            newData[index].value = true;
         }
         else {
             newData[index].value = false;

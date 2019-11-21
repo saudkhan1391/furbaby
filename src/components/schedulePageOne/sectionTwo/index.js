@@ -266,12 +266,12 @@ const SectionTwo =()=>{
 </div>
     
         </div>
-        <label for="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-        <label for="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
-        <label for="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-        <label for="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
-        <label for="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
-        <label for="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-3" className="carousel-control prev control-1"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-2" className="carousel-control next control-1"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-1" className="carousel-control prev control-2"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-3" className="carousel-control next control-2"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-2" className="carousel-control prev control-3"><img src={require('../../../assets/images/preview5.png')} alt="pic"/></label>
+        <label htmlFor="carousel-1" className="carousel-control next control-3"><img src={require('../../../assets/images/next5.png')} alt="pic"/></label>
        
     </div>
 </div>

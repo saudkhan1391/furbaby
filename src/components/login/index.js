@@ -4,20 +4,25 @@ import { Link } from 'react-router-dom';
 import firebase from "../../utils/firebase";
 import Loader from "../../commoncomponents/loader";
 
-const sectionOne =({ dispatch, id })=>{
+const sectionOne =()=>{
 
     const [email, setEmail] = useState(null);
     const [password, setPass] = useState(null);
     const [recover, setRecover] = useState(false);
     const [message, setMessage] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [disabled, setDisabled] = useState(null);
     const [signInLoader, setSignIn] = useState(false);
 
     const signIn = (event) => {
         event.preventDefault();
+        setDisabled(true);
         if(!recover){
             setSignIn(true);
+            setSuccess(null);
             firebase.auth().signInWithEmailAndPassword(email, password)
                 .then(confirmResult => {
+                    setDisabled(false);
                     firebase.auth().currentUser.getIdTokenResult().then((token) => {
                         if(token.claims.practiceAdmin || token.claims.clinician){
                             setMessage(null);
@@ -30,6 +35,7 @@ const sectionOne =({ dispatch, id })=>{
                 })
                 .catch(error => {
                     setSignIn(false);
+                    setDisabled(false);
                     setMessage(`Something went wrong please try again!`);
                 });
         } else {
@@ -38,8 +44,11 @@ const sectionOne =({ dispatch, id })=>{
     };
 
     const resetPassword = () => {
+        setSuccess(null);
+        setMessage(null);
         firebase.auth().sendPasswordResetEmail(email).then(res => {
-
+            setDisabled(false);
+            setSuccess("Password visit your email to recover password");
         }).catch(function(err){
 
         });
@@ -61,14 +70,18 @@ const sectionOne =({ dispatch, id })=>{
                                 <input type="email" onChange={event => setEmail(event.target.value)} required/>
                             </div>
                         </div>
-                        <div className="form">
-                            <label>Password</label> <br/>
-                            <input type="password" onChange={event => setPass(event.target.value)} required/>
-                        </div>
+                        {
+                            !recover &&
+                            <div className="form">
+                                <label>Password</label> <br/>
+                                <input type="password" onChange={event => setPass(event.target.value)} required/>
+                            </div>
+                        }
                         <p className="text-red-500">{message}</p>
+                        <p className="text-green-500">{success}</p>
                         <div>
-                            <button type="submit" className="btn-blue">login</button><br/>
-                            <span className="forgotPassword">Forgot Password?</span>
+                            <button disabled={disabled} type="submit" className="btn-blue">{!recover ? "Login" : "Submit"}</button><br/>
+                            <p className="forgotPassword" onClick={() => setRecover(!recover)}>{recover ? "Login" : "Forgot Password?"}</p>
                         </div>
                         <div className="form-signup">
                             <span className="account">Don’t have an account?</span><br/>

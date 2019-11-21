@@ -5,7 +5,7 @@ import Layout from '../layout/container';
 import firebase from "../../utils/firebase";
 
 const trackerRecord = (props) => {
-    let { current, dispatch, clinic } = props;
+    let { current, dispatch } = props;
     const [furBaby, setFurBaby] = useState(current);
     const [show, setShow] = useState(false);
 
@@ -17,8 +17,6 @@ const trackerRecord = (props) => {
         });
         setShow(true);
     }, [current]);
-
-    const [panel, setPanel] = useState(800);
     let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos } = furBaby;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
     let { name, coverPhoto } = current.pet;

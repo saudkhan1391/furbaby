@@ -39,6 +39,10 @@ export default () => (
         outline:none;
         cursor:pointer;
    }
+   button:disabled,
+   button[disabled]{
+      background-color: #a9e7ff;
+    }
    .btn-purple{
       font-size: 12px;
       font-weight: bold;
@@ -65,7 +69,7 @@ export default () => (
    }
    .form input{
     width: 260px;
-    height: 30px;
+    height: 40px;
     border-radius: 4px;
     border: solid 1px #dcdddf;
     background-color: #ffffff;
@@ -89,7 +93,7 @@ export default () => (
     letter-spacing: normal;
     text-align: center;
     color: #6d7278;
-    margin-left: 46px;
+    cursor: pointer;
    }
    .account{
     font-size: 16px;

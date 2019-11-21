@@ -6,9 +6,8 @@ import Login from './login/container';
 import Schedule from './schedule';
 import SchedulePageOne from "./schedulePageOne";
 import Schedulepet from "./Schedulepet";
-import Babyschedule from "./babyschedule";
 import Treatmentplan from "./treatmentplan";
-import Progress from "./progress";
+import Progress from "./progress/container";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";
 import Foodmeds from "./foodmeds";
@@ -33,7 +32,7 @@ import axios from "axios";
 import { apiPath } from "../config";
 
 const Routes = (props) => {
-    let { dispatch, loaded, history, location } = props;
+    let { dispatch, loaded, history, location, clinicId } = props;
 
     const checkRole = (claims) => {
         if(claims.practiceAdmin){
@@ -99,7 +98,17 @@ const Routes = (props) => {
                 });
             }
         });
-    }, []);
+        if(clinicId){
+            firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
+                let data = {...snapshot.val()};
+                data.clinicId = clinicId;
+                dispatch({
+                    type: "UPDATE_CLINIC",
+                    payload: data
+                })
+            });
+        }
+    }, [clinicId]);
 
     return loaded ? (
         <Switch>
@@ -107,24 +116,24 @@ const Routes = (props) => {
             <Route path={"/login"} component={Login}/>
             <Route path={"/dashboard"} component={Dashboard}/>
             <Route path={"/tracker-record/:id"} component={trackerRecord}/>
+            <Route path={"/in-progress"} component={Progress}/>
+            <Route path={"/create-new"} component={Treatmentplan}/>
+            <Route path={"/tools-setting"} component={Toolssetting}/>
+            <Route path={"/foods-and-medications"} component={Foodmeds}/>
+            <Route path={"/treatment-plans"} component={Treatmentplans}/>
+            <Route path={"/customize-notes"} component={Customizenotes}/>
+            <Route path={"/schedule"} component={Schedulepet}/>
+
             <Route path={"/signup"} component={Home}/>
             <Route path={"/mainschedule"} component={Schedule}/>
             <Route path={"/schedulePageOne"} component={SchedulePageOne}/>
-            <Route path={"/schedulepet"} component={Schedulepet}/>
-            <Route path={"/schedule"} component={Babyschedule}/>
-            <Route path={"/treatmentplan"} component={Treatmentplan}/>
-            <Route path={"/progress"} component={Progress}/>
             <Route path={"/severalboarding"} component={Severalboarding}/>
             <Route path={"/singlepet"} component={Singlepet}/>
-            <Route path={"/foodmeds"} component={Foodmeds}/>
-            <Route path={"/treatmentplans"} component={Treatmentplans}/>
-            <Route path={"/customizenotes"} component={Customizenotes}/>
             <Route path={"/globalmass"} component={Globalmass}/>
             <Route path={"/massmessage"} component={Massmessage}/>
             <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
             <Route path={"/baby-Database"} component={Babydatabase}/>
             <Route path={"/database-form"} component={Databaseform}/>
-            <Route path={"/tools-setting"} component={Toolssetting}/>
             <Route path={"/treatment-inprogress"} component={treatmentInprogress} />
             <Route path={"/treatment-complete"} component={treatmentComplete} />
             <Route path={"/treatment-boarder"} component={treatmentBoarder} />

@@ -180,12 +180,12 @@ const SectionOne=()=>{
  
   </div>
         </div>
-        <label for="carousel-3" className="carousel-control prev control-1">‹</label>
-        <label for="carousel-2" className="carousel-control next control-1">›</label>
-        <label for="carousel-1" className="carousel-control prev control-2">‹</label>
-        <label for="carousel-3" className="carousel-control next control-2">›</label>
-        <label for="carousel-2" className="carousel-control prev control-3">‹</label>
-        <label for="carousel-1" className="carousel-control next control-3">›</label>
+        <label htmlFor="carousel-3" className="carousel-control prev control-1">‹</label>
+        <label htmlFor="carousel-2" className="carousel-control next control-1">›</label>
+        <label htmlFor="carousel-1" className="carousel-control prev control-2">‹</label>
+        <label htmlFor="carousel-3" className="carousel-control next control-2">›</label>
+        <label htmlFor="carousel-2" className="carousel-control prev control-3">‹</label>
+        <label htmlFor="carousel-1" className="carousel-control next control-3">›</label>
        
     </div>
 </div>

@@ -1,222 +1,40 @@
 import React from 'react';
 import Style from './style';
-const SectionTwo =()=>{
+import Card from "../card";
+const SectionTwo =(props)=>{
+    let { appointments } = props;
     return(
         <div>
-   <div className="container mx-auto">
-     <div className="progressDiv">
-   <div className="flex mb-4">
-  <div className="w-1/2 h-12">
-      <div className="mt-6 boarders">
-      <h1>BOARDERS</h1>
-      </div>
-  </div>
-  <div className="w-1/2 h-12 mt-6 flex justify-end">
-      <div className="flex">
-      <div>
-          <button className="mr-4 massUpdate">MASS UPDATE</button>
-      </div>
-      <div>
-          <button className="sendMass">SEND MASS BOARDER MESSAGE</button>
-      </div>
-      </div>
-  </div>
-</div>
+            <div className="container mx-auto">
+                <div className="progressDiv">
+                    <div className="flex mb-4">
+                        <div className="w-1/2 h-12">
+                            <div className="mt-6 boarders">
+                                <h1>TREATMENT</h1>
+                            </div>
+                        </div>
+                        {/*<div className="w-1/2 h-12 mt-6 flex justify-end">*/}
+                            {/*<div className="flex">*/}
+                                {/*<div>*/}
+                                    {/*<button className="mr-4 massUpdate">MASS UPDATE</button>*/}
+                                {/*</div>*/}
+                                {/*<div>*/}
+                                    {/*<button className="sendMass">SEND MASS BOARDER MESSAGE</button>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    </div>
+                    <div className="flex mb-4 carousel-container">
+                        {
+                            appointments.length !== 0 && appointments.map((item, index) => {
+                               return <Card key={index} item={item} />
+                            })
 
-
-<div className="flex mb-4">
-  <div className="flex-1 h-12">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="img1">
-  <img src={require('../../../assets/images/img1-placeholder.png')} alt="pic" />
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Todd Capitanio
-         <br></br>
-          <span className="normal"> Day 2/2 </span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-    <div className="img2">
-  <img src={require('../../../assets/images/img2-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Daisy Stevens
-
-         <br></br>
-          <span className="normal"> Day 1/5</span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img3">
-  <img src={require('../../../assets/images/img3-placeholder.png')} />
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Toby Torres
-
-         <br></br>
-          <span className="normal"> Day 1/2 </span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} />
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Todd Capitanio
-         <br></br>
-          <span className="normal"> Day 2/2 </span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img5">
-  <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Toby Torres
-
-         <br></br>
-          <span className="normal"> Day 1/2 </span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img2">
-  <img src={require('../../../assets/images/img4-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Todd Capitanio
-         <br></br>
-          <span className="normal"> Day 2/2 </span>
-        </p>
-  </div>
-</div>
-  </div>
-  <div className="flex-1 h-12 ml-4">
-  <div className="max-w-sm rounded overflow-hidden borderBox1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img7">
-  <img src={require('../../../assets/images/img2-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Daisy Stevens
-
-         <br></br>
-          <span className="normal"> Day 1/5</span>
-        </p>
-  </div>
-</div>
-  </div>
-
-  
-</div>
-
-
-  <div className="flex h-12 mt-56">
-  <div className="max-w-sm rounded overflow-hidden borderBox1 card1">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img8">
-  <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Todd Capitanio
-         <br></br>
-          <span className="normal"> Day 2/2 </span>
-        </p>
-  </div>
-</div>
-
-<div className="max-w-sm rounded overflow-hidden borderBox1 card1 ml-5">
-  
-  <div className="px-6 py-4 flex justify-center m-auto pt-5">
-  <div className="bordercheck">
-  <div className="img9">
-  <img src={require('../../../assets/images/img4-placeholder.png')} alt="pic"/>
-  </div>
-  </div>
-  </div>
-  <div className="px-6 pt-10 py-4 flex justify-center m-auto items-center content-center forText">
-        <p>
-        Todd Capitanio
-         <br></br>
-          <span className="normal"> Day 2/2 </span>
-        </p>
-  </div>
-</div>
-
-
-  </div>
-
-  
-  
-
-
-
-
-
-
- 
-</div>
-</div>
-        <Style/>
+                        }
+                    </div>
+                </div>
+            </div>
+            <Style/>
         </div>
     );
 }

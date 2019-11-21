@@ -20,6 +20,15 @@ export const standardDate = dat => {
         "Friday",
         "Saturday"
     ];
+    const daysHalf = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ];
     const months = [
         "January",
         "February",
@@ -58,6 +67,7 @@ export const standardDate = dat => {
     let minutes = newDate.getMinutes();
     let seconds = newDate.getSeconds();
     let dayName = days[newDate.getDay()];
+    let dayNameHalf = daysHalf[newDate.getDay()];
     let dateNumber = ("0" + newDate.getDate()).slice(-2);
     let monthName = months[newDate.getMonth()];
     let monthNameHalf = monthsHalf[newDate.getMonth()];
@@ -76,7 +86,8 @@ export const standardDate = dat => {
         monthName: monthName,
         monthNameHalf: monthNameHalf,
         monthNumber: monthNumber,
-        fullYear: fullYear+""
+        fullYear: fullYear+"",
+        dayNameHalf: dayNameHalf
     };
 };
 

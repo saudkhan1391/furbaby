@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Style from "./style";
-import firebase from "../../utils/firebase";
+import firebase from "../../../utils/firebase";
 import { Link } from "react-router-dom";
 import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { placeholderPet } from "../../config";
+import { placeholderPet } from "../../../config";
+
 function card(props) {
     let { item } = props;
     let { trackingComponent } = item;
@@ -34,9 +34,9 @@ function card(props) {
         return (single * temp);
     };
     return (
-        <div className="flex-1 h-12 ml-4 max-w-sm">
+        <div className="flex-1 h-12 ml-4 ">
             <Link to={"/tracker-record/"+item.appointmentId}>
-                <div className="max-w-sm rounded overflow-hidden shadow-bord">
+                <div className="rounded overflow-hidden shadow-bord">
                     <div className="px-6 py-4 flex justify-center m-auto pt-8">
                         <CircularProgressbarWithChildren
                             value={calculate()}
@@ -49,7 +49,7 @@ function card(props) {
                             <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
                             {
                                 calculate() === 100 &&
-                                <img src={require("../../assets/images/completed.png")} className="completed" />
+                                <img src={require("../../../assets/images/completed.png")} className="completed" />
 
                             }
                         </CircularProgressbarWithChildren>
@@ -63,7 +63,6 @@ function card(props) {
                     </div>
                 </div>
             </Link>
-            <Style/>
         </div>
     )
 }

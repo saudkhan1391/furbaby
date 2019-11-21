@@ -32,7 +32,7 @@ const CarouselTwo=(props) => {
                 <Carousel responsive={responsive}>
                     {
                         appointments.map((item, index) => {
-                            return <Card key={index} src={require('../../assets/images/img1-placeholder.png')} dispatch={dispatch} item={item} />
+                            return <Card key={index} item={item} />
                         })
                     }
                 </Carousel>

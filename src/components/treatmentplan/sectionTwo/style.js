@@ -412,7 +412,19 @@ export default () => (
       .react-calendar__tile--active{
         width:10px !important;
       }
-      
+      .reviewBtn {
+        padding: 10px 40px 10px 40px;
+        border-radius: 4px;
+        border: solid 1px #9c1f60;
+        font-size: 10px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #9c1f60;
+      }
         
       
     `}

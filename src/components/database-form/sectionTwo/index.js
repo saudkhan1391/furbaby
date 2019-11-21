@@ -106,7 +106,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Owner Name</label>
+    <label className="mb-2" htmlFor="first_name">Owner Name</label>
     <input className="border py-2 px-3 " type="text"></input>
   </div>
       </div>
@@ -114,7 +114,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Fur Baby Name</label>
+    <label className="mb-2" htmlFor="first_name">Fur Baby Name</label>
     <input className="border py-2 px-3 " type="text"/>
   </div>
       </div>
@@ -129,7 +129,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Email</label>
+    <label className="mb-2" htmlFor="first_name">Email</label>
     <input className="border py-2 px-3 " type="text"></input>
   </div>
       </div>
@@ -137,7 +137,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Phone Number</label>
+    <label className="mb-2" htmlFor="first_name">Phone Number</label>
     <input className="border py-2 px-3 " type="text"/>
   </div>
       </div>
@@ -152,7 +152,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Cell Number (For Texts)</label>
+    <label className="mb-2" htmlFor="first_name">Cell Number (For Texts)</label>
     <input className="border py-2 px-3 " type="text"></input>
   </div>
       </div>
@@ -160,7 +160,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Fur Baby Image</label>
+    <label className="mb-2" htmlFor="first_name">Fur Baby Image</label>
     <input className="border py-2 px-3 " type="text"/>
   </div>
       </div>
@@ -180,7 +180,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className="h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Visit Reason</label>
+    <label className="mb-2" htmlFor="first_name">Visit Reason</label>
     <select className="border py-2 px-3 " type="text">
     <option value="" selected="">Select</option>
     <option>FIRST</option>
@@ -193,7 +193,7 @@ const SectionTwo =()=>{
     <div className="w-1/2 px-2">
       <div className=" h-12">
       <div className="flex flex-col mb-4 inputvision">
-    <label className="mb-2" for="first_name">Schedule Date</label>
+    <label className="mb-2" htmlFor="first_name">Schedule Date</label>
     <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
   </div>
       </div>
