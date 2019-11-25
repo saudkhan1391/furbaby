@@ -6,20 +6,20 @@ function FormGroup(props) {
     let [dropdown, setDropDown] = useState(null);
     let data = (visitHistory);
     return <div>
-        <p>Payment History</p>
+        <h2 className="pdd-arround">Payment History</h2>
         {
             data.length !== 0 ?
                 data.map((item, index) => {
                     return (
-                        <div key={index}>
+                            <div key={index} className="pd-btm">
                             <div onClick={() => setDropDown(index === dropdown ? null : index)}>
                                 <div>
-                                    <div>
-                                        <div className="background-color">
+                                    <div className="background-color dflex">
+                                        <div>
                                             <p>{item.date}</p>
                                         </div>
-                                        <div >
-                                            <img
+                                        <div className="image-align">
+                                            <img width="25px"
                                                  src={dropdown === index ? require("../../assets/images/up-chavron.png") : require("../../assets/images/bottom-chavron.png")}
                                                  alt=""/>
                                         </div>
@@ -29,28 +29,28 @@ function FormGroup(props) {
                             {
                                 dropdown === index && (
                                     <div>
-                                        <div>
-                                            <p>Monthly Subscription Charges</p>
+                                        <div className="pdd-arround-payment">
+                                            <h3>Monthly Subscription Charges</h3>
                                             <p>{item.charged.monthlySubscriptionCharges}</p>
                                         </div>
 
-                                        {item.charged.integrationCharges && <div>
-                                            <p>Integration Charges</p>
+                                        {item.charged.integrationCharges && <div className="pdd-arround-payment">
+                                            <h3>Integration Charges</h3>
                                             <p>{item.charged.integrationCharges}</p>
                                         </div>}
 
-                                        <div>
-                                            <p>Total Appointment Charges</p>
+                                        <div className="pdd-arround-payment">
+                                            <h3>Total Appointment Charges</h3>
                                             <p>{item.charged.totalPraticeCharges}</p>
                                         </div>
 
-                                        <div>
-                                            <p>Payment Status</p>
+                                        <div className="pdd-arround-payment">
+                                            <h3>Payment Status</h3>
                                             <p>{item.charged.payment}</p>
                                         </div>
 
-                                        <div>
-                                            <p>Total Charged</p>
+                                        <div className="pdd-arround-payment">
+                                            <h3>Total Charged</h3>
                                             <p>{item.charged.totalCharged}</p>
                                         </div>
                                     </div>

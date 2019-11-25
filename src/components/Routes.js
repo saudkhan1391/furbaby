@@ -25,7 +25,7 @@ import treatmentInprogress from "./treatmentInprogress";
 import treatmentComplete from "./treatmentComplete";
 import treatmentBoarder from "./treatmentBoarder";
 import updateBoarder from "./updateBoarder";
-import clinicUsers from "./clinicUsers";
+import clinicUsers from "./clinicUsers/container";
 import Loader from "../commoncomponents/loader";
 import firebase from "../utils/firebase";
 import axios from "axios";

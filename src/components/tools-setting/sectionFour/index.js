@@ -4,6 +4,7 @@ import axios from 'axios';
 import firebase from "../../../utils/firebase";
 import Cards from "react-credit-cards";
 import {validateEmail} from '../../functions'
+import Loader from '../../../commoncomponents/smallLoader';
 import {apiPath} from '../../../config';
 import PaymentHistory from '../../paymentHistory'
 
@@ -12,6 +13,7 @@ const SectionFour = (props) => {
     let {clinic, dispatch} = props;
     let {trackerOptin: tracker, noteOptin: note, snapshotOptin: snapshot, appointmentCompleteOptin: appointment} = clinic;
     const [trackerOptin, setTrackerOptin] = useState(false);
+    const [showLoader, setShowLoader] = useState(false);
     const [noteOptin, setNoteOptin] = useState(false);
     const [appointmentCompleteOptin, setAppointmentCompleteOptin] = useState(false);
     const [snapshotOptin, setSnapshotOptin] = useState(false);
@@ -66,16 +68,16 @@ const SectionFour = (props) => {
         setTrackerOptin(true);
     };
 
-   const showPaymentHistory = () => {
-        firebase.database().ref("/clinicMetadata/"+clinic.clinicId+"/monthlyReport").once("value").then(res=>{
+    const showPaymentHistory = () => {
+        firebase.database().ref("/clinicMetadata/" + clinic.clinicId + "/monthlyReport").once("value").then(res => {
             let history = [];
             let obj = res.val();
             let dates = Object.keys(obj);
-            dates.forEach(sing=>{
+            dates.forEach(sing => {
                 history.push({date: sing, ...obj[sing]})
             });
             setPaymentHistory([...history]);
-        }).catch(err=>{
+        }).catch(err => {
             console.log("err", err);
         })
     };
@@ -171,10 +173,11 @@ const SectionFour = (props) => {
                 email,
                 clinic
             };
+            setShowLoader(true);
             axios.post(apiPath + "/addPayment", requestedData).then(res => {
-
+                setShowLoader(false);
             }).catch(err => {
-
+                setShowLoader(false);
             })
         }
     };
@@ -194,13 +197,13 @@ const SectionFour = (props) => {
         switch (brand) {
             case "MasterCard":
                 return <img src={require("../../../assets/images/mastercard.jpeg")} alt=""
-                            width="32" height="32" />;
+                            width="32" height="32"/>;
             case "American Express":
                 return <img src={require("../../../assets/images/americanExpress.jpg")}
-                            width="32" height="32" alt="" />;
+                            width="32" height="32" alt=""/>;
             case "Visa":
                 return <img src={require("../../../assets/images/visa.jpg")} alt=""
-                            width="32" height="32" />;
+                            width="32" height="32"/>;
             default:
                 return <p style={{
                     orManuallyCreateNText: {
@@ -333,147 +336,150 @@ const SectionFour = (props) => {
                                             <button onClick={() => deletePopup()}>Remove</button>
                                         </div>
                                     </div>
-                                </div> :
-                                <div>
-                                    <div className="flex -mx-2 mt-8">
-                                        <div className="w-1/2 px-2">
-                                            <div className="h-12">
-                                                <div className="flex flex-col mb-4 inputvision4">
-                                                    <label className="mb-2">Email <span style={{color: "red"}}>*</span></label>
-                                                    <input className="border py-2 px-3 "
-                                                           id="email"
-                                                           type="text"
-                                                           onFocus={() =>
-                                                               setCurrentSelected("name")
-                                                           }
-                                                           onBlur={() =>
-                                                               setCurrentSelected("")
-                                                           }
-                                                           onChange={event =>
-                                                               setEmail(event.target.value)
-                                                           }
-                                                    />
-                                                    <p id="emailContent" className="red-Content">
-                                                        {" "}
-                                                    </p>
+                                </div> : showLoader ?
+                                    <Loader/>
+                                    :
+                                    <div>
+                                        <div className="flex -mx-2 mt-8">
+                                            <div className="w-1/2 px-2">
+                                                <div className="h-12">
+                                                    <div className="flex flex-col mb-4 inputvision4">
+                                                        <label className="mb-2">Email <span
+                                                            style={{color: "red"}}>*</span></label>
+                                                        <input className="border py-2 px-3 "
+                                                               id="email"
+                                                               type="text"
+                                                               onFocus={() =>
+                                                                   setCurrentSelected("name")
+                                                               }
+                                                               onBlur={() =>
+                                                                   setCurrentSelected("")
+                                                               }
+                                                               onChange={event =>
+                                                                   setEmail(event.target.value)
+                                                               }
+                                                        />
+                                                        <p id="emailContent" className="red-Content">
+                                                            {" "}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br/>
-                                    <div className="flex -mx-2 mt-8">
-                                        <div className="w-1/2 px-2">
-                                            <div className="h-12">
-                                                <div className="flex flex-col mb-4 inputvision4">
-                                                    <label className="mb-2">Name On Card <span
-                                                        style={{color: "red"}}>*</span></label>
-                                                    <input className="border py-2 px-3 "
-                                                           id="nameOnCard"
-                                                           type="text"
-                                                           onFocus={() =>
-                                                               setCurrentSelected("name")
-                                                           }
-                                                           onBlur={() =>
-                                                               setCurrentSelected("")
-                                                           }
-                                                           value={nameOnCard}
-                                                           onChange={event =>
-                                                               setNameOnCard(event.target.value)
-                                                           }
-                                                    />
-                                                    <p id="nameOnCardContent" className="red-Content">
-                                                        {" "}
-                                                    </p>
+                                        <br/>
+                                        <div className="flex -mx-2 mt-8">
+                                            <div className="w-1/2 px-2">
+                                                <div className="h-12">
+                                                    <div className="flex flex-col mb-4 inputvision4">
+                                                        <label className="mb-2">Name On Card <span
+                                                            style={{color: "red"}}>*</span></label>
+                                                        <input className="border py-2 px-3 "
+                                                               id="nameOnCard"
+                                                               type="text"
+                                                               onFocus={() =>
+                                                                   setCurrentSelected("name")
+                                                               }
+                                                               onBlur={() =>
+                                                                   setCurrentSelected("")
+                                                               }
+                                                               value={nameOnCard}
+                                                               onChange={event =>
+                                                                   setNameOnCard(event.target.value)
+                                                               }
+                                                        />
+                                                        <p id="nameOnCardContent" className="red-Content">
+                                                            {" "}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br/>
-                                    <div className="wrp">
                                         <br/>
-                                        <Cards
-                                            number={cardNumber ? cardNumber : ""}
-                                            name={nameOnCard ? nameOnCard : ""}
-                                            expiry={
-                                                (expirationMonth ? expirationMonth : "") +
-                                                (expirationYear ? expirationYear : "")
-                                            }
-                                            cvc={CVC}
-                                            focused={currentSelected}
-                                        />
-                                        <br/>
-                                    </div>
-                                    <div className="wrp">
-                                        <label className="mb-2">Card Details <span
-                                            style={{color: "red"}}>*</span></label>
-                                        <br />
-                                        <br />
-                                        <div id="creditCard">
-                                            <CreditCardInput
-                                                cardCVCInputProps={{
-                                                    onBlur: event =>
-                                                        setCurrentSelected(""),
-                                                    onFocus: () =>
-                                                        setCurrentSelected("cvc"),
-                                                    onChange: event => {
-                                                        setCVC(event.target.value)
-                                                    },
-                                                    onError: event => {
-                                                        setCVCError(event)
-                                                    }
-                                                }}
-                                                cardExpiryInputProps={{
-                                                    onBlur: event =>
-                                                        setCurrentSelected(""),
-                                                    onFocus: () =>
-                                                        setCurrentSelected("expiry"),
-                                                    onChange: event => {
-                                                        setExpiryDateError(null);
-                                                        setExpirationMonth(event.target.value.substring(0, 2));
-                                                        setExpirationYear(event.target.value.substring(5, 7));
-                                                    },
-                                                    onError: event => {
-                                                        setExpiryDateError(event)
-                                                    }
-                                                }}
-                                                cardNumberInputProps={{
-                                                    onBlur: event =>
-                                                        setCurrentSelected(""),
-                                                    onChange: event =>
-                                                        setCardNumber(event.target.value),
-                                                    onFocus: () =>
-                                                        setCurrentSelected("number"),
-                                                    onError: event =>
-                                                        setCardNumberError(event)
-                                                }}
+                                        <div className="wrp">
+                                            <br/>
+                                            <Cards
+                                                number={cardNumber ? cardNumber : ""}
+                                                name={nameOnCard ? nameOnCard : ""}
+                                                expiry={
+                                                    (expirationMonth ? expirationMonth : "") +
+                                                    (expirationYear ? expirationYear : "")
+                                                }
+                                                cvc={CVC}
+                                                focused={currentSelected}
                                             />
+                                            <br/>
                                         </div>
-                                        <p id="creditCardContent" className="red-Content">
-                                            {" "}
-                                        </p>
-                                        <br />
-                                    </div>
-                                    <div className="middle-btn mt-16">
-                                        <div className="save-changes-blue-btn-again">
-                                            <button onClick={() => {
-                                                addPayment()
-                                            }}>SAVE CHANGES
-                                            </button>
+                                        <div className="wrp">
+                                            <label className="mb-2">Card Details <span
+                                                style={{color: "red"}}>*</span></label>
+                                            <br />
+                                            <br />
+                                            <div id="creditCard">
+                                                <CreditCardInput
+                                                    cardCVCInputProps={{
+                                                        onBlur: event =>
+                                                            setCurrentSelected(""),
+                                                        onFocus: () =>
+                                                            setCurrentSelected("cvc"),
+                                                        onChange: event => {
+                                                            setCVC(event.target.value)
+                                                        },
+                                                        onError: event => {
+                                                            setCVCError(event)
+                                                        }
+                                                    }}
+                                                    cardExpiryInputProps={{
+                                                        onBlur: event =>
+                                                            setCurrentSelected(""),
+                                                        onFocus: () =>
+                                                            setCurrentSelected("expiry"),
+                                                        onChange: event => {
+                                                            setExpiryDateError(null);
+                                                            setExpirationMonth(event.target.value.substring(0, 2));
+                                                            setExpirationYear(event.target.value.substring(5, 7));
+                                                        },
+                                                        onError: event => {
+                                                            setExpiryDateError(event)
+                                                        }
+                                                    }}
+                                                    cardNumberInputProps={{
+                                                        onBlur: event =>
+                                                            setCurrentSelected(""),
+                                                        onChange: event =>
+                                                            setCardNumber(event.target.value),
+                                                        onFocus: () =>
+                                                            setCurrentSelected("number"),
+                                                        onError: event =>
+                                                            setCardNumberError(event)
+                                                    }}
+                                                />
+                                            </div>
+                                            <p id="creditCardContent" className="red-Content">
+                                                {" "}
+                                            </p>
+                                            <br />
                                         </div>
-                                    </div>
+                                        <div className="middle-btn mt-16">
+                                            <div className="save-changes-blue-btn-again">
+                                                <button onClick={() => {
+                                                    addPayment()
+                                                }}>SAVE CHANGES
+                                                </button>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                    </div>
                             }
-                            <div>
-                                <div className="configure-Connect-Gray-Button">
-                                    <button onClick={() => showPaymentHistory()} >Show Payment History</button>
+                            <div className="pdTop">
+                                <div className="save-changes-blue-btn-again">
+                                    <button onClick={() => showPaymentHistory()}>Show Payment History</button>
                                 </div>
                             </div>
                             <div>
-                                <div>
-                                    {paymentHistory !== "null"  ?
-                                        <PaymentHistory visitHistory={paymentHistory} />: <div/>}
-                                </div>
+                                {paymentHistory && paymentHistory.length !== 0 ? <div>
+                                    {paymentHistory !== "null" ?
+                                        <PaymentHistory visitHistory={paymentHistory}/> : <div/>}
+                                </div> : <Loader/>}
                             </div>
                         </div>
                     </div>
