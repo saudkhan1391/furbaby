@@ -1,27 +1,20 @@
 import React from 'react';
+import Food from './foodBlock'
 import SectionOne from './sectionOne';
-import SectionTwo from './sectionTwo';
-import SectionThree from './sectionThree';
-import SectionFour from './sectionFour';
-import SectionFive from './sectionFive';
-import SectionSix from './sectionSix';
-import SectionSeven from './sectionSeven';
+import Medication from './medicationBlock';
 import Layout from '../layout/container';
-const Schedule=()=>{
-    return(
-        <div>
-           <Layout>
-            <div>
+import Style from './style'
+const Schedule = (props) => {
+    let { clinic, dispatch } = props;
+    let food = clinic.food ? JSON.parse(clinic.food) : [];
+    let medication = clinic.medication ? JSON.parse(clinic.medication) : [];
+    return (
+        <Layout>
             <SectionOne/>
-            <SectionTwo/>
-            <SectionThree/>
-            <SectionFour/>
-            <SectionFive/>
-            <SectionSix/>
-            <SectionSeven/>
-            </div>
-           </Layout>
-        </div>
+            <Food clinic={clinic} dispatch={dispatch} foodData={food} />
+            <Medication clinic={clinic} dispatch={dispatch} foodData={medication} />
+            <Style/>
+        </Layout>
     );
 }
 export default Schedule;

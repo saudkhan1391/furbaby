@@ -10,7 +10,7 @@ import Treatmentplan from "./treatmentplan";
 import Progress from "./progress/container";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";
-import Foodmeds from "./foodmeds";
+import Foodmeds from "./foodmeds/container";
 import Treatmentplans from "./treatmentplans";
 import Customizenotes from "./customizenotes/container";
 import Globalmass from "./globalmass";

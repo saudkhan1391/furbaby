@@ -11,8 +11,9 @@ const SectionOne = () => {
                             <h1>TOOLS & SETTINGS</h1>
                         </div>
                         <div>
-                            <button className="mr-4 manage-Customize-Btn">CUSTOMIZE MEDICATION & FOOD DROP-DOWNS
-                            </button>
+                            <Link to="/foods-and-medications">
+                                <button className="mr-4 manage-Customize-Btn">CUSTOMIZE MEDICATION & FOOD DROP-DOWNS</button>
+                            </Link>
                             <Link to="/customize-notes">
                                 <button className="mr-4 manage-Note-Btn">MANAGE NOTE DATABASE</button>
                             </Link>

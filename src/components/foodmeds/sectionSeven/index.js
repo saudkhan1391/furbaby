@@ -20,7 +20,7 @@ const SectionSeven=()=>{
 
 <div className="flex mb-4">
   <div className="w-fullh-12">
-  <div className="fotText-area"><textarea rows="5" cols="209"></textarea></div>
+  <div className="fotText-area"><textarea rows="5" cols="180"></textarea></div>
   </div>
 </div>
 <div className="savebtnText h-40">
