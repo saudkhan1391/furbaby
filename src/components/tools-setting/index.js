@@ -6,15 +6,11 @@ import Layout from '../layout/container';
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
     return (
-        <div>
-            <Layout>
-                <div>
-                    <SectionOne/>
-                    <SectionTwo/>
-                    <SectionFour clinic={clinic} dispatch={dispatch}/>
-                </div>
-            </Layout>
-        </div>
+        <Layout>
+            <SectionOne/>
+            <SectionTwo/>
+            <SectionFour clinic={clinic} dispatch={dispatch}/>
+        </Layout>
     );
 }
 export default Schedule;

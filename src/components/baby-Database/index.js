@@ -2,16 +2,12 @@ import React from 'react';
 import SectionOne from './sectionOne';
 import SectionTwo from './sectionTwo';
 import Layout from '../layout/container';
-const Schedule=()=>{
-    return(
-        <div>
-           <Layout>
-            <div>
+const Schedule = () => {
+    return (
+        <Layout>
             <SectionOne/>
             <SectionTwo/>
-            </div>
-           </Layout>
-        </div>
+        </Layout>
     );
 }
 export default Schedule;

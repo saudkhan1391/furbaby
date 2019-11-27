@@ -6,7 +6,7 @@ import Login from './login/container';
 import Schedule from './schedule';
 import SchedulePageOne from "./schedulePageOne";
 import Schedulepet from "./Schedulepet";
-import Treatmentplan from "./treatmentplan";
+import Treatmentplan from "./treatmentplan/container";
 import Progress from "./progress/container";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";

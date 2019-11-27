@@ -1,7 +1,35 @@
 import React from 'react';
 export default () => (
     <style>{`
-      .clr{
+    .headingSchedule{
+        font-size: 24px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.58;
+        letter-spacing: normal;
+        color: #444444;
+        margin-left: 61px;
+    }
+    .date{
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: normal;
+        color: #6d7278;
+        margin-top: 9px;
+    }
+   
+      hr.style1{
+        border-top: 2px solid #e5e5e4;
+        width:93%;
+        margin-top:0px;
+    }
+    .mb{
+        margin-bottom:0px;
+    }
+     .clr{
           color:#afb0b1 !important;
       }
       .form input{
@@ -18,7 +46,7 @@ export default () => (
         letter-spacing: normal;
         color: #afb0b1;
         padding-left: 10px;
-        
+
       }
       .img{
         width: 22px;
@@ -96,7 +124,7 @@ export default () => (
         letter-spacing: normal;
         color: #afb0b1;
         padding-left: 10px;
-        
+
       }
       .inputvision input{
         width: 84%;
@@ -111,7 +139,7 @@ export default () => (
         color: #6d7278;
         border-radius: 4px;
         border: solid 1px #dcdddf;
-      
+
       }
       .inputvision label{
         font-size: 14px;
@@ -121,7 +149,7 @@ export default () => (
         line-height: normal;
         letter-spacing: normal;
         color: #444444;
-      
+
       }
       .allButtons{
         margin-bottom: 0px;
@@ -170,8 +198,8 @@ export default () => (
             font-stretch: normal;
             line-height: 1.67;
             letter-spacing: normal;
-            color: #444444;  
-          
+            color: #444444;
+
         }
         .treatment button{
             border-radius: 4px;
@@ -185,7 +213,7 @@ export default () => (
             text-align: center;
             color: #9c1f60;
             padding: 5px 16px;
-          
+
         }
         .optional p{
             font-size: 16px;
@@ -210,7 +238,7 @@ export default () => (
           color: #313541;
           margin-bottom:35px;
       }
-      
+
       .container1 {
           display: block;
           position: relative;
@@ -223,7 +251,7 @@ export default () => (
           -ms-user-select: none;
           user-select: none;
         }
-        
+
         /* Hide the browser's default checkbox */
         .container1 input {
           position: absolute;
@@ -232,7 +260,7 @@ export default () => (
           height: 0;
           width: 0;
         }
-        
+
         /* Create a custom checkbox */
         .checkmark {
           position: absolute;
@@ -243,18 +271,18 @@ export default () => (
           // background-color: #eee;
           border: 1px solid #dfe6ee;
         }
-        
+
         /* On mouse-over, add a grey background color */
         .container1:hover input ~ .checkmark {
           background-color: #ccc;
         }
-        
+
         /* When the checkbox is checked, add a blue background */
         .container1 input:checked ~ .checkmark {
           background-color: white;
           border:1px solid #0099fa
         }
-        
+
         /* Create the checkmark/indicator (hidden when not checked) */
         .checkmark:after {
           content: "";
@@ -262,14 +290,14 @@ export default () => (
           display: none;
           color:red
         }
-        
+
         /* Show the checkmark when checked */
         .container1 input:checked ~
         .checkmark:after {
           display: block;
-          
+
         }
-        
+
         /* Style the checkmark/indicator */
         .container1 .checkmark:after {
           left: 9px;
@@ -345,7 +373,7 @@ export default () => (
           font-stretch: normal;
           line-height: normal;
           letter-spacing: 0.17px;
-          color: #5a5a5a;  
+          color: #5a5a5a;
       }
       .calendar-div .react-calendar__month-view__days__day--neighboringMonth {
         font-family: Lato;
@@ -388,9 +416,9 @@ export default () => (
         border-radius: 8%!important;
         height:65px!important;
         width:65px!important;
-      
+
       }
-      
+
       // .react-calendar__tile:enabled:hover{
       //   background-color:transparent!important;
       // }
@@ -425,8 +453,7 @@ export default () => (
         text-align: center;
         color: #9c1f60;
       }
-        
-      
+
     `}
 
     </style>
