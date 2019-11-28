@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { apiPath } from "../../../config";
 import DateTimePicker from 'react-datetime-picker';
+import {NotificationManager} from 'react-notifications';
 
 function EditCard(props) {
 
@@ -62,6 +63,7 @@ function EditCard(props) {
                 });
                 setLoader();
                 setSchedule(false);
+                NotificationManager.success('Your schedule is updated successfully', 'Schedule Updated');
             }).catch(err => {
                 if(err.response.data.err.message){
                     dispatch({
@@ -101,8 +103,6 @@ function EditCard(props) {
         })
     };
 
-    console.log(date);
-
     return (
         <div className="px-2">
             <div className="flex flex-wrap -mx-2 mt-8">
@@ -140,6 +140,7 @@ function EditCard(props) {
                 <button className="saveBtn mr-4" onClick={() => checkIn()}>SAVE CHANGES</button>
                 <button className="cancelBtn mr-4" onClick={() => setForm(null)}>CANCEL</button>
             </div>
+
         </div>
     )
 }
