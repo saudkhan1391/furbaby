@@ -69,6 +69,7 @@ const SectionFour = (props) => {
     };
 
     const showPaymentHistory = () => {
+        setPaymentHistory([]);
         firebase.database().ref("/clinicMetadata/" + clinic.clinicId + "/monthlyReport").once("value").then(res => {
             let history = [];
             let obj = res.val();
@@ -77,6 +78,7 @@ const SectionFour = (props) => {
                 history.push({date: sing, ...obj[sing]})
             });
             setPaymentHistory([...history]);
+            document.getElementById("focus").scrollIntoView();
         }).catch(err => {
             console.log("err", err);
         })
@@ -230,22 +232,22 @@ const SectionFour = (props) => {
                         <div className="w-1/2">
                             <div className="h-12">
                                 {/*<div className="flex h-12 practice-Management-Heading">*/}
-                                    {/*<h1>PRACTICE MANAGEMENT SOFTWARE INTEGRATION</h1>*/}
+                                {/*<h1>PRACTICE MANAGEMENT SOFTWARE INTEGRATION</h1>*/}
                                 {/*</div>*/}
                                 <div>
                                     {/*<div className="connectivity-Status">*/}
-                                        {/*<p>Connectivity Status: <span>Connected</span><br></br>*/}
-                                            {/*Last Synced: 6/29/2019. 05:29</p>*/}
+                                    {/*<p>Connectivity Status: <span>Connected</span><br></br>*/}
+                                    {/*Last Synced: 6/29/2019. 05:29</p>*/}
                                     {/*</div>*/}
                                     {/*<div className="flex mt-4">*/}
-                                        {/*<div className="manually-Sync-Blue-Button">*/}
-                                            {/*<button>MANUALLY SYNC</button>*/}
-                                        {/*</div>*/}
-                                        {/*<div className="configure-Connect-Gray-Button ml-4">*/}
-                                            {/*<button>CONFIGURE & CONNECT</button>*/}
-                                        {/*</div>*/}
+                                    {/*<div className="manually-Sync-Blue-Button">*/}
+                                    {/*<button>MANUALLY SYNC</button>*/}
                                     {/*</div>*/}
-                                    <div className="mt-16 manage-Automatic-Heading">
+                                    {/*<div className="configure-Connect-Gray-Button ml-4">*/}
+                                    {/*<button>CONFIGURE & CONNECT</button>*/}
+                                    {/*</div>*/}
+                                    {/*</div>*/}
+                                    <div className="manage-Automatic-Heading">
                                         <h1>MANAGE AUTOMATIC NOTIFICATION SETTINGS</h1>
                                     </div>
                                     <div className="mt-2 automatic-Text-Emails-Paragraph">
@@ -459,7 +461,7 @@ const SectionFour = (props) => {
                                             </p>
                                             <br />
                                         </div>
-                                        <div className="middle-btn mt-16">
+                                        <div className="middle-btn">
                                             <div className="save-changes-blue-btn-again">
                                                 <button onClick={() => {
                                                     addPayment()
@@ -475,7 +477,7 @@ const SectionFour = (props) => {
                                     <button onClick={() => showPaymentHistory()}>Show Payment History</button>
                                 </div>
                             </div>
-                            <div>
+                            <div className="highto">
                                 {paymentHistory && paymentHistory.length !== 0 ? <div>
                                     {paymentHistory !== "null" ?
                                         <PaymentHistory visitHistory={paymentHistory}/> : <div/>}

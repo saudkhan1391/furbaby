@@ -6,17 +6,17 @@ function FormGroup(props) {
     let [dropdown, setDropDown] = useState(null);
     let data = (visitHistory);
     return <div>
-        <h2 className="pdd-arround">Payment History</h2>
+        <h2 className="pdd-arround" id="focus">Payment History</h2>
         {
             data.length !== 0 ?
                 data.map((item, index) => {
                     return (
-                            <div key={index} className="pd-btm">
+                        <div key={index} className="pd-btm">
                             <div onClick={() => setDropDown(index === dropdown ? null : index)}>
                                 <div>
                                     <div className="background-color dflex">
                                         <div>
-                                            <p>{item.date}</p>
+                                            <p style={{color: "white"}}>{item.date}</p>
                                         </div>
                                         <div className="image-align">
                                             <img width="25px"

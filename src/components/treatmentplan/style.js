@@ -460,10 +460,10 @@ export default () => (
     border-radius: 50%;
     }
 
-    .corsswalaspan{
+    .corsswalaspan {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 0px;
+    top: 0px;
     color: red;
     display: flex;
     font-size: larger;

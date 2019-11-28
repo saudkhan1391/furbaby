@@ -284,7 +284,6 @@ export default () => (
           .middle-btn{   
             width: 57%;
             display: flex;
-            justify-content: flex-end;
           }
           .save-changes-blue-btn-again button{
             border-radius: 3px;
@@ -298,6 +297,7 @@ export default () => (
             text-align: center;
             color: #ffffff;
             padding: 14px 20px;
+            width: 165px
           }
           .check-mar{
             margin-right:10%;
@@ -325,6 +325,9 @@ export default () => (
           }
           .pdTop{
             padding-top: 15px;
+          }
+          .highto{
+              min-height: 40px;
           }
     `}
 
