@@ -206,6 +206,8 @@ const Treatmentplan = (props) => {
                     setPhone("");
                     setDate(null);
                     setDob(null);
+                    setShow(false);
+                    setTrackerName("Annual Exam");
                     // setBack();
                     dispatch({
                         type: "SET_LOADER",
@@ -284,6 +286,11 @@ const Treatmentplan = (props) => {
             setCoverPhoto("");
         }
     };
+
+    const setField = (value) => {
+        setTrackerName("");
+        setCustom(value)
+    }
 
 
     return (
@@ -623,27 +630,17 @@ const Treatmentplan = (props) => {
                                 </div>
                                 <div className="flex pl-12 mt-8 label">
                                     <div className="checkbox1">
-                                        <div className="flex mr-12 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
+                                        {defaultTrackers.map((single, index) =>
+                                            <div key={index} className="flex mr-12 check-mar">
+                                                <label className="container1">
+                                                    <input type="radio" name="same"
+                                                           checked={trackerName === single.name}
+                                                           onClick={() => setCurrentTracker(single.name, true)}/>
+                                                    <span className="checkmark"/>
+                                                </label>
+                                                <label>{single.name}</label>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="checkbox1">
                                         <div className="flex mr-12 check-mar">
@@ -675,7 +672,9 @@ const Treatmentplan = (props) => {
                                         <p>Add custom plan components</p>
                                     </div>
                                     <div className="fotText-area">
-                                        <textarea rows="5" cols="80"/>
+                                        <textarea
+                                            onChange={event => setField(event.target.value)}
+                                            rows="5" cols="80"/>
                                     </div>
                                 </div>
                             </div> :

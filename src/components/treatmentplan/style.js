@@ -453,23 +453,23 @@ export default () => (
         text-align: center;
         color: #9c1f60;
       }
-// .relatedimage{
-//     padding: 15px;
-//     width: 150px;
-//     height: 150px;
-//     border-radius: 50%;
-//     }
-//
-//     .corsswalaspan{
-//     position: absolute;
-//     right: 15px;
-//     top: 15px;
-//     color: red;
-//     display: flex;
-//     font-size: larger;
-//     font-weight: 900;
-//     cursor: pointer;
-//     }
+.relatedimage{
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    }
+
+    .corsswalaspan{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: red;
+    display: flex;
+    font-size: larger;
+    font-weight: 900;
+    cursor: pointer;
+    }
     `}
 
     </style>
