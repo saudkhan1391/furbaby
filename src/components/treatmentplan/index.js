@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
 import axios from 'axios';
 import {apiPath} from '../../config';
-import {defaultTracker, validateEmail, standardDate} from "../functions/index";
+import {defaultTracker, validateEmail} from "../functions/index";
 const Treatmentplan = (props) => {
-    let {appointments, clinicId, dispatch} = props;
+    let {appointments, dispatch} = props; // clinicId
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
-    const [showForm, setForm] = useState(false);
+    // const [showForm, setForm] = useState(false);
 
 
     const [email, setEmail] = useState("");
@@ -46,14 +46,14 @@ const Treatmentplan = (props) => {
     const [defaultTrackers] = useState(defaultTracker());
     const [trackerName, setTrackerName] = useState("Annual Exam");
 
-    const setCurrentTracker = (name, val) => {
-        if (val) {
-            setTrackerName(name);
-        } else {
-            setTrackerName("Annual Exam");
-        }
-        setCustom("");
-    };
+    // const setCurrentTracker = (name, val) => {
+    //     if (val) {
+    //         setTrackerName(name);
+    //     } else {
+    //         setTrackerName("Annual Exam");
+    //     }
+    //     setCustom("");
+    // };
 
     const setTracker = () => {
         return defaultTrackers.find(item => item.name === trackerName).trackers;

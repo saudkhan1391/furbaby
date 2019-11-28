@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './style';
-const SectionTwo =()=>{
+const SectionTwo=()=>{
     return(
         <div>
             <div className="container mx-auto">
@@ -13,73 +13,73 @@ const SectionTwo =()=>{
         <div className="w-1/2">
           <div className="h-12">
           <div className="flex h-12 form">
-          <input type="text" name="fname" placeholder=" SEARCH..."></input>
-         <div className=" img">
-             <img src={require('../../../assets/images/download.png')}/>
+          <input type="text" name="fname" placeholder=" SEARCH..."/>
+         <div className="img">
+             <img alt="" src={require('../../../assets/images/download.png')}/>
          </div>
           </div>
     <div>
     <div className="databaseParagraph">
-        <p>Search by the pet’s name, pet owner’s name, email, or phone, or scroll through the database below.<br></br>Records are listed by pet owner last name and first name.</p>
+        <p>Search by the pet’s name, pet owner’s name, email, or phone, or scroll through the database below.<br/>Records are listed by pet owner last name and first name.</p>
     </div>
     <div className="mt-8 forCard-border">
        <div className="p-4">
-       <img className="mb-1 ml-1 inline" src ={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">HOFFMEYER,AMANDA | 610-563-3294</span>
+       <img alt="" className="mb-1 ml-1 inline" src={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">HOFFMEYER,AMANDA | 610-563-3294</span>
        </div>
        <div className="pl-4">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Felix</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Felix</span>
        </div>
        <div className="pl-4 mt-1">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Schrody</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Schrody</span>
        </div>
     </div>
     
     <div className="mt-4 forCard-border1">
        <div className="p-4">
-           <img className="mb-1 ml-1 inline" src ={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">HOLT, THOMAS  |  610-444-0098</span>
+           <img alt="" className="mb-1 ml-1 inline" src={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">HOLT, THOMAS  |  610-444-0098</span>
        </div>
        <div className="pl-4">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Max</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Max</span>
        </div>
        <div className="pl-4 mt-1">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Kevin</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Kevin</span>
        </div>
        <div className="pl-4 mt-1">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Tin-Tin</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Tin-Tin</span>
        </div>
     </div>
     
     <div className="mt-4 forCard-border">
        <div className="p-4">
-       <img className="mb-1 ml-1 inline" src ={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">KIRKPATRICK, TINA  |  610-444-1234</span>
+       <img alt="" className="mb-1 ml-1 inline" src={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">KIRKPATRICK, TINA  |  610-444-1234</span>
        </div>
        <div className="pl-4">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Todd</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Todd</span>
        </div>
        <div className="pl-4 mt-1">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Toby</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Toby</span>
        </div>
     </div>
     
     <div className="mt-4 forCard-border2">
        <div className="p-4">
-       <img className="mb-1 ml-1 inline" src ={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">LITTLE, UMA  |  610-444-1234</span>
+       <img alt="" className="mb-1 ml-1 inline" src={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">LITTLE, UMA  |  610-444-1234</span>
        </div>
        <div className="pl-4">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">George</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">George</span>
        </div>
     </div>
     
     <div className="cardHeight">
     <div className="mt-4 forCard-border">
        <div className="p-4">
-       <img className="mb-1 ml-1 inline" src ={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">KIRKPATRICK, TINA  |  610-444-1234</span>
+       <img alt="" className="mb-1 ml-1 inline" src={require('../../../assets/images/avatar.png')} /> <span className="ml-1 amanda">KIRKPATRICK, TINA  |  610-444-1234</span>
        </div>
        <div className="pl-4">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Todd</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Todd</span>
        </div>
        <div className="pl-4 mt-1">
-       <img className="inline" src ={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Toby</span>
+       <img alt="" className="inline" src={require('../../../assets/images/pawprint.png')} /> <span className="ml-1 amanda1">Toby</span>
        </div>
        </div>
     </div>

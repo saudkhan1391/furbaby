@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Annual Vaccine Follow Up",
+    "content": "Congratulations on helping [petname] live their best life!  It is normal that vaccinations can make our fur babies sleepy, even a bit ouchy at vaccine sites.  However they should be back to their normal selves within 24 hours.  If [petname] presents with any of the following symptoms please reach out to us immediately:  Swelling, vomiting, diarrhea, or trouble breathing.",
+    "check": true,
+    "id": "1"
+  },
+  {
+    "title": "Boarding Follow Up",
+    "content": "It was such a pleasure to see [petname] we hope they enjoyed their stay as much as we did!  [petname] brought so much joy into our day!  Can't wait to play again!",
+    "check": true,
+    "id": "2"
+  },
+  {
+    "title": "Boarding, Playing",
+    "content": "[petname] is having a great time with all their new friends!  Of course we miss you, but wanted to let you know we are doing well and having fun!",
+    "check": true,
+    "id": "3"
+  },
+  {
+    "title": "Grooming Follow Up",
+    "content": "Scrub a dub dub, [petname] was in the tub!  Such a pleasure to see [petname] today!  Your fur baby had a great time at their spa day, till next time, ciao!",
+    "check": true,
+    "id": "4"
+  },
+  {
+    "title": "In Surgical Recovery",
+    "content": "[petname] was a fabulous patient!  Your sweet fur baby is comfortably resting in recovery, we will let you know when they are alert and ready for pick up.  [petname] can’t wait to see you for lots of love and kisses!",
+    "check": true,
+    "id": "5"
+  },
+  {
+    "title": "Non Well Follow Up",
+    "content": "We are so sorry [petname] was not feeling well today :(.  Good news is we have a plan!  Stay tuned for next steps as we craft the perfect plan of care for your fur baby.",
+    "check": true,
+    "id": "6"
+  },
+  {
+    "title": "Post Dental",
+    "content": "My teeth are so fresh and so clean clean!  Kisses please!  Please feed [petname] a small soft meal this evening post dental.  We were sure to clean up those gums which may cause a bit of soreness for a day or so.",
+    "check": true,
+    "id": "7"
+  },
+  {
+    "title": "Post Elective Surgery",
+    "content": "Today [petname] had a [visitreason]. Please keep them confined and leash walk only for the next 5-10 days so they have ample time to heal.  Keep that cone of shame on daily to prevent licking at the incision site to help prevent any possible infection.  We know it is embarrassing, but best for your pet :).  Please notify us of any missing stitches or staples, redness, discharge, foul odor, lethargy, vomit, diarrhea or loss of appetite.",
+    "check": true,
+    "id": "8"
+  },
+  {
+    "title": "Post Non Elective Surgery",
+    "content": "Gold star patient alert!  [petname] did great during their [visitreason].  Please feed a small, soft meal tonight and follow the medication instructions in your discharge notes. Please notify us of any missing stitches or staples, redness, discharge, foul odor, lethargy, vomit, diarrhea or loss of appetite.",
+    "check": true,
+    "id": "9"
+  },
+  {
+    "title": "Post Oral Surgery",
+    "content": "Phewwww much better!  Now that those rotten teeth are gone, let's take it easy for a few days.  Soft food only, 3 small meals a day for 2 days.",
+    "check": true,
+    "id": "10"
+  },
+  {
+    "title": "Ready for Pick Up",
+    "content": "Hi, Hi, Hi, Hi!  Guess what?!  I’m ready, I’m ready, I’m ready, come get me!  Did you get all that?  I’m ready to be picked up and I can’t wait to see you (even though everyone has been super kind to me here…of course!)!!!",
+    "check": true,
+    "id": "11"
+  },
+  {
+    "title": "Post Bandage Placement/Change",
+    "content": "Hey there!  [petname] is sporting a new, fresh bandage and is looking cool! Please keep the bandage clean and dry (that means a plastic baggie over the bandage when going outside!) and give us a call if there is ANY slipping, redness, discharge, foul odor, strike through (something staining the bandage from the inside-out), or if I seem to be bothering my bandaged leg (biting, limping more, restlessness) at all! Check your discharger notes to see when we'd like to see [petname] for a  recheck and next bandage change!",
+    "check": true,
+    "id": "12"
+  }
+]

@@ -5,7 +5,7 @@ import About from './main';
 import Login from './login/container';
 import Schedule from './schedule';
 import SchedulePageOne from "./schedulePageOne";
-import Schedulepet from "./Schedulepet";
+import Schedulepet from "./schedulePet/container";
 import Treatmentplan from "./treatmentplan/container";
 import Progress from "./progress/container";
 import Severalboarding from "./severalboarding";
@@ -32,7 +32,7 @@ import axios from "axios";
 import { apiPath } from "../config";
 
 const Routes = (props) => {
-    let { dispatch, loaded, history, location, clinicId } = props;
+    let { dispatch, loaded, history, location, clinicId, id } = props;
 
     const checkRole = (claims) => {
         if(claims.practiceAdmin){
@@ -99,6 +99,8 @@ const Routes = (props) => {
             }
         });
         if(clinicId){
+            firebase.database().ref("/clinics/"+clinicId).off('value');
+            firebase.database().ref("/appointments").off('value');
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -106,6 +108,18 @@ const Routes = (props) => {
                     type: "UPDATE_CLINIC",
                     payload: data
                 })
+            });
+            firebase.database().ref("/appointments").on('value', () => {
+                if(id){
+                    axios.get(apiPath+"/getClinicianData?clinicianUId="+id).then(res => {
+                        let main = {...res.data.data};
+                        main.uid = id;
+                        dispatch({
+                            type: "SET_CLINIC_DATA",
+                            payload: main
+                        });
+                    });
+                }
             });
         }
     }, [clinicId]);

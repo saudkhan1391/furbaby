@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Style from './style';
-import Layout from '../../layout/container';
+import UpdateMedication from "../updateMedication";
+import UpdateFood from "../updateFood";
+import UpdatePeePoop from "../updatePeePoop";
+import UpdateNotes from "../updateNotes";
+import UpdateSnapshot from "../updateSnapshots";
+
 
 const SectionTwo=(props) => {
-    let { foodData, medicationData, notes, pee, show, dispatch, furBaby, galleryPhotos } = props;
-
-    const [foodPopup, setFoodPopup]=useState(false);
-    const [medicationPopup, setMedicationPopup]=useState(false);
-    const [peePopup, setPeePopup]=useState(false);
-    const [notesPopup, setNotesPopup]=useState(false);
-    const [snapPopup, setSnapPopup]=useState(false);
+    let { foodData, medicationData, notes, pee, dispatch, furBaby, clinic, Foods, Meds, DefaultNotes, lastName, description, current, galleryPhotos } = props;
+    const [model, setModel]=useState(null);
 
 
     const formatAMPM = (date) =>  {
@@ -72,6 +72,24 @@ const SectionTwo=(props) => {
         }
     };
 
+    const showPopups = () => {
+        switch(model){
+            case 1:
+                return <UpdateMedication Meds={Meds} setModel={setModel}  medicationData={medicationData} dispatch={dispatch} furBaby={furBaby} clinic={clinic}/>;
+            case 2:
+                return <UpdateFood Foods={Foods} setModel={setModel} foodData={foodData} dispatch={dispatch} furBaby={furBaby} clinic={clinic}/>;
+            case 3:
+                return <UpdatePeePoop  pee={pee} dispatch={dispatch} furBaby={furBaby} setModel={setModel}/>;
+            case 4:
+                return <UpdateNotes  DefaultNotes={DefaultNotes} description={description} notes={notes} dispatch={dispatch} furBaby={furBaby} pet={current.pet} petOwner={current.petOwner} name={name} lastName={lastName} clinic={clinic} setModel={setModel}/>;
+            case 5:
+                return <UpdateSnapshot  galleryPhotos={galleryPhotos} dispatch={dispatch} furBaby={furBaby}  pet={current.pet} petOwner={current.petOwner} id={current.appointmentId} setModel={setModel}/>;
+            default:
+                return;
+
+        }
+    };
+
     return (
         <div>
             <div className="container mx-auto">
@@ -83,7 +101,7 @@ const SectionTwo=(props) => {
                     <div className="activity mb-6">
                         <div className=" flex act-top justify-between px-5 py-5">
                             <div className="act-1"><h3>Medication</h3></div>
-                            <div className="act-2"><button onClick={()=>setMedicationPopup(true)}>ADD ACTIVITY</button></div>
+                            <div className="act-2"><button onClick={()=>setModel(1)}>ADD ACTIVITY</button></div>
                         </div>
 
                         <div className="act-data justify-between px-5 py-5">
@@ -99,49 +117,13 @@ const SectionTwo=(props) => {
                             }
                         </div>
                     </div>
-                    {medicationPopup&&<div id="simpleModal" className="modal">
-                        <div className="modal-content">
-                            <div className="flex justify-end">
-                                <img onClick={()=>setMedicationPopup(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
-                            </div>
-                            <div className="food-popup-heading">
-                                <h1>Medication</h1>
-                            </div>
-                            <div className="food-popup-para mt-4">
-                                <p>Select the medication administered from the dropdown below. Click add activity to send the update to the pet owner.</p>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" htmlFor="first_name">Medication</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-6">
-                                <label className="mb-1" htmlFor="first_name">Dose Administered</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex justify-center mt-24">
-                                <button className="activityBtn-popup">ADD ACTIVITY</button>
-                                <button className="CnclBtn-popup ml-4" onClick={()=>setMedicationPopup(false)}>CANCEL</button>
-                            </div>
-                        </div>
-
-                    </div>}
                 </div>
 
                 <div>
                     <div className="activity mb-6">
                         <div className=" flex act-top justify-between px-5 py-5">
                             <div className="act-1"><h3>Food</h3></div>
-                            <div className="act-2"><button onClick={()=>setFoodPopup(true)}>ADD ACTIVITY</button></div>
+                            <div className="act-2"><button onClick={()=>setModel(2)}>ADD ACTIVITY</button></div>
                         </div>
 
                         <div className="act-data justify-between px-5 py-5">
@@ -150,55 +132,19 @@ const SectionTwo=(props) => {
                                 foodData.map(single => {
                                     return <div key={single.id}>
                                         <img className="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic" onClick={() => removeFood(single.id)}/>
-                                        <p className="mt-2 inline">{single.type} {single.quantity ? (", "+single.quantity) : ""}</p><br/>
+                                        <p className="mt-2 inline">{single.type} {single.quantity ? (", "+single.quantity+"Cup") : ""}</p><br/>
                                     </div>
                                 })
                             }
                         </div>
                     </div>
-                    {foodPopup&&<div id="simpleModal" className="modal">
-                        <div className="modal-content">
-                            <div className="flex justify-end">
-                                <img onClick={()=>setFoodPopup(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
-                            </div>
-                            <div className="food-popup-heading">
-                                <h1>Food</h1>
-                            </div>
-                            <div className="food-popup-para mt-4">
-                                <p>Select the food given from the dropdown below. Click add activity to send the update to the pet owner.</p>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" htmlFor="first_name">Food</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-6">
-                                <label className="mb-1" htmlFor="first_name">Select The Amount Given (Optional)</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex justify-center mt-24">
-                                <button className="activityBtn-popup">ADD ACTIVITY</button>
-                                <button className="CnclBtn-popup ml-4" onClick={()=>setFoodPopup(false)}>CANCEL</button>
-                            </div>
-                        </div>
-
-                    </div>}
                 </div>
 
                 <div>
                     <div className="activity mb-6">
                         <div className=" flex act-top justify-between px-5 py-5">
                             <div className="act-1"><h3>Pee &amp; Poop</h3></div>
-                            <div className="act-2"><button onClick={()=>setPeePopup(true)}>ADD ACTIVITY</button></div>
+                            <div className="act-2"><button onClick={()=>setModel(3)}>ADD ACTIVITY</button></div>
                         </div>
 
                         <div className="act-data justify-between px-5 py-5">
@@ -214,160 +160,65 @@ const SectionTwo=(props) => {
                             }
                         </div>
                     </div>
-                    {peePopup&&<div id="simpleModal" className="modal">
-                        <div className="pee-content">
-                            <div className="flex justify-end">
-                                <img onClick={()=>setPeePopup(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
-                            </div>
-                            <div className="food-popup-heading">
-                                <h1>Pee &amp; Poop</h1>
-                            </div>
-                            <div className="food-popup-para mt-4">
-                                <p>Select the pee or poop icon below. Click add activity to send the update to the pet owner.</p>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" htmlFor="first_name">Food</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex justify-center mt-24">
-                                <button className="activityBtn-popup">ADD ACTIVITY</button>
-                                <button className="CnclBtn-popup ml-4" onClick={()=>setPeePopup(false)}>CANCEL</button>
-                            </div>
-                        </div>
-
-                    </div>}
                 </div>
-
-                <div>
-                    <div className="activity mb-6">
-                        <div className=" flex act-top justify-between px-5 py-5">
-                            <div className="act-1"><h3>Notes</h3></div>
-                            <div className="act-2"><button onClick={()=>setNotesPopup(true)}>ADD ACTIVITY</button></div>
-                        </div>
-
-                        <div className="act-data justify-between px-5 py-5">
-                            <h3>Posted Activities</h3>
-                            {
-                                notes.map(single => {
-                                    return <div key={single.id}>
-                                        <img className="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic" onClick={() => removeNotes(single.id)}/>
-                                        <p className="mt-2 inline">{single.note}</p><br/>
-                                        {
-                                            single.photos && single.photos.length !== 0 &&
-                                            <div className="imageCont">
-                                                {
-                                                    single.photos.map(item => {
-                                                        return (
-                                                            <img className="mr-4" key={item.id} src={item.uri}/>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
-                                        }
-                                    </div>
-                                })
-                            }
-                        </div>
+                <div className="activity mb-6">
+                    <div className=" flex act-top justify-between px-5 py-5">
+                        <div className="act-1"><h3>Notes</h3></div>
+                        <div className="act-2"><button onClick={()=>setModel(4)}>ADD ACTIVITY</button></div>
                     </div>
-                    {notesPopup&&<div id="simpleModal" className="modal">
-                        <div className="notes-content">
-                            <div className="flex justify-end">
-                                <img onClick={()=>setNotesPopup(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
-                            </div>
-                            <div className="food-popup-heading">
-                                <h1>Notes</h1>
-                            </div>
-                            <div className="food-popup-para mt-4">
-                                <p>Select the food given from the dropdown below. Click add activity to send the update to the pet owner.</p>
-                            </div>
-                            <div className="flex flex-col mb-2 inputvision mt-8">
-                                <label className="mb-1" htmlFor="first_name">Notes</label>
-                                <select className="border py-2 px-3 " type="text">
-                                    <option value="" selected="">Select</option>
-                                    <option>FIRST</option>
-                                    <option>SECOND</option>
-                                    <option>THIRD</option>
-                                </select>
-                            </div>
-                            <div className="flex flex-col mb-2 fotText-area mt-6">
-                                <textarea rows="5" cols="80" placeholder="Text area" spellcheck="false"></textarea>
-                            </div>
-                            <div className="flex justify-center mt-24">
-                                <button className="activityBtn-popup">ADD ACTIVITY</button>
-                                <button className="CnclBtn-popup ml-4" onClick={()=>setNotesPopup(false)}>CANCEL</button>
-                            </div>
-                        </div>
-
-                    </div>}
+                    <div className="act-data justify-between px-5 py-5">
+                        <h3>Posted Activities</h3>
+                        {
+                            notes.map(single => {
+                                return <div key={single.id}>
+                                    <img className="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic" onClick={() => removeNotes(single.id)}/>
+                                    <p className="mt-2 inline">{single.note}</p><br/>
+                                    {
+                                        single.photos && single.photos.length !== 0 &&
+                                        <div className="imageCont">
+                                            {
+                                                single.photos.map(item => {
+                                                    return (
+                                                        <img alt="" className="mr-4" key={item.id} src={item.uri}/>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            })
+                        }
+                    </div>
                 </div>
                 <div>
                     <div className="pb-12 mb-12">
                         <div className="activity mb-12">
                             <div className=" flex act-top justify-between px-5 py-5">
                                 <div className="act-1"><h3>Snapshots</h3></div>
-                                <div className="act-2"><button onClick={()=>setSnapPopup(true)}>ADD ACTIVITY</button></div>
+                                <div className="act-2"><button onClick={()=>setModel(5)}>ADD ACTIVITY</button></div>
                             </div>
 
-                            <div className="act-data justify-between px-5 py-5">
+                            <div className="act-data gallery-images justify-between px-5 py-5">
                                 <h3>Posted Activities</h3>
                                 <div className="flex mt-5 mb-4">
-                                    <img className="mr-5" src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
-                                    <img className="mr-5" src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
-                                    <img src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/>
+                                    {
+                                        galleryPhotos.map(item => {
+                                            return (
+                                                <img className="mr-3" key={item.uri} src={item.uri} alt="pic"/>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {snapPopup&&<div id="simpleModal" className="modal">
-                        <div className="snapshots-content">
-                            <div className="flex justify-end">
-                                <img onClick={()=>setSnapPopup(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
-                            </div>
-                            <div className="food-popup-heading">
-                                <h1>Snapshots</h1>
-                            </div>
-                            <div className="food-popup-para mt-4">
-                                <p>Select the photo you wish to share. Click add activity to send the update to the pet owner.</p>
-                            </div>
-                            <div className="flex justify-around mt-12">
-                                <div>
-                                    <img src={require('../../../assets/images/image.png')} alt="pic"/>
-                                    <h1 className="library-heading mt-2">Access From Library</h1>
-                                </div>
-                                <div>
-                                    <img src={require('../../../assets/images/photo-camera.png')} alt="pic"/>
-                                    <h1 className="photo-heading mt-2">Take Photo</h1>
-                                </div>
-                            </div>
-                            <div className="flex justify-center mt-8">
-                                <div>
-                                    <img className="pl-1" src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/><br></br>
-                                    <img className="ml-12" src={require('../../../assets/images/bin.png')} alt="pic"/>
-                                </div>
-                                <div>
-                                    <img className="pl-6" src={require('../../../assets/images/img3-placeholder.png')} alt="pic"/><br></br>
-                                    <img className="ml-16" src={require('../../../assets/images/bin.png')} alt="pic"/>
-                                </div>
-                                <div>
-                                    <img className="pl-6" src={require('../../../assets/images/img-placehold.png')} alt="pic"/>
-                                </div>
-                            </div>
-                            <div className="flex justify-center mt-20">
-                                <button className="activityBtn-popup">ADD ACTIVITY</button>
-                                <button className="CnclBtn-popup ml-4" onClick={()=>setSnapPopup(false)}>CANCEL</button>
-                            </div>
-                        </div>
-
-                    </div>}
                 </div>
 
             </div>
-            <Style />
+            {
+                showPopups()
+            }
+            <Style/>
         </div>
     );
 }

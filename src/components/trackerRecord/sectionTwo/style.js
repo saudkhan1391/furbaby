@@ -115,6 +115,7 @@ export default ()=>(
             color: #6d7278;
             border-radius: 4px;
             border: solid 1px #dcdddf;
+                height: 45px;
           }
           .inputvision label{
             font-size: 14px;
@@ -139,7 +140,6 @@ export default ()=>(
               margin:9% auto;
               padding:40px;
               width:588px;
-              height:510px; 
                
           }
           .activityBtn-popup{
@@ -154,6 +154,19 @@ export default ()=>(
             text-align: center;
             color: #ffffff;
             padding:16px 30px;
+          }
+          .activityBtn-popup-small{
+            border-radius: 4px;
+            background-color: #9c1f60;
+            font-size: 10px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+            padding: 10px 20px;
           }
           .CnclBtn-popup{
             border-radius: 4px;
@@ -181,7 +194,6 @@ export default ()=>(
             margin:7% auto;
             padding:40px;
             width:588px;
-            height:580px;    
         }
         .pee-content{
             background-color:#f5f5f5;
@@ -195,7 +207,6 @@ export default ()=>(
             margin:5% auto;
             padding:40px;
             width:588px;
-            height:630px;
         }
         .library-heading{
             font-size: 16px;
@@ -225,6 +236,30 @@ export default ()=>(
         }
         .imageCont img {
             border-radius: 50%;
+        }
+        .customInput{
+            height: 45px;
+            padding: 10px;
+            width: 98%;
+        }
+        .gallery-images img{
+            border-radius: 50%;
+        }
+        .food-popup-heading img{
+            border-radius: 50%;
+            width: 43px;
+            height: 43px;
+        }
+        .gallery-image {
+             padding: 10px;
+        }
+        .gallery-image .pic{
+            width: 100px;
+            height: 98px;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     `}</style>
 )

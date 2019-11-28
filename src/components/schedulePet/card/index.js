@@ -34,7 +34,7 @@ function card(props) {
         return (single * temp);
     };
     return (
-        <Link to={"/tracker-record/"+item.appointmentId}>
+
             <div className="shadow-bord">
                 <div className="">
                     <CircularProgressbarWithChildren
@@ -48,7 +48,7 @@ function card(props) {
                         <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
                         {
                             calculate() === 100 &&
-                            <img alt="" src={require("../../../assets/images/completed.png")} className="completed" />
+                            <img src={require("../../../assets/images/completed.png")} className="completed" />
 
                         }
                     </CircularProgressbarWithChildren>
@@ -61,7 +61,6 @@ function card(props) {
                     </p>
                 </div>
             </div>
-        </Link>
     )
 }
 

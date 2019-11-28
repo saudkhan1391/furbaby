@@ -8,13 +8,15 @@ import Single from "./singleTracker";
 import CompleteTracker from "./completeTracker";
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
+import UpdateTracker from "../updateTracker";
 
 const SectionOne=(props) => {
-    let { data, furBaby, dispatch, pet, petOwner, image, name, treatment, petOwnerNote, startTime, firstName, lastName, phone, email } = props;
+    let { data, furBaby, dispatch, pet, petOwner, image, name, treatment, petOwnerNote, startTime, firstName, lastName, phone, email, clinic } = props;
     const [tracker, setTracker] = useState(data);
     const [current, setCurrent] = useState(furBaby);
     const [disabled, setDisabled] = useState(true);
     const [load, setLoad] = useState(true);
+    const [show, setShow] = useState(false);
     const [currentStatus, setCurrentStatus] = useState(null);
     const [currentName, setCurrentName] = useState(null);
     const [button, setButton] = useState("UPDATE");
@@ -180,7 +182,10 @@ const SectionOne=(props) => {
                     </div>
 
                     <div className="flex-1 ml-12 pl-12">
-                        <div className="heading"><h3>FUR BABY TRACKER</h3></div>
+                        <div className="heading">
+                            <h3>FUR BABY TRACKER</h3>
+                            <button type="button" className="activity-popup-small" onClick={() => setShow(true)}>EDIT TRACKER COMPONENTS</button>
+                        </div>
                         <div>
                             <div className="flex tracks justify-between mt-5">
                                 {
@@ -219,8 +224,6 @@ const SectionOne=(props) => {
                                 />
                             </div>
                         </div>
-
-
                         <div>
                         <div className="flex tracks-comp justify-between mt-10">
                                 <div className="track-txt-comp">
@@ -240,6 +243,10 @@ const SectionOne=(props) => {
                 </div>
             </div>
             <Style />
+            {
+                show &&
+                <UpdateTracker data={tracker} dispatch={dispatch} furBaby={furBaby} clinic={clinic} setShow={setShow} />
+            }
         </div>
     );
      

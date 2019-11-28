@@ -58,6 +58,7 @@ export default () => (
         letter-spacing: normal;
         text-align: center;
         color: #444444;
+        padding-top: 34px;
       }
       
       .normal{
@@ -141,6 +142,13 @@ export default () => (
         width: 110px;
         height: 110px;
         border-radius: 50%;
+    }
+    .carousel-cont a{
+        border: 1px solid #8080801c;
+        padding: 27px 13px 17px 13px;
+        width: 172px;
+        margin-right: 40px;
+        margin-bottom: 40px;
     }
     
     `}

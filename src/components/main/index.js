@@ -2,7 +2,6 @@ import React from 'react';
 import Style from './style';
 import { Link } from "react-router-dom";
 const About =(props)=>{
-    let { dispatch, loaded } = props;
     return(
         <section>
             <div className="d-flex">

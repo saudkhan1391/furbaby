@@ -298,14 +298,75 @@ export default () => (
     .carousel-control.next {
         right: 1%;
     }
+    .calendar-item{
+        position: absolute;
+        background-color: #8bc53f;
+        border-radius: 50%;
+        top: 0;
+        right: 0px;
+        width: 24px;
+    }
+    .calendar-item p{
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+    }
     #carousel-1:checked ~ .control-1,
     #carousel-2:checked ~ .control-2,
     #carousel-3:checked ~ .control-3 {
         display: block;
     }
-    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet 
+    .react-calendar button{
+        position: relative;
+    }
+    .single-tile{
+
+    }
+    .react-calendar__tile--active{
+        border: solid 1px #32c5ff!important;
+        background-color: #32c5ff!important;
+        height: 65px!important;
+        width: 65px!important;
+    }
+    .react-calendar__tile--active:enabled:focus{
+        border: solid 1px #32c5ff!important;
+        background-color: #32c5ff!important;
+        height: 65px!important;
+        width: 65px!important;
+    }
+    .coverPhoto{
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover;
+    }
+    .completed{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+    }
+    .carousel-cont .shadow-bord{
+        border: 1px solid #8080801c;
+        padding: 27px 13px 17px 13px;
+        width: 195px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+    }
+    .forText {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: center;
+        color: #444444;
+        padding-top: 34px;
+    }
     `}
 
     </style>

@@ -1,0 +1,897 @@
+[
+  {
+    "name": "Pain Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "PRP Injection",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Stem Cell Injection",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Appetite Stimulant",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antibiotic",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Flea Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Heartworm Prevention",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Dewormer",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Tick Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Vaccine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antiparasitic",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antifungals",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antiviral",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Steroid",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Anti-Inflammatory",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "NSAID",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Sedative",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Chemotherapy",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antidepressant",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Decongestant",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Antihistamine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "ACE-inhibitor",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Analgesic",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Bronchodilator",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Diuretic",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Beta Blocker",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Thyroid Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Anti-nausea Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Anti-diarrheal Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "GI Protectant",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Nutraceutical",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Joint Supplement",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Insulin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Anti-Seizure Medication",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Chinese Herbal Supplement",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Western Herbal Supplement",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Heartworm Treatment Injection",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Oxygen Therapy",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Acepromazine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Adequan Injection",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Advantage",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Alprazolam",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Amantadine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Aminophylline",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Amitraz",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Amitriptyline",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Amlodipine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Amoxicillin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Amprolium",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Apomorphine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Apoquel",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Artificial Tears",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Atenolol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Atipamezole",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Baytril",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Benazepril",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Bethanechol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Bupivacaine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Buprenorphine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Butorphanol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Carprofen",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Cefovecin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Cefpodoxime",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ceftiofur",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Cephalexin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Cerenia",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Chloramphenicol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Cimetidine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ciprofloxacin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Cisplatin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Clamoxyquine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Clavamox",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Clavaseptin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Clindamycin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Clomipramine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Convenia",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Cyclophosphamide",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Cyproheptadine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Deracoxib",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Dexamethasone",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Diazepam",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Dichlorophen",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Digoxin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Diphenhydramine",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Doxorubicin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Doxycycline",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Enalapril",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Enrofloxacin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Famotidine",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Fenbendazole",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Fentanyl",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Fipronil",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Firocoxib",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Flunixin Meglumine",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Frontline",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Gabapentin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Galliprant",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Glycopyrrolate",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Heartgard",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Hydromorphone",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Hydroxyzine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ketamine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ketoprofen",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Levamisole",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Levetiracetam",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Levothyroxine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Lufenuron",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Marbofloxacin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Maropitant",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Mavacoxib",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Medetomidine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Meloxicam",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Meperidine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Metacam",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Methimazole",
+    "type": "Feline",
+    "show": true
+  },
+  {
+    "name": "Metoclopramide",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Metronidazole",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Midazolam",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Milbemycin Oxime",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Mitratapide",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Morphine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Moxifloxacin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Neomycin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "NexGard",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Nitenpyram",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Nitroscanate",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Nystatin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Oclacitinib",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Ofloxacin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Oxibendazole",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Oxycodone",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Oxytetracycline",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Pentoxyfylline",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Phenobarbital",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Phenylbutazone",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Phenylpropanolamine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Pimobendan",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Ponazuril",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Posatex Otic",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Praziquantel",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Prazosin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Prednisolone",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Prednisone",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Proheart",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Proin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Protonix",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Pyrantel",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Rafoxanide",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Revolution",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Rimadyl",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Robenacoxib",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Selamectin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Silver Sulfadiazine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Simparica",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Streptomycin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Sucralfate",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Sulfasalazine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Temaril-P",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Tepoxalin",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Theophylline",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Thiabendazole",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Thiostrepton",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Tolfenamic Acid",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Torbutrol",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Tramadol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Tresaderm",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Triamcinolone Acetonide",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Trifexis",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Trilostane",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Trimethoprim",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Trimethoprim-Sulfa",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Tylosin",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ursodeoxycholic Acid",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Ursodiol",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Vetoryl",
+    "type": "Canine",
+    "show": true
+  },
+  {
+    "name": "Vincristine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Vitamin B12",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Xylazine",
+    "type": "Canine, Feline",
+    "show": true
+  },
+  {
+    "name": "Yohimbine",
+    "type": "Canine, Feline",
+    "show": true
+  }
+]
