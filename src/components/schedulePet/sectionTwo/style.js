@@ -67,7 +67,7 @@ export default () => (
       .again-border{
         border:1px solid #e5e5e4;
       }
-      .inputvision input{
+      .inputvision input.border{
         padding: 4px
         padding: 8px;
         font-size: 14px;
