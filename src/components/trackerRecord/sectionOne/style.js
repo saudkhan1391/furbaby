@@ -94,7 +94,6 @@ export default () => (
       }
 
     .heading{
-        width:172px;
         font-family: Lato;
         font-size: 18px;
         font-weight: bold;
@@ -103,6 +102,10 @@ export default () => (
         line-height: 1.67;
         letter-spacing: normal;
         color: #444444;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        width: 100%;
     }
     .tracks {
         width: 700px;
@@ -208,6 +211,27 @@ export default () => (
         width: 110px;
         height: 110px;
         border-radius: 50%;
+    }
+    .checkbox{
+        width: 50%;
+        padding: 10px 0px 10px 0;
+    }
+    .checkbox span{
+        padding-left: 8px;
+    }
+    .main-check-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .activity-popup-small {
+        border-radius: 4px;
+        border: solid 1px #9c1f60;
+        font-family: Lato;
+        font-size: 10px;
+        font-weight: bold;
+        color: #9c1f60;
+        padding: 7px 20px;
     }
 
     `}</style>

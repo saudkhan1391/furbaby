@@ -14,6 +14,17 @@ const sectionOne =()=>{
     const [disabled, setDisabled] = useState(null);
     const [signInLoader, setSignIn] = useState(false);
 
+    const resetPassword = () => {
+        setSuccess(null);
+        setMessage(null);
+        firebase.auth().sendPasswordResetEmail(email).then(res => {
+            setDisabled(false);
+            setSuccess("Password visit your email to recover password");
+        }).catch(function(err){
+
+        });
+    };
+
     const signIn = (event) => {
         event.preventDefault();
         setDisabled(true);
@@ -41,17 +52,6 @@ const sectionOne =()=>{
         } else {
             resetPassword();
         }
-    };
-
-    const resetPassword = () => {
-        setSuccess(null);
-        setMessage(null);
-        firebase.auth().sendPasswordResetEmail(email).then(res => {
-            setDisabled(false);
-            setSuccess("Password visit your email to recover password");
-        }).catch(function(err){
-
-        });
     };
 
 

@@ -6,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { placeholderPet } from "../../../config";
 
 function card(props) {
-    let { item } = props;
+    let { item, setForm } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
     const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
@@ -34,7 +34,7 @@ function card(props) {
         return (single * temp);
     };
     return (
-        <Link to={"/tracker-record/"+item.appointmentId}>
+        <div className="mainWrapper">
             <div className="shadow-bord">
                 <div className="">
                     <CircularProgressbarWithChildren
@@ -48,7 +48,7 @@ function card(props) {
                         <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
                         {
                             calculate() === 100 &&
-                            <img alt="" src={require("../../../assets/images/completed.png")} className="completed" />
+                            <img src={require("../../../assets/images/completed.png")} className="completed" />
 
                         }
                     </CircularProgressbarWithChildren>
@@ -61,7 +61,12 @@ function card(props) {
                     </p>
                 </div>
             </div>
-        </Link>
+            {
+                <div className="extension">
+                    <p>Edit: <span onClick={() => setForm(item)}>Visit</span></p>
+                </div>
+            }
+        </div>
     )
 }
 

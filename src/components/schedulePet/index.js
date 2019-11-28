@@ -1,14 +1,16 @@
-import React from 'react';
+import React  from 'react';
 import SectionOne from './sectionOne';
 import SectionTwo from './sectionTwo';
 import Layout from '../layout/container';
-const Schedulepet=()=>{
+
+const Schedulepet=(props)=>{
+    let { appointments, dispatch } = props;
     return(
         <div>
            <Layout>
             <div>
             <SectionOne/>
-            <SectionTwo/>
+            <SectionTwo appointments={appointments} dispatch={dispatch} />
             </div>
            </Layout>
         </div>

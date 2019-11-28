@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
-import {defaultTracker, validateEmail, standardDate} from "../functions/index";
+import {defaultTracker, validateEmail} from "../functions/index";
 const Treatmentplan = (props) => {
-    let {appointments, clinicId, dispatch} = props;
+    let {appointments, dispatch} = props; // clinicId
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
-    const [showForm, setForm] = useState(false);
+    // const [showForm, setForm] = useState(false);
 
 
     const [email, setEmail] = useState("");

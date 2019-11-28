@@ -3,9 +3,12 @@ import SectionOne from '../trackerRecord/sectionOne';
 import SectionTwo from '../trackerRecord/sectionTwo';
 import Layout from '../layout/container';
 import firebase from "../../utils/firebase";
+import Foods from "../../jsons/food.json";
+import Meds from "../../jsons/medications.json";
+import DefaultNotes from "../../jsons/notes.json";
 
 const trackerRecord = (props) => {
-    let { current, dispatch } = props;
+    let { current, dispatch, clinic } = props;
     const [furBaby, setFurBaby] = useState(current);
     const [show, setShow] = useState(false);
 
@@ -17,14 +20,14 @@ const trackerRecord = (props) => {
         });
         setShow(true);
     }, [current]);
-    let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos } = furBaby;
+    let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = furBaby;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
     let { name, coverPhoto } = current.pet;
     let { firstName, lastName, workPhone, email } = current.petOwner;
-    medications = medications ? JSON.parse(medications) : [];
-    food = food ? JSON.parse(food) : [];
+    medications = medications ? JSON.parse(medications) : Meds;
+    food = food ? JSON.parse(food) : Foods;
     pee = pee ? JSON.parse(pee) : [];
-    notes = notes ? JSON.parse(notes) : [];
+    notes = notes ? JSON.parse(notes) : DefaultNotes;
     galleryPhotos = galleryPhotos ? JSON.parse(galleryPhotos) : [];
 
     return(
@@ -44,9 +47,11 @@ const trackerRecord = (props) => {
                 lastName={lastName}
                 phone={workPhone}
                 email={email}
+                clinic={clinic}
             />
             <SectionTwo
                 foodData={food}
+                lastName={lastName}
                 furBaby={furBaby}
                 dispatch={dispatch}
                 medicationData={medications}
@@ -54,6 +59,13 @@ const trackerRecord = (props) => {
                 pee={pee}
                 image={coverPhoto}
                 galleryPhotos={galleryPhotos}
+                clinic={clinic}
+                DefaultNotes={DefaultNotes}
+                Foods={Foods}
+                Meds={Meds}
+                description={description}
+                current={current}
+                staffNotes={staffNotes}
             />
         </Layout>
     );

@@ -9,7 +9,6 @@ const Progress=(props)=>{
         <Layout>
             <SectionOne/>
             <SectionTwo appointments={appointments} dispatch={dispatch}/>
-            {/*<SectionThree/>*/}
         </Layout>
     );
 }

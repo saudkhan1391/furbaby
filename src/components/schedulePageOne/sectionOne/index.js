@@ -22,7 +22,7 @@ const SectionOne=()=>{
             </div>
             
             </div>
-            <div className="ml-12 forline"></div>
+            <div className="ml-12 forline"/>
             
             <Style/>
         </div>

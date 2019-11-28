@@ -115,8 +115,10 @@ const SectionOne=(props)=>{
 
                     <div className="mt-8">
                         <label className="font-bold ml-12 lbl-3">TREATMENTS</label>
-                        <button className="view-btn-background  font-bold float-right">VIEW All</button>
-                        <button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>
+                        <Link to="/in-progress" >
+                            <button className="view-btn-background  font-bold float-right">VIEW All</button>
+                        </Link>
+                        {/*<button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>*/}
 
                     </div>
 

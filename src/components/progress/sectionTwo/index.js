@@ -5,7 +5,7 @@ const SectionTwo =(props)=>{
     let { appointments } = props;
     return(
         <div>
-            <div className="container mx-auto">
+            <div className="ml-12 mx-auto">
                 <div className="progressDiv">
                     <div className="flex mb-4">
                         <div className="w-1/2 h-12">
@@ -24,7 +24,7 @@ const SectionTwo =(props)=>{
                             {/*</div>*/}
                         {/*</div>*/}
                     </div>
-                    <div className="flex mb-4 carousel-container">
+                    <div className="flex mb-4 carousel-cont flex-wrap">
                         {
                             appointments.length !== 0 && appointments.map((item, index) => {
                                return <Card key={index} item={item} />
