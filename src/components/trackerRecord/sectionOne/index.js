@@ -9,6 +9,7 @@ import CompleteTracker from "./completeTracker";
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
 import UpdateTracker from "../updateTracker";
+import {NotificationManager} from 'react-notifications';
 
 const SectionOne=(props) => {
     let { data, furBaby, dispatch, pet, petOwner, image, name, treatment, petOwnerNote, startTime, firstName, lastName, phone, email, clinic } = props;
@@ -53,6 +54,7 @@ const SectionOne=(props) => {
                     appointment: temp
                 }).then(res => {
                     setButton("UPDATED");
+                    NotificationManager.success('Furbaby appointment has been successfully completed', 'Appointment Completed');
                     setTimeout(() => {
                         setButton("UPDATE");
                     }, 5000);
@@ -73,6 +75,7 @@ const SectionOne=(props) => {
             if(currentStatus){
                 axios.post(apiPath+"/changeTrackerComponentStatus", payload).then(res => {
                     setButton("UPDATED");
+                    NotificationManager.success('', 'Tracker Update');
                     setTimeout(() => {
                         setButton("UPDATE");
                     }, 5000);

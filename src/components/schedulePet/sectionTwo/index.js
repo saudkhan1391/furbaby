@@ -32,7 +32,7 @@ const SectionTwo = (props) => {
     const [addManually, setManually] = useState(false);
     const [date , setMainDate] = useState(new Date());
     const [show , setShow] = useState(true);
-    const [showHistory , setShowHistory] = useState(false);
+
     const [schedule, setSchedule] = useState(false);
     const [showEdit , setShowEdit] = useState(false);
 
@@ -88,7 +88,7 @@ const SectionTwo = (props) => {
                             </div>
                             {
                                 showForm &&
-                                <EditForm setSchedule={setSchedule} schedule={schedule} setForm={setForm} setShowEdit={setShowEdit}  setShowHistory={setShowHistory} setManually={setManually} setShow={setShow} showForm={showForm} dispatch={dispatch}/>
+                                <EditForm setSchedule={setSchedule} schedule={schedule} setForm={setForm} setShowEdit={setShowEdit}  setManually={setManually} setShow={setShow} showForm={showForm} dispatch={dispatch}/>
                             }
                         </div>
                     </div>

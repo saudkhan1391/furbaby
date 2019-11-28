@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import uuid from "uuid";
+import {NotificationManager} from 'react-notifications';
+
 function UpdatePeePoop(props) {
 
     let { pee, dispatch, furBaby, setModel } = props;
@@ -21,6 +23,7 @@ function UpdatePeePoop(props) {
                 payload: furBaby
             });
             setModel(false);
+            NotificationManager.success('New bathroom status added', 'Bathroom Update');
         }
     };
 

@@ -3,6 +3,8 @@ import uuid from "uuid";
 import axios from "axios";
 import { apiPath } from "../../../config";
 import firebase from "../../../utils/firebase";
+import {NotificationManager} from 'react-notifications';
+
 function UpdateNotes(props) {
     let { notes, setModel, dispatch, furBaby, name, clinic, petOwner, pet, lastName, description, DefaultNotes } = props;
     const [type, setType] = useState(null);
@@ -30,6 +32,7 @@ function UpdateNotes(props) {
                 note: convertContentValues(content)
             };
             axios.post(apiPath+"/notesOrGalleryUpdated", payload).then(res => {
+                NotificationManager.success('New notes added', 'Notes Update');
             }).catch(err => {
                 console.log("err.", err.response);
             });

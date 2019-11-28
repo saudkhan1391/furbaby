@@ -3,12 +3,13 @@ import firebase from "../../../utils/firebase";
 import uuid from "uuid";
 import axios from "axios";
 import { apiPath } from "../../../config";
+import {NotificationManager} from 'react-notifications';
 
 function UpdateSnapshot(props) {
     let { galleryPhotos, dispatch, furBaby, id, petOwner, pet, setModel } = props;
     const [ gallery, setGallery ] = useState(galleryPhotos);
     const [deleteImageId, setDeleteImageId] = useState([]);
-
+    const [added, setAdded] = useState(false);
     const updateAppointment = () => {
         furBaby.galleryPhotos = JSON.stringify(gallery);
         dispatch({
@@ -26,7 +27,10 @@ function UpdateSnapshot(props) {
             type: "Gallery"
         };
         axios.post(apiPath+"/notesOrGalleryUpdated", payload).then(res => {
-
+            if(added){
+                NotificationManager.success('New snapshot added', 'Gallery Update');
+            }
+            setAdded(false);
         }).catch(err => {
             console.log("err.", err.response);
         });
@@ -69,6 +73,7 @@ function UpdateSnapshot(props) {
                     }
                 });
                 setGallery([...gall]);
+                setAdded(true);
             });
         });
     };
@@ -115,7 +120,7 @@ function UpdateSnapshot(props) {
                 </div>
                 <div className="flex justify-center mt-20">
                     <button className="activityBtn-popup" onClick={() => updateAppointment()}>ADD ACTIVITY</button>
-                    <button className="CnclBtn-popup ml-4" onClick={()=>setModel(null)}>CANCEL</button>
+                    <button className="CnclBtn-popup ml-4" onClick={()=>{setModel(null); setAdded(false);}}>CANCEL</button>
                 </div>
             </div>
         </div>

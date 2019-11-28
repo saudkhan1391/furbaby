@@ -21,12 +21,12 @@ const reducer = (state, action) => {
 
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
-            let { appointmentId, trackerComponents, food, medications, notes, pee, galleryPhotos, appointmentStatus, show, startTime, description } = action.payload;
+            let { appointmentId, trackingComponent, food, medications, notes, pee, galleryPhotos, appointmentStatus, show, startTime, description } = action.payload;
             update.forEach(item => {
                 if(item.appointmentId === appointmentId){
-                    item.trackerComponents = trackerComponents;
+                    item.trackingComponent = trackingComponent;
                     item.food = food;
-                    item.pee = pee;
+                    item.pee = pee ? pee : "[]";
                     item.medications = medications;
                     item.notes = notes;
                     item.appointmentStatus = appointmentStatus;

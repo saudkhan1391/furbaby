@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import uuid from "uuid";
+import {NotificationManager} from 'react-notifications';
 
 function UpdateTracker(props) {
     let { data, dispatch, furBaby, setShow } = props;
@@ -78,6 +79,7 @@ function UpdateTracker(props) {
             type: "UPDATE_CURRENT_FURBABY",
             payload: final
         });
+        NotificationManager.success('Tracker components are updated', 'Tracker Update');
         setShow(false);
     };
 

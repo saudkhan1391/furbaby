@@ -1,5 +1,6 @@
 import React, { useState }  from "react";
 import uuid from "uuid";
+import {NotificationManager} from 'react-notifications';
 
 function UpdateMedication(props) {
     let { dispatch, furBaby, foodData, clinic, Foods, setModel } = props;
@@ -23,6 +24,7 @@ function UpdateMedication(props) {
                 type: "UPDATE_CURRENT_FURBABY",
                 payload: furBaby
             });
+            NotificationManager.success('New food added', 'Food Update');
             setModel(null)
         }
     };

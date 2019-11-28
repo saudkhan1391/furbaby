@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {NotificationManager} from 'react-notifications';
+
 function UpdateNotes(props) {
 
     let { staffNotes, dispatch, furBaby, setModel } = props;
@@ -22,6 +24,7 @@ function UpdateNotes(props) {
                 message: "Note successfully updated."
             });
             setModel(null);
+            NotificationManager.success('Notes for clinic updated successfully', 'Clinic Note');
         }else{
             setShow(true);
         }
