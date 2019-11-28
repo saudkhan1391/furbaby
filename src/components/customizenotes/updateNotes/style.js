@@ -140,6 +140,7 @@ export default () => (
               padding:40px;
               width:588px;
               height:510px;
+    overflow: auto;
 
           }
           .activityBtn-popup{

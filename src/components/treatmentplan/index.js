@@ -3,6 +3,7 @@ import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
 import axios from 'axios';
+import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail, standardDate} from "../functions/index";
 const Treatmentplan = (props) => {
@@ -263,6 +264,27 @@ const Treatmentplan = (props) => {
         })
     };
 
+    const addPhoto = (event) => {
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('furBabyCoverPhotos');
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            setCoverPhoto("loader");
+        }, (err) => {
+        }, (complete) => {
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                setCoverPhoto(downloadURL);
+            });
+        });
+    };
+
+    const remove = () => {
+        if (window.confirm("Are you sure you wand delete the photo")) {
+            setCoverPhoto("");
+        }
+    };
+
 
     return (
         <Layout>
@@ -421,15 +443,28 @@ const Treatmentplan = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-1/2 px-2">
-                                        <div className="h-12">
+                                    <div className=" px-2">
+                                        <div className="">
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Furbaby Image</label>
-                                                <input className="border py-2 px-3 " type="text"
-                                                       value={coverPhoto}
-                                                       onChange={event => setCoverPhoto(event.target.value)}
-                                                       style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                />
+                                                {/*<input className="border py-2 px-3 " type="text"*/}
+                                                {/*value={coverPhoto}*/}
+                                                {/*onChange={event => setCoverPhoto(event.target.value)}*/}
+                                                {/*style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}*/}
+                                                {/*/>*/}
+                                                {coverPhoto ? coverPhoto === "loader" ?
+                                                    <img className="relatedimage"
+                                                         src={require("../../assets/images/loader.gif")}
+                                                         alt=""/> :
+                                                    <div className="flex relative">
+                                                        <img className="relatedimage"
+                                                             src={coverPhoto ? coverPhoto : ""} alt=""/>
+                                                        <span className="corsswalaspan"
+                                                              onClick={() => remove()}>x</span>
+                                                    </div> : <input type="file" accept="image/png, image/jpeg"
+                                                                    onChange={event => addPhoto(event)}
+                                                                    style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                                />}
                                                 <div style={{height: "13px"}}>
                                                     {coverPhotoValidation &&
                                                     <p style={{color: "red", fontSize: "12px"}}>
