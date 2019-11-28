@@ -68,7 +68,6 @@ export default () => (
         border:1px solid #e5e5e4;
       }
       .inputvision input{
-        width: 84%;
         padding: 4px
         padding: 8px;
         font-size: 14px;
@@ -335,8 +334,8 @@ export default () => (
         width: 65px!important;
     }
     .coverPhoto{
-        width: 110px;
-        height: 110px;
+        width: 115px;
+        height: 115px;
         border-radius: 50%;
         background-position: center;
         background-size: cover;
@@ -345,16 +344,13 @@ export default () => (
         position: absolute;
         top: 15px;
         left: 15px;
-        width: 110px;
-        height: 110px;
+        width: 115px;
+        height: 115px;
         border-radius: 50%;
     }
     .carousel-cont .shadow-bord{
         border: 1px solid #8080801c;
         padding: 27px 13px 17px 13px;
-        width: 195px;
-        margin-right: 40px;
-        margin-bottom: 40px;
     }
     .forText {
         font-size: 16px;
@@ -366,6 +362,49 @@ export default () => (
         text-align: center;
         color: #444444;
         padding-top: 34px;
+    }
+    .mainWrapper{
+        margin-right: 40px;
+    }
+    .mainWrapper:hover .extension {
+        height: 49px;
+    }
+    .mainWrapper:hover .extension p {
+        display: block;
+    }
+    .extension{
+        display: block;
+        height: 0;
+        transition: height 0.3s;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #8080801c;
+    }
+    .extension p{
+        font-family: Lato;
+        display: none;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        color: #444444;
+        padding-top: 15px;
+    }
+    .extension p span{
+        color: #32c5ff;
+        cursor: pointer;
+    }
+    .react-datetime-picker__wrapper{
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #6d7278;
+        border-radius: 4px;
+        border: solid 1px #dcdddf;
+        width: 100%;
+        height: 38px;
     }
     `}
 

@@ -20,7 +20,7 @@ const trackerRecord = (props) => {
         });
         setShow(true);
     }, [current]);
-    let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos, description } = furBaby;
+    let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = furBaby;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
     let { name, coverPhoto } = current.pet;
     let { firstName, lastName, workPhone, email } = current.petOwner;
@@ -65,6 +65,7 @@ const trackerRecord = (props) => {
                 Meds={Meds}
                 description={description}
                 current={current}
+                staffNotes={staffNotes}
             />
         </Layout>
     );

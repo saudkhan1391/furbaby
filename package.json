@@ -11,6 +11,7 @@
     "react-circular-progressbar": "^2.0.2",
     "react-credit-card-input": "^1.1.5",
     "react-credit-cards": "^0.8.0",
+    "react-datetime-picker": "^2.7.1",
     "react-dom": "^16.8.6",
     "react-multi-carousel": "^2.4.0",
     "react-router-dom": "^5.0.1",

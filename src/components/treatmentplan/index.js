@@ -47,14 +47,14 @@ const Treatmentplan = (props) => {
     const [defaultTrackers] = useState(defaultTracker());
     const [trackerName, setTrackerName] = useState("Annual Exam");
 
-    // const setCurrentTracker = (name, val) => {
-    //     if (val) {
-    //         setTrackerName(name);
-    //     } else {
-    //         setTrackerName("Annual Exam");
-    //     }
-    //     setCustom("");
-    // };
+    const setCurrentTracker = (name, val) => {
+        if (val) {
+            setTrackerName(name);
+        } else {
+            setTrackerName("Annual Exam");
+        }
+        setCustom("");
+    };
 
     const setTracker = () => {
         return defaultTrackers.find(item => item.name === trackerName).trackers;

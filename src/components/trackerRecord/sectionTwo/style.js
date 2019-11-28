@@ -24,7 +24,6 @@ export default ()=>(
             border-bottom:1px solid #e2e8f0;
         }
         .act-1 {
-            width: 100px;
             font-family: Lato;
             font-size: 18px;
             font-weight: bold;
@@ -207,6 +206,8 @@ export default ()=>(
             margin:5% auto;
             padding:40px;
             width:588px;
+            height: 800px;
+            overflow: scroll;
         }
         .library-heading{
             font-size: 16px;
@@ -249,6 +250,7 @@ export default ()=>(
             border-radius: 50%;
             width: 43px;
             height: 43px;
+            margin-right: 10px;
         }
         .gallery-image {
              padding: 10px;
@@ -260,6 +262,16 @@ export default ()=>(
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+        }
+        .staffnotes .act-top {
+            background-color: #32c5ff;
+        }
+        .staffnotes .act-2 button {
+            border-color: #fff;
+            color: #fff;
+        }
+        .staffnotes .act-1 h3 {
+            color: #fff;
         }
     `}</style>
 )

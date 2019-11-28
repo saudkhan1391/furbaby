@@ -5,6 +5,7 @@ import { standardDate } from "../../functions";
 import Card from "../card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import EditForm from "../editCard";
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -24,7 +25,8 @@ const responsive = {
         items: 2,
     },
 };
-const SectionTwo =(props)=>{
+
+const SectionTwo = (props) => {
     const { appointments, dispatch } = props;
     const [showForm, setForm] = useState(null);
     const [addManually, setManually] = useState(false);
@@ -45,8 +47,6 @@ const SectionTwo =(props)=>{
 
     let furBabies = appointments.filter(item => standardDate(item.startTime).standardDate === standardDate(date).standardDate);
 
-
-
     return(
         <div>
             <div className="px-2 mt-10">
@@ -57,7 +57,7 @@ const SectionTwo =(props)=>{
                                 <Calendar
                                     value={date && date}
                                     tileClassName="single-tile"
-                                    onChange={event => setMain(event)}
+                                    onChange={event => {setMain(event); setForm(null)}}
                                     tileContent={(value) => {
                                         let {date} = value;
                                         let main = collectNumberOfAppointments(date);
@@ -80,58 +80,16 @@ const SectionTwo =(props)=>{
                                     <Carousel responsive={responsive}>
                                         {
                                             furBabies.length !== 0 && furBabies.map((item, index) => {
-                                                return <Card key={index} item={item} />
+                                                return <Card setForm={setForm} key={index} index={index} item={item} />
                                             })
-
                                         }
                                     </Carousel>
                                 </div>
                             </div>
-
-                            <div className="px-2">
-                                <div className="flex -mx-2 mt-8 ml-10">
-                                    <div className="w-1/2 px-2">
-                                        <div className="h-12">
-                                            <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                                                <input className="border py-2 px-3 " type="text"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="w-1/2 px-2">
-                                        <div className=" h-12">
-                                            <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Schedule Date</label>
-                                                <input className="border py-2 px-3 " type="text" placeholder="06/22/2019"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="flex mb-4 mt-5 ml-12 allButtons">
-                                    <div className="w-1/4 h-12">
-                                        <div>
-                                            <button className="rmvBtn">REMOVE FROM SCHEDULE</button>
-                                        </div>
-                                    </div>
-                                    <div className="w-1/4 h-12">
-                                        <div>
-                                            <button className="rmvBtn">VIEW PATIENT RECORD</button>
-                                        </div>
-                                    </div>
-                                    <div className="flex w-1/4 h-12">
-                                        <div className="saveButton">
-                                            <button className="saveBtn">SAVE CHANGES</button>
-                                        </div>
-                                        <div className="w-1/4 h-12">
-                                            <div className="cancelButton">
-                                                <button className="cancelBtn">CANCEL</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                            {
+                                showForm &&
+                                <EditForm setSchedule={setSchedule} schedule={schedule} setForm={setForm} setShowEdit={setShowEdit}  setShowHistory={setShowHistory} setManually={setManually} setShow={setShow} showForm={showForm} dispatch={dispatch}/>
+                            }
                         </div>
                     </div>
                 </div>
@@ -139,5 +97,5 @@ const SectionTwo =(props)=>{
             <Style/>
         </div>
     );
-}
+};
 export default SectionTwo;

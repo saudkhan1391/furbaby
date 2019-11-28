@@ -5,10 +5,11 @@ import UpdateFood from "../updateFood";
 import UpdatePeePoop from "../updatePeePoop";
 import UpdateNotes from "../updateNotes";
 import UpdateSnapshot from "../updateSnapshots";
+import UpdateOwenNotes from "../updateClinicNotes";
 
 
 const SectionTwo=(props) => {
-    let { foodData, medicationData, notes, pee, dispatch, furBaby, clinic, Foods, Meds, DefaultNotes, lastName, description, current, galleryPhotos } = props;
+    let { foodData, medicationData, notes, pee, dispatch, furBaby, clinic, Foods, Meds, DefaultNotes, lastName, description, current, galleryPhotos, staffNotes } = props;
     const [model, setModel]=useState(null);
 
 
@@ -84,11 +85,22 @@ const SectionTwo=(props) => {
                 return <UpdateNotes  DefaultNotes={DefaultNotes} description={description} notes={notes} dispatch={dispatch} furBaby={furBaby} pet={current.pet} petOwner={current.petOwner} name={name} lastName={lastName} clinic={clinic} setModel={setModel}/>;
             case 5:
                 return <UpdateSnapshot  galleryPhotos={galleryPhotos} dispatch={dispatch} furBaby={furBaby}  pet={current.pet} petOwner={current.petOwner} id={current.appointmentId} setModel={setModel}/>;
+            case 6:
+                return <UpdateOwenNotes  setModel={setModel} staffNotes={staffNotes} dispatch={dispatch} furBaby={furBaby} pet={current.pet} petOwner={current.petOwner} name={name} clinic={clinic}/>;
             default:
                 return;
 
         }
     };
+
+    const convertNote = (note) => {
+        if(note){
+            note = note.split("\n");
+            return note;
+        }else {
+            return [""];
+        }
+    }
 
     return (
         <div>
@@ -191,8 +203,8 @@ const SectionTwo=(props) => {
                     </div>
                 </div>
                 <div>
-                    <div className="pb-12 mb-12">
-                        <div className="activity mb-12">
+                    <div className="">
+                        <div className="activity mb-6">
                             <div className=" flex act-top justify-between px-5 py-5">
                                 <div className="act-1"><h3>Snapshots</h3></div>
                                 <div className="act-2"><button onClick={()=>setModel(5)}>ADD ACTIVITY</button></div>
@@ -210,6 +222,24 @@ const SectionTwo=(props) => {
                                     }
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="activity mb-12 staffnotes">
+                    <div className=" flex act-top justify-between px-5 py-5">
+                        <div className="act-1"><h3>Staff Only Notes</h3></div>
+                        <div className="act-2"><button onClick={()=>setModel(6)}>UPDATE NOTE</button></div>
+                    </div>
+                    <div className="act-data justify-between px-5 py-5">
+                        <div>
+                            {
+                                convertNote(staffNotes).map((item, index) => {
+                                    return <div key={index}>
+                                        <p className="mt-2 inline">{item}</p>
+                                        <br/>
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
                 </div>

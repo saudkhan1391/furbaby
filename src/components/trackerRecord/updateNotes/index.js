@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import uuid from "uuid";
 import axios from "axios";
 import { apiPath } from "../../../config";
-
+import firebase from "../../../utils/firebase";
 function UpdateNotes(props) {
     let { notes, setModel, dispatch, furBaby, name, clinic, petOwner, pet, lastName, description, DefaultNotes } = props;
     const [type, setType] = useState(null);
     const [content, setContent] = useState(null);
     const [photos, setPhotos] = useState([]);
-    const [showLoader, setShowLoader] = useState(false);
-    const [progress, setProgress] = useState(0);
     let activeNote = clinic.notes ? JSON.parse(clinic.notes): DefaultNotes;
 
     const update = (event) => {
@@ -59,6 +57,34 @@ function UpdateNotes(props) {
         return content.replace(new RegExp("\\[visitreason]","g"), description);
     };
 
+    const addPhoto = (event) => {
+        let uid = uuid();
+        let gall = [...photos];
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('notes').child(uid);
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            if (gall.find(item => item.id === uid) === undefined) {
+                gall.push({
+                    id: uid,
+                    uri: "loader"
+                });
+                setPhotos([...gall]);
+            }
+        }, (err) => {
+        }, (complete) => {
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                gall.forEach(item => {
+                    if (item.id === uid && item.uri === "loader") {
+                        item.uri = downloadURL;
+                    }
+                });
+                setPhotos([...gall]);
+            });
+        });
+    };
+
     return (
         <div id="simpleModal" className="modal">
             <form onSubmit={(event) => update(event)} className="notes-content">
@@ -85,18 +111,23 @@ function UpdateNotes(props) {
                 <div className="flex flex-col mb-2 fotText-area mt-6">
                     <textarea rows="5" cols="80" placeholder="Text area" value={content ? content : ""} onChange={event => setContent(event.target.value)}/>
                 </div>
-                <button type="button" className="activityBtn-popup-small">ADD IMAGE</button>
+                <div className="attachmentbtn mt-2">
+                    <label className="activityBtn-popup-small">
+                        <input type="file" className="hidden" accept="image/png, image/jpeg" onChange={event => addPhoto(event)}/>
+                        ADD IMAGE
+                    </label>
+                </div>
                 {
                     photos.length !== 0 &&
-                    <div>
+                    <div className="mt-4">
                         <div className="food-popup-heading">
                             <h1>Related Photos</h1>
                         </div>
-                        <div className="food-popup-heading">
+                        <div className="food-popup-heading flex">
                             {
                                 photos.map(item => {
                                     return(
-                                        <img src={item.uri} alt="Image"/>
+                                        <img src={item.uri === "loader" ? require("../../../assets/images/loader.gif"): item.uri} alt="Image"/>
                                     )
                                 })
                             }

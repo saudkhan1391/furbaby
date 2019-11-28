@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import firebase from "../../../utils/firebase";
+import uuid from "uuid";
+import axios from "axios";
+import { apiPath } from "../../../config";
 
 function UpdateSnapshot(props) {
     let { galleryPhotos, dispatch, furBaby, id, petOwner, pet, setModel } = props;
     const [ gallery, setGallery ] = useState(galleryPhotos);
-    const [progress, setProgress] = useState(100);
     const [deleteImageId, setDeleteImageId] = useState([]);
 
     const updateAppointment = () => {
@@ -19,6 +21,15 @@ function UpdateSnapshot(props) {
         });
         setDeleteImageId([]);
         setModel(null);
+        let payload = {
+            appointment: {...furBaby, pet, petOwner},
+            type: "Gallery"
+        };
+        axios.post(apiPath+"/notesOrGalleryUpdated", payload).then(res => {
+
+        }).catch(err => {
+            console.log("err.", err.response);
+        });
     };
 
     const remove = (uid) => {
@@ -34,8 +45,32 @@ function UpdateSnapshot(props) {
         }
     };
 
-    const uploadImage = () => {
-
+    const addPhotoImage = (event) => {
+        let uid = uuid();
+        let gall = [...gallery];
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('appointments/'+id).child(uid);
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            if (gall.find(item => item.id === uid) === undefined) {
+                gall.push({
+                    id: uid,
+                    uri: "loader"
+                });
+                setGallery([...gall]);
+            }
+        }, (err) => {
+        }, (complete) => {
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                gall.forEach(item => {
+                    if (item.id === uid && item.uri === "loader") {
+                        item.uri = downloadURL;
+                    }
+                });
+                setGallery([...gall]);
+            });
+        });
     };
 
 
@@ -59,15 +94,20 @@ function UpdateSnapshot(props) {
                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                             </svg>
                             <span className="mt-2 text-base leading-normal">UPLOAD IMAGE</span>
-                            <input type='file' onClick={() => uploadImage()} className="hidden" />
+                            <input type='file' onChange={event => addPhotoImage(event)} className="hidden" />
                         </label>
                     </div>
                 </div>
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center mt-8 flex-wrap">
                     {
                         gallery.map(item => {
                             return <div className="gallery-image" key={item.id}>
-                                <div className="pl-1 pic" style={{backgroundImage: "url("+item.uri+")"}}/><br/>
+                                    {
+                                        item.uri === "loader" ?
+                                            <img className="pl-1 pic" src={require("../../../assets/images/loader.gif")}/>:
+                                            <div className="pl-1 pic" style={{backgroundImage: "url("+item.uri+")"}}/>
+                                    }
+                                <br/>
                                 <img className="ml-12" src={require('../../../assets/images/bin.png')} onClick={() => deleteMedia(item.id)} alt="pic"/>
                             </div>
                         })
