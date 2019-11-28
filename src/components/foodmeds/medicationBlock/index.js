@@ -3,15 +3,21 @@ import uuid from "uuid";
 import firebase from "../../../utils/firebase";
 const Schedule = (props) => {
     let {foodData, dispatch, clinic} = props;
-    const [moreFoodType, setMoreFoodType] = useState("Canine");
+    const [moreFoodType, setMoreFoodType] = useState(moreFoodType?moreFoodType:"");
+    const [foodType, setFoodType] = useState("Canine");
     const [newFood, setNewFood] = useState(null);
     const [allFood, setAllFood] = useState(foodData);
     const [allFoodBackup, setAllFoodBackup] = useState(foodData);
     const [food, setFood] = useState([]);
     const [button, setButton] = useState("SAVE CHANGES");
+    console.log(foodData);
     useEffect(() => {
         setAllFood(foodData);
-        setFood(allFood.filter(sin => sin.type === moreFoodType))
+        if (!moreFoodType) {
+            setFood([...allFood])
+        } else {
+            setFood(allFood.filter(sin => sin.type === moreFoodType))
+        }
     }, [foodData]);
 
     const addFood = () => {
@@ -24,7 +30,7 @@ const Schedule = (props) => {
                     tempFood.push({
                         name: item,
                         show: true,
-                        type: moreFoodType,
+                        type: foodType,
                         id: uuid()
                     })
                 }
@@ -130,8 +136,14 @@ const Schedule = (props) => {
     };
 
     const setCurrentTypeFood = (value) => {
-        setMoreFoodType(value);
-        setFood([...allFood.filter(sin=>sin.type===value)])
+        if (value === moreFoodType) {
+            setFood([...allFood]);
+            setMoreFoodType("");
+        }
+        else {
+            setFood([...allFood.filter(sin => sin.type === value)])
+            setMoreFoodType(value);
+        }
     };
 
     const selectDefault = () => {
@@ -151,7 +163,7 @@ const Schedule = (props) => {
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="flex justify-between mt-12">
                         <div className="medicationHeading2">
-                            <h1>CUSTOMIZE PET Medication DROPDOWNS</h1>
+                            <h1>CUSTOMIZE PET FOOD DROPDOWNS</h1>
                         </div>
                         <div className="flex mr-4">
                             <div>
@@ -164,17 +176,18 @@ const Schedule = (props) => {
                         </div>
                     </div>
                     <div className="mt-4 optionspara">
-                        <p>All selected options will display in the pet medication dropdown</p>
+                        <p>All selected options will display in the pet food dropdown</p>
                     </div>
                     <div className="flex mt-8">
                         <div className="showing">
-                            <p>Showing Medication options for:</p>
+                            <p>Showing food options for:</p>
                         </div>
 
                         <div className="flex ml-8 label">
                             <div className="flex mr-12 check-mar">
                                 <label className="container1">
-                                    <input type="radio" name="medication" value="Canine" checked={moreFoodType === "Canine"}
+                                    <input type="checkbox"
+                                           checked={moreFoodType === "Canine"}
                                            onChange={() => setCurrentTypeFood("Canine")}/>
                                     <span className="checkmark"/>
                                 </label>
@@ -182,7 +195,8 @@ const Schedule = (props) => {
                             </div>
                             <div className="flex mr-12 check-mar">
                                 <label className="container1">
-                                    <input type="radio" name="medication" value="Feline" checked={moreFoodType === "Feline"}
+                                    <input type="checkbox"
+                                           checked={moreFoodType === "Feline"}
                                            onChange={() => setCurrentTypeFood("Feline")}/>
                                     <span className="checkmark"/>
                                 </label>
@@ -190,9 +204,9 @@ const Schedule = (props) => {
                             </div>
                             <div className="flex mr-12 check-mar">
                                 <label className="container1">
-                                    <input type="radio" name="medication" value={"Canine&Feline"}
-                                           onChange={() => setCurrentTypeFood("Canine&Feline")}
-                                           checked={moreFoodType === "Canine&Feline"}/>
+                                    <input type="checkbox"
+                                           onChange={() => setCurrentTypeFood("Canine, Feline")}
+                                           checked={moreFoodType === "Canine, Feline"}/>
                                     <span className="checkmark"/>
                                 </label>
                                 <label>Canine & Feline</label>
@@ -229,6 +243,18 @@ const Schedule = (props) => {
                                 ADD CUSTOM MEDICATION
                             </h1>
                         </div>
+                        <div className="multiplepara mt-4">
+                            <p>
+                                ADD CUSTOM MEDICATION
+                            </p>
+                            <select className="border py-2 px-3" value={foodType}
+                                    onChange={event => setFoodType(event.target.value)} type="text">
+                                <option value="Canine">Canine</option>
+                                <option value="Feline">Feline</option>
+                                <option value="Canine, Feline">Canine & Feline</option>
+                            </select>
+                        </div>
+
                         <div className="multiplepara mt-4">
                             <p>To add multiple seperate by a line break</p>
                         </div>

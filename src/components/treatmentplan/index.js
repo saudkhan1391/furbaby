@@ -309,18 +309,18 @@ const Treatmentplan = (props) => {
                 <div className="flex -mx-2">
                     <div className="w-1/2 px-2">
                         {/*<div className="pl-10 pb-4 select-Furbaby-Schedule">*/}
-                            {/*<h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>*/}
+                        {/*<h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>*/}
                         {/*</div>*/}
                         {/*<div className="flex h-12 ml-10 form">*/}
-                            {/*<input type="text" name="fname" placeholder="  Search for a schedule pet"/>*/}
-                            {/*<div className=" img">*/}
-                                {/*<img src={require('../../assets/images/search.png')} alt="pic"/>*/}
-                            {/*</div>*/}
+                        {/*<input type="text" name="fname" placeholder="  Search for a schedule pet"/>*/}
+                        {/*<div className=" img">*/}
+                        {/*<img src={require('../../assets/images/search.png')} alt="pic"/>*/}
+                        {/*</div>*/}
                         {/*</div>*/}
                         {/*<div className="pl-10 mt-4">*/}
-                            {/*<button className="refreshBtn">CLICK TO REFRESH DATA FROM CONNECTED PRACTICE MANAGEMENT*/}
-                                {/*SOFTWARE*/}
-                            {/*</button>*/}
+                        {/*<button className="refreshBtn">CLICK TO REFRESH DATA FROM CONNECTED PRACTICE MANAGEMENT*/}
+                        {/*SOFTWARE*/}
+                        {/*</button>*/}
                         {/*</div>*/}
                         <div className="pl-10 mt-12 manually">
                             <h1>MANUALLY CREATE NEW FUR BABY</h1>
@@ -464,8 +464,14 @@ const Treatmentplan = (props) => {
                                                          src={require("../../assets/images/loader.gif")}
                                                          alt=""/> :
                                                     <div className="flex relative">
-                                                        <img className="relatedimage"
-                                                             src={coverPhoto ? coverPhoto : ""} alt=""/>
+                                                        <div className="relatedimage"
+                                                             style={{
+                                                                 backgroundImage: `url(${coverPhoto ? coverPhoto : ""})`,
+                                                                 backgroundPosition: "center",
+                                                                 backgroundRepeat: "no-repeat",
+                                                                 backgroundSize: "cover"
+                                                             }}
+                                                             alt=""/>
                                                         <span className="corsswalaspan"
                                                               onClick={() => remove()}>x</span>
                                                     </div> : <input type="file" accept="image/png, image/jpeg"
