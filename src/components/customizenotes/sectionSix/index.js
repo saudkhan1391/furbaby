@@ -9,7 +9,9 @@ const SectionFour = (props) => {
     const [gallery, setGallery] = useState([]);
     const [button, setButton] = useState("ADD NOTE");
 
-
+    useEffect(() => {
+        // action on update of movies
+    }, [gallery]);
     const submit = (event) => {
         event.preventDefault();
         let newClinic = {...clinic};
@@ -18,7 +20,7 @@ const SectionFour = (props) => {
             id: uuid(),
             title,
             content,
-            photos: []
+            photos: gallery
         });
         newClinic.notes = JSON.stringify(note);
         let main = {...newClinic};
@@ -38,6 +40,40 @@ const SectionFour = (props) => {
         });
     };
 
+    const addPhoto = (event) => {
+        let uid = uuid();
+        let gall = [...gallery];
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('notes').child(uid);
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            if (gall.find(item => item.id === uid) === undefined) {
+                gall.push({
+                    id: uid,
+                    uri: "loader"
+                });
+                setGallery([...gall]);
+            }
+        }, (err) => {
+        }, (complete) => {
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                gall.forEach(item => {
+                    if (item.id === uid && item.uri === "loader") {
+                        item.uri = downloadURL;
+                    }
+                });
+                setGallery([...gall]);
+            });
+        });
+    };
+
+    const remove = (uid) => {
+        if (window.confirm("Are you sure you wand delete the photo"))
+            firebase.storage().ref("notes").child(uid).delete().then(res => {
+                setGallery(gallery.filter(item => item.id !== uid));
+            });
+    };
 
     return (
         <div>
@@ -55,8 +91,9 @@ const SectionFour = (props) => {
                     <div className="w-fullh-12">
                         <p className="noteTtle mt-4">Note Title</p>
                         <div className="fotText-area mt-2">
-                            <textarea rows="1" cols="100" value={title ? title : ""}
-                                      onChange={(event) => setTitle(event.target.value)}
+                            <input className="border py-2 px-3" rows="1" cols="100" type="text"
+                                   value={title ? title : ""}
+                                   onChange={(event) => setTitle(event.target.value)}
                             />
                         </div>
                     </div>
@@ -74,6 +111,24 @@ const SectionFour = (props) => {
                         </div>
                     </div>
                 </div>
+                {
+                    gallery.length !== 0 &&
+                    <div>
+                        <p>Related Photos</p>
+                        <div className="flex flex-wrap">
+                            {gallery.map((sin, index) => sin.uri === "loader" ?
+                                <img className="relatedimage"
+                                     src={require("../../../assets/images/loader.gif")}
+                                     alt=""/>
+                                :
+                                <div key={index} className="flex relative">
+                                    <img key={index} className="relatedimage" src={sin.uri ? sin.uri : ""} alt=""/>
+                                    <span className="corsswalaspan" onClick={() => remove(sin.id)}>x</span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                }
                 <div className="flex h-32">
                     <div className="savebtnText">
                         <button onClick={(event) => {
@@ -81,9 +136,12 @@ const SectionFour = (props) => {
                         }}>Add
                         </button>
                     </div>
-                    {/*<div className="attachmentbtn ml-4">*/}
-                    {/*<button>ADD / EDIT PHOTO ATTACHMENTS TO NOTE</button>*/}
-                    {/*</div>*/}
+                    <div className="attachmentbtn ml-4 mt-2">
+                        <label className="custom-file-upload">
+                            <input type="file" accept="image/png, image/jpeg" onChange={event => addPhoto(event)}/>
+                            ADD PHOTO ATTACHMENTS TO NOTE
+                        </label>
+                    </div>
                 </div>
             </div>
             <Style/>

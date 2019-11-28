@@ -8,7 +8,7 @@ const Schedule = (props) => {
     return (
         <Layout>
             <SectionOne/>
-            <SectionTwo/>
+            {/*<SectionTwo/>*/}
             <SectionFour clinic={clinic} dispatch={dispatch}/>
         </Layout>
     );

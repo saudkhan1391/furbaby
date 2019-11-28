@@ -453,7 +453,41 @@ export default () => (
         text-align: center;
         color: #9c1f60;
       }
+.relatedimage{
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    }
 
+    .corsswalaspan{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: red;
+    display: flex;
+    font-size: larger;
+    font-weight: 900;
+    cursor: pointer;
+    }
+
+    input[type="file"]{
+        height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        width: 322px;
+
+      }
+
+    input[type="file"]::-webkit-file-upload-button{
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
     `}
 
     </style>

@@ -229,22 +229,22 @@ const SectionFour = (props) => {
                     <div className="flex -mx-2">
                         <div className="w-1/2">
                             <div className="h-12">
-                                <div className="flex h-12 practice-Management-Heading">
-                                    <h1>PRACTICE MANAGEMENT SOFTWARE INTEGRATION</h1>
-                                </div>
+                                {/*<div className="flex h-12 practice-Management-Heading">*/}
+                                    {/*<h1>PRACTICE MANAGEMENT SOFTWARE INTEGRATION</h1>*/}
+                                {/*</div>*/}
                                 <div>
-                                    <div className="connectivity-Status">
-                                        <p>Connectivity Status: <span>Connected</span><br></br>
-                                            Last Synced: 6/29/2019. 05:29</p>
-                                    </div>
-                                    <div className="flex mt-4">
-                                        <div className="manually-Sync-Blue-Button">
-                                            <button>MANUALLY SYNC</button>
-                                        </div>
-                                        <div className="configure-Connect-Gray-Button ml-4">
-                                            <button>CONFIGURE & CONNECT</button>
-                                        </div>
-                                    </div>
+                                    {/*<div className="connectivity-Status">*/}
+                                        {/*<p>Connectivity Status: <span>Connected</span><br></br>*/}
+                                            {/*Last Synced: 6/29/2019. 05:29</p>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex mt-4">*/}
+                                        {/*<div className="manually-Sync-Blue-Button">*/}
+                                            {/*<button>MANUALLY SYNC</button>*/}
+                                        {/*</div>*/}
+                                        {/*<div className="configure-Connect-Gray-Button ml-4">*/}
+                                            {/*<button>CONFIGURE & CONNECT</button>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
                                     <div className="mt-16 manage-Automatic-Heading">
                                         <h1>MANAGE AUTOMATIC NOTIFICATION SETTINGS</h1>
                                     </div>

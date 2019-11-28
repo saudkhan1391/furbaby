@@ -68,8 +68,40 @@ export default () => (
           background-color: #ffffff;
       } 
  
-     
-     
+     input[type="file"] {
+        display: none;
+        }
+    .custom-file-upload {
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: #6d7278;
+    padding: 15px 24px;cursor: pointer;
+    }
+    .relatedimage{
+    padding: 15px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    }
+
+    .corsswalaspan{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: red;
+    display: flex;
+    font-size: larger;
+    font-weight: 900;
+    cursor: pointer;
+    }
+
     `}
 
     </style>

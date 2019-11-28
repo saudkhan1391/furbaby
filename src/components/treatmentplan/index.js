@@ -3,6 +3,7 @@ import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
 import axios from 'axios';
+import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail} from "../functions/index";
 const Treatmentplan = (props) => {
@@ -205,6 +206,8 @@ const Treatmentplan = (props) => {
                     setPhone("");
                     setDate(null);
                     setDob(null);
+                    setShow(false);
+                    setTrackerName("Annual Exam");
                     // setBack();
                     dispatch({
                         type: "SET_LOADER",
@@ -263,6 +266,32 @@ const Treatmentplan = (props) => {
         })
     };
 
+    const addPhoto = (event) => {
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('furBabyCoverPhotos');
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            setCoverPhoto("loader");
+        }, (err) => {
+        }, (complete) => {
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                setCoverPhoto(downloadURL);
+            });
+        });
+    };
+
+    const remove = () => {
+        if (window.confirm("Are you sure you wand delete the photo")) {
+            setCoverPhoto("");
+        }
+    };
+
+    const setField = (value) => {
+        setTrackerName("");
+        setCustom(value)
+    }
+
 
     return (
         <Layout>
@@ -279,20 +308,20 @@ const Treatmentplan = (props) => {
             <div className="px-2 mt-10">
                 <div className="flex -mx-2">
                     <div className="w-1/2 px-2">
-                        <div className="pl-10 pb-4 select-Furbaby-Schedule">
-                            <h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>
-                        </div>
-                        <div className="flex h-12 ml-10 form">
-                            <input type="text" name="fname" placeholder="  Search for a schedule pet"/>
-                            <div className=" img">
-                                <img src={require('../../assets/images/search.png')} alt="pic"/>
-                            </div>
-                        </div>
-                        <div className="pl-10 mt-4">
-                            <button className="refreshBtn">CLICK TO REFRESH DATA FROM CONNECTED PRACTICE MANAGEMENT
-                                SOFTWARE
-                            </button>
-                        </div>
+                        {/*<div className="pl-10 pb-4 select-Furbaby-Schedule">*/}
+                            {/*<h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>*/}
+                        {/*</div>*/}
+                        {/*<div className="flex h-12 ml-10 form">*/}
+                            {/*<input type="text" name="fname" placeholder="  Search for a schedule pet"/>*/}
+                            {/*<div className=" img">*/}
+                                {/*<img src={require('../../assets/images/search.png')} alt="pic"/>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
+                        {/*<div className="pl-10 mt-4">*/}
+                            {/*<button className="refreshBtn">CLICK TO REFRESH DATA FROM CONNECTED PRACTICE MANAGEMENT*/}
+                                {/*SOFTWARE*/}
+                            {/*</button>*/}
+                        {/*</div>*/}
                         <div className="pl-10 mt-12 manually">
                             <h1>MANUALLY CREATE NEW FUR BABY</h1>
                         </div>
@@ -421,15 +450,28 @@ const Treatmentplan = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-1/2 px-2">
-                                        <div className="h-12">
+                                    <div className=" px-2">
+                                        <div className="">
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Furbaby Image</label>
-                                                <input className="border py-2 px-3 " type="text"
-                                                       value={coverPhoto}
-                                                       onChange={event => setCoverPhoto(event.target.value)}
-                                                       style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                />
+                                                {/*<input className="border py-2 px-3 " type="text"*/}
+                                                {/*value={coverPhoto}*/}
+                                                {/*onChange={event => setCoverPhoto(event.target.value)}*/}
+                                                {/*style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}*/}
+                                                {/*/>*/}
+                                                {coverPhoto ? coverPhoto === "loader" ?
+                                                    <img className="relatedimage"
+                                                         src={require("../../assets/images/loader.gif")}
+                                                         alt=""/> :
+                                                    <div className="flex relative">
+                                                        <img className="relatedimage"
+                                                             src={coverPhoto ? coverPhoto : ""} alt=""/>
+                                                        <span className="corsswalaspan"
+                                                              onClick={() => remove()}>x</span>
+                                                    </div> : <input type="file" accept="image/png, image/jpeg"
+                                                                    onChange={event => addPhoto(event)}
+                                                                    style={coverPhotoValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                                />}
                                                 <div style={{height: "13px"}}>
                                                     {coverPhotoValidation &&
                                                     <p style={{color: "red", fontSize: "12px"}}>
@@ -588,27 +630,17 @@ const Treatmentplan = (props) => {
                                 </div>
                                 <div className="flex pl-12 mt-8 label">
                                     <div className="checkbox1">
-                                        <div className="flex mr-12 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
+                                        {defaultTrackers.map((single, index) =>
+                                            <div key={index} className="flex mr-12 check-mar">
+                                                <label className="container1">
+                                                    <input type="radio" name="same"
+                                                           checked={trackerName === single.name}
+                                                           onClick={() => setCurrentTracker(single.name, true)}/>
+                                                    <span className="checkmark"/>
+                                                </label>
+                                                <label>{single.name}</label>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="checkbox1">
                                         <div className="flex mr-12 check-mar">
@@ -640,7 +672,9 @@ const Treatmentplan = (props) => {
                                         <p>Add custom plan components</p>
                                     </div>
                                     <div className="fotText-area">
-                                        <textarea rows="5" cols="80"/>
+                                        <textarea
+                                            onChange={event => setField(event.target.value)}
+                                            rows="5" cols="80"/>
                                     </div>
                                 </div>
                             </div> :
