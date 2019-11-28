@@ -8,15 +8,16 @@ import Layout from '../layout/container';
 import {placeholderPet} from "../../config";
 import Carousel from "react-multi-carousel";
 import AddFurBaby from './addFurbaby'
+import AddSchedule from './scheduleFurbaby'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
 const Schedule = (props) => {
-    let {appointments, navigation, clinicId, dispatch} = props;
+    let {appointments, clinicId, dispatch} = props;
     const [showForm, setForm] = useState(false);
     const [detail, setDetail] = useState(false);
     const [addedPopup, setAddedPopup] = useState(false);
+    const [schedulePopup, setSchedulelPopup] = useState(false);
     const [current, setCurrent] = useState("");
-    const [panel, setPanel] = useState(0);
     const [searchResult, setSearchResult] = useState("null");
     const [currentPetId, setCurrentPet] = useState(null);
     const [search, setSearch] = useState("");
@@ -181,10 +182,12 @@ const Schedule = (props) => {
                                                                      src={item.coverPhoto ? item.coverPhoto : placeholderPet}/>
                                                             </div>
                                                         </div>
-                                                        <div
-                                                            className="px-6 pt-10 py-5 flex justify-center m-auto items-center content-center forText">
+                                                        <div className="px-6 pt-10 py-5 flex justify-center m-auto items-center content-center forText">
                                                             <p>{item.name}<br></br>
-                                                                <span className="newVisitButton"><button
+                                                                <span className="newVisitButton" onClick={()=>{
+                                                                    setCurrentPet(item.id)
+                                                                    setSchedulelPopup(true)
+                                                                }}><button
                                                                     className="mt-6">SCHEDULE NEW VISIT</button></span>
                                                             </p>
                                                         </div>
@@ -196,6 +199,7 @@ const Schedule = (props) => {
                             </div>
                             {addedPopup && <AddFurBaby setAddedPopup={setAddedPopup} current={current}
                                                        addBackFurbaby={addBackFurbaby}/>}
+                            {schedulePopup && <AddSchedule current={current} clinicId={clinicId} setAddedPopup={setSchedulelPopup} petId={currentPetId} appointments={appointments} dispatch={dispatch}/>}
                         </div>}
                     </div>
 
