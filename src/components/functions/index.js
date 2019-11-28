@@ -1,12 +1,12 @@
 import fun from "../jsons/defaultTracker.json";
 
 export const standardDate = dat => {
-    try{
+    try {
         let issueResolver = dat.split("-");
         if (issueResolver[1] === "01" && issueResolver[2] === "01") {
             dat = issueResolver[0] + "-01-02";
         }
-    }catch(e){
+    } catch (e) {
 
     }
     const date = new Date(dat);
@@ -86,7 +86,7 @@ export const standardDate = dat => {
         monthName: monthName,
         monthNameHalf: monthNameHalf,
         monthNumber: monthNumber,
-        fullYear: fullYear+"",
+        fullYear: fullYear + "",
         dayNameHalf: dayNameHalf
     };
 };
@@ -124,6 +124,15 @@ export const restructorData = (data, len) => {
     return newData;
 };
 
+export const imageExists = (url, callback) => {
+    let img = new Image();
+    img.onload = () => {
+        callback(true)
+    };
+    img.onerror = callback(false);
+    img.src = url;
+};
+
 export const validateEmail = email => {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -137,10 +146,10 @@ export const defaultTracker = () => {
             trackers: []
         };
         item.forEach((main, index) => {
-            if(main !== ""){
-                if(index === 0){
+            if (main !== "") {
+                if (index === 0) {
                     temp.name = main;
-                }else {
+                } else {
                     temp.trackers.push({
                         "id": index,
                         "title": main,
@@ -155,14 +164,14 @@ export const defaultTracker = () => {
     return main;
 };
 
-export const reForm =(date)=>{
+export const reForm = (date) => {
     date = date.split("-");
-    return date[2]+"-"+date[0]+"-"+date[1]+"T08:00:00.000Z";
+    return date[2] + "-" + date[0] + "-" + date[1] + "T08:00:00.000Z";
 };
 
 export const convertObjectToArray = (main) => {
     let temp = [];
-    if(main !== "[]"){
+    if (main !== "[]") {
         for (let key in main) {
             if (main.hasOwnProperty(key)) {
                 temp.push(main[key]);

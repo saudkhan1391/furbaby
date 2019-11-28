@@ -8,7 +8,6 @@ const SectionOne=(props)=>{
     let { appointments, dispatch } = props;
     let date = standardDate(new Date());
     return (
-
         <div>
             <div className="container mx-auto">
                 <section className="left-col w-1/5">
