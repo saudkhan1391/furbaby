@@ -470,6 +470,24 @@ export default () => (
     font-weight: 900;
     cursor: pointer;
     }
+
+    input[type="file"]{
+        height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        width: 322px;
+
+      }
+
+    input[type="file"]::-webkit-file-upload-button{
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
     `}
 
     </style>

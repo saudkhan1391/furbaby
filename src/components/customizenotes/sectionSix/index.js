@@ -53,7 +53,7 @@ const SectionFour = (props) => {
                     id: uid,
                     uri: "loader"
                 });
-                setGallery(gall);
+                setGallery([...gall]);
             }
         }, (err) => {
         }, (complete) => {
@@ -63,7 +63,7 @@ const SectionFour = (props) => {
                         item.uri = downloadURL;
                     }
                 });
-                setGallery(gall);
+                setGallery([...gall]);
             });
         });
     };
@@ -91,8 +91,9 @@ const SectionFour = (props) => {
                     <div className="w-fullh-12">
                         <p className="noteTtle mt-4">Note Title</p>
                         <div className="fotText-area mt-2">
-                            <textarea rows="1" cols="100" value={title ? title : ""}
-                                      onChange={(event) => setTitle(event.target.value)}
+                            <input className="border py-2 px-3" rows="1" cols="100" type="text"
+                                   value={title ? title : ""}
+                                   onChange={(event) => setTitle(event.target.value)}
                             />
                         </div>
                     </div>
