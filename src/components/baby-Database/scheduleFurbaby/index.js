@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Style from './style';
 import axios from 'axios';
+import { NotificationManager} from 'react-notifications';
 import { defaultTracker } from "../../functions";
 import {apiPath} from "../../../config";
 const SectionFour = (props) => {
@@ -86,6 +87,7 @@ const SectionFour = (props) => {
             //     color: "white",
             //     icon: "info"
             // });
+            NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
             setAddedPopupClose();
             setButton("ADD TO SCHEDULE")
         });

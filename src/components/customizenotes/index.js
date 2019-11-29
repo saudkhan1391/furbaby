@@ -3,6 +3,7 @@ import firebase from '../../utils/firebase'
 import SectionSix from './sectionSix';
 import EditNote from './updateNotes/updateNotes';
 import Style from './style';
+import { NotificationManager} from 'react-notifications';
 import Layout from '../layout/container';
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
@@ -50,6 +51,7 @@ const Schedule = (props) => {
                 payload: newClinic
             });
             setNotes(temp);
+            NotificationManager.success('Note successfully deleted.', 'Note Update.');
         }).catch(err => {
             // showMessage({
             //     message: "Something went wrong. Please check your internet connection or try again later.",
@@ -58,6 +60,7 @@ const Schedule = (props) => {
             //     color: "white",
             //     icon: "info"
             // });
+            NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Note Update.');
         });
     };
 
@@ -90,6 +93,7 @@ const Schedule = (props) => {
                 }
             });
             deleteNotesFinal(temp)
+            NotificationManager.success('Note successfully deleted.', 'Note Update.');
         }
     };
     return (

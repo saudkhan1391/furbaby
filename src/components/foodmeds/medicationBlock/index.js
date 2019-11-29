@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import uuid from "uuid";
+import { NotificationManager} from 'react-notifications';
 import firebase from "../../../utils/firebase";
 const Schedule = (props) => {
     let {foodData, dispatch, clinic} = props;
@@ -50,7 +51,8 @@ const Schedule = (props) => {
                     dispatch({
                         type: "UPDATE_CLINIC",
                         payload: newClinic
-                    })
+                    });
+                    NotificationManager.success('Medication successfully updated.', 'Medication Update.');
                     setButton("SAVED");
                     setNewFood(null);
                     setTimeout(() => {
@@ -64,6 +66,7 @@ const Schedule = (props) => {
                     //     color: "white",
                     //     icon: "info"
                     // });
+                    NotificationManager.error('Something went wrong. Please check you internet or try again later.', 'Medication Update.');
                 });
             })
         } else {
@@ -86,6 +89,7 @@ const Schedule = (props) => {
                 })
                 setButton("SAVED");
                 setNewFood(null);
+                NotificationManager.success('Medication successfully updated.', 'Medication Update.');
                 setTimeout(() => {
                     setButton("SAVE CHANGES");
                 }, 4000);
@@ -98,6 +102,7 @@ const Schedule = (props) => {
                 //     color: "white",
                 //     icon: "info"
                 // });
+                NotificationManager.success('Something went wrong. Please check your internet or try again later.', 'Medication Update.');
             });
         }
     };

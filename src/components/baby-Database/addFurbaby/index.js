@@ -3,6 +3,7 @@ import Style from './style';
 import axios from 'axios';
 import firebase from "../../../utils/firebase";
 import {apiPath} from "../../../config";
+import { NotificationManager} from 'react-notifications';
 const SectionFour = (props) => {
     let {current, addBackFurbaby, setAddedPopup} = props;
     const [petName, setPetName] = useState("");
@@ -64,7 +65,7 @@ const SectionFour = (props) => {
                 //     color: "white",
                 //     icon: "info"
                 // });
-                // this._panel.hide();
+                NotificationManager.success('New Fur Baby has been successfully added.', 'Fur Baby Update.');
             });
         }
     };

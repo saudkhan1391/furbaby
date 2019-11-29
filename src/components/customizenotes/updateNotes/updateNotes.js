@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import firebase from "../../../utils/firebase";
 import uuid from "uuid";
 import Style from './style';
+import { NotificationManager} from 'react-notifications';
 const SectionFour = (props) => {
     let {notes, clinic, dispatch, setNotes, currentId, setEditPopup} = props;
     const [title, setTitle] = useState("");
@@ -36,8 +37,10 @@ const SectionFour = (props) => {
             setContent("");
             setEditPopup(false);
             setButton("Update");
+            NotificationManager.success('Note successfully updated.', 'Note Update.');
         }).catch(err => {
             setEditPopup(false)
+            NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Note Update.');
             setButton("Update");
         });
     };
@@ -74,6 +77,7 @@ const SectionFour = (props) => {
         if (window.confirm("Are you sure you wand delete the photo")){
             firebase.storage().ref("notes").child(uid).delete().then(res => {
                 setGallery(gallery.filter(item => item.id !== uid));
+                NotificationManager.success('Photo Successfully Deleted.', 'Note Update.');
             });
         }
     };

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
+import { NotificationManager} from 'react-notifications';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
@@ -220,6 +221,8 @@ const Treatmentplan = (props) => {
                     //     color: "white",
                     //     icon: "info"
                     // });
+                    NotificationManager.success('Added Successfully.', 'Appointment Update.');
+
                 }).catch(err => {
                 // showMessage({
                 //     message: "Something went wrong, Please check your internet or try again later.",
@@ -228,6 +231,7 @@ const Treatmentplan = (props) => {
                 //     color: "white",
                 //     icon: "info"
                 // });
+                NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'Appointment Update.');
                 console.log("err", err.response);
                 dispatch({
                     type: "SET_LOADER",

@@ -7,6 +7,7 @@ import {validateEmail} from '../../functions'
 import Loader from '../../../commoncomponents/smallLoader';
 import {apiPath} from '../../../config';
 import PaymentHistory from '../../paymentHistory'
+import { NotificationManager} from 'react-notifications';
 
 import CreditCardInput from "react-credit-card-input";
 const SectionFour = (props) => {
@@ -39,6 +40,7 @@ const SectionFour = (props) => {
         clinic.snapshotOptin = snapshotOptin;
         firebase.database().ref("/clinics").child(clinic.clinicId).set(clinic).then(res => {
             setMessage("Settings successfully updated");
+            NotificationManager.success('Settings successfully updated.', 'Settings Update');
             setTimeout(() => {
                 setMessage("");
                 setRequesting(false);
@@ -49,6 +51,7 @@ const SectionFour = (props) => {
             });
         }).catch(err => {
             setRequesting(false);
+            NotificationManager.error('Something went wrong. Please check you internet or try again later.', 'Settings Update');
             setMessage("Something went wrong. Please check you internet or try again later.");
         });
     };
@@ -178,8 +181,10 @@ const SectionFour = (props) => {
             setShowLoader(true);
             axios.post(apiPath + "/addPayment", requestedData).then(res => {
                 setShowLoader(false);
+                NotificationManager.success('Payment Method Successfully Added.', 'Payment Method Update');
             }).catch(err => {
                 setShowLoader(false);
+                NotificationManager.error('Payment Method Error Occur.', 'Payment Method Update');
             })
         }
     };
@@ -190,7 +195,9 @@ const SectionFour = (props) => {
         };
         if (window.confirm('Are you sure you wish to delete this media file?')) {
             axios.post(apiPath + "/removePayment", requestedData).then(res => {
+                NotificationManager.success('Payment Method Successfully Removed.', 'Payment Method Update');
             }).catch(err => {
+                NotificationManager.error('Payment Method issue occur while removing payment Method.', 'Payment Method Update');
             })
         }
     };

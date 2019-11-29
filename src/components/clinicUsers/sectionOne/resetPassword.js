@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Style from './resetUserPopupStyle'
+import { NotificationManager} from 'react-notifications';
 import {apiPath} from "../../../config";
 function editUser(props) {
     let {user, setResetPopup} = props;
@@ -47,9 +48,10 @@ function editUser(props) {
                 // });
                 setPassword("");
                 setRPassword("");
-                this._panel.hide();
+                NotificationManager.success('Password Updated Successfully.', 'User Update.');
             }).catch(err => {
                 console.log("err", err.response)
+                NotificationManager.error('Something went wrong.', 'User Update.');
             });
         }
     };

@@ -5,6 +5,7 @@ import Style from './style';
 import axios from "axios";
 import {validateEmail} from "../../functions";
 import {apiPath} from "../../../config";
+import { NotificationManager} from 'react-notifications';
 const SectionOne = (props) => {
     let {clinicId, dispatch, users} = props;
 
@@ -60,6 +61,7 @@ const SectionOne = (props) => {
                 //     color: "white",
                 //     icon: "info"
                 // });
+                NotificationManager.success('User successfully deleted.', 'User Update.');
             });
         }
     };
@@ -106,6 +108,7 @@ const SectionOne = (props) => {
                 //     color: "white",
                 //     icon: "info"
                 // });
+                NotificationManager.success('New user added successfully.', 'User Update.');
                 setFirstName("");
                 setLastName("");
                 setEmail("");

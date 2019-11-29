@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Style from './editUserPopuStyle'
 import {apiPath} from "../../../config";
+import { NotificationManager} from 'react-notifications';
 import {validateEmail} from "../../functions";
 function editUser(props) {
     let {user, setEditPopup, addUsers} = props;
@@ -65,12 +66,14 @@ function editUser(props) {
             axios.post((apiPath + "/updateClinician/?id=" + user.uid), payload).then(res => {
                 addUsers();
                 setButton("UPDATED");
+                NotificationManager.success('User successfully Updated.', 'User Update.');
                 setTimeout(() => {
                     setButton("UPDATE");
                 }, 5000);
             }).catch(err => {
                 console.log("err", err.response)
                 setButton("UPDATE");
+                NotificationManager.error('Something went wrong.', 'User Update.');
             });
         }
     };
