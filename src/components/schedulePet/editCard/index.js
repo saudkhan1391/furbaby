@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { apiPath } from "../../../config";
-import DateTimePicker from 'react-datetime-picker';
+import {apiPath} from "../../../config";
+import DatePicker from 'react-date-picker';
+import {timeZoneUS} from '../../functions';
 import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
 
 function EditCard(props) {
 
-    let { setForm, showForm, dispatch, setShow, schedule, setSchedule } = props;
-    let { description, startTime, appointmentStatus, petOwner: { phone: ownerPhone } } = showForm;
+    let {setForm, showForm, dispatch, setShow, schedule, setSchedule} = props;
+    let {description, startTime, appointmentStatus, petOwner: {phone: ownerPhone}} = showForm;
     const [date, setDate] = useState(startTime);
     const [status, setStatus] = useState(appointmentStatus);
     const [statuses, setStatuses] = useState(appointmentStatus);
     const [text, setText] = useState(description);
     const [addPhone, setAddPhone] = useState(false);
     const [phone, setPhone] = useState(null);
-    const [showHistory , setShowHistory] = useState(false);
+    const [showHistory, setShowHistory] = useState(false);
 
     useEffect(() => {
-        if(schedule){
+        if (schedule) {
             setStatus("In Hospital");
         }
         setStatus(appointmentStatus);
@@ -48,11 +49,11 @@ function EditCard(props) {
         delete main.pet;
         delete main.petOwner;
         let payload = {};
-        if(!addPhone){
+        if (!addPhone) {
             payload = {
                 appointment: main
             }
-        }else {
+        } else {
             payload = {
                 appointment: main,
                 workPhone: phone
@@ -62,31 +63,31 @@ function EditCard(props) {
             type: "SET_LOADER",
             payload: true
         });
-        if(status === "In Hospital"){
-            axios.post(apiPath+"/appointmentStatusInHospital", payload).then(res => {
+        if (status === "In Hospital") {
+            axios.post(apiPath + "/appointmentStatusInHospital", payload).then(res => {
                 dispatch({
                     type: "UPDATE_CURRENT_FURBABY",
                     payload: data
                 });
                 setLoader();
                 setSchedule(false);
-                if(status === "In Hospital" && status !== statuses){
+                if (status === "In Hospital" && status !== statuses) {
                     NotificationManager.success('Furbaby successfully checked in', 'Furbaby Check in');
-                }else {
+                } else {
                     NotificationManager.success('Furbaby schedule is updated successfully', 'Schedule Updated');
                 }
             }).catch(err => {
-                if(err.response.data.err.message){
+                if (err.response.data.err.message) {
                     dispatch({
                         type: "SET_LOADER",
                         payload: false
                     });
-                }else {
+                } else {
                     setLoader();
                     setSchedule(false);
                 }
             })
-        }else {
+        } else {
             dispatch({
                 type: "UPDATE_CURRENT_FURBABY",
                 payload: data
@@ -114,16 +115,18 @@ function EditCard(props) {
                 <div className="w-1/2 px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                        <input value={text} className="border py-2 px-3 h-10" type="text" onChange={event => setText(event.target.value)}/>
+                        <input value={text} className="border py-2 px-3 h-10" type="text"
+                               onChange={event => setText(event.target.value)}/>
                     </div>
                 </div>
                 <div className="w-1/2 px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Status</label>
-                        <select className="border py-2 px-3 h-10" id="" value={status} disabled={status==="Complete"} onChange={(event) => setStatus(event.target.value)}>
+                        <select className="border py-2 px-3 h-10" id="" value={status} disabled={status === "Complete"}
+                                onChange={(event) => setStatus(event.target.value)}>
                             <option value=""/>
                             {
-                                status==="Complete" &&
+                                status === "Complete" &&
                                 <option value="Complete">Complete</option>
                             }
                             <option value="Confirmed">Confirmed</option>
@@ -134,9 +137,9 @@ function EditCard(props) {
                 <div className="w-1/2 px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Schedule Date</label>
-                        <DateTimePicker
-                            onChange={event => setDate(event.toISOString())}
-                            value={new Date(date)}
+                        <DatePicker
+                            onChange={event => setDate(timeZoneUS(event))}
+                            value={timeZoneUS(date)}
                         />
                         {/*<input className="border py-2 px-3 h-10" value={date} onChange={event => setDate((new Date(event.target.value)).toISOString())} type="datetime-local" placeholder="06/22/2019 12:00 PM"/>*/}
                     </div>
@@ -144,8 +147,12 @@ function EditCard(props) {
             </div>
 
             <div className="flex mb-4 mt-5 allButtons">
-                <button className="rmvBtn mr-4" onClick={() => removeFromSchedule(showForm.appointmentId)}>REMOVE FROM SCHEDULE</button>
-                <button className="rmvBtn mr-4" onClick={() => setShowHistory(!showHistory)}>{showHistory ? "HIDE" : "VIEW"} PATIENT RECORD</button>
+                <button className="rmvBtn mr-4" onClick={() => removeFromSchedule(showForm.appointmentId)}>REMOVE FROM
+                    SCHEDULE
+                </button>
+                <button className="rmvBtn mr-4"
+                        onClick={() => setShowHistory(!showHistory)}>{showHistory ? "HIDE" : "VIEW"} PATIENT RECORD
+                </button>
                 <button className="saveBtn mr-4" onClick={() => checkIn()}>SAVE CHANGES</button>
                 <button className="cancelBtn mr-4" onClick={() => setForm(null)}>CANCEL</button>
             </div>

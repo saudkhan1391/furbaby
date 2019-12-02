@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import Style from './style';
+import DatePicker from 'react-date-picker';
+import {timeZoneUS} from '../../functions/index';
 import axios from 'axios';
-import { NotificationManager} from 'react-notifications';
-import { defaultTracker } from "../../functions";
+import {NotificationManager} from 'react-notifications';
+import {defaultTracker} from "../../functions";
 import {apiPath} from "../../../config";
 const SectionFour = (props) => {
     let {clinicId, current, petId, dispatch, appointments, setAddedPopup} = props;
@@ -11,6 +13,7 @@ const SectionFour = (props) => {
     const [descriptionValidator, setDescriptionValidator] = useState("");
     const [date, setDate] = useState(new Date());
     const [dateValidation, setDateValidation] = useState(false);
+    const [trackerComponents, setTrackerComponent] = useState([]);
 
     const [custom, setCustom] = useState("");
     const [trackerName, setTrackerName] = useState("Annual Exam");
@@ -18,11 +21,18 @@ const SectionFour = (props) => {
     const [button, setButton] = useState("ADD TO SCHEDULE");
 
     const setCurrentTracker = (name, val) => {
+        let components = JSON.parse(JSON.stringify(trackerComponents));
+        components.forEach((item => {
+            if (item.id === name) {
+                item.show = val
+            }
+        }));
         if (val) {
             setTrackerName(name);
         } else {
             setTrackerName("Annual Exam");
         }
+        setTrackerComponent(components);
         setCustom("");
     };
 
@@ -31,8 +41,9 @@ const SectionFour = (props) => {
     };
 
     const addCustomAppointment = () => {
-        let mainData = [];
+        let mainData = [...trackerComponents];
         let valid = false;
+        let temp = [];
         let newCustom = custom.split('\n');
         newCustom.forEach((item, index) => {
             if (item) {
@@ -42,6 +53,11 @@ const SectionFour = (props) => {
                     value: false,
                     status: 1
                 })
+            }
+        });
+        mainData.forEach(item => {
+            if (item.show === undefined || item.show) {
+                temp.push(item);
             }
         });
         if (!date) {
@@ -62,7 +78,7 @@ const SectionFour = (props) => {
                 description,
                 appointmentStatus: "Confirmed",
                 appointmentType: "Clinical",
-                trackingComponent: mainData && mainData.length !== 0 ? JSON.stringify(mainData) : JSON.stringify(setTracker()),
+                trackingComponent: JSON.stringify(temp),
                 clinicId,
                 petOwnerId: current.id,
                 petId,
@@ -94,7 +110,6 @@ const SectionFour = (props) => {
     };
 
 
-
     const setAddedPopupClose = () => {
         setDate(null);
         setDescription(null);
@@ -106,7 +121,21 @@ const SectionFour = (props) => {
     const setField = (value) => {
         setTrackerName("");
         setCustom(value)
-    }
+    };
+
+    const setValue = (value) => {
+        setDescription(value);
+        setDescriptionValidator(false);
+        let tracker = defaultTrackers.find(item => item.name === value);
+        if (tracker !== undefined) {
+            setTrackerComponent([]);
+            setTimeout(() => {
+                setTrackerComponent(tracker.trackers);
+            }, 1);
+        } else {
+            setTrackerComponent([]);
+        }
+    };
 
 
     return (
@@ -129,30 +158,22 @@ const SectionFour = (props) => {
                     <div className="flex -mx-2 mt-8 ml-10">
                         <div>
                             <div className="flex -mx-2 mt-8 ml-10">
-                                {/*<div className="w-1/2 px-2">*/}
-                                {/*<div className="h-12">*/}
-                                {/*<div className="flex flex-col mb-4 inputvision">*/}
-                                {/*<label className="mb-2" htmlFor="first_name">Visit Reason</label>*/}
-                                {/*<select className="border py-2 px-3 " type="text">*/}
-                                {/*<option value="" selected="">Select</option>*/}
-                                {/*<option>FIRST</option>*/}
-                                {/*<option>SECOND</option>*/}
-                                {/*<option>THIRD</option>*/}
-                                {/*</select>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
                                 <div className="w-1/2 px-2">
-                                    <div className=" h-12">
+                                    <div className="h-12">
                                         <div className="flex flex-col mb-4 inputvision">
                                             <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                                            <input className="border py-2 px-3 " type="text"
-                                                   onChange={event => {
-                                                       setDescription(event.target.value);
-                                                       setDescriptionValidator(false)
-                                                   }}
-                                                   style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}
-                                            />
+                                            <select className="border py-2 px-3 " onChange={event => {
+                                                setValue(event.target.value);
+                                            }}
+                                                    style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}
+                                                    type="text">
+                                                <option value="" selected="">Select</option>
+                                                {
+                                                    defaultTrackers.map((item, index) => {
+                                                        return <option key={index} label={item.name} value={item.name}/>
+                                                    })
+                                                }
+                                            </select>
                                             <div style={{height: "13px"}}>
                                                 {descriptionValidator && <p style={{color: "red", fontSize: 12}}>
                                                     required
@@ -161,19 +182,37 @@ const SectionFour = (props) => {
                                         </div>
                                     </div>
                                 </div>
+                                {/*<div className="w-1/2 px-2">*/}
+                                {/*<div className=" h-12">*/}
+                                {/*<div className="flex flex-col mb-4 inputvision">*/}
+                                {/*<label className="mb-2" htmlFor="first_name">Visit Reason</label>*/}
+                                {/*<input className="border py-2 px-3 " type="text"*/}
+                                {/*onChange={event => {*/}
+                                {/*setValue(event.target.value)*/}
+                                {/*}}*/}
+                                {/*style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}*/}
+                                {/*/>*/}
+                                {/*<div style={{height: "13px"}}>*/}
+                                {/*{descriptionValidator && <p style={{color: "red", fontSize: 12}}>*/}
+                                {/*required*/}
+                                {/*</p>}*/}
+                                {/*</div>*/}
+                                {/*</div>*/}
+                                {/*</div>*/}
+                                {/*</div>*/}
                                 <div className="w-1/2 px-2">
                                     <div className=" h-12">
-                                        <div className="flex flex-col mb-4 inputvision">
+                                        <div className="flex flex-col mb-4 inputvision calendar-div2">
                                             <label className="mb-2" htmlFor="first_name">Schedule Date</label>
-                                            <input type="datetime-local"
-                                                   className="border py-2 px-3 "
-                                                   value={date}
-                                                   onChange={(event) => {
-                                                       setDate(event.target.value);
-                                                       setDateValidation(false)
-                                                   }}
-                                                   placeholder="06/22/2019 12:00 AM"
-                                                   style={dateValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                            <DatePicker
+                                                className="border py-2 px-3"
+                                                onChange={event => {
+                                                    setDate(timeZoneUS(event));
+                                                    setDateValidation(false)
+                                                }}
+                                                style={dateValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                                value={timeZoneUS(date)}
+                                                disableClock
                                             />
                                             <div style={{height: "13px"}}>
                                                 {dateValidation && <p style={{color: "red", fontSize: "12px"}}>
@@ -248,7 +287,8 @@ const SectionFour = (props) => {
                                     </div>
                                 </div> :
                                     <div className="pl-12 mt-10" onClick={() => setShow(true)}>
-                                        <button className="reviewBtn">OPTIONAL: REVIEW & CUSTOMIZE TREATMENT PLAN</button>
+                                        <button className="reviewBtn">OPTIONAL: REVIEW & CUSTOMIZE TREATMENT PLAN
+                                        </button>
                                     </div>
                             }
                         </div>

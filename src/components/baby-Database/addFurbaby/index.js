@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Style from './style';
+import DatePicker from 'react-date-picker';
+import {timeZoneUS} from '../../functions/index';
 import axios from 'axios';
 import firebase from "../../../utils/firebase";
 import {apiPath} from "../../../config";
@@ -199,16 +201,17 @@ const SectionFour = (props) => {
 
                         <div className="w-1/2 px-2">
                             <div className=" h-12">
-                                <div className="flex flex-col mb-4 inputvision">
+                                <div className="flex flex-col mb-4 inputvision calendar-div2">
                                     <label className="mb-2" htmlFor="first_name">Fur Baby DOB</label>
-                                    <input type="datetime-local"
-                                           className="border py-2 px-3 "
-                                           value={dob}
-                                           onChange={(event) => {
-                                               setDob(event.target.value);
-                                               setDobValidation(false)
-                                           }}
-                                           style={dobValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                    <DatePicker
+                                        className="border py-2 px-3"
+                                        onChange={event => {
+                                            setDob(timeZoneUS(event));
+                                            setDobValidation(false)
+                                        }}
+                                        style={dobValidation ? {borderColor: "red"} : {borderColor: ""}}
+                                        value={timeZoneUS(dob)}
+                                        disableClock
                                     />
                                     <div style={{height: "13px"}}>
                                         {dobValidation && <p style={{color: "red", fontSize: "12px"}}>

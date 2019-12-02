@@ -138,6 +138,11 @@ export const validateEmail = email => {
     return re.test(String(email).toLowerCase());
 };
 
+export const timeZoneUS = (dat) => {
+    const date = new Date(dat).toLocaleString("en-US", {timeZone: "America/New_York"});
+    return new Date(date);
+};
+
 export const defaultTracker = () => {
     let main = [];
     fun.forEach(item => {
