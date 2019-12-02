@@ -131,7 +131,7 @@ const SectionOne=(props) => {
                                      pathTransitionDuration: 0.5,
                                      pathColor: calculate() === 100 ? "#8bc53f" :"#32c5ff"
                                  })}>
-                                   {calculate() === 100 &&  <img style={{ width: 120 }} src={require('../../../assets/images/completed.png')} className="completed" alt="abcc" />}
+                                   {calculate() === 100 &&  <img src={require('../../../assets/images/completed.png')} className="completed" alt="abcc" />}
                                        <div className="coverPhoto" style={{backgroundImage: "url("+ (image ? image : placeholderPet)+")"}}/>
                             </CircularProgressbarWithChildren>
                             </div>

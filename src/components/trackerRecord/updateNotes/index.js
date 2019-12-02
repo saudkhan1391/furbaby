@@ -8,7 +8,7 @@ import {NotificationManager} from 'react-notifications';
 function UpdateNotes(props) {
     let { notes, setModel, dispatch, furBaby, name, clinic, petOwner, pet, lastName, description, DefaultNotes } = props;
     const [type, setType] = useState(null);
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState("");
     const [photos, setPhotos] = useState([]);
     let activeNote = clinic.notes ? JSON.parse(clinic.notes): DefaultNotes;
 
@@ -112,7 +112,8 @@ function UpdateNotes(props) {
                     </select>
                 </div>
                 <div className="flex flex-col mb-2 fotText-area mt-6">
-                    <textarea rows="5" cols="80" placeholder="Text area" value={content ? content : ""} onChange={event => setContent(event.target.value)}/>
+                    <textarea rows="5" cols="80" required placeholder="Text area" value={content ? content : ""} onChange={event => setContent(event.target.value)}/>
+                    <p style={{color: content.length > 160 ? "red" : ""}}>{"Count "+content.length+"/160"}</p>
                 </div>
                 <div className="attachmentbtn mt-2">
                     <label className="activityBtn-popup-small">

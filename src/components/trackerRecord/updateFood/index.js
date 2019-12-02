@@ -60,12 +60,7 @@ function UpdateMedication(props) {
                 </div>
                 <div className="flex flex-col mb-2 inputvision mt-6">
                     <label className="mb-1" htmlFor="first_name">Dose Administered</label>
-                    <select className="border py-2 px-3 " onChange={event => setQuantity(event.target.value)}>
-                        <option value="" selected="">Select</option>
-                        <option>1</option>
-                        <option>1/2</option>
-                        <option>2</option>
-                    </select>
+                    <input type="text" className="customInput border" value={quantity} onChange={event => setQuantity(event.target.value)}/>
                 </div>
                 <div className="flex justify-center mt-24">
                     <button type="submit" className="activityBtn-popup">ADD ACTIVITY</button>

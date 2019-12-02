@@ -188,6 +188,11 @@ export default ()=>(
             width: 98%;
             padding: 14px;
         }
+          .fotText-area p {
+            text-align: end;
+            padding-right: 10px;
+            font-size: 13px;
+        }
         .notes-content{
             background-color:#f5f5f5;
             margin:7% auto;

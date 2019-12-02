@@ -342,8 +342,8 @@ export default () => (
     }
     .completed{
         position: absolute;
-        top: 15px;
-        left: 15px;
+        top: 18px;
+        left: 18px;
         width: 115px;
         height: 115px;
         border-radius: 50%;
