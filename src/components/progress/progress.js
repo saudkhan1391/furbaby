@@ -6,7 +6,7 @@ const index = () =>{
         <FurbabyConsumer>
             {
                 ({id, dispatch, loaded, appointments}) => {
-                    let final = appointments.filter(item => (item.appointmentStatus === "In Hospital" | !!item.show));
+                    let final = appointments.filter(item => (item.appointmentStatus === "In Hospital"));
                     return <Component loaded={loaded} dispatch={dispatch} appointments={final}/>
                 }
             }

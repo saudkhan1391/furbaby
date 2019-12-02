@@ -25,6 +25,7 @@ const responsive = {
         items: 2,
     },
 };
+import ShowCount from "./showCount";
 
 const SectionTwo = (props) => {
     const { appointments, dispatch } = props;
@@ -35,11 +36,6 @@ const SectionTwo = (props) => {
 
     const [schedule, setSchedule] = useState(false);
     const [showEdit , setShowEdit] = useState(false);
-
-    const collectNumberOfAppointments = (date) => {
-        let data = appointments.filter(item => standardDate(item.startTime).standardDate === standardDate(date).standardDate);
-        return data.length;
-    };
 
     const setMain = (event) => {
         setMainDate(event);
@@ -59,14 +55,7 @@ const SectionTwo = (props) => {
                                     tileClassName="single-tile"
                                     onChange={event => {setMain(event); setForm(null)}}
                                     tileContent={(value) => {
-                                        let {date} = value;
-                                        let main = collectNumberOfAppointments(date);
-                                        return <div className="calendar-item">
-                                            {
-                                                !!main &&
-                                                <p>{main}</p>
-                                            }
-                                        </div>
+                                        return <ShowCount value={value} appointments={appointments} />
                                     }}
                                 />
                             </div>

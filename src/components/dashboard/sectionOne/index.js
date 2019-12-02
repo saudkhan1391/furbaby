@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 
 const SectionOne=(props)=>{
     let { appointments, dispatch } = props;
+    let inHospital = appointments.filter(item => (item.appointmentStatus === "In Hospital"));
+    let complete = appointments.filter(item => (item.appointmentStatus === "Complete"));
     let date = standardDate(new Date());
     return (
         <div>
-            <div className="container mx-auto">
+            <div className="container mx-auto pb-10">
                 <section className="left-col w-1/5">
                     {/*<div>*/}
                         {/*<button className="btn-background mt-10 font-bold">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>*/}
@@ -121,12 +123,24 @@ const SectionOne=(props)=>{
                         {/*<button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>*/}
 
                     </div>
+                    <CarouselTwo appointments={inHospital} dispatch={dispatch} />
+                    {
+                        complete.length !== 0 &&
+                            <div>
+                                <div className="mt-8">
+                                    <label className="font-bold ml-12 lbl-3">TREATMENTS</label>
+                                    <Link to="/completed" >
+                                        <button className="view-btn-background  font-bold float-right">VIEW All</button>
+                                    </Link>
 
-                    <CarouselTwo appointments={appointments} dispatch={dispatch} />
-
-
-
-
+                                </div>
+                                <div className="mt-12">
+                                    <label className="font-bold ml-12 lbl-2">COMPLETE</label>
+                                </div>
+                                <div className="hr ml-12 mt-4"/>
+                                <CarouselTwo appointments={complete} dispatch={dispatch} />
+                            </div>
+                    }
                 </section>
             </div>
 

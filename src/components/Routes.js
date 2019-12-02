@@ -7,7 +7,8 @@ import Schedule from './schedule';
 import SchedulePageOne from "./schedulePageOne";
 import Schedulepet from "./schedulePet/container";
 import Treatmentplan from "./treatmentplan/container";
-import Progress from "./progress/container";
+import Progress from "./progress/progress";
+import Completed from "./progress/completed";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";
 import Foodmeds from "./foodmeds/container";
@@ -131,6 +132,7 @@ const Routes = (props) => {
             <Route path={"/dashboard"} component={Dashboard}/>
             <Route path={"/tracker-record/:id"} component={trackerRecord}/>
             <Route path={"/in-progress"} component={Progress}/>
+            <Route path={"/completed"} component={Completed}/>
             <Route path={"/create-new"} component={Treatmentplan}/>
             <Route path={"/tools-setting"} component={Toolssetting}/>
             <Route path={"/foods-and-medications"} component={Foodmeds}/>
