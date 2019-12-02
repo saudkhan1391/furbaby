@@ -60,7 +60,7 @@ const sectionOne =()=>{
             <section>
                 <div className="d-flex">
                     <div className="bg1"/>
-                    <form onSubmit={event => signIn(event)} className="trackerLogo">
+                    <form onSubmit={event => signIn(event)} className="trackerLogo responsiveForm">
                         <div>
                             <img src={require('../../assets/images/fbt-grey.png')} alt="pic" />
                         </div>

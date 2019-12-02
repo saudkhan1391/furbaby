@@ -106,7 +106,7 @@ const SectionTwo=(props) => {
         <div>
             <div className="container mx-auto">
                 <div className="mt-12 mb-6 heading">
-                    <h3>ACTIVITY REPORT</h3>
+                    <h3 className="activiHead">ACTIVITY REPORT</h3>
                 </div>
 
                 <div>

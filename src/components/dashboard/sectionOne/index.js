@@ -11,7 +11,8 @@ const SectionOne=(props)=>{
     let date = standardDate(new Date());
     return (
         <div>
-            <div className="container mx-auto pb-10">
+
+            <div className="container mx-auto resp-main-dash">
                 <section className="left-col w-1/5">
                     {/*<div>*/}
                         {/*<button className="btn-background mt-10 font-bold">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>*/}
@@ -94,7 +95,7 @@ const SectionOne=(props)=>{
                         <Link to="/schedule">
                             <button className="chk-btn-background font-bold ml-12">CHECK-IN A SCHEDULED FUR BABY</button>
                         </Link>
-                        <label className=" float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</label>
+                        <label className="date-lbl float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</label>
                     </div>
 
                     <div className="mt-12">

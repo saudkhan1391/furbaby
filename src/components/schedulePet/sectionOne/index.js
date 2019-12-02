@@ -4,9 +4,9 @@ import { standardDate } from "../../functions";
 const SectionOne=()=>{
     let date = standardDate(new Date());
     return(
-        <div>
+        <div className="cal-div">
        <div className=" flex mb-4 mt-10 mb">
-            <div className="flex w-1/2 h-12 ml-12 headingSchedule">
+            <div className="flex w-1/2 h-12 ml-12 headingSchedule f-d-c">
                 <h1>FUR BABIES SCHEDULED FOR</h1>
                 <div className="ml-6 mt-2 date">
                     <p>{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</p>

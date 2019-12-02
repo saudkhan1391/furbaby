@@ -39,5 +39,58 @@ export default () => (
     border-bottom: 2px solid #32c5ff;
     padding: 30px 0px 26px 0px;
 }
+.mob-nav{
+  min-height:56px;
+  background:#32c5ff;
+  padding: 0 15px;
+}
+.mob-nav img{
+  width: 30px;
+}
+.overlay-back{
+  background: #0000003d;
+  width:100vw;
+  height:100vh;
+  left: 0;
+    z-index: 1001;
+    top: 0;
+    position: fixed;
+}
+.mob-hid{
+  position: absolute;
+  background: #32c5ff;
+  width: 80vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  padding: 18vh 50px;
+  border: 1px solid #eee;
+  left: 0;
+}
+.mob-nav{
+  position: relative;
+ }
+ navigation-mob{
+   display: none;
+ }
+ .mob-hid a{
+   font-size: 18px;
+   color: #fff;
+   margin-right: 0;
+   text-align: center;
+   margin: 20px 0;
+ }
+ .mob-hid hr{
+  background: #fff;
+  height: 1px;
+ }
+ .mob-hid .mob-logo{
+   display: flex;
+   justify-content: center;
+ }
+ .mob-hid .mob-logo img{
+   width: 75px !important;
+ }
+ 
     `}</style>
 )

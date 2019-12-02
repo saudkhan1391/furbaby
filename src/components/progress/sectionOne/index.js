@@ -7,10 +7,10 @@ const SectionOne=()=>{
     let date = standardDate(new Date());
     return(
         <div>
-            <div className=" flex mb-4 mt-10">
+            <div className="inProgFur flex mb-4 mt-10">
                 <div className="flex w-1/2 ml-12 ">
                     <Link to="/schedule">
-                        <button className="btn">CHECK-IN A SCHEDULED FUR BABY</button>
+                        <button className="btn checkFur">CHECK-IN A SCHEDULED FUR BABY</button>
                     </Link>
                 </div>
                 <div className="w-1/2 h-12 ml-0 buttonBlue">

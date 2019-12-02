@@ -329,7 +329,7 @@ const Treatmentplan = (props) => {
     return (
         <Layout>
             <div className=" flex mb-4 mt-10 mb">
-                <div className="flex w-1/2 h-12 ml-12 headingSchedule">
+                <div className="flex dbpage w-1/2 h-12 ml-12 headingSchedule">
                     <h1>FUR BABIES SCHEDULED FOR</h1>
 
                     <div className="ml-6 mt-2 date">
@@ -340,7 +340,7 @@ const Treatmentplan = (props) => {
             <hr className="style1"/>
             <div className="px-2 mt-10">
                 <div className="flex -mx-2">
-                    <div className="w-1/2 px-2">
+                    <div className="w-1/2 px-2 vr">
                         {/*<div className="pl-10 pb-4 select-Furbaby-Schedule">*/}
                         {/*<h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>*/}
                         {/*</div>*/}
@@ -355,13 +355,13 @@ const Treatmentplan = (props) => {
                         {/*SOFTWARE*/}
                         {/*</button>*/}
                         {/*</div>*/}
-                        <div className="pl-10 mt-12 manually">
+                        <div className="pl-10 breeze mt-12 manually">
                             <h1>MANUALLY CREATE NEW FUR BABY</h1>
                         </div>
                         {loader ?
                             <SmallLoader/>
                             :
-                            <div>
+                            <div className="dbFor">
                                 <div className="flex -mx-2 mt-8 ml-10">
                                     <div className="w-1/2 px-2">
                                         <div className="h-12">
@@ -462,12 +462,12 @@ const Treatmentplan = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex -mx-2 mt-8 ml-10">
+                                <div className="flex bcv -mx-2 mt-8 ml-10">
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Fur Baby Name</label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input className="border lftW py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setPetName(event.target.value);
                                                            setPetNameValidation(false);
@@ -736,7 +736,7 @@ const Treatmentplan = (props) => {
                                 </div>
                         }
 
-                        <div className="flex mb-4 mt-5 ml-12 h-24 allButtons">
+                        <div className="flex dbAllB mb-4 mt-5 ml-12 h-24 allButtons">
                             <div className="w-1/4 h-12">
                                 <div>
                                     <button className="addBtn" onClick={() => addCustomAppointment()}>ADD TO SCHEDULE

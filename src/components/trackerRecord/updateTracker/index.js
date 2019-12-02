@@ -131,7 +131,7 @@ function UpdateTracker(props) {
                 <div className="flex flex-col mb-2 fotText-area mt-6">
                     <textarea rows="5" cols="80" placeholder="Text area" value={text} onChange={event => setText(event.target.value)}/>
                 </div>
-                <div className="flex justify-center mt-24">
+                <div className="flex btnCon justify-center mt-24">
                     <button type="submit" className="activityBtn-popup">UPDATE TRACKER</button>
                     <button type="button" className="CnclBtn-popup ml-4" onClick={()=>setShow(false)}>CANCEL</button>
                 </div>
