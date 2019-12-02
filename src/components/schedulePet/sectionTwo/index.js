@@ -49,10 +49,10 @@ const SectionTwo = (props) => {
 
     return(
         <div>
-            <div className="px-2 mt-10">
-                <div className="flex -mx-2">
+            <div className="px-2 mt-10 sec1">
+                <div className="flex res-d -mx-2">
                     <div className="w-1/2 px-2">
-                        <div className="h-12 ml-12">
+                        <div className="h-12 ml-12 mL0">
                             <div className="calendar-div">
                                 <Calendar
                                     value={date && date}
@@ -73,7 +73,7 @@ const SectionTwo = (props) => {
                         </div>
                     </div>
 
-                    <div className="w-1/2 px-2">
+                    <div className="w-1/2 px-2 cardForm">
                         <div className="px-2">
                             <div className="">
                                 <div className=" mb-4 carousel-cont">

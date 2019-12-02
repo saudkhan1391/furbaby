@@ -106,10 +106,10 @@ const SectionOne=(props) => {
 
 
     return(
-        <div className="container mx-auto">
+        <div className="tcPage container mx-auto">
             <div>
-                <div style={{display:"flex;justify-content:space-around"}} className="mt-12">
-                    <label className="font-bold lbl-2">FUR BABY TRACKER RECORD - TREATMENT</label>
+                <div style={{display:"flex;justify-content:space-around"}} className="sDiv mt-12">
+                    <label className="tcRec font-bold lbl-2">FUR BABY TRACKER RECORD - TREATMENT</label>
                     <Link to={"/dashboard"}>
                         <button className="btn-background  font-bold float-right">RETURN TO IN PROGRESS DASHBOARD</button>
                     </Link>
@@ -119,8 +119,8 @@ const SectionOne=(props) => {
 
             <div className="main flex mt-12">
                 <div className="profile mt-8 ml-8 flex mb-12">
-                    <div className="flex-1 h-12 ml-4 max-w-sm">
-                        <div className="max-w-sm rounded overflow-hidden shadow-bord">
+                    <div className="flex-1 cen h-12 ml-4 max-w-sm">
+                        <div className="max-w-sm cenCard rounded overflow-hidden shadow-bord">
                              <div className="px-6 py-4 flex justify-center m-auto pt-8">
 
                              <CircularProgressbarWithChildren

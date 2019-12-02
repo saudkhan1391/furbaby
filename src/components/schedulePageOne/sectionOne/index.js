@@ -5,7 +5,7 @@ const SectionOne=()=>{
         <div>
               
             
-            <div className=" flex mb-4 mt-10">
+            <div className=" flex mb-4 mt-10 ">
             <div className="flex w-1/2 h-12 ml-12 headingSchedule">
                 <h1>FUR BABIES SCHEDULED FOR</h1>
                 

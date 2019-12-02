@@ -74,9 +74,9 @@ const Schedule = (props) => {
 
     return (
         <Layout>
-            <div className="container mx-auto">
+            <div className="container mainDb mx-auto">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                    <div className="flex justify-between mt-12">
+                    <div className="flex upperCon justify-between mt-12">
                         <div className="massMessage-heading">
                             <h1>EXISTING FUR BABY RECORDS</h1>
                         </div>
@@ -90,8 +90,8 @@ const Schedule = (props) => {
                     <div className="mt-2 forline-again1"></div>
                 </div>
             </div>
-            <div className="container mx-auto">
-                <div className="px-2 mt-10">
+            <div className="container sMainDb mx-auto">
+                <div className="px-2 asda mt-10">
                     <div className="flex -mx-2">
                         <div className="w-1/2">
                             <div className="h-12">

@@ -9,7 +9,13 @@ const Header=(props)=>{
     const checkActive = (value) => {
         return location.pathname.indexOf(value) !== -1 ? "active" : "";
     };
-
+    let sidebar = document.getElementById('sBar');
+    const openSidebar = ()=>{
+sidebar.style.display="block";
+    }
+    const closeSidebar = ()=>{
+      sidebar.style.display="none";
+          }
     const logOut = () => {
         firebase.auth().signOut();
     };
@@ -53,6 +59,48 @@ const Header=(props)=>{
                     {/*</div>*/}
                 </div>
             </nav>
+            <navigation-mob>
+              <div className="mob-nav flex items-center justify-between ">
+                <div className="">
+                  <img src={require('../../assets/images/lArrow.png')} alt="pic"></img>
+                </div>
+                <div className="">
+                  <h3>CLINIC DASHBOARD</h3>
+                </div>
+                <div className="">
+                <img src={require('../../assets/images/ham.png')} onClick={()=>openSidebar()} alt="pic"></img>
+                </div>
+                <div id="sBar" onClick={()=>closeSidebar()} className="overlay-back">
+                <div  className="mob-hid">
+                <div class="mb-16 mob-logo"><img src="/static/media/fbt-grey.26cdd9f2.png" alt="pic"></img></div>
+                <div className="lg:flex-grow">
+                        <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
+                            CLINIC DASHBOARD
+                        </Link>
+                        <hr></hr>
+                        <Link to="/in-progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                            IN PROGRESS
+                        </Link>
+                        <hr></hr>
+                        <Link to="/schedule" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                            SCHEDULE
+                        </Link>
+                        <hr></hr>
+                        {/*<a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">*/}
+                            {/*NOTIFICATIONS*/}
+                        {/*</a>*/}
+                        <Link to="/baby-database" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                            DATABASE
+                        </Link>
+                        <hr></hr>
+                        <Link to="/tools-setting" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                            TOOLS & SETTINGS
+                        </Link>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </navigation-mob>
             <Style />
         </div>
     )
