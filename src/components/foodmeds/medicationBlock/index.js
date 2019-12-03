@@ -162,10 +162,10 @@ const Schedule = (props) => {
         })
     };
 
-    return (<div>
-            <div className="container mx-auto">
+    return (<div className="customFood">
+            <div className="container mx-auto top1">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                    <div className="flex justify-between mt-12">
+                    <div className="mainDd flex justify-between mt-12">
                         <div className="medicationHeading2">
                             <h1>CUSTOMIZE PET MEDICATION DROPDOWNS</h1>
                         </div>
@@ -182,7 +182,7 @@ const Schedule = (props) => {
                     <div className="mt-4 optionspara">
                         <p>All selected options will display in the pet medication dropdown</p>
                     </div>
-                    <div className="flex mt-8">
+                    <div className="subFd flex mt-8">
                         <div className="showing">
                             <p>Showing medication options for:</p>
                         </div>
@@ -219,7 +219,7 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container mx-auto top2">
                 <div className="flex mb-4">
                     <div className="w-full mt-8 forBg-clr">
                         <div className="pl-12 flex-wrap flex">
@@ -239,7 +239,7 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container mx-auto top1">
                 <div className="flex mb-4">
                     <div className="w-full">
                         <div className="customMedication">

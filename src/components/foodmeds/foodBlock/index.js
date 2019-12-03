@@ -134,10 +134,10 @@ const Schedule = (props) => {
         })
     };
 
-    return (<div>
-            <div className="container mx-auto">
+    return (<div className="customFood">
+            <div className="container mx-auto top1">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
-                    <div className="flex justify-between mt-12">
+                    <div className="flex justify-between mt-12 mainDd">
                         <div className="medicationHeading2">
                             <h1>CUSTOMIZE PET FOOD DROPDOWNS</h1>
                         </div>
@@ -154,12 +154,12 @@ const Schedule = (props) => {
                     <div className="mt-4 optionspara">
                         <p>All selected options will display in the pet food dropdown</p>
                     </div>
-                    <div className="flex mt-8">
+                    <div className="flex subFd mt-8">
                         <div className="showing">
                             <p>Showing food options for:</p>
                         </div>
 
-                        <div className="flex ml-8 label">
+                        <div className="flex ml-8 label mL0">
                             <div className="flex mr-12 check-mar">
                                 <label className="container1">
                                     <input type="checkbox"
@@ -191,7 +191,7 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container mx-auto top2">
                 <div className="flex mb-4">
                     <div className="w-full mt-8 forBg-clr">
                         <div className="pl-12 flex-wrap flex">
@@ -211,7 +211,7 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container mx-auto top1">
                 <div className="flex mb-4">
                     <div className="w-full">
                         <div className="customMedication">

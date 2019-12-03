@@ -5,15 +5,15 @@ import EditNote from './updateNotes/updateNotes';
 import Style from './style';
 import { NotificationManager} from 'react-notifications';
 import Layout from '../layout/container';
-import DNotes from "../../jsons/notes.json";
+import DTrackers from "../../jsons/defaultTracker.json";
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
-    let [notes, setNotes] = useState(clinic.notes ? JSON.parse(clinic.notes) : DNotes);
+    let [notes, setNotes] = useState(clinic.trackers ? JSON.parse(clinic.trackers) : DTrackers);
     const [currentId, setCurrent] = useState(null);
     const [editPopup, setEditPopup] = useState(false);
     const [deleteNotes, setDeleteNotes] = useState([]);
     useEffect(() => {
-        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : DNotes;
+        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : DTrackers;
         if (duplicate) {
             duplicate.forEach(sin => {
                 sin.check = false;
@@ -102,16 +102,16 @@ const Schedule = (props) => {
             <div className="container mx-auto">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="mt-12 medicationHeading">
-                        <h1>CUSTOMIZE NOTES</h1>
+                        <h1>CUSTOMIZE TRACKERS</h1>
                     </div>
-                    <div className="mt-2 forline-again1"></div>
+                    <div className="mt-2 forline-again1"/>
                 </div>
             </div>
             <div className="container mx-auto">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="flex justify-between mt-12">
                         <div className="medicationHeading2">
-                            <h1>NOTES</h1>
+                            <h1>TRACKERS</h1>
                         </div>
                         <div className="flex mr-4">
                             <div>
@@ -124,36 +124,41 @@ const Schedule = (props) => {
             <div className="container mx-auto">
                 <div className="px-2">
                     <div className="flex flex-wrap">
-                        {notes.map((item, index) => <div key={index} className="w-1/2 pr-2">
-                            <div className="bordersBoxes h-14 mt-2">
-                                <div className="flex px-4 py-3 justify-between">
-                                    <div>
-                                        <div className="flex">
-                                            <label className="container1">
-                                                <input checked={item.check} type="checkbox" onClick={() => {
-                                                    setDeleteMultipleNotesIds(item.id)
-                                                }}/>
-                                                <span className="checkmark"></span>
-                                            </label>
-                                            <label>{item.title}</label>
+                        {
+                            notes.map((item, index) => {
+                                return (
+                                    <div key={index} className="w-1/2 pr-2">
+                                        <div className="bordersBoxes h-14 mt-2">
+                                            <div className="flex px-4 py-3 justify-between">
+                                                <div>
+                                                    <div className="flex">
+                                                        <label className="container1">
+                                                            <input checked={item.check} type="checkbox" onClick={() => {
+                                                                setDeleteMultipleNotesIds(item.id)
+                                                            }}/>
+                                                            <span className="checkmark"/>
+                                                        </label>
+                                                        <label>{item.title}</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button className="mr-2 blueBtn18" onClick={() => {
+                                                        setCurrent(index);
+                                                        setEditPopup(true);
+                                                    }}>EDIT
+                                                    </button>
+                                                    <button className="greyBtn18" onClick={() => {
+                                                        if (window.confirm("Are you sure you want to delete the note?")) {
+                                                            deleteCurrent(item.id)
+                                                        }
+                                                    }}>DELETE
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button className="mr-2 blueBtn18" onClick={() => {
-                                            setCurrent(index);
-                                            setEditPopup(true);
-                                        }}>EDIT
-                                        </button>
-                                        <button className="greyBtn18" onClick={() => {
-                                            if (window.confirm("Are you sure you want to delete the note?")) {
-                                                deleteCurrent(item.id)
-                                            }
-                                        }}>DELETE
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>)}
+                                )
+                            })}
                     </div>
                 </div>
             </div>

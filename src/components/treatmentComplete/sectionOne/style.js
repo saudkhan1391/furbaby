@@ -90,10 +90,10 @@ export default () => (
         color: #444444;
     }
     .tracks {
-        width: 700px;
+      width: 100%;
     }
     .tracks-comp {
-        width: 500px;
+      width: 100%;
     }
     .track-txt{
         width: 82px;

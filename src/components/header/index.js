@@ -29,8 +29,8 @@ sidebar.style.display="block";
                         <img src={require('../../assets/images/fbt1-logo.png')} alt="pic"/>
                     </div>
                 </div>
-                <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                    <div className="lg:flex-grow">
+                <div className="w-full block tabL flex-grow lg:flex lg:items-center lg:w-auto">
+                    <div className="tabL lg:flex-grow">
                         <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("dashboard")}>
                             CLINIC DASHBOARD
                         </Link>

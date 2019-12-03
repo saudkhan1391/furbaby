@@ -79,7 +79,7 @@ const SectionFour = (props) => {
     };
 
     return (
-        <div>
+        <div className="sixNotes">
             <div className="container mx-auto">
                 <div className="flex mb-4">
                     <div className="w-full mt-12">

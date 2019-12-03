@@ -12,7 +12,7 @@ import Completed from "./progress/completed";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";
 import Foodmeds from "./foodmeds/container";
-import TreatmentPlans from "./treatmentplans";
+import TreatmentPlans from "./treatmentplans/container";
 import CustomizeNotes from "./customizenotes/container";
 import Globalmass from "./globalmass";
 import Massmessage from "./massmessage";
