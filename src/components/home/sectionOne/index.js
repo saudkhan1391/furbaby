@@ -5,10 +5,10 @@ const SectionOne=() => {
     return (
         <div>
              <section>
-        <div className="d-flex">
+        <div className="mainF d-flex">
              
                 <div className="bg1">
-                    <div className="bg-main">
+                    <div className="bg-main ">
                         <div className="bg-text">
                             <h2>HOW IT WORKS</h2>
                             <h4>$19.99 Monthly Subscription<br></br> 

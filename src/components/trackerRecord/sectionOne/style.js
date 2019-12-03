@@ -108,7 +108,7 @@ export default () => (
         width: 100%;
     }
     .tracks {
-        width: 700px;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
     }
@@ -117,7 +117,7 @@ export default () => (
         padding-top: 27px;
     }
     .tracks-comp {
-        width: 500px;
+      width: 100%;
     }
     .track-txt{
         width: 82px;
@@ -165,7 +165,9 @@ export default () => (
         background-image:url('../../../assets/images/fill-3.png');
     }
     .inline.markers{
-            width: 45px;
+        width: 26px;
+        margin-right: 15px;
+    
     }
     .data-div p{
         width: 250px;

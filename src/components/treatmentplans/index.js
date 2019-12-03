@@ -9,7 +9,7 @@ import SectionSeven from './sectionSeven';
 import Layout from '../layout/container';
 const Schedule=()=>{
     return(
-        <div>
+        <div className="ttPlan">
            <Layout>
             <div>
             <SectionOne/>

@@ -521,7 +521,7 @@ const Treatmentplan = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex -mx-2 mt-8 ml-10">
+                                <div className="flex ttFur -mx-2 mt-8 ml-10">
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
@@ -597,7 +597,7 @@ const Treatmentplan = (props) => {
                                 <div className="pl-10 mt-12 manually">
                                     <h1>STEP 2: SELECT REASON FOR VISIT AND DATE</h1>
                                 </div>
-                                <div className="flex -mx-2 mt-8 ml-10">
+                                <div className="flex ttFur -mx-2 mt-8 ml-10">
                                     <div className="w-1/2 px-2">
                                         <div className="h-12">
                                             <div className="flex flex-col mb-4 inputvision">

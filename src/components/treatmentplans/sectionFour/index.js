@@ -4,7 +4,7 @@ const SectionFour=()=>{
     return(
         <div>
 
-<div className="container mx-auto">
+<div className="mle15 container mx-auto">
 <div className="flex mb-4">
   <div className="w-full">
       <div className="customMedication">

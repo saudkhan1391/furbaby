@@ -138,7 +138,7 @@ const SectionOne = (props) => {
 
     return (
         <div>
-            <div className="container mx-auto">
+            <div className="manageUsersAll container mx-auto">
                 <div className="mt-12">
                     <h2 className="heading">MANAGE USERS</h2>
                     <div className="hr mt-4"></div>
@@ -253,7 +253,7 @@ const SectionOne = (props) => {
                 <div className="mt-12 mb-8">
                     <h2 className="heading-2">USER MANAGEMENT</h2>
                 </div>
-                <div>
+                <div className="overFlowDiv">
                     <table className="mb-12 table-data">
                         <th></th>
                         <th className="text-left head-text pb-2">User Name</th>

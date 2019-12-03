@@ -144,7 +144,8 @@ export default () => (
 
     }
     .right-body{
-
+      width: 75%;
+      margin-left: 4%;
     }
     .right-body label{
         font-family: Lato;
