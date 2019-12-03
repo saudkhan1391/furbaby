@@ -1,7 +1,14 @@
 @media (min-width: 320px) and (max-width: 479px) {
-  textarea{
+  .allti{
+    flex-direction: column;
+  }
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  textarea {
     width: 94% !important;
   }
+
   .trackerLogo {
     position: absolute;
   }
@@ -551,6 +558,23 @@
 }
 
 @media (min-width: 480px) and (max-width: 574px) {
+  .allti{
+    flex-direction: column;
+  }
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  .label {
+    width: 25%;
+}
+.abc {
+  width: 53% !important;
+  margin-top: 15px;
+  height: 44px;
+}
+  textarea {
+    width: 100%;
+  }
 
   .trackerLogo {
     position: absolute;
@@ -1100,6 +1124,16 @@
 }
 
 @media (min-width: 575px) and (max-width: 684px) {
+  .allti{
+    flex-direction: column;
+  }
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  textarea {
+    width: 100%;
+  }
+
   .trackerLogo {
     position: absolute;
   }
@@ -1648,6 +1682,16 @@
 }
 
 @media (min-width: 685px) and (max-width: 767px) {
+  .allti{
+    flex-direction: column;
+  }
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  textarea {
+    width: 100%;
+  }
+
   .trackerLogo {
     position: absolute;
   }
@@ -2196,6 +2240,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .allti{
+    flex-direction: column;
+  }
+  .ttPlan .h-64{
+    height: auto !important;
+  }
   .trackerLogo {
     position: absolute;
   }
@@ -2726,6 +2776,11 @@
     padding: 0;
   }
 
+  .check-mar {
+    margin-right: 10%;
+    width: 100%;
+  }
+
   .mle15 {
     padding-left: 15px;
   }
@@ -2741,9 +2796,20 @@
   .overFlowDiv table .last button {
     margin-bottom: 5px;
   }
+
+  .last {
+    width: 25% !important;
+  }
+
+  textarea {
+    width: 100%;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1023px) {
+  .ttPlan .h-64{
+    height: auto !important;
+  }
   .right-body {
     width: 67%;
     margin-left: 12%;
@@ -2819,11 +2885,42 @@
 
   .customFood {
     padding: 15px;
+  }
+
+  .email {
+    width: 21% !important;
+  }
+
+  .last {
+    width: 38% !important;
+  }
+
+  .dbpage {
+    width: 62% !important;
+  }
+
+  .allButtons {
+    width: 62%;
   }
 
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  .dbpage {
+    width: 62% !important;
+  }
+
+  .allButtons {
+    width: 62%;
+  }
+
+  .inputvision select {
+    height: 44px;
+  }
+
   .right-body {
     width: 67%;
     margin-left: 12%;
@@ -2899,5 +2996,103 @@
 
   .customFood {
     padding: 15px;
+  }
+
+  .email {
+    width: 21% !important;
+  }
+
+  .last {
+    width: 37% !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1365px) {
+  .ttPlan .h-64{
+    height: auto !important;
+  }
+  .right-body {
+    width: 67%;
+    margin-left: 12%;
+  }
+
+  nav .flex-shrink-0 {
+    margin-right: 0
+  }
+
+  nav .flex-shrink-0 .pad {
+    margin-left: 0;
+  }
+
+  nav .tabL {
+    display: flex;
+    align-items: center;
+    width: 84%
+  }
+
+  nav .mr-12 {
+    margin-right: 30px;
+  }
+
+  .right-body {
+    width: 66% !important;
+    margin-left: 12% !important;
+  }
+
+  .vr {
+    width: 100% !important;
+  }
+
+  .inputvision input {
+    width: 84%;
+    height: 44px !important;
+
+  }
+
+  .react-date-picker {
+    height: 44px !important;
+    width: 85% !important;
+  }
+
+  .check-mar {
+    margin-bottom: 15px;
+  }
+
+  .check-mar label {
+    font-size: 18px;
+  }
+
+  .manageUsersAll {
+    padding: 15px;
+  }
+
+  .ttPlan {
+    padding: 15px;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .notess,
+  .sixNotes {
+    padding: 15px;
+  }
+
+  .medicationHeading,
+  .medicationHeading2 {
+    padding: 0 15px;
+  }
+
+  .customFood {
+    padding: 15px;
+  }
+
+  .email {
+    width: 21% !important;
+  }
+
+  .last {
+    width: 32% !important;
   }
 }

@@ -177,7 +177,7 @@ export default () => (
           color: #ffffff;
           border-radius: 3px;
           background-color: #32c5ff;
-          padding:14px 26px;
+          padding: 14px 16px;
         }
         .cnclBtn{
           font-size: 12px;

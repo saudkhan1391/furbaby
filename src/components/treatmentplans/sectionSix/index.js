@@ -7,7 +7,7 @@ const Sectionsix=()=>{
 <div className="container mx-auto">
 <div className="flex mb-4">
   <div className="width-full h-64 mt-8 forBg-clr">
-  <div className="flex mt-6">
+  <div className="flex allti mt-6">
 <div className="pl-12  label">
     
 <div className="flex mr-12 mt-4 check-mar">
@@ -40,7 +40,7 @@ const Sectionsix=()=>{
 </div>
      </div>
 
-     <div className="label">
+     <div className="pl-12 label">
   <div className="flex mr-12 mt-4 check-mar">
 <label className="container1">
   <input type="checkbox"/>
@@ -72,7 +72,7 @@ const Sectionsix=()=>{
 
      </div>
 
-     <div className="label">
+     <div className="pl-12 label">
     
      <div className="flex mr-12 mt-4 check-mar">
 <label className="container1">
@@ -105,7 +105,7 @@ const Sectionsix=()=>{
    
          </div>
 
-         <div className="label">
+         <div className="pl-12 label">
     
          <div className="flex mr-12 mt-4 check-mar">
 <label className="container1">

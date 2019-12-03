@@ -11,7 +11,7 @@ const Schedule=()=>{
     return(
         <div className="ttPlan">
            <Layout>
-            <div>
+            <div style={{"padding":"15px"}}>
             <SectionOne/>
             <SectionTwo/>
             <SectionThree/>

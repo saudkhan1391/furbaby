@@ -197,7 +197,7 @@ const SectionOne = (props) => {
                                 </p>}
                             </div>
                         </div>
-                        <div>
+                        <div className="mr-12">
                             <label className="block label-text mb-2">Work Phone <span
                                 style={{color: "red"}}>*</span></label>
                             <input className="input-field py-1  px-2"
@@ -277,9 +277,11 @@ const SectionOne = (props) => {
                             <td className="py-5 pr-5 pl-0 text">{sin.firstName}</td>
                             <td className="py-5 email text">{sin.email}</td>
                             <td className="py-5 pr-5 text">{sin.jobTitle ? sin.jobTitle : "-"}</td>
-                            <td className="py-5 pr-5 flex text">
+                            <td className="py-5 pr-5 text">
+                              <div className="flex">
                                 <div className="oval-g mr-3"></div>
                                 {sin.role}
+                                </div>
                             </td>
                             <td className="py-5 pr-5 last text">
                                 <button className="action-btn1 mr-4" onClick={() => setEditUserPopup(sin)}>EDIT USER

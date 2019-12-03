@@ -2,6 +2,9 @@ import React from 'react';
 
 export default () => (
     <style>{`
+    .manageUsersAll{
+      padding: 15px;
+    }
         .container{
             max-width: 1591px;
         }    
@@ -293,7 +296,7 @@ export default () => (
             border-radius: 50%;
         }
         .last{
-            width: 23%;
+            width: 30%;
         }
         .email {
             width: 28%;

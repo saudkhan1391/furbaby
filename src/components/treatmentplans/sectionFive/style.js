@@ -69,7 +69,11 @@ export default () => (
         border-radius: 4px;
         border: solid 1px #dcdddf;
     }
- 
+    .abc{
+        width: 16% !important;
+        margin-top: 15px;
+        height: 44px;
+    }
 
 
   
