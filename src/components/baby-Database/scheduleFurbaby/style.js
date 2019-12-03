@@ -811,7 +811,9 @@ export default () => (
 .react-date-picker__wrapper {
     display: flex;
     border: none;
+    align-items: center;
     width: 100%;
+    text-align: center;
     justify-content: space-between;
 }
 

@@ -5,11 +5,13 @@ function FormGroup(props) {
     let {visitHistory} = props;
     let [dropdown, setDropDown] = useState(null);
     let data = (visitHistory);
+    console.log("data", data);
     return <div>
         <h2 className="pdd-arround" id="focus">Payment History</h2>
         {
             data.length !== 0 ?
                 data.map((item, index) => {
+                if (item.charged)
                     return (
                         <div key={index} className="pd-btm">
                             <div onClick={() => setDropDown(index === dropdown ? null : index)}>
@@ -29,10 +31,10 @@ function FormGroup(props) {
                             {
                                 dropdown === index && (
                                     <div>
-                                        <div className="pdd-arround-payment">
+                                        {item.charged.monthlySubscriptionCharges &&<div className="pdd-arround-payment">
                                             <h3>Monthly Subscription Charges</h3>
                                             <p>{item.charged.monthlySubscriptionCharges}</p>
-                                        </div>
+                                        </div>}
 
                                         {item.charged.integrationCharges && <div className="pdd-arround-payment">
                                             <h3>Integration Charges</h3>

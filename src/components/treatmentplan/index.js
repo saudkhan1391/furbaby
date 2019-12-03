@@ -53,7 +53,7 @@ const Treatmentplan = (props) => {
         let components = JSON.parse(JSON.stringify(trackerComponents));
         components.forEach((item => {
             if (item.id === name) {
-                item.show = val
+                item.value = val
             }
         }));
         if (val) {
@@ -63,6 +63,7 @@ const Treatmentplan = (props) => {
         }
         setTrackerComponent(components);
         setCustom("");
+        setTrackerComponent(components);
     };
 
     const setTracker = () => {
@@ -116,7 +117,7 @@ const Treatmentplan = (props) => {
             }
         });
         mainData.forEach(item => {
-            if (item.show === undefined || item.show) {
+            if (item.value) {
                 temp.push(item);
             }
         });
@@ -681,41 +682,18 @@ const Treatmentplan = (props) => {
                                 </div>
                                 <div className="flex pl-12 mt-8 label">
                                     <div className="checkbox1">
-                                        {defaultTrackers.map((single, index) =>
-                                            <div key={index} className="flex mr-12 check-mar">
-                                                <label className="container1">
-                                                    <input type="radio" name="same"
-                                                           checked={trackerName === single.name}
-                                                           onClick={() => setCurrentTracker(single.name, true)}/>
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>{single.name}</label>
-                                            </div>
+                                        {trackerComponents.map((single, index) => {
+                                                return (<div key={index} className="flex mr-12 check-mar">
+                                                    <label className="container1">
+                                                        <input type="checkbox" name="same"
+                                                               checked={single.value + "" !== "false"}
+                                                               onClick={() => setCurrentTracker(single.id, !single.value)}/>
+                                                        <span className="checkmark"/>
+                                                    </label>
+                                                    <label>{single.title}</label>
+                                                </div>)
+                                            }
                                         )}
-                                    </div>
-                                    <div className="checkbox1">
-                                        <div className="flex mr-12 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-                                        <div className="flex mr-12 mt-4 check-mar">
-                                            <label className="container1">
-                                                <input type="checkbox"/>
-                                                <span className="checkmark"/>
-                                            </label>
-                                            <label>Checkbox Label</label>
-                                        </div>
-
                                     </div>
                                 </div>
                                 <div className="pl-12 mt-8">
