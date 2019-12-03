@@ -78,25 +78,18 @@ const SectionFour = (props) => {
                 notes: "[]",
             }
         };
-        setButton("Adding...")
-        axios.post(apiPath + "/addAppointment", payload).then(res => {
-            let final = [...appointments];
-            final.push(res.data.pet);
-            dispatch({
-                type: "SET_APPOINTMENTS",
-                payload: final
-            });
-            // showMessage({
-            //     message: "Furbaby has been successfully scheduled",
-            //     type: "success",
-            //     backgroundColor: "#28a745",
-            //     color: "white",
-            //     icon: "info"
-            // });
-            NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
-            setAddedPopupClose();
-            setButton("ADD TO SCHEDULE")
-        });
+        // setButton("Adding...")
+        // axios.post(apiPath + "/addAppointment", payload).then(res => {
+        //     let final = [...appointments];
+        //     final.push(res.data.pet);
+        //     dispatch({
+        //         type: "SET_APPOINTMENTS",
+        //         payload: final
+        //     });
+        //     NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
+        //     setAddedPopupClose();
+        //     setButton("ADD TO SCHEDULE")
+        // });
     };
 
 
@@ -126,6 +119,8 @@ const SectionFour = (props) => {
         }
     };
 
+    console.log("trackerComponents", trackerComponents);
+
 
     return (
         <div id="simpleModal" className="modal">
@@ -151,11 +146,7 @@ const SectionFour = (props) => {
                                     <div className="h-12">
                                         <div className="flex flex-col mb-4 inputvision">
                                             <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                                            <select className="border py-2 px-3 " onChange={event => {
-                                                setValue(event.target.value);
-                                            }}
-                                                    style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}
-                                                    type="text">
+                                            <select className="border py-2 px-3 " onChange={event => setValue(event.target.value)} style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}>
                                                 <option value="" selected="">Select</option>
                                                 {
                                                     defaultTrackers.map((item, index) => {
@@ -171,24 +162,6 @@ const SectionFour = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                {/*<div className="w-1/2 px-2">*/}
-                                {/*<div className=" h-12">*/}
-                                {/*<div className="flex flex-col mb-4 inputvision">*/}
-                                {/*<label className="mb-2" htmlFor="first_name">Visit Reason</label>*/}
-                                {/*<input className="border py-2 px-3 " type="text"*/}
-                                {/*onChange={event => {*/}
-                                {/*setValue(event.target.value)*/}
-                                {/*}}*/}
-                                {/*style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}*/}
-                                {/*/>*/}
-                                {/*<div style={{height: "13px"}}>*/}
-                                {/*{descriptionValidator && <p style={{color: "red", fontSize: 12}}>*/}
-                                {/*required*/}
-                                {/*</p>}*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
                                 <div className="w-1/2 px-2">
                                     <div className=" h-12">
                                         <div className="flex flex-col mb-4 inputvision calendar-div2">
@@ -231,7 +204,7 @@ const SectionFour = (props) => {
                                                 <div key={index} className="flex mr-12 check-mar">
                                                     <label className="container1">
                                                         <input type="checkbox" name="same"
-                                                               checked={single.value + "" !== "false"}
+                                                               checked={(single.value === undefined || single.value)}
                                                                onClick={() => setCurrentTracker(single.id, !single.value)}/>
                                                         <span className="checkmark"/>
                                                     </label>
