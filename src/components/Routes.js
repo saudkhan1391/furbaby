@@ -12,8 +12,8 @@ import Completed from "./progress/completed";
 import Severalboarding from "./severalboarding";
 import Singlepet from "./singlepet";
 import Foodmeds from "./foodmeds/container";
-import Treatmentplans from "./treatmentplans";
-import Customizenotes from "./customizenotes/container";
+import TreatmentPlans from "./treatmentplans";
+import CustomizeNotes from "./customizenotes/container";
 import Globalmass from "./globalmass";
 import Massmessage from "./massmessage";
 import Treatmentmassmesseage from "./treatment-mass-message";
@@ -136,8 +136,8 @@ const Routes = (props) => {
             <Route path={"/create-new"} component={Treatmentplan}/>
             <Route path={"/tools-setting"} component={Toolssetting}/>
             <Route path={"/foods-and-medications"} component={Foodmeds}/>
-            <Route path={"/treatment-plans"} component={Treatmentplans}/>
-            <Route path={"/customize-notes"} component={Customizenotes}/>
+            <Route path={"/treatment-plans"} component={TreatmentPlans}/>
+            <Route path={"/customize-notes"} component={CustomizeNotes}/>
             <Route path={"/schedule"} component={Schedulepet}/>
 
             <Route path={"/signup"} component={Home}/>

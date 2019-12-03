@@ -70,10 +70,10 @@ const SectionOne=(props)=>{
                             </div>
                             </Link>
                             <Link to="/treatment-plans">
-                            {/*<div className="pl-6 pt-6">*/}
-                                {/*Manage Treatment Plans*/}
-                                {/*<img className="sch-img pl-4 pb-1 float-right mr-2 mt-2" src={require('../../../assets/images/next2.png')} alt="pic"/>*/}
-                            {/*</div>*/}
+                            <div className="pl-6 pt-6">
+                                Manage Treatment Plans
+                                <img className="sch-img pl-4 pb-1 float-right mr-2 mt-2" src={require('../../../assets/images/next2.png')} alt="pic"/>
+                            </div>
                             </Link>
                             <Link to="/customize-notes">
                             <div className="pl-6 pt-6">

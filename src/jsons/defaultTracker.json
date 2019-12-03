@@ -1,24 +1,850 @@
 [
-  ["Annual Exam","Weight","Vitals","Exam","Vaccinations","Recommendations","Preparing Take Home Medications & Discharge Instructions"  ],
-  ["Boarding","Breakfast","Morning Play","Rest","Lunch","Afternoon Play","Rest","Dinner","Day Complete or Ready for Pick-Up"  ],
-  ["Defecating/Urinating Blood","Weight","Vitals","Exam","Diagnostics","Treatment","Preparing Take Home Medications & Discharge Instructions","Recommendations"  ],
-  ["Diagnostic Retest (Labwork)","Weight","Vitals","Blood Draw","Diagnostics","Recommendations"  ],
-  ["Diagnostic Retest (Radiographs/X-Rays)","Weight","Vitals","Radiographs","Diagnostics","Recommendations"  ],
-  ["Ear Problem","Weight","Vitals","Exam","Ear Cytology","Treatment","Preparing Take Home Medications & Discharge Instructions"  ],
-  ["Falling Over/Circling","Weight","Vitals","Neurological Exam","Diagnostics","Treatment","Recommendations"  ],
-  ["Grooming","Bath","Fur Trim","Nail Trim","Blow Dry"  ],
-  ["Health Certifications ","Weight","Vitals","Exam","Vaccinations","Documentation Prepared"  ],
-  ["Heat Stroke ","Vitals","Triage","Stabilize","Treatment","In Recovery "  ],
-  ["Lameness Exam","Weight","Vitals","Orthopedic Exam","Diagnostics","Laser Therapy"  ],
-  ["Lethargic","Weight","Vitals","Exam","Diagnostics","Treatment","Recommendations"  ],
-  ["Loss of Appetite/Losing Weight","Weight","Vitals","Exam","Diagnostics","Treatment","Recommendations"  ],
-  ["Rehabilitation","Weight","Rehab Preparation","In Rehab Session","Resting"  ],
-  ["Sick Visit (Sneezing/Coughing/Vomit/Diarrhea Non Well)","Weight","Vitals","Exam","Diagnostics","Recommendations","Treatment"  ],
-  ["Skin Problem","Weight","Vitals","Exam","Diagnostics","Treatment"  ],
-  ["Snake Bite","Vitals","Triage","Treatment Preparation","Treatment","Laser Therapy","Continued Hospitalization & Supportive Care","In Recovery"  ],
-  ["Surgery (elective or non elective)","Vitals","Diagnostic Review","Surgical Preparation","In Surgery","Nail Trim","Laser Therapy","In Recovery"  ],
-  ["Traumatic Injury (including hit by a car)","Vitals","Triage","Stabilize","Diagnostics","Treatment","In Recovery "  ],
-  ["Trouble Urinating","Vitals","Exam","Diagnostics","Treatment","Recommendations"  ],
-  ["Vaccine Boosters","Weight","Vitals","Vaccinations"  ],
-  ["Wound ","Vitals","Triage","Treatment Preparation","Treatment","Laser Therapy","In Recovery"  ]
+  {
+    "name": "Annual Exam",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Vaccinations",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Preparing Take Home Medications & Discharge Instructions",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Boarding",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Breakfast",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Morning Play",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Rest",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Lunch",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Afternoon Play",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Rest",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 7,
+        "title": "Dinner",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 8,
+        "title": "Day Complete or Ready for Pick-Up",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Defecating/Urinating Blood",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Preparing Take Home Medications & Discharge Instructions",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 7,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Diagnostic Retest (Labwork)",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Blood Draw",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Diagnostic Retest (Radiographs/X-Rays)",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Radiographs",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Ear Problem",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Ear Cytology",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Preparing Take Home Medications & Discharge Instructions",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Falling Over/Circling",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Neurological Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Grooming",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Bath",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Fur Trim",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Nail Trim",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Blow Dry",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Health Certifications",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Vaccinations",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Documentation Prepared",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Heat Stroke",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Triage",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Stabilize",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "In Recovery ",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Lameness Exam",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Orthopedic Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Laser Therapy",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Lethargic",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Loss of Appetite/Losing Weight",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Rehabilitation",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Rehab Preparation",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "In Rehab Session",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Resting",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Sick Visit (Sneezing/Coughing/Vomit/Diarrhea Non Well)",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Skin Problem",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Snake Bite",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Triage",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Treatment Preparation",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Laser Therapy",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Continued Hospitalization & Supportive Care",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 7,
+        "title": "In Recovery",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Surgery (elective or non elective)",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Diagnostic Review",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Surgical Preparation",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "In Surgery",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Nail Trim",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "Laser Therapy",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 7,
+        "title": "In Recovery",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Traumatic Injury (including hit by a car)",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Triage",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Stabilize",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "In Recovery ",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Trouble Urinating",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Exam",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Diagnostics",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Recommendations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Vaccine Boosters",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Weight",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Vaccinations",
+        "value": false,
+        "status": 1
+      }
+    ]
+  },
+  {
+    "name": "Wound",
+    "trackers": [
+      {
+        "id": 1,
+        "title": "Vitals",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 2,
+        "title": "Triage",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 3,
+        "title": "Treatment Preparation",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 4,
+        "title": "Treatment",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 5,
+        "title": "Laser Therapy",
+        "value": false,
+        "status": 1
+      },
+      {
+        "id": 6,
+        "title": "In Recovery",
+        "value": false,
+        "status": 1
+      }
+    ]
+  }
 ]
