@@ -52,6 +52,7 @@ const trackerRecord = (props) => {
             <SectionTwo
                 foodData={food}
                 lastName={lastName}
+                name={name}
                 furBaby={furBaby}
                 dispatch={dispatch}
                 medicationData={medications}

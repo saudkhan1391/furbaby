@@ -9,7 +9,7 @@ import UpdateOwenNotes from "../updateClinicNotes";
 
 
 const SectionTwo=(props) => {
-    let { foodData, medicationData, notes, pee, dispatch, furBaby, clinic, Foods, Meds, DefaultNotes, lastName, description, current, galleryPhotos, staffNotes } = props;
+    let { foodData, medicationData, notes, pee, dispatch, furBaby, clinic, Foods, Meds, DefaultNotes, lastName, description, current, galleryPhotos, staffNotes, name } = props;
     const [model, setModel]=useState(null);
 
 
@@ -184,7 +184,14 @@ const SectionTwo=(props) => {
                             notes.map(single => {
                                 return <div key={single.id}>
                                     <img className="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic" onClick={() => removeNotes(single.id)}/>
-                                    <p className="mt-2 inline">{single.note}</p><br/>
+                                    {
+                                        convertNote(single.note).map((item, index) => {
+                                            return <div key={index}>
+                                                <p className="mt-2 inline">{item}</p>
+                                                <br/>
+                                            </div>
+                                        })
+                                    }
                                     {
                                         single.photos && single.photos.length !== 0 &&
                                         <div className="imageCont">

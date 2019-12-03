@@ -88,6 +88,10 @@ function UpdateNotes(props) {
         });
     };
 
+    console.log("name", name);
+    console.log("lastName", lastName);
+    console.log("description", description);
+
     return (
         <div id="simpleModal" className="modal">
             <form onSubmit={(event) => update(event)} className="notes-content">
