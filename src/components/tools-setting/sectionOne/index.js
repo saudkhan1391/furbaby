@@ -17,7 +17,7 @@ const SectionOne = () => {
                             <Link to="/customize-notes">
                                 <button className="mr-4 manage-Note-Btn">MANAGE NOTE DATABASE</button>
                             </Link>
-                            <button className="mr-4 manage-Treatment-Btn">MANAGE TREATMENT PLANS</button>
+                            {/*<button className="mr-4 manage-Treatment-Btn">MANAGE TREATMENT PLANS</button>*/}
                             <Link to="/clinic-users">
                                 <button className="manage-Clinic-Btn mr-4">MANAGE CLINIC USERS</button>
                             </Link>
