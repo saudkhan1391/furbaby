@@ -8,67 +8,53 @@ import Layout from '../layout/container';
 import DTrackers from "../../jsons/defaultTracker.json";
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
-    let [notes, setNotes] = useState(clinic.trackers ? JSON.parse(clinic.trackers) : DTrackers);
+    let [trackers, setTrackers] = useState(clinic.trackers ? JSON.parse(clinic.trackers) : DTrackers);
     const [currentId, setCurrent] = useState(null);
     const [editPopup, setEditPopup] = useState(false);
-    const [deleteNotes, setDeleteNotes] = useState([]);
+    const [deleteTrackers, setDeleteTrackers] = useState([]);
     useEffect(() => {
-        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : DTrackers;
+        let duplicate = clinic.trackers ? JSON.parse(clinic.trackers) : DTrackers;
         if (duplicate) {
             duplicate.forEach(sin => {
                 sin.check = false;
             })
         }
-        setNotes(duplicate);
+        setTrackers(duplicate);
     }, [clinic]);
 
 
     const deleteCurrent = (id) => {
-        let note = [...notes];
+        let note = [...trackers];
         let temp = note.filter(item => item.id !== id);
         if (temp) {
             temp.forEach(sin => {
                 delete sin.check;
             })
         }
-        deleteNotesFinal(temp);
+        deleteTrackersFinal(temp);
     };
 
-    const deleteNotesFinal = (temp) => {
+    const deleteTrackersFinal = (temp) => {
         let newClinic = {...clinic};
-        newClinic.notes = JSON.stringify(temp);
+        newClinic.trackers = JSON.stringify(temp);
         let main = {...newClinic};
         delete main.clinicId;
         firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-            // showMessage({
-            //     message: "Note successfully deleted",
-            //     type: "danger",
-            //     backgroundColor: "#28a745",
-            //     color: "white",
-            //     icon: "info"
-            // });
             dispatch({
                 type: "UPDATE_CLINIC",
                 payload: newClinic
             });
-            setNotes(temp);
-            NotificationManager.success('Note successfully deleted.', 'Note Update.');
+            setTrackers(temp);
+            NotificationManager.success('Trackers successfully deleted.', 'Tracker Update.');
         }).catch(err => {
-            // showMessage({
-            //     message: "Something went wrong. Please check your internet connection or try again later.",
-            //     type: "danger",
-            //     backgroundColor: "red",
-            //     color: "white",
-            //     icon: "info"
-            // });
-            NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Note Update.');
+            NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Tracker Update.');
         });
     };
 
-    const setDeleteMultipleNotesIds = (id) => {
-        let ids = [...deleteNotes];
-        let note = [...notes]
-        notes.forEach(sin => {
+    const setDeleteMultipleTrackerIds = (id) => {
+        let ids = [...deleteTrackers];
+        let tracker = [...trackers];
+        trackers.forEach(sin => {
             if (sin.id === id) {
                 sin.check = !sin.check
             }
@@ -78,23 +64,23 @@ const Schedule = (props) => {
         } else {
             ids.push(id);
         }
-        setNotes(note);
-        setDeleteNotes(ids);
+        setTrackers(tracker);
+        setDeleteTrackers(ids);
     };
 
-    const deleteMultipleNotes = () => {
-        let note = [...notes];
+    const deleteMultipleTracker = () => {
+        let note = [...trackers];
         let temp = [];
 
-        if (window.confirm("Are you sure you want to delete these notes?")) {
+        if (window.confirm("Are you sure you want to delete these tracker?")) {
             note.forEach(single => {
-                if (deleteNotes.find(item => item === single.id) === undefined) {
+                if (deleteTrackers.find(item => item === single.id) === undefined) {
                     delete single.check;
                     temp.push(single);
                 }
             });
-            deleteNotesFinal(temp)
-            NotificationManager.success('Note successfully deleted.', 'Note Update.');
+            deleteTrackersFinal(temp);
+            NotificationManager.success('Tracker successfully deleted.', 'Tracker Update.');
         }
     };
     return (
@@ -115,7 +101,7 @@ const Schedule = (props) => {
                         </div>
                         <div className="flex mr-4">
                             <div>
-                                <button className="deselectbtn" onClick={() => deleteMultipleNotes()}>DELETE</button>
+                                <button className="deselectbtn" onClick={() => deleteMultipleTracker()}>DELETE</button>
                             </div>
                         </div>
                     </div>
@@ -125,7 +111,7 @@ const Schedule = (props) => {
                 <div className="px-2">
                     <div className="flex flex-wrap">
                         {
-                            notes.map((item, index) => {
+                            trackers.map((item, index) => {
                                 return (
                                     <div key={index} className="w-1/2 pr-2">
                                         <div className="bordersBoxes h-14 mt-2">
@@ -134,11 +120,11 @@ const Schedule = (props) => {
                                                     <div className="flex">
                                                         <label className="container1">
                                                             <input checked={item.check} type="checkbox" onClick={() => {
-                                                                setDeleteMultipleNotesIds(item.id)
+                                                                setDeleteMultipleTrackerIds(item.id)
                                                             }}/>
                                                             <span className="checkmark"/>
                                                         </label>
-                                                        <label>{item.title}</label>
+                                                        <label>{item.name}</label>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -162,9 +148,9 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <SectionSix setNotes={setNotes} notes={notes} clinic={clinic} dispatch={dispatch}/>
+            <SectionSix setTrackers={setTrackers} trackers={trackers} clinic={clinic} dispatch={dispatch}/>
             {editPopup &&
-            <EditNote currentId={currentId} setEditPopup={setEditPopup} setNotes={setNotes} notes={notes}
+            <EditNote currentId={currentId} setEditPopup={setEditPopup} setTrackers={setTrackers} trackers={trackers}
                         clinic={clinic} dispatch={dispatch}/>}
             <Style/>
         </Layout>

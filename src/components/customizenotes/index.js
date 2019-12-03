@@ -40,13 +40,6 @@ const Schedule = (props) => {
         let main = {...newClinic};
         delete main.clinicId;
         firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-            // showMessage({
-            //     message: "Note successfully deleted",
-            //     type: "danger",
-            //     backgroundColor: "#28a745",
-            //     color: "white",
-            //     icon: "info"
-            // });
             dispatch({
                 type: "UPDATE_CLINIC",
                 payload: newClinic
@@ -54,13 +47,6 @@ const Schedule = (props) => {
             setNotes(temp);
             NotificationManager.success('Note successfully deleted.', 'Note Update.');
         }).catch(err => {
-            // showMessage({
-            //     message: "Something went wrong. Please check your internet connection or try again later.",
-            //     type: "danger",
-            //     backgroundColor: "red",
-            //     color: "white",
-            //     icon: "info"
-            // });
             NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Note Update.');
         });
     };

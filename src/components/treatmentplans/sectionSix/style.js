@@ -2,7 +2,6 @@ import React from 'react';
 export default () => (
     <style>{`
     .note{
-    font-size: 14px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -66,6 +65,7 @@ export default () => (
           border-radius: 4px;
           border: solid 1px #dcdddf;
           background-color: #ffffff;
+          padding: 10px;
       } 
  
      input[type="file"] {

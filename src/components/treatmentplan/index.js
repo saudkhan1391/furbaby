@@ -10,7 +10,7 @@ import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail} from "../functions/index";
 const Treatmentplan = (props) => {
-    let {appointments, dispatch} = props; // clinicId
+    let {appointments, dispatch, clinic} = props; // clinicId
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
     // const [showForm, setForm] = useState(false);
@@ -46,11 +46,9 @@ const Treatmentplan = (props) => {
 
 
     const [custom, setCustom] = useState("");
-
-    const [defaultTrackers] = useState(defaultTracker());
+    let defaultTrackers = clinic.trackers ? JSON.parse(clinic.trackers) : defaultTracker();
     const [trackerComponents, setTrackerComponent] = useState([]);
     const [trackerName, setTrackerName] = useState("Annual Exam");
-
     const setCurrentTracker = (name, val) => {
         let components = JSON.parse(JSON.stringify(trackerComponents));
         components.forEach((item => {

@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "name": "Annual Exam",
     "trackers": [
       {
@@ -41,6 +42,7 @@
     ]
   },
   {
+    "id": "2",
     "name": "Boarding",
     "trackers": [
       {
@@ -94,6 +96,7 @@
     ]
   },
   {
+    "id": "3",
     "name": "Defecating/Urinating Blood",
     "trackers": [
       {
@@ -141,6 +144,7 @@
     ]
   },
   {
+    "id": "4",
     "name": "Diagnostic Retest (Labwork)",
     "trackers": [
       {
@@ -176,6 +180,7 @@
     ]
   },
   {
+    "id": "5",
     "name": "Diagnostic Retest (Radiographs/X-Rays)",
     "trackers": [
       {
@@ -211,6 +216,7 @@
     ]
   },
   {
+    "id": "6",
     "name": "Ear Problem",
     "trackers": [
       {
@@ -252,6 +258,7 @@
     ]
   },
   {
+    "id": "7",
     "name": "Falling Over/Circling",
     "trackers": [
       {
@@ -293,6 +300,7 @@
     ]
   },
   {
+    "id": "8",
     "name": "Grooming",
     "trackers": [
       {
@@ -322,6 +330,7 @@
     ]
   },
   {
+    "id": "9",
     "name": "Health Certifications",
     "trackers": [
       {
@@ -357,6 +366,7 @@
     ]
   },
   {
+    "id": "10",
     "name": "Heat Stroke",
     "trackers": [
       {
@@ -392,6 +402,7 @@
     ]
   },
   {
+    "id": "11",
     "name": "Lameness Exam",
     "trackers": [
       {
@@ -427,6 +438,7 @@
     ]
   },
   {
+    "id": "12",
     "name": "Lethargic",
     "trackers": [
       {
@@ -468,6 +480,7 @@
     ]
   },
   {
+    "id": "13",
     "name": "Loss of Appetite/Losing Weight",
     "trackers": [
       {
@@ -509,6 +522,7 @@
     ]
   },
   {
+    "id": "14",
     "name": "Rehabilitation",
     "trackers": [
       {
@@ -538,6 +552,7 @@
     ]
   },
   {
+    "id": "15",
     "name": "Sick Visit (Sneezing/Coughing/Vomit/Diarrhea Non Well)",
     "trackers": [
       {
@@ -579,6 +594,7 @@
     ]
   },
   {
+    "id": "16",
     "name": "Skin Problem",
     "trackers": [
       {
@@ -614,6 +630,7 @@
     ]
   },
   {
+    "id": "17",
     "name": "Snake Bite",
     "trackers": [
       {
@@ -661,6 +678,7 @@
     ]
   },
   {
+    "id": "18",
     "name": "Surgery (elective or non elective)",
     "trackers": [
       {
@@ -708,6 +726,7 @@
     ]
   },
   {
+    "id": "19",
     "name": "Traumatic Injury (including hit by a car)",
     "trackers": [
       {
@@ -749,6 +768,7 @@
     ]
   },
   {
+    "id": "20",
     "name": "Trouble Urinating",
     "trackers": [
       {
@@ -784,6 +804,7 @@
     ]
   },
   {
+    "id": "21",
     "name": "Vaccine Boosters",
     "trackers": [
       {
@@ -807,6 +828,7 @@
     ]
   },
   {
+    "id": "22",
     "name": "Wound",
     "trackers": [
       {
