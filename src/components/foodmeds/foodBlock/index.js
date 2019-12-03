@@ -11,7 +11,6 @@ const Schedule = (props) => {
     const [allFoodBackup, setAllFoodBackup] = useState(foodData);
     const [food, setFood] = useState([]);
     const [button, setButton] = useState("SAVE CHANGES");
-    console.log(foodData);
     useEffect(() => {
         setAllFood(foodData);
         if (!moreFoodType) {

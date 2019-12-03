@@ -5,14 +5,15 @@ import EditNote from './updateNotes/updateNotes';
 import Style from './style';
 import { NotificationManager} from 'react-notifications';
 import Layout from '../layout/container';
+import DNotes from "../../jsons/notes.json";
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
-    let [notes, setNotes] = useState(clinic.notes ? JSON.parse(clinic.notes) : []);
+    let [notes, setNotes] = useState(clinic.notes ? JSON.parse(clinic.notes) : DNotes);
     const [currentId, setCurrent] = useState(null);
     const [editPopup, setEditPopup] = useState(false);
     const [deleteNotes, setDeleteNotes] = useState([]);
     useEffect(() => {
-        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : [];
+        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : DNotes;
         if (duplicate) {
             duplicate.forEach(sin => {
                 sin.check = false;
