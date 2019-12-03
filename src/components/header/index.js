@@ -18,6 +18,7 @@ sidebar.style.display="block";
           }
     const logOut = () => {
         firebase.auth().signOut();
+        window.location.reload();
     };
 
     return (
