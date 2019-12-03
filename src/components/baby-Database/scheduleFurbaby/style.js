@@ -166,7 +166,7 @@ export default () => (
           color: #ffffff;
           border-radius: 3px;
           background-color: #32c5ff;
-          padding:14px 26px;
+          padding: 14px 16px;
         }
         .cnclBtn{
           font-size: 12px;
@@ -671,6 +671,7 @@ export default () => (
             padding:40px;
             width:588px;
             height:580px;
+            margin-top: 0;
         }
         .pee-content{
             background-color:#f5f5f5;
@@ -803,9 +804,9 @@ export default () => (
 }
 
 .react-date-picker {
-    width: 321px !important;
-    height: 35px;
-    }
+  width: 84% !important;
+  height: 35px;
+}
 
 
 .react-date-picker__wrapper {
@@ -815,6 +816,7 @@ export default () => (
     width: 100%;
     text-align: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 

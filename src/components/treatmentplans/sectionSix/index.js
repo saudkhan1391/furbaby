@@ -50,7 +50,6 @@ const SectionFour = (props) => {
         });
     };
 
-
     return (
         <div className="sixtrackers">
             <div className="container mx-auto">

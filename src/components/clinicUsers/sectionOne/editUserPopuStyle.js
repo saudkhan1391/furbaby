@@ -182,6 +182,7 @@ export default ()=>(
             padding:40px;
             width:588px;
             height:580px;
+            margin-top: 0;
         }
         .pee-content{
             background-color:#f5f5f5;

@@ -149,7 +149,7 @@ const SectionFour = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className=" px-2">
+                        <div className="w-1/2 px-2">
                             <div className="">
                                 <div className="flex flex-col mb-4 inputvision">
                                     <label className="mb-2" htmlFor="first_name">Furbaby Image</label>
