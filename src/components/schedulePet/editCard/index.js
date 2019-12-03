@@ -43,7 +43,7 @@ function EditCard(props) {
     const checkIn = () => {
         let data = {...showForm};
         data.appointmentStatus = status;
-        data.startTime = date;
+        data.startTime = date.toISOString();
         data.description = text;
         let main = {...data};
         delete main.pet;
@@ -64,6 +64,7 @@ function EditCard(props) {
             payload: true
         });
         if (status === "In Hospital") {
+            console.log("data", data);
             axios.post(apiPath + "/appointmentStatusInHospital", payload).then(res => {
                 dispatch({
                     type: "UPDATE_CURRENT_FURBABY",
@@ -88,6 +89,7 @@ function EditCard(props) {
                 }
             })
         } else {
+            console.log("data", data);
             dispatch({
                 type: "UPDATE_CURRENT_FURBABY",
                 payload: data

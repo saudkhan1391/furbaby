@@ -73,7 +73,7 @@ sidebar.style.display="block";
                 </div>
                 <div id="sBar" onClick={()=>closeSidebar()} className="overlay-back">
                 <div  className="mob-hid">
-                <div class="mb-16 mob-logo"><img src="/static/media/fbt-grey.26cdd9f2.png" alt="pic"></img></div>
+                <div className="mb-16 mob-logo"><img src="/static/media/fbt-grey.26cdd9f2.png" alt="pic"></img></div>
                 <div className="lg:flex-grow">
                         <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
                             CLINIC DASHBOARD

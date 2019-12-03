@@ -9,11 +9,11 @@ import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail} from "../functions/index";
+
 const Treatmentplan = (props) => {
-    let {appointments, dispatch, clinic} = props; // clinicId
+    let {appointments, dispatch, clinic} = props;
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
-    // const [showForm, setForm] = useState(false);
 
 
     const [email, setEmail] = useState("");
@@ -48,26 +48,10 @@ const Treatmentplan = (props) => {
     const [custom, setCustom] = useState("");
     let defaultTrackers = clinic.trackers ? JSON.parse(clinic.trackers) : defaultTracker();
     const [trackerComponents, setTrackerComponent] = useState([]);
-    const [trackerName, setTrackerName] = useState("Annual Exam");
-    const setCurrentTracker = (name, val) => {
+    const setCurrentTracker = (index, value) => {
         let components = JSON.parse(JSON.stringify(trackerComponents));
-        components.forEach((item => {
-            if (item.id === name) {
-                item.value = val
-            }
-        }));
-        if (val) {
-            setTrackerName(name);
-        } else {
-            setTrackerName("Annual Exam");
-        }
+        components[index].show = value;
         setTrackerComponent(components);
-        setCustom("");
-        setTrackerComponent(components);
-    };
-
-    const setTracker = () => {
-        return defaultTrackers.find(item => item.name === trackerName).trackers;
     };
 
     const cancelHandler = () => {
@@ -98,7 +82,6 @@ const Treatmentplan = (props) => {
         setDescription("");
         setDescriptionValidation(false);
         setCustom("");
-        setTrackerName("Annual Exam");
     };
 
 
@@ -112,12 +95,13 @@ const Treatmentplan = (props) => {
                     id: index + 1,
                     title: item,
                     value: false,
-                    status: 1
+                    status: 1,
+                    show: true
                 })
             }
         });
         mainData.forEach(item => {
-            if (item.value) {
+            if (item.show) {
                 temp.push(item);
             }
         });
@@ -223,29 +207,14 @@ const Treatmentplan = (props) => {
                     setDate(null);
                     setDob(null);
                     setShow(false);
-                    setTrackerName("Annual Exam");
                     // setBack();
                     dispatch({
                         type: "SET_LOADER",
                         payload: false
-                    })
-                    // showMessage({
-                    //     message: "Added Successfully",
-                    //     type: "success",
-                    //     backgroundColor: "#28a745",
-                    //     color: "white",
-                    //     icon: "info"
-                    // });
+                    });
                     NotificationManager.success('Added Successfully.', 'Appointment Update.');
 
                 }).catch(err => {
-                // showMessage({
-                //     message: "Something went wrong, Please check your internet or try again later.",
-                //     type: "success",
-                //     backgroundColor: "#a71f00",
-                //     color: "white",
-                //     icon: "info"
-                // });
                 NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'Appointment Update.');
                 console.log("err", err.response);
                 dispatch({
@@ -312,7 +281,11 @@ const Treatmentplan = (props) => {
         if (tracker !== undefined) {
             setTrackerComponent([]);
             setTimeout(() => {
-                setTrackerComponent(tracker.trackers);
+                let temp = [...tracker.trackers];
+                temp.forEach(item => {
+                    item.show = true;
+                });
+                setTrackerComponent(temp);
             }, 1);
         } else {
             setTrackerComponent([]);
@@ -320,7 +293,6 @@ const Treatmentplan = (props) => {
     };
 
     const setField = (value) => {
-        setTrackerName("");
         setCustom(value)
     }
 
@@ -604,9 +576,7 @@ const Treatmentplan = (props) => {
                                                 <select className="border py-2 px-3 " onChange={event => {
                                                     setValue(event.target.value);
                                                     setDescriptionValidation(false);
-                                                }}
-                                                        style={descriptionValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                        type="text">
+                                                }} style={descriptionValidation ? {borderColor: "red"} : {borderColor: ""}}>
                                                     <option value="" selected="">Select</option>
                                                     {
                                                         defaultTrackers.map((item, index) => {
@@ -686,8 +656,8 @@ const Treatmentplan = (props) => {
                                                 return (<div key={index} className="flex mr-12 check-mar pt-4">
                                                     <label className="container1">
                                                         <input type="checkbox" name="same"
-                                                               checked={single.value + "" !== "false"}
-                                                               onClick={() => setCurrentTracker(single.id, !single.value)}/>
+                                                               checked={single.show}
+                                                               onClick={(event) => setCurrentTracker(index, event.target.checked)}/>
                                                         <span className="checkmark"/>
                                                     </label>
                                                     <label>{single.title}</label>

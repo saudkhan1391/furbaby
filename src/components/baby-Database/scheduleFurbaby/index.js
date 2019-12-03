@@ -19,15 +19,10 @@ const SectionFour = (props) => {
     const [defaultTrackers] = useState( clinic.trackers ? JSON.parse(clinic.trackers):defaultTracker());
     const [button, setButton] = useState("ADD TO SCHEDULE");
 
-    const setCurrentTracker = (name, val) => {
+    const setCurrentTracker = (index, value) => {
         let components = JSON.parse(JSON.stringify(trackerComponents));
-        components.forEach((item => {
-            if (item.id === name) {
-                item.value = val
-            }
-        }));
+        components[index].show = value;
         setTrackerComponent(components);
-        setCustom("");
     };
 
     const addCustomAppointment = () => {
@@ -41,12 +36,13 @@ const SectionFour = (props) => {
                     id: index + 1,
                     title: item,
                     value: false,
-                    status: 1
+                    status: 1,
+                    show: true
                 })
             }
         });
         mainData.forEach(item => {
-            if (item.value) {
+            if (item.show) {
                 temp.push(item);
             }
         });
@@ -78,18 +74,18 @@ const SectionFour = (props) => {
                 notes: "[]",
             }
         };
-        // setButton("Adding...")
-        // axios.post(apiPath + "/addAppointment", payload).then(res => {
-        //     let final = [...appointments];
-        //     final.push(res.data.pet);
-        //     dispatch({
-        //         type: "SET_APPOINTMENTS",
-        //         payload: final
-        //     });
-        //     NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
-        //     setAddedPopupClose();
-        //     setButton("ADD TO SCHEDULE")
-        // });
+        setButton("Adding...");
+        axios.post(apiPath + "/addAppointment", payload).then(res => {
+            let final = [...appointments];
+            final.push(res.data.pet);
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: final
+            });
+            NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
+            setAddedPopupClose();
+            setButton("ADD TO SCHEDULE")
+        });
     };
 
 
@@ -112,14 +108,16 @@ const SectionFour = (props) => {
         if (tracker !== undefined) {
             setTrackerComponent([]);
             setTimeout(() => {
-                setTrackerComponent(tracker.trackers);
+                let temp = [...tracker.trackers];
+                temp.forEach(item => {
+                    item.show = true;
+                });
+                setTrackerComponent(temp);
             }, 1);
         } else {
             setTrackerComponent([]);
         }
     };
-
-    console.log("trackerComponents", trackerComponents);
 
 
     return (
@@ -199,18 +197,20 @@ const SectionFour = (props) => {
                                         <p>OPTIONAL - CUSTOMIZE TREATMENT PLAN</p>
                                     </div>
                                     <div className="flex pl-12 mt-8 label">
-                                        <div className="checkbox1">
-                                            {trackerComponents.map((single, index) =>
-                                                <div key={index} className="flex mr-12 check-mar">
-                                                    <label className="container1">
-                                                        <input type="checkbox" name="same"
-                                                               checked={(single.value === undefined || single.value)}
-                                                               onClick={() => setCurrentTracker(single.id, !single.value)}/>
-                                                        <span className="checkmark"/>
-                                                    </label>
-                                                    <label>{single.title}</label>
-                                                </div>
-                                            )}
+                                        <div className="checkbox1 flex flex-wrap">
+                                            {trackerComponents.map((single, index) =>{
+                                                return (
+                                                    <div key={index} className="flex mr-12 check-mar">
+                                                        <label className="container1">
+                                                            <input type="checkbox" name="same"
+                                                                   checked={single.show}
+                                                                   onClick={(event) => setCurrentTracker(index, event.target.checked)}/>
+                                                            <span className="checkmark"/>
+                                                        </label>
+                                                        <label>{single.title}</label>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
                                     </div>
                                     <div className="pl-12 mt-8">
