@@ -139,6 +139,7 @@ const Routes = (props) => {
             <Route path={"/treatment-plans"} component={TreatmentPlans}/>
             <Route path={"/customize-notes"} component={CustomizeNotes}/>
             <Route path={"/schedule"} component={Schedulepet}/>
+            <Route path={"/baby-Database"} component={Babydatabase}/>
 
             <Route path={"/signup"} component={Home}/>
             <Route path={"/mainschedule"} component={Schedule}/>
@@ -148,7 +149,6 @@ const Routes = (props) => {
             <Route path={"/globalmass"} component={Globalmass}/>
             <Route path={"/massmessage"} component={Massmessage}/>
             <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
-            <Route path={"/baby-Database"} component={Babydatabase}/>
             <Route path={"/database-form"} component={Databaseform}/>
             <Route path={"/treatment-inprogress"} component={treatmentInprogress} />
             <Route path={"/treatment-complete"} component={treatmentComplete} />

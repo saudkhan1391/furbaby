@@ -12,7 +12,7 @@ import AddSchedule from './scheduleFurbaby'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
 const Schedule = (props) => {
-    let {appointments, clinicId, dispatch} = props;
+    let {appointments, clinicId, dispatch, clinic} = props;
     const [showForm, setForm] = useState(false);
     const [detail, setDetail] = useState(false);
     const [addedPopup, setAddedPopup] = useState(false);
@@ -117,7 +117,7 @@ const Schedule = (props) => {
                                 <div>
                                     <div className="databaseParagraph">
                                         <p>Search by the pet’s name, pet owner’s name, email, or phone, or scroll
-                                            through the database below.<br></br>Records are listed by pet owner last
+                                            through the database below.<br/>Records are listed by pet owner last
                                             name and first name.</p>
                                     </div>
 
@@ -204,7 +204,7 @@ const Schedule = (props) => {
                                                        addBackFurbaby={addBackFurbaby}/>}
                             {schedulePopup &&
                             <AddSchedule current={current} clinicId={clinicId} setAddedPopup={setSchedulelPopup}
-                                         petId={currentPetId} appointments={appointments} dispatch={dispatch}/>}
+                                         petId={currentPetId} appointments={appointments} dispatch={dispatch} clinic={clinic}/>}
                         </div>}
                     </div>
 

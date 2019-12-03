@@ -7,7 +7,7 @@ import {NotificationManager} from 'react-notifications';
 import {defaultTracker} from "../../functions";
 import {apiPath} from "../../../config";
 const SectionFour = (props) => {
-    let {clinicId, current, petId, dispatch, appointments, setAddedPopup} = props;
+    let {clinicId, current, petId, dispatch, appointments, setAddedPopup, clinic} = props;
     const [description, setDescription] = useState("");
     const [show, setShow] = useState(false);
     const [descriptionValidator, setDescriptionValidator] = useState("");
@@ -16,8 +16,7 @@ const SectionFour = (props) => {
     const [trackerComponents, setTrackerComponent] = useState([]);
 
     const [custom, setCustom] = useState("");
-    const [trackerName, setTrackerName] = useState("Annual Exam");
-    const [defaultTrackers] = useState(defaultTracker());
+    const [defaultTrackers] = useState( clinic.trackers ? JSON.parse(clinic.trackers):defaultTracker());
     const [button, setButton] = useState("ADD TO SCHEDULE");
 
     const setCurrentTracker = (name, val) => {
@@ -27,17 +26,8 @@ const SectionFour = (props) => {
                 item.value = val
             }
         }));
-        if (val) {
-            setTrackerName(name);
-        } else {
-            setTrackerName("Annual Exam");
-        }
         setTrackerComponent(components);
         setCustom("");
-    };
-
-    const setTracker = () => {
-        return defaultTrackers.find(item => item.name === trackerName).trackers;
     };
 
     const addCustomAppointment = () => {
@@ -119,7 +109,6 @@ const SectionFour = (props) => {
     };
 
     const setField = (value) => {
-        setTrackerName("");
         setCustom(value)
     };
 

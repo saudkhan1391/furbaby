@@ -681,9 +681,9 @@ const Treatmentplan = (props) => {
                                     <p>OPTIONAL - CUSTOMIZE TREATMENT PLAN</p>
                                 </div>
                                 <div className="flex pl-12 mt-8 label">
-                                    <div className="checkbox1">
+                                    <div className="checkbox1 flex flex-wrap">
                                         {trackerComponents.map((single, index) => {
-                                                return (<div key={index} className="flex mr-12 check-mar">
+                                                return (<div key={index} className="flex mr-12 check-mar pt-4">
                                                     <label className="container1">
                                                         <input type="checkbox" name="same"
                                                                checked={single.value + "" !== "false"}

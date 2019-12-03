@@ -322,7 +322,7 @@ export default () => (
         }
         .check-mar{
           margin-right:10%;
-          width:224px;
+          width:324px;
         }
           .fotText-area textarea{
             resize:none;
