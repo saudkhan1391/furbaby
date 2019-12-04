@@ -3,7 +3,7 @@ import React from 'react';
 export default () => (
     <style>{`
     .data-div p{
-        width: 250px;
+        width: 236px;
         height: 30px;
         font-family: Lato;
         font-size: 16px;
@@ -39,5 +39,6 @@ export default () => (
         width:24px;
         height:24px;
     }
+    
     `}</style>
 )

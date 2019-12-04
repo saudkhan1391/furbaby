@@ -333,21 +333,23 @@ export default () => (
         height: 65px!important;
         width: 65px!important;
     }
-    .coverPhoto{
-        width: 115px;
-        height: 115px;
-        border-radius: 50%;
-        background-position: center;
-        background-size: cover;
-    }
-    .completed{
-        position: absolute;
-        top: 16px;
-        left: 17px;
-        width: 115px;
-        height: 115px;
-        border-radius: 50%;
-    }
+    .coverPhoto {
+      width: 91px;
+      height: 91px;
+      margin-top: 0;
+      margin-left: 0px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+  }
+  .completed{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 109px;
+    height: 109px;
+    border-radius: 50%;
+}
     .carousel-cont .shadow-bord{
         border: 1px solid #8080801c;
         padding: 27px 13px 17px 13px;

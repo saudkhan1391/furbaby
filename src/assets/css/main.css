@@ -8,49 +8,99 @@
 
 @tailwind utilities;
 
-body{
-    font-family: 'Lato', sans-serif!important;
-    padding:0 !important;
-    margin:0 !important;
- }
- html{
-    font-family: 'Lato', sans-serif!important;
- }
- .bg1
- { 
-    background-image: url("../images/image1.jpg");
-    background-size: cover;
-    display: flex !important;
-    flex: 1 !important;
-    justify-content: center !important;
- } 
- .bg-main {
-    color: white;
-    width: 584px;
-    margin: auto;
+body {
+  font-family: 'Lato', sans-serif !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
- .loaderContainer{
-     position: absolute;
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     background-color: #fff;
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
-.smalloaderContainer{
-     background-color: #fff;
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
- .loader{
-     width: 70px;
-     height: 70px;
- }
- .carousel-container{
-     padding: 59px 0 0 40px;
- }
- 
+
+html {
+  font-family: 'Lato', sans-serif !important;
+}
+
+.bg1 {
+  background-image: url("../images/image1.jpg");
+  background-size: cover;
+  display: flex !important;
+  flex: 1 !important;
+  justify-content: center !important;
+}
+
+.bg-main {
+  color: white;
+  width: 584px;
+  margin: auto;
+}
+
+.loaderContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smalloaderContainer {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 70px;
+  height: 70px;
+}
+
+.carousel-container {
+  padding: 59px 0 0 40px;
+}
+
+.CircularProgressbar {
+  width: 109px !important;
+}
+
+.progressDiv .coverPhoto {
+  margin-bottom: -70px;
+  margin-left: -36px;
+}
+
+.inProgFur.forline {
+  border-bottom: 2px solid #f0f0f0;
+  width: 100%;
+  margin-top: -10px;
+  margin-left: 0;
+}
+
+.cardSett .coverPhoto {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.cardSett .upCard {
+  position: absolute;
+}
+
+.cardSett .shadow-bord,
+.cardSett .extension {
+  width: 140px !important;
+}
+
+.cardSett .forText {
+  margin-top: 100px;
+}
+
+/* .cardSett .mainWrapper {
+  width: 100%;
+} */
+.react-multi-carousel-track {
+  width: 100% !important;
+}
+
+.text-end {
+  text-align: end;
+}

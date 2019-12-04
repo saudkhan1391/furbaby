@@ -63,7 +63,8 @@ sidebar.style.display="block";
             <navigation-mob>
               <div className="mob-nav flex items-center justify-between ">
                 <div className="">
-                  <img src={require('../../assets/images/lArrow.png')} alt="pic"></img>
+                  <a href="../">
+                    <img style={{"cursor":"pointer"}}  src={require('../../assets/images/lArrow.png')} alt="pic"></img></a>
                 </div>
                 <div className="">
                   <h3>CLINIC DASHBOARD</h3>

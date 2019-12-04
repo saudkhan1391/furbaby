@@ -106,7 +106,7 @@ const SectionOne=(props) => {
 
 
     return(
-        <div className="tcPage container mx-auto">
+        <div style={{"padding":"0 15px"}} className="tcPage container mx-auto">
             <div>
                 <div style={{display:"flex;justify-content:space-around"}} className="sDiv mt-12">
                     <label className="tcRec font-bold lbl-2">FUR BABY TRACKER RECORD - TREATMENT</label>
@@ -149,26 +149,26 @@ const SectionOne=(props) => {
                             <label className=" ml-12 flex-1">
                                 Dropped Off @
                             </label>
-                            <p className="inline flex-1">{dropDate.time}  <span className="pl-8"/>{dropDate.standardDate} </p>
+                            <p className="text-end inline flex-1">{dropDate.time}  <span className="pl-8"/>{dropDate.standardDate} </p>
                             {/*<img className="head-img inline flex-1/3" src={require('../../assets/images/settings-3.png')} alt="pic"/>*/}
                         </div>
                         <div className="flex justify-between">
                             <label className=" ml-12">
                                 Owner:
                             </label>
-                            <p>{firstName} {lastName}</p>
+                            <p className="text-end">{firstName} {lastName}</p>
                         </div>
                         <div className="flex justify-between text-left">
                             <label className=" ml-12">
                                 Phone:
                             </label>
-                            <p>{phone}</p>
+                            <p className="text-end">{phone}</p>
                         </div>
                         <div className="flex justify-between text-left">
                             <label className=" ml-12">
                                 Email:
                             </label>
-                            <p>{email}</p>
+                            <p className="text-end">{email}</p>
                         </div>
 
                         <div className="ml-12 mt-8">

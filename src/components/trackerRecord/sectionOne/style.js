@@ -170,7 +170,7 @@ export default () => (
     
     }
     .data-div p{
-        width: 250px;
+        width: 236px;
         height: 30px;
         font-family: Lato;
         font-size: 16px;
@@ -207,13 +207,13 @@ export default () => (
         height:24px;
     }
     .completed{
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-    }
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 109px;
+      height: 109px;
+      border-radius: 50%;
+  }
     .checkbox{
         width: 50%;
         padding: 10px 0px 10px 0;
