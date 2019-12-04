@@ -57,8 +57,8 @@ function card(props) {
                     <p>
                         {pet.name}
                         <br/>
-                        <span className="normal">{pet.species}</span>
                     </p>
+                    <p className="normal">{pet.species}</p>
                 </div>
             </div>
             {

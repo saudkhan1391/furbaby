@@ -13,7 +13,7 @@ const SectionFour = (props) => {
     useEffect(() => {
         setTitle(notes[currentId].title);
         setContent(notes[currentId].content);
-        setGallery(notes[currentId].photos);
+        setGallery(notes[currentId].photos ? notes[currentId].photos : []);
     }, [currentId]);
 
     const submit = (event) => {

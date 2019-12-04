@@ -12,7 +12,7 @@ import AddSchedule from './scheduleFurbaby'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
 const Schedule = (props) => {
-    let {appointments, clinicId, dispatch} = props;
+    let {appointments, clinicId, dispatch, clinic} = props;
     const [showForm, setForm] = useState(false);
     const [detail, setDetail] = useState(false);
     const [addedPopup, setAddedPopup] = useState(false);
@@ -87,7 +87,7 @@ const Schedule = (props) => {
                             <button className="sync-Btn mr-4">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>
                         </div>
                     </div>
-                    <div className="mt-2 forline-again1"></div>
+                    <div className="mt-2 forline-again1"/>
                 </div>
             </div>
             <div className="container sMainDb mx-auto" style={{"padding":"0 15px"}}>
@@ -117,7 +117,7 @@ const Schedule = (props) => {
                                 <div style={{"padding":"0 15px"}}>
                                     <div className="databaseParagraph">
                                         <p>Search by the pet’s name, pet owner’s name, email, or phone, or scroll
-                                            through the database below.<br></br>Records are listed by pet owner last
+                                            through the database below.<br/>Records are listed by pet owner last
                                             name and first name.</p>
                                     </div>
 
@@ -167,7 +167,9 @@ const Schedule = (props) => {
                                     | {current.workPhone}</h1>
                             </div>
                             <div className="flex mt-4">
-                                <button className="btn1 ml-2" onClick={()=>setAddedPopup(true)}>ADD ADDITIONAL FUR BABY</button>
+                                <button className="btn1 ml-2" onClick={() => setAddedPopup(true)}>ADD ADDITIONAL FUR
+                                    BABY
+                                </button>
                             </div>
                             <div className="px-2">
                                 <div className="carousel-container">
@@ -182,9 +184,10 @@ const Schedule = (props) => {
                                                                      src={item.coverPhoto ? item.coverPhoto : placeholderPet}/>
                                                             </div>
                                                         </div>
-                                                        <div className="px-6 pt-10 py-5 flex justify-center m-auto items-center content-center forText">
+                                                        <div
+                                                            className="px-6 pt-10 py-5 flex justify-center m-auto items-center content-center forText">
                                                             <p>{item.name}<br></br>
-                                                                <span className="newVisitButton" onClick={()=>{
+                                                                <span className="newVisitButton" onClick={() => {
                                                                     setCurrentPet(item.id)
                                                                     setSchedulelPopup(true)
                                                                 }}><button
@@ -199,7 +202,9 @@ const Schedule = (props) => {
                             </div>
                             {addedPopup && <AddFurBaby setAddedPopup={setAddedPopup} current={current}
                                                        addBackFurbaby={addBackFurbaby}/>}
-                            {schedulePopup && <AddSchedule current={current} clinicId={clinicId} setAddedPopup={setSchedulelPopup} petId={currentPetId} appointments={appointments} dispatch={dispatch}/>}
+                            {schedulePopup &&
+                            <AddSchedule current={current} clinicId={clinicId} setAddedPopup={setSchedulelPopup}
+                                         petId={currentPetId} appointments={appointments} dispatch={dispatch} clinic={clinic}/>}
                         </div>}
                     </div>
 

@@ -29,6 +29,7 @@ function UpdateMedication(props) {
         }
     };
 
+
     return(
         <div id="simpleModal" className="modal">
             <form onSubmit={(event) => updateContent(event)} className="modal-content">

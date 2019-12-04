@@ -7,7 +7,7 @@ import {NotificationManager} from 'react-notifications';
 import {defaultTracker} from "../../functions";
 import {apiPath} from "../../../config";
 const SectionFour = (props) => {
-    let {clinicId, current, petId, dispatch, appointments, setAddedPopup} = props;
+    let {clinicId, current, petId, dispatch, appointments, setAddedPopup, clinic} = props;
     const [description, setDescription] = useState("");
     const [show, setShow] = useState(false);
     const [descriptionValidator, setDescriptionValidator] = useState("");
@@ -16,28 +16,13 @@ const SectionFour = (props) => {
     const [trackerComponents, setTrackerComponent] = useState([]);
 
     const [custom, setCustom] = useState("");
-    const [trackerName, setTrackerName] = useState("Annual Exam");
-    const [defaultTrackers] = useState(defaultTracker());
+    const [defaultTrackers] = useState( clinic.trackers ? JSON.parse(clinic.trackers):defaultTracker());
     const [button, setButton] = useState("ADD TO SCHEDULE");
 
-    const setCurrentTracker = (name, val) => {
+    const setCurrentTracker = (index, value) => {
         let components = JSON.parse(JSON.stringify(trackerComponents));
-        components.forEach((item => {
-            if (item.id === name) {
-                item.show = val
-            }
-        }));
-        if (val) {
-            setTrackerName(name);
-        } else {
-            setTrackerName("Annual Exam");
-        }
+        components[index].show = value;
         setTrackerComponent(components);
-        setCustom("");
-    };
-
-    const setTracker = () => {
-        return defaultTrackers.find(item => item.name === trackerName).trackers;
     };
 
     const addCustomAppointment = () => {
@@ -51,12 +36,13 @@ const SectionFour = (props) => {
                     id: index + 1,
                     title: item,
                     value: false,
-                    status: 1
+                    status: 1,
+                    show: true
                 })
             }
         });
         mainData.forEach(item => {
-            if (item.show === undefined || item.show) {
+            if (item.show) {
                 temp.push(item);
             }
         });
@@ -88,7 +74,7 @@ const SectionFour = (props) => {
                 notes: "[]",
             }
         };
-        setButton("Adding...")
+        setButton("Adding...");
         axios.post(apiPath + "/addAppointment", payload).then(res => {
             let final = [...appointments];
             final.push(res.data.pet);
@@ -96,13 +82,6 @@ const SectionFour = (props) => {
                 type: "SET_APPOINTMENTS",
                 payload: final
             });
-            // showMessage({
-            //     message: "Furbaby has been successfully scheduled",
-            //     type: "success",
-            //     backgroundColor: "#28a745",
-            //     color: "white",
-            //     icon: "info"
-            // });
             NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
             setAddedPopupClose();
             setButton("ADD TO SCHEDULE")
@@ -119,7 +98,6 @@ const SectionFour = (props) => {
     };
 
     const setField = (value) => {
-        setTrackerName("");
         setCustom(value)
     };
 
@@ -130,7 +108,11 @@ const SectionFour = (props) => {
         if (tracker !== undefined) {
             setTrackerComponent([]);
             setTimeout(() => {
-                setTrackerComponent(tracker.trackers);
+                let temp = [...tracker.trackers];
+                temp.forEach(item => {
+                    item.show = true;
+                });
+                setTrackerComponent(temp);
             }, 1);
         } else {
             setTrackerComponent([]);
@@ -162,11 +144,7 @@ const SectionFour = (props) => {
                                     <div className="h-12">
                                         <div className="flex flex-col mb-4 inputvision">
                                             <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                                            <select className="border py-2 px-3 " onChange={event => {
-                                                setValue(event.target.value);
-                                            }}
-                                                    style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}
-                                                    type="text">
+                                            <select className="border py-2 px-3 " onChange={event => setValue(event.target.value)} style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}>
                                                 <option value="" selected="">Select</option>
                                                 {
                                                     defaultTrackers.map((item, index) => {
@@ -182,24 +160,6 @@ const SectionFour = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                                {/*<div className="w-1/2 px-2">*/}
-                                {/*<div className=" h-12">*/}
-                                {/*<div className="flex flex-col mb-4 inputvision">*/}
-                                {/*<label className="mb-2" htmlFor="first_name">Visit Reason</label>*/}
-                                {/*<input className="border py-2 px-3 " type="text"*/}
-                                {/*onChange={event => {*/}
-                                {/*setValue(event.target.value)*/}
-                                {/*}}*/}
-                                {/*style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}*/}
-                                {/*/>*/}
-                                {/*<div style={{height: "13px"}}>*/}
-                                {/*{descriptionValidator && <p style={{color: "red", fontSize: 12}}>*/}
-                                {/*required*/}
-                                {/*</p>}*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
                                 <div className="w-1/2 px-2">
                                     <div className=" h-12">
                                         <div className="flex flex-col mb-4 inputvision calendar-div2">
@@ -237,42 +197,20 @@ const SectionFour = (props) => {
                                         <p>OPTIONAL - CUSTOMIZE TREATMENT PLAN</p>
                                     </div>
                                     <div className="flex pl-12 mt-8 label">
-                                        <div className="checkbox1">
-                                            {defaultTrackers.map((single, index) =>
-                                                <div key={index} className="flex mr-12 check-mar">
-                                                    <label className="container1">
-                                                        <input type="radio" name="same"
-                                                               checked={trackerName === single.name}
-                                                               onClick={() => setCurrentTracker(single.name, true)}/>
-                                                        <span className="checkmark"/>
-                                                    </label>
-                                                    <label>{single.name}</label>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="checkbox1">
-                                            <div className="flex mr-12 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox"/>
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Checkbox Label</label>
-                                            </div>
-                                            <div className="flex mr-12 mt-4 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox"/>
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Checkbox Label</label>
-                                            </div>
-                                            <div className="flex mr-12 mt-4 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox"/>
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Checkbox Label</label>
-                                            </div>
-
+                                        <div className="checkbox1 flex flex-wrap">
+                                            {trackerComponents.map((single, index) =>{
+                                                return (
+                                                    <div key={index} className="flex mr-12 check-mar">
+                                                        <label className="container1">
+                                                            <input type="checkbox" name="same"
+                                                                   checked={single.show}
+                                                                   onClick={(event) => setCurrentTracker(index, event.target.checked)}/>
+                                                            <span className="checkmark"/>
+                                                        </label>
+                                                        <label>{single.title}</label>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
                                     </div>
                                     <div className="pl-12 mt-8">

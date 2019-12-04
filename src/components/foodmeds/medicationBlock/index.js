@@ -11,7 +11,6 @@ const Schedule = (props) => {
     const [allFoodBackup, setAllFoodBackup] = useState(foodData);
     const [food, setFood] = useState([]);
     const [button, setButton] = useState("SAVE CHANGES");
-    console.log(foodData);
     useEffect(() => {
         setAllFood(foodData);
         if (!moreFoodType) {
@@ -168,7 +167,7 @@ const Schedule = (props) => {
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="mainDd flex justify-between mt-12">
                         <div className="medicationHeading2">
-                            <h1>CUSTOMIZE PET FOOD DROPDOWNS</h1>
+                            <h1>CUSTOMIZE PET MEDICATION DROPDOWNS</h1>
                         </div>
                         <div className="flex mr-4">
                             <div>
@@ -181,11 +180,11 @@ const Schedule = (props) => {
                         </div>
                     </div>
                     <div className="mt-4 optionspara">
-                        <p>All selected options will display in the pet food dropdown</p>
+                        <p>All selected options will display in the pet medication dropdown</p>
                     </div>
                     <div className="subFd flex mt-8">
                         <div className="showing">
-                            <p>Showing food options for:</p>
+                            <p>Showing medication options for:</p>
                         </div>
 
                         <div className="flex ml-8 label">

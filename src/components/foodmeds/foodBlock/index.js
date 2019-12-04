@@ -11,7 +11,6 @@ const Schedule = (props) => {
     const [allFoodBackup, setAllFoodBackup] = useState(foodData);
     const [food, setFood] = useState([]);
     const [button, setButton] = useState("SAVE CHANGES");
-    console.log(foodData);
     useEffect(() => {
         setAllFood(foodData);
         if (!moreFoodType) {
@@ -41,18 +40,10 @@ const Schedule = (props) => {
                 delete main.clinicId;
                 setButton("SAVING...");
                 firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-                    // showMessage({
-                    //     message: "Food successfully updated",
-                    //     type: "danger",
-                    //     backgroundColor: "#28a745",
-                    //     color: "white",
-                    //     icon: "info"
-                    // });
-
                     dispatch({
                         type: "UPDATE_CLINIC",
                         payload: newClinic
-                    })
+                    });
                     setButton("SAVED");
                     NotificationManager.success('Food successfully updated.', 'Food Update.');
                     setNewFood(null);
@@ -60,13 +51,6 @@ const Schedule = (props) => {
                         setButton("SAVE CHANGES");
                     }, 4000);
                 }).catch(err => {
-                    // showMessage({
-                    //     message: "Something went wrong. Please check you internet or try again later.",
-                    //     type: "danger",
-                    //     backgroundColor: "red",
-                    //     color: "white",
-                    //     icon: "info"
-                    // });
                     NotificationManager.error('Something went wrong. Please check you internet or try again later.');
                 });
             })
@@ -77,18 +61,11 @@ const Schedule = (props) => {
             delete main.clinicId;
             setButton("SAVING...");
             firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-                // showMessage({
-                //     message: "Food successfully updated",
-                //     type: "danger",
-                //     backgroundColor: "#28a745",
-                //     color: "white",
-                //     icon: "info"
-                // });
                 NotificationManager.success('Food successfully updated.', 'Food Update.');
                 dispatch({
                     type: "UPDATE_CLINIC",
                     payload: newClinic
-                })
+                });
                 setButton("SAVED");
                 setNewFood(null);
                 setTimeout(() => {
@@ -96,13 +73,6 @@ const Schedule = (props) => {
                 }, 4000);
             }).catch(err => {
                 setButton("SAVE CHANGES");
-                // showMessage({
-                //     message: "Something went wrong. Please check you internet or try again later.",
-                //     type: "danger",
-                //     backgroundColor: "red",
-                //     color: "white",
-                //     icon: "info"
-                // });
                 NotificationManager.error('Something went wrong. Please check you internet or try again later.');
             });
         }
@@ -246,12 +216,12 @@ const Schedule = (props) => {
                     <div className="w-full">
                         <div className="customMedication">
                             <h1>
-                                ADD CUSTOM MEDICATION
+                                ADD CUSTOM FOOD
                             </h1>
                         </div>
                         <div className="multiplepara mt-4">
                             <p>
-                                ADD CUSTOM MEDICATION
+                                ADD CUSTOM FOOD
                             </p>
                             <select className="border py-2 px-3" value={foodType}
                                     onChange={event => setFoodType(event.target.value)} type="text">

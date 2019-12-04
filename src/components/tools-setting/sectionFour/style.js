@@ -327,7 +327,7 @@ export default () => (
             padding-top: 15px;
           }
           .highto{
-              min-height: 40px;
+              min-height: 140px;
           }
     `}
 

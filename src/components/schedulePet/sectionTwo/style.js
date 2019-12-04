@@ -342,8 +342,8 @@ export default () => (
     }
     .completed{
         position: absolute;
-        top: 11px;
-        left: 11px;
+        top: 16px;
+        left: 17px;
         width: 115px;
         height: 115px;
         border-radius: 50%;
@@ -392,6 +392,9 @@ export default () => (
     .extension p span{
         color: #32c5ff;
         cursor: pointer;
+    }
+    .forText p.normal {
+        min-height: 26px;
     }
     .react-datetime-picker__wrapper{
         font-size: 14px;

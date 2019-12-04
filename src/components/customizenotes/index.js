@@ -5,14 +5,15 @@ import EditNote from './updateNotes/updateNotes';
 import Style from './style';
 import { NotificationManager} from 'react-notifications';
 import Layout from '../layout/container';
+import DNotes from "../../jsons/notes.json";
 const Schedule = (props) => {
     let {clinic, dispatch} = props;
-    let [notes, setNotes] = useState(clinic.notes ? JSON.parse(clinic.notes) : []);
+    let [notes, setNotes] = useState(clinic.notes ? JSON.parse(clinic.notes) : DNotes);
     const [currentId, setCurrent] = useState(null);
     const [editPopup, setEditPopup] = useState(false);
     const [deleteNotes, setDeleteNotes] = useState([]);
     useEffect(() => {
-        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : [];
+        let duplicate = clinic.notes ? JSON.parse(clinic.notes) : DNotes;
         if (duplicate) {
             duplicate.forEach(sin => {
                 sin.check = false;
@@ -39,13 +40,6 @@ const Schedule = (props) => {
         let main = {...newClinic};
         delete main.clinicId;
         firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-            // showMessage({
-            //     message: "Note successfully deleted",
-            //     type: "danger",
-            //     backgroundColor: "#28a745",
-            //     color: "white",
-            //     icon: "info"
-            // });
             dispatch({
                 type: "UPDATE_CLINIC",
                 payload: newClinic
@@ -53,13 +47,6 @@ const Schedule = (props) => {
             setNotes(temp);
             NotificationManager.success('Note successfully deleted.', 'Note Update.');
         }).catch(err => {
-            // showMessage({
-            //     message: "Something went wrong. Please check your internet connection or try again later.",
-            //     type: "danger",
-            //     backgroundColor: "red",
-            //     color: "white",
-            //     icon: "info"
-            // });
             NotificationManager.error('Something went wrong. Please check your internet connection or try again later.', 'Note Update.');
         });
     };
@@ -137,7 +124,7 @@ const Schedule = (props) => {
                                             <label>{item.title}</label>
                                         </div>
                                     </div>
-                                    <div className="kchni">
+                                    <div>
                                         <button className="mr-2 blueBtn18" onClick={() => {
                                             setCurrent(index);
                                             setEditPopup(true);

@@ -322,7 +322,7 @@ export default () => (
         }
         .check-mar{
           margin-right:10%;
-          width:224px;
+          width:324px;
         }
           .fotText-area textarea{
             resize:none;
@@ -517,7 +517,9 @@ export default () => (
 .react-date-picker__wrapper {
     display: flex;
     border: none;
+    align-items: center;
     width: 100%;
+    text-align: center;
     justify-content: space-between;
     align-items: center;
 }
