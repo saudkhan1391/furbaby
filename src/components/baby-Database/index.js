@@ -74,7 +74,7 @@ const Schedule = (props) => {
 
     return (
         <Layout>
-            <div className="container mainDb mx-auto">
+            <div className="container mainDb mx-auto" style={{"padding":"0 15px"}}>
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="flex upperCon justify-between mt-12">
                         <div className="massMessage-heading">
@@ -90,7 +90,7 @@ const Schedule = (props) => {
                     <div className="mt-2 forline-again1"/>
                 </div>
             </div>
-            <div className="container sMainDb mx-auto">
+            <div className="container sMainDb mx-auto" style={{"padding":"0 15px"}}>
                 <div className="px-2 asda mt-10">
                     <div className="flex -mx-2">
                         <div className="w-1/2">
@@ -114,7 +114,7 @@ const Schedule = (props) => {
                                         </div>
                                     </div>
                                 </form>
-                                <div>
+                                <div style={{"padding":"0 15px"}}>
                                     <div className="databaseParagraph">
                                         <p>Search by the pet’s name, pet owner’s name, email, or phone, or scroll
                                             through the database below.<br/>Records are listed by pet owner last

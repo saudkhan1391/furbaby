@@ -85,7 +85,7 @@ const Schedule = (props) => {
     };
     return (
         <Layout>
-            <div className="container mx-auto">
+            <div className="container mx-auto" style={{"padding":"0 15px"}}>
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="mt-12 medicationHeading">
                         <h1>CUSTOMIZE NOTES</h1>
@@ -93,7 +93,7 @@ const Schedule = (props) => {
                     <div className="mt-2 forline-again1"></div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container notess mx-auto" style={{"padding":"0 15px"}}>
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="flex justify-between mt-12">
                         <div className="medicationHeading2">
@@ -107,7 +107,7 @@ const Schedule = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
+            <div className="container bbBoxes mx-auto" style={{"padding":"0 15px"}}>
                 <div className="px-2">
                     <div className="flex flex-wrap">
                         {notes.map((item, index) => <div key={index} className="w-1/2 pr-2">
