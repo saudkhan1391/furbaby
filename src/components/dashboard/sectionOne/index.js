@@ -12,7 +12,7 @@ const SectionOne=(props)=>{
     return (
         <div>
 
-            <div className="container mx-auto resp-main-dash">
+            <div className="container mx-auto resp-main-dash" style={{"padding":"0 15px"}}>
                 <section className="left-col w-1/5">
                     {/*<div>*/}
                         {/*<button className="btn-background mt-10 font-bold">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>*/}

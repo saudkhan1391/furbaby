@@ -10,7 +10,7 @@ const Schedule = (props) => {
     let medication = clinic.medication ? JSON.parse(clinic.medication) : [];
     return (
         <Layout>
-            <SectionOne/>
+            <div style={{"padding":"0 15px"}}><SectionOne /></div>
             <Food clinic={clinic} dispatch={dispatch} foodData={food} />
             <Medication clinic={clinic} dispatch={dispatch} foodData={medication} />
             <Style/>

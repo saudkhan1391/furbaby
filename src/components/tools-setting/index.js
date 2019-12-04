@@ -7,9 +7,11 @@ const Schedule = (props) => {
     let {clinic, dispatch} = props;
     return (
         <Layout>
+          <div className="toolSet" style={{"padding":"0 15px"}}>
             <SectionOne/>
             {/*<SectionTwo/>*/}
             <SectionFour clinic={clinic} dispatch={dispatch}/>
+            </div>
         </Layout>
     );
 }

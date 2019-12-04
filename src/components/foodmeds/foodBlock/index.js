@@ -164,7 +164,7 @@ const Schedule = (props) => {
         })
     };
 
-    return (<div className="customFood">
+    return (<div className="customFood" style={{"padding":"0 15px"}}>
             <div className="container mx-auto top1">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="flex justify-between mt-12 mainDd">
@@ -268,7 +268,8 @@ const Schedule = (props) => {
                 </div>
                 <div className="flex mb-4">
                     <div className="w-fullh-12">
-                        <div className="fotText-area"><textarea value={newFood ? newFood : ""} onChange={(event) => {
+                        <div className="fotText-area">
+                          <textarea style={{"width":"100%"}} value={newFood ? newFood : ""} onChange={(event) => {
                             setNewFood(event.target.value);
                         }}
                                                                 rows="5" cols="180"/></div>
