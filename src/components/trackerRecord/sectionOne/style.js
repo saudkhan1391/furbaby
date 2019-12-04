@@ -170,7 +170,7 @@ export default () => (
     
     }
     .data-div p{
-        width: 250px;
+        width: 236px;
         height: 30px;
         font-family: Lato;
         font-size: 16px;

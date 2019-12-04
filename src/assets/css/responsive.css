@@ -1,4 +1,5 @@
 @media (min-width: 320px) and (max-width: 479px) {
+
   .toolSet {
     padding: 15px;
   }
@@ -588,6 +589,7 @@
 }
 
 @media (min-width: 480px) and (max-width: 574px) {
+
   .toolSet {
     padding: 15px;
   }
@@ -1186,6 +1188,7 @@
 }
 
 @media (min-width: 575px) and (max-width: 684px) {
+
   .toolSet {
     padding: 15px;
   }
@@ -1774,6 +1777,7 @@
 }
 
 @media (min-width: 685px) and (max-width: 767px) {
+
   .toolSet {
     padding: 15px;
   }
@@ -2362,6 +2366,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
   .toolSet {
     padding: 15px;
   }
@@ -2959,6 +2964,24 @@
 }
 
 @media (min-width: 992px) and (max-width: 1023px) {
+  .data-div {
+    width: auto !important;
+  }
+
+  .profile .cen {
+    max-width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .tcPage .profile {
+    flex-direction: column;
+    /* align-items: center; */
+    margin-left: 0 !important;
+    width: 95%;
+  }
+
   .toolSet {
     padding: 15px;
   }
@@ -3087,6 +3110,21 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
+  .profile .pl-12 {
+    width: 100%;
+  }
+
+  .tcPage .profile {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0 !important;
+    width: 95%;
+  }
+
+  .data-div {
+    width: 100% !important;
+  }
+
   .toolSet {
     padding: 15px;
   }

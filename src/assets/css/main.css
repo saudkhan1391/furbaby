@@ -80,18 +80,27 @@ html {
   margin-top: 0;
   margin-left: 0;
 }
-.cardSett .upCard{
+
+.cardSett .upCard {
   position: absolute;
 }
-.cardSett .shadow-bord,.cardSett .extension{
-    width: 140px !important;
+
+.cardSett .shadow-bord,
+.cardSett .extension {
+  width: 140px !important;
 }
+
 .cardSett .forText {
   margin-top: 100px;
 }
+
 /* .cardSett .mainWrapper {
   width: 100%;
 } */
-.react-multi-carousel-track{
+.react-multi-carousel-track {
   width: 100% !important;
+}
+
+.text-end {
+  text-align: end;
 }
