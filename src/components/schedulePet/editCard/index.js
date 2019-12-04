@@ -5,7 +5,7 @@ import DatePicker from 'react-date-picker';
 import {timeZoneUS} from '../../functions';
 import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
-
+import Loader from "../../../commoncomponents/loader";
 function EditCard(props) {
 
     let {setForm, showForm, dispatch, setShow, schedule, setSchedule} = props;
@@ -16,8 +16,8 @@ function EditCard(props) {
     const [text, setText] = useState(description);
     const [addPhone, setAddPhone] = useState(false);
     const [phone, setPhone] = useState(null);
+    const [load, setLoad] = useState(false);
     const [showHistory, setShowHistory] = useState(false);
-
     useEffect(() => {
         if (schedule) {
             setStatus("In Hospital");
@@ -40,10 +40,11 @@ function EditCard(props) {
         });
     };
 
+
     const checkIn = () => {
         let data = {...showForm};
         data.appointmentStatus = status;
-        data.startTime = date.toISOString();
+        data.startTime = (new Date(date)).toISOString();
         data.description = text;
         let main = {...data};
         delete main.pet;
@@ -59,12 +60,13 @@ function EditCard(props) {
                 workPhone: phone
             }
         }
+
         dispatch({
             type: "SET_LOADER",
             payload: true
         });
+        setLoad(true);
         if (status === "In Hospital") {
-            console.log("data", data);
             axios.post(apiPath + "/appointmentStatusInHospital", payload).then(res => {
                 dispatch({
                     type: "UPDATE_CURRENT_FURBABY",
@@ -72,6 +74,7 @@ function EditCard(props) {
                 });
                 setLoader();
                 setSchedule(false);
+                setLoad(false);
                 if (status === "In Hospital" && status !== statuses) {
                     NotificationManager.success('Furbaby successfully checked in', 'Furbaby Check in');
                 } else {
@@ -87,15 +90,16 @@ function EditCard(props) {
                     setLoader();
                     setSchedule(false);
                 }
+                setLoad(false);
             })
         } else {
-            console.log("data", data);
             dispatch({
                 type: "UPDATE_CURRENT_FURBABY",
                 payload: data
             });
             setLoader();
             setSchedule(false);
+            setLoad(false);
             NotificationManager.success('Furbaby schedule is updated successfully', 'Schedule Updated');
         }
     };
@@ -112,16 +116,35 @@ function EditCard(props) {
     };
 
     return (
-        <div className="px-2">
+        <div className="px-2 relative pb-10">
             <div className="flex flex-wrap -mx-2 mt-8">
-                <div className="w-1/2 px-2">
+                {
+                    !ownerPhone &&
+                    <div className="w-screen phone-message">
+                        <div className="flex flex-col mb-4 inputvision">
+                            <p>Owners phone number doesn't exist. <span onClick={() => setAddPhone(!addPhone)}>{!addPhone ? "Add" : "Remove"}</span></p>
+                        </div>
+                    </div>
+
+                }
+                {
+                    !ownerPhone && addPhone &&
+                    <div className="w-screen px-2">
+                        <div className="flex flex-col mb-4 inputvision">
+                            <label className="mb-2" htmlFor="first_name">Owner Phone</label>
+                            <input value={phone} className="border py-2 px-3 h-10" type="text"
+                                   onChange={event => setPhone(event.target.value)}/>
+                        </div>
+                    </div>
+                }
+                <div className="w-screen px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Visit Reason</label>
                         <input value={text} className="border py-2 px-3 h-10" type="text"
                                onChange={event => setText(event.target.value)}/>
                     </div>
                 </div>
-                <div className="w-1/2 px-2">
+                <div className="w-screen px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Status</label>
                         <select className="border py-2 px-3 h-10" id="" value={status} disabled={status === "Complete"}
@@ -136,7 +159,7 @@ function EditCard(props) {
                         </select>
                     </div>
                 </div>
-                <div className="w-1/2 px-2">
+                <div className="w-screen px-2">
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Schedule Date</label>
                         <DatePicker
@@ -161,6 +184,10 @@ function EditCard(props) {
             {
                 showHistory && showForm &&
                 <History showForm={showForm}/>
+            }
+            {
+                load &&
+                <Loader backgroundColor="#ffffffc9"/>
             }
         </div>
     )

@@ -409,6 +409,18 @@ export default () => (
         width: 100%;
         height: 38px;
     }
+    .phone-message{
+        background-color: red;
+    }
+    .phone-message p{
+        margin-top: 16px;
+        padding-left: 12px;
+        color: white;
+    }
+    .phone-message p span{
+        color: #32c5ff;
+        cursor: pointer;
+    }
     `}
 
     </style>
