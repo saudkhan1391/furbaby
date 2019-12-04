@@ -40,13 +40,6 @@ const Schedule = (props) => {
                 delete main.clinicId;
                 setButton("SAVING...");
                 firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-                    // showMessage({
-                    //     message: "Food successfully updated",
-                    //     type: "danger",
-                    //     backgroundColor: "#28a745",
-                    //     color: "white",
-                    //     icon: "info"
-                    // });
                     dispatch({
                         type: "UPDATE_CLINIC",
                         payload: newClinic
@@ -58,13 +51,6 @@ const Schedule = (props) => {
                         setButton("SAVE CHANGES");
                     }, 4000);
                 }).catch(err => {
-                    // showMessage({
-                    //     message: "Something went wrong. Please check you internet or try again later.",
-                    //     type: "danger",
-                    //     backgroundColor: "red",
-                    //     color: "white",
-                    //     icon: "info"
-                    // });
                     NotificationManager.error('Something went wrong. Please check you internet or try again later.', 'Medication Update.');
                 });
             })
@@ -75,13 +61,6 @@ const Schedule = (props) => {
             delete main.clinicId;
             setButton("SAVING...");
             firebase.database().ref("/clinics").child(newClinic.clinicId).set(main).then(res => {
-                // showMessage({
-                //     message: "Food successfully updated",
-                //     type: "danger",
-                //     backgroundColor: "#28a745",
-                //     color: "white",
-                //     icon: "info"
-                // });
                 dispatch({
                     type: "UPDATE_CLINIC",
                     payload: newClinic
@@ -94,13 +73,6 @@ const Schedule = (props) => {
                 }, 4000);
             }).catch(err => {
                 setButton("SAVE CHANGES");
-                // showMessage({
-                //     message: "Something went wrong. Please check you internet or try again later.",
-                //     type: "danger",
-                //     backgroundColor: "red",
-                //     color: "white",
-                //     icon: "info"
-                // });
                 NotificationManager.success('Something went wrong. Please check your internet or try again later.', 'Medication Update.');
             });
         }
