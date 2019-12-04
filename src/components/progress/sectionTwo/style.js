@@ -138,13 +138,13 @@ export default () => (
         background-size: cover;
     }
     .completed{
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-    }
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 109px;
+      height: 109px;
+      border-radius: 50%;
+  }
     .carousel-cont a{
         border: 1px solid #8080801c;
         padding: 27px 13px 17px 13px;

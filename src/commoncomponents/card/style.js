@@ -13,10 +13,10 @@ export default () => (
   }
     .completed{
         position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 110px;
-        height: 110px;
+        top: 0px;
+        left: 0px;
+        width: 109px;
+        height: 109px;
         border-radius: 50%;
     }
     `}</style>
