@@ -333,13 +333,15 @@ export default () => (
         height: 65px!important;
         width: 65px!important;
     }
-    .coverPhoto{
-        width: 115px;
-        height: 115px;
-        border-radius: 50%;
-        background-position: center;
-        background-size: cover;
-    }
+    .coverPhoto {
+      width: 91px;
+      height: 91px;
+      margin-top: 0;
+      margin-left: 0px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+  }
     .completed{
         position: absolute;
         top: 16px;

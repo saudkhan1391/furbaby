@@ -128,9 +128,11 @@ export default () => (
         height: 259px !important;
     
       }
-      .coverPhoto{
-        width: 110px;
-        height: 110px;
+      .coverPhoto {
+        width: 91px;
+        height: 91px;
+        margin-top: 0;
+        margin-left: 0px;
         border-radius: 50%;
         background-position: center;
         background-size: cover;

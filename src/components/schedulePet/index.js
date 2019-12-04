@@ -7,7 +7,7 @@ const Schedulepet = (props) => {
     let {appointments, dispatch} = props;
     return (
         <Layout>
-            <div>
+            <div className="cardSett">
                 <SectionOne/>
                 <SectionTwo appointments={appointments} dispatch={dispatch}/>
             </div>

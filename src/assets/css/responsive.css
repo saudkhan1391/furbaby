@@ -1,31 +1,40 @@
 @media (min-width: 320px) and (max-width: 479px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
-    margin-right: 15px;
   }
-  .allti{
+
+  .toolSet .flex.justify-between.mt-12 {
     flex-direction: column;
   }
-  .ttPlan .h-64{
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
+    margin-right: 15px;
+  }
+
+  .allti {
+    flex-direction: column;
+  }
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   textarea {
     width: 94% !important;
   }
@@ -202,7 +211,7 @@
   }
 
   .inProgFur .checkFur {
-    padding: 0 !important;
+    padding: 5px !important;
   }
 
   .tcPage .tcRec {
@@ -581,39 +590,50 @@
 @media (min-width: 480px) and (max-width: 574px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
-    margin-right: 15px;
   }
-  .allti{
+
+  .toolSet .flex.justify-between.mt-12 {
     flex-direction: column;
   }
-  .ttPlan .h-64{
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
+    margin-right: 15px;
+  }
+
+  .allti {
+    flex-direction: column;
+  }
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   .label {
     width: 25%;
-}
-.abc {
-  width: 53% !important;
-  margin-top: 15px;
-  height: 44px;
-}
+  }
+
+  .abc {
+    width: 53% !important;
+    margin-top: 15px;
+    height: 44px;
+  }
+
   textarea {
     width: 100%;
   }
@@ -790,7 +810,7 @@
   }
 
   .inProgFur .checkFur {
-    padding: 0 !important;
+    padding: 5px !important;
   }
 
   .tcPage .tcRec {
@@ -1168,31 +1188,40 @@
 @media (min-width: 575px) and (max-width: 684px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
-    margin-right: 15px;
   }
-  .allti{
+
+  .toolSet .flex.justify-between.mt-12 {
     flex-direction: column;
   }
-  .ttPlan .h-64{
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
+    margin-right: 15px;
+  }
+
+  .allti {
+    flex-direction: column;
+  }
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   textarea {
     width: 100%;
   }
@@ -1369,7 +1398,7 @@
   }
 
   .inProgFur .checkFur {
-    padding: 0 !important;
+    padding: 5px !important;
   }
 
   .tcPage .tcRec {
@@ -1747,31 +1776,40 @@
 @media (min-width: 685px) and (max-width: 767px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
-    margin-right: 15px;
   }
-  .allti{
+
+  .toolSet .flex.justify-between.mt-12 {
     flex-direction: column;
   }
-  .ttPlan .h-64{
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
+    margin-right: 15px;
+  }
+
+  .allti {
+    flex-direction: column;
+  }
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   textarea {
     width: 100%;
   }
@@ -1948,7 +1986,7 @@
   }
 
   .inProgFur .checkFur {
-    padding: 0 !important;
+    padding: 5px !important;
   }
 
   .tcPage .tcRec {
@@ -2326,31 +2364,40 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
-    margin-right: 15px;
   }
-  .allti{
+
+  .toolSet .flex.justify-between.mt-12 {
     flex-direction: column;
   }
-  .ttPlan .h-64{
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
+    margin-right: 15px;
+  }
+
+  .allti {
+    flex-direction: column;
+  }
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   .trackerLogo {
     position: absolute;
   }
@@ -2523,7 +2570,7 @@
   }
 
   .inProgFur .checkFur {
-    padding: 0 !important;
+    padding: 5px !important;
   }
 
   .tcPage .tcRec {
@@ -2914,28 +2961,36 @@
 @media (min-width: 992px) and (max-width: 1023px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
+  }
+
+  .toolSet .flex.justify-between.mt-12 {
+    flex-direction: column;
+  }
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
     margin-right: 15px;
   }
-  .ttPlan .h-64{
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   .right-body {
     width: 67%;
     margin-left: 12%;
@@ -3034,28 +3089,36 @@
 @media (min-width: 1024px) and (max-width: 1199px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
+  }
+
+  .toolSet .flex.justify-between.mt-12 {
+    flex-direction: column;
+  }
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
     margin-right: 15px;
   }
-  .ttPlan .h-64{
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   .dbpage {
     width: 62% !important;
   }
@@ -3157,28 +3220,36 @@
 @media (min-width: 1200px) and (max-width: 1365px) {
   .toolSet {
     padding: 15px;
-}
-.toolSet .flex.justify-between.mt-12 {
-  flex-direction: column;
-}
-.toolSet .flex.-mx-2 {
-  flex-direction: column;
-}
-.toolSet button{
-  margin-top: 15px;
-}
-.toolSet .h-12{
-  height: auto;
-}
-.toolSet .cardHeight {
-  min-height: 20px !important;
-}
-  .addBtn{
+  }
+
+  .toolSet .flex.justify-between.mt-12 {
+    flex-direction: column;
+  }
+
+  .toolSet .flex.-mx-2 {
+    flex-direction: column;
+  }
+
+  .toolSet button {
+    margin-top: 15px;
+  }
+
+  .toolSet .h-12 {
+    height: auto;
+  }
+
+  .toolSet .cardHeight {
+    min-height: 20px !important;
+  }
+
+  .addBtn {
     margin-right: 15px;
   }
-  .ttPlan .h-64{
+
+  .ttPlan .h-64 {
     height: auto !important;
   }
+
   .right-body {
     width: 67%;
     margin-left: 12%;

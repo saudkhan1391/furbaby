@@ -85,6 +85,7 @@ const Schedule = (props) => {
     };
     return (
         <Layout>
+          <div style={{"padding":"0 15px"}}>
             <div className="container mx-auto">
                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 forwidth">
                     <div className="mt-12 medicationHeading">
@@ -127,7 +128,7 @@ const Schedule = (props) => {
                                                         <label>{item.name}</label>
                                                     </div>
                                                 </div>
-                                                <div>
+                                                <div className="duoBtn">
                                                     <button className="mr-2 blueBtn18" onClick={() => {
                                                         setCurrent(index);
                                                         setEditPopup(true);
@@ -153,6 +154,7 @@ const Schedule = (props) => {
             <EditNote currentId={currentId} setEditPopup={setEditPopup} setTrackers={setTrackers} trackers={trackers}
                         clinic={clinic} dispatch={dispatch}/>}
             <Style/>
+            </div>
         </Layout>
     );
 }
