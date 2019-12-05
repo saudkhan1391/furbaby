@@ -10,6 +10,7 @@ function UpdateSnapshot(props) {
     const [ gallery, setGallery ] = useState(galleryPhotos);
     const [deleteImageId, setDeleteImageId] = useState([]);
     const [added, setAdded] = useState(false);
+
     const updateAppointment = () => {
         furBaby.galleryPhotos = JSON.stringify(gallery);
         dispatch({

@@ -10,9 +10,11 @@ import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
 import UpdateTracker from "../updateTracker";
 import {NotificationManager} from 'react-notifications';
+import firebase from "../../../utils/firebase";
+import uuid from "uuid";
 
 const SectionOne=(props) => {
-    let { data, furBaby, dispatch, pet, petOwner, image, name, treatment, petOwnerNote, startTime, firstName, lastName, phone, email, clinic } = props;
+    let { data, furBaby, dispatch, pet, petOwner, image, name, treatment, petOwnerNote, startTime, firstName, lastName, phone, email, clinic, petId } = props;
     const [tracker, setTracker] = useState(data);
     const [current, setCurrent] = useState(furBaby);
     const [disabled, setDisabled] = useState(true);
@@ -21,6 +23,7 @@ const SectionOne=(props) => {
     const [currentStatus, setCurrentStatus] = useState(null);
     const [currentName, setCurrentName] = useState(null);
     const [button, setButton] = useState("UPDATE");
+    const [photo, setPhoto] = useState(image);
     let dropDate = standardDate(new Date(startTime));
 
     useEffect(() => {
@@ -29,6 +32,9 @@ const SectionOne=(props) => {
     }, [furBaby, data]);
 
 
+    useEffect(() => {
+        setPhoto(image);
+    }, [image]);
 
     const updateComponent = () => {
         let main = true;
@@ -105,6 +111,29 @@ const SectionOne=(props) => {
     };
 
 
+    const addPhotoImage = (event) => {
+        let uid = uuid();
+        const file = event.target.files[0];
+        const storage = firebase.storage();
+        const imageRef = storage.ref('furBabyCoverPhotos/').child(uid);
+        let data = imageRef.put(file);
+        data.on('state_changed', (snapshot) => {
+            data.on('state_changed', (snapshot) => {
+                setPhoto("loading");
+            });
+        }, (err) => {
+        }, res => {
+            let final = {...pet};
+            imageRef.getDownloadURL().then(function (downloadURL) {
+                final.coverPhoto = downloadURL;
+                firebase.database().ref("/pets").child(petId).set(final).then(main => {
+                    setPhoto(downloadURL);
+                    NotificationManager.success('Cover Photo Updated');
+                });
+            });
+        });
+    };
+
     return(
         <div style={{"padding":"0 15px"}} className="tcPage container mx-auto">
             <div>
@@ -132,15 +161,23 @@ const SectionOne=(props) => {
                                      pathColor: calculate() === 100 ? "#8bc53f" :"#32c5ff"
                                  })}>
                                    {calculate() === 100 &&  <img src={require('../../../assets/images/completed.png')} className="completed" alt="abcc" />}
-                                       <div className="coverPhoto" style={{backgroundImage: "url("+ (image ? image : placeholderPet)+")"}}/>
+                                 {
+                                     photo ? (photo === "loading" ? <img className="coverPhoto" src={require("../../../assets/images/loader.png")} alt=""/> : <div className="coverPhoto" style={{backgroundImage: "url("+ (photo )+")"}}/>) :
+                                         <div className="coverPhoto" style={{backgroundImage: "url("+ (placeholderPet)+")"}}/>
+                                 }
+
                             </CircularProgressbarWithChildren>
                             </div>
-                                <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText">
+                                <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText flex-col flex">
                                     <p>{name}<br/>
                                         <span className="normal">Todays Visit <br />
                                             {treatment}
                                         </span>
                                     </p>
+                                    <label className="mt-4">
+                                        <span className="text-sm leading-normal activity-popup-small">ADD COVER PHOTO</span>
+                                        <input type='file' onChange={event => addPhotoImage(event)} className="hidden" />
+                                    </label>
                                 </div>
                         </div>
                     </div>

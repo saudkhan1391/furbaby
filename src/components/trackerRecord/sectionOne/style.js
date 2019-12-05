@@ -71,7 +71,6 @@ export default () => (
     }
     .max-w-sm {
         max-width: 190px;
-        height: 285px;
     }
     .shadow-bord {
 

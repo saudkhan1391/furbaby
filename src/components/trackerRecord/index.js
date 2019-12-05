@@ -29,12 +29,13 @@ const trackerRecord = (props) => {
     pee = pee ? JSON.parse(pee) : [];
     notes = notes ? JSON.parse(notes) : DefaultNotes;
     galleryPhotos = galleryPhotos ? JSON.parse(galleryPhotos) : [];
-
+    console.log("current", current);
     return(
         <Layout>
             <SectionOne
                 pet={current.pet}
                 petOwner={current.petOwner}
+                petId={current.petId}
                 data={tracker}
                 furBaby={furBaby}
                 dispatch={dispatch}
