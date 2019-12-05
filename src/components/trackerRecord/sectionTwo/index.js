@@ -104,7 +104,7 @@ const SectionTwo=(props) => {
 
     return (
         <div>
-            <div className="container mx-auto">
+            <div style={{"padding":"0 15px"}} className="container mx-auto">
                 <div className="mt-12 mb-6 heading">
                     <h3 className="activiHead">ACTIVITY REPORT</h3>
                 </div>
@@ -182,7 +182,8 @@ const SectionTwo=(props) => {
                         <h3>Posted Activities</h3>
                         {
                             notes.map(single => {
-                                return <div key={single.id}>
+                                return <div className="singAct" key={single.id}>
+                                    <div className="flex">
                                     <img className="bin-img inline mr-2" src={require('../../../assets/images/bin.png')} alt="pic" onClick={() => removeNotes(single.id)}/>
                                     {
                                         convertNote(single.note).map((item, index) => {
@@ -192,6 +193,7 @@ const SectionTwo=(props) => {
                                             </div>
                                         })
                                     }
+                                    </div>
                                     {
                                         single.photos && single.photos.length !== 0 &&
                                         <div className="imageCont">

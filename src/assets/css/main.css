@@ -104,3 +104,10 @@ html {
 .text-end {
   text-align: end;
 }
+.progressDiv .completed{
+  top: 39px;;
+}
+.tcPage .coverPhoto{
+  width: 91px;
+    height: 91px;
+}
