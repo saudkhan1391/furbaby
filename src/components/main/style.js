@@ -19,6 +19,8 @@ export default () => (
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 15px;
+    width:100%;
 
 }
   .para1{

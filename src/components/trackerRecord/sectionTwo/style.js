@@ -279,5 +279,15 @@ export default ()=>(
         .staffnotes .act-1 h3 {
             color: #fff;
         }
+    
+    .singAct{
+margin: 20px 0;
+    }
+        .singAct .flex {
+           align-items: baseline;
+   
+          
+        }
+  
     `}</style>
 )
