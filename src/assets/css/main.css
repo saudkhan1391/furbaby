@@ -59,7 +59,7 @@ html {
 .carousel-container {
   padding: 59px 0 0 40px;
 }
-
+/* Fixes */
 .CircularProgressbar {
   width: 109px !important;
 }
@@ -128,4 +128,8 @@ html {
 }
 .loaderContainer img{
     width: unset !important;
+}
+.max-w-sm {
+    width: 170px !important;
+    height: 265px;
 }
