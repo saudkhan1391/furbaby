@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../../../utils/firebase";
-import { Link } from "react-router-dom";
 import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { standardDate } from "../../functions";
 import { placeholderPet } from "../../../config";
 
 function card(props) {
-    let { item, setForm } = props;
+    let { item, setForm, setSchedule } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
     const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
@@ -33,6 +33,38 @@ function card(props) {
         });
         return (single * temp);
     };
+
+    const showStatus = (value) => {
+        let current = standardDate(new Date());
+        current = new Date(current.standardDate);
+        let itemDate = standardDate(item.startTime);
+        itemDate = new Date(itemDate.standardDate);
+        if(itemDate < current){
+            switch(value){
+                case "In Hospital":
+                case "Complete":
+                    return <p className="greenWithOut">VISIT COMPLETE</p>;
+                default:
+                    return <p onClick={() => showBottom(false)} className="bluePress">RE-SCHEDULE</p>
+            }
+        }else {
+            switch(value){
+                case "In Hospital":
+                    return <p className="greenWithOut">IN HOSPITAL</p>;
+                case "Complete":
+                    return <p className="greenWithOut">VISIT COMPLETE</p>;
+                default:
+                    return <p onClick={() => showBottom(true)} className="bluePress">CHECK IN</p>
+            }
+        }
+
+    };
+
+    const showBottom = (value) => {
+        setSchedule(value);
+        setForm(item);
+    }
+
     return (
         <div className="mainWrapper">
             <div className="shadow-bord">
@@ -60,10 +92,15 @@ function card(props) {
                     </p>
                     <p className="normal">{pet.species}</p>
                 </div>
+                <div className="forText mt-0imp">
+                    {
+                        showStatus(item.appointmentStatus)
+                    }
+                </div>
             </div>
             {
                 <div className="extension">
-                    <p>Edit: <span onClick={() => setForm(item)}>Visit</span></p>
+                    <p>Edit: <span onClick={() => showBottom(false)}>Visit</span></p>
                 </div>
             }
         </div>

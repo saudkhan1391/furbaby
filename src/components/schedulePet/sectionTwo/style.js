@@ -423,6 +423,23 @@ export default () => (
         color: #32c5ff;
         cursor: pointer;
     }
+    .greenPress{
+       color: #8bc53f;
+       cursor: pointer;
+    }
+    .blueWithOut{
+        color: #32c5ff;
+    }
+    .bluePress{
+       color: #32c5ff;
+       cursor: pointer;
+    }
+    .greenWithOut{
+        color: #8bc53f;
+    }
+    .mt-0imp{
+        margin-top: 0!important;
+    }
     `}
 
     </style>

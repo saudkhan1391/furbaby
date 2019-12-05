@@ -8,7 +8,7 @@ import History from "./historyCard";
 import Loader from "../../../commoncomponents/loader";
 function EditCard(props) {
 
-    let {setForm, showForm, dispatch, setShow, schedule, setSchedule} = props;
+    let {setForm, showForm, dispatch, schedule, setSchedule} = props;
     let {description, startTime, appointmentStatus, petOwner: {phone: ownerPhone}} = showForm;
     const [date, setDate] = useState(startTime);
     const [status, setStatus] = useState(appointmentStatus);
@@ -19,26 +19,26 @@ function EditCard(props) {
     const [load, setLoad] = useState(false);
     const [showHistory, setShowHistory] = useState(false);
     useEffect(() => {
-        if (schedule) {
-            setStatus("In Hospital");
-        }
         setStatus(appointmentStatus);
         setStatuses(appointmentStatus);
         setDate(startTime);
         setText(description);
+        if (schedule) {
+            setStatus("In Hospital");
+        }
     }, [schedule, startTime, appointmentStatus, description]);
 
     const setLoader = () => {
-        setShow(false);
         setForm(false);
         setTimeout(() => {
-            setShow(true);
             dispatch({
                 type: "SET_LOADER",
                 payload: false
             })
         });
     };
+
+    console.log("status", status);
 
 
     const checkIn = () => {
