@@ -20,6 +20,8 @@ export default () => (
           align-items: center;
           margin-top: 60px;
           position: relative;
+          padding: 0 15px;
+          width:100%;
   }
     .btn-blue{
           width: 207px;

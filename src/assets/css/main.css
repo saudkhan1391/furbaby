@@ -104,10 +104,18 @@ html {
 .text-end {
   text-align: end;
 }
-.progressDiv .completed{
-  top: 39px;;
+
+.progressDiv .completed {
+  top: 39px;
+  ;
 }
-.tcPage .coverPhoto{
+
+.tcPage .coverPhoto {
   width: 91px;
-    height: 91px;
+  height: 91px;
+}
+
+.customFood .medicationHeading2,
+.customFood .medicationHeading {
+  padding: 0 !important;
 }
