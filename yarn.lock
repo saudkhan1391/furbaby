@@ -463,6 +463,11 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@wojtekmaj/date-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@wojtekmaj/date-utils/-/date-utils-1.0.0.tgz#97aebf5ab317cf40d56492642f921480d4f89342"
+  integrity sha512-tHzSlWCmb1GjxjiPRTju7i2bQigYriFDmCpaf1dC4SebFRjhBiuRpIxy5oI3b3ZMg9OzqGnApdZJrlYSwEUJAg==
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -7007,6 +7012,21 @@ react-date-picker@^7.8.0:
   resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-7.8.2.tgz#448657c6d7fc8e225ff06c7f9345488894d416ce"
   integrity sha512-1zYjN+ez4QYShDpM20zN8tRmAwDMnAIxGUpji0rYrVMVAxWV2uNRvUpETsXz4FQobts6iA/nCiUJay33+k0tow==
   dependencies:
+    get-user-locale "^1.2.0"
+    make-event-props "^1.1.0"
+    merge-class-names "^1.1.1"
+    prop-types "^15.6.0"
+    react-calendar "^2.19.1"
+    react-fit "^1.0.3"
+    react-lifecycles-compat "^3.0.4"
+    update-input-width "^1.1.1"
+
+react-date-picker@^7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-7.9.0.tgz#728cf4a7d47c5fa9c669f648bc7e7bdc55a1c79e"
+  integrity sha512-uBbFtCLnpjySLmWNfJv3eGMYhODyScVku2y4/+9XM47LKsz24ZoEb2zX1GcpUb7547LWxfMPZpnLBVY2nfedDA==
+  dependencies:
+    "@wojtekmaj/date-utils" "^1.0.0"
     get-user-locale "^1.2.0"
     make-event-props "^1.1.0"
     merge-class-names "^1.1.1"

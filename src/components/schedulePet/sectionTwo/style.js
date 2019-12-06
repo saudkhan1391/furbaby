@@ -350,9 +350,11 @@ export default () => (
     height: 109px;
     border-radius: 50%;
 }
-    .carousel-cont .shadow-bord{
+    .carousel-cont .shadow-bord-main{
         border: 1px solid #8080801c;
         padding: 27px 13px 17px 13px;
+        width: 158px;
+        position: relative;
     }
     .forText {
         font-size: 16px;
@@ -367,6 +369,7 @@ export default () => (
     }
     .mainWrapper{
         margin-right: 40px;
+        position: relative
     }
     .mainWrapper:hover .extension {
         height: 49px;
@@ -381,6 +384,7 @@ export default () => (
         align-items: center;
         justify-content: center;
         border: 1px solid #8080801c;
+        width: 158px;
     }
     .extension p{
         font-family: Lato;

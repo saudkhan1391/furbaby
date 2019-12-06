@@ -83,10 +83,14 @@ html {
 
 .cardSett .upCard {
   position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.cardSett .shadow-bord,
-.cardSett .extension {
+.cardSett .shadow-bord{
   width: 140px !important;
 }
 

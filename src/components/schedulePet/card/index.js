@@ -67,7 +67,7 @@ function card(props) {
 
     return (
         <div className="mainWrapper">
-            <div className="shadow-bord">
+            <div className="shadow-bord-main">
                 <div className="upCard">
                     <CircularProgressbarWithChildren
                         value={calculate()}

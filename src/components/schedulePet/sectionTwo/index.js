@@ -16,17 +16,16 @@ const SectionTwo = (props) => {
     const [all, setAll] = useState(null);
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
-            items: 4,
+            items: 2,
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 4,
+            items: 2,
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 3,
+            items: 2,
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -70,7 +69,7 @@ const SectionTwo = (props) => {
                     <div className="w-1/2 px-2 cardForm">
                         <div className="px-2">
                             <div className="">
-                                <div className=" mb-4 carousel-cont">
+                                <div className="carousel-container mb-4 carousel-cont">
                                     <Carousel responsive={responsive}>
                                         {
                                             furBabies.length !== 0 && furBabies.map((item, index) => {
