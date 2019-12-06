@@ -99,7 +99,6 @@ const SectionFour = (props) => {
             ) ||
             ((!CVC || CVC === "") && !cvcError)
         ) {
-            console.log("requestedData")
             if (!email || email === "") {
                 document.getElementById("email").focus();
                 document.getElementById("email").classList.add("red-border");
@@ -148,8 +147,7 @@ const SectionFour = (props) => {
                 !expiryDateError)
             ) {
                 document.getElementById("field-wrapper").classList.add("red-border");
-                document.getElementById("creditCardContent").innerHTML =
-                    "Expiry Date is Required";
+                document.getElementById("creditCardContent").innerHTML = "Expiry Date is Required";
                 setTimeout(() => {
                     document.getElementById("creditCard").classList.remove("red-border");
                     document.getElementById("creditCardContent").innerHTML = " ";
@@ -236,12 +234,12 @@ const SectionFour = (props) => {
             <div className="container mx-auto">
                 <div className="px-2 mt-10">
                     <div className="flex -mx-2">
-                        <div className="w-1/2">
-                            <div className="h-12">
+                        {/*<div className="w-1/2">*/}
+                            {/*<div className="h-12">*/}
                                 {/*<div className="flex h-12 practice-Management-Heading">*/}
                                 {/*<h1>PRACTICE MANAGEMENT SOFTWARE INTEGRATION</h1>*/}
                                 {/*</div>*/}
-                                <div>
+                                {/*<div>*/}
                                     {/*<div className="connectivity-Status">*/}
                                     {/*<p>Connectivity Status: <span>Connected</span><br></br>*/}
                                     {/*Last Synced: 6/29/2019. 05:29</p>*/}
@@ -254,80 +252,80 @@ const SectionFour = (props) => {
                                     {/*<button>CONFIGURE & CONNECT</button>*/}
                                     {/*</div>*/}
                                     {/*</div>*/}
-                                    <div className="manage-Automatic-Heading">
-                                        <h1>MANAGE AUTOMATIC NOTIFICATION SETTINGS</h1>
-                                    </div>
-                                    <div className="mt-2 automatic-Text-Emails-Paragraph">
-                                        <p>Send automatic text message, emails, and push notifications when:</p>
-                                    </div>
-                                    <div
-                                        className="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0 pb-0">
-                                        <div className="flex justify-center m-auto items-center content-center ">
-                                            <hr className="style2"/>
-                                        </div>
-                                        <div className="label pt-2">
-                                            <div className="flex mr-12 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox" checked={appointmentCompleteOptin}
-                                                           onChange={() => setAppointmentCompleteOptin(!appointmentCompleteOptin)}/>
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Tracker Completion</label>
-                                            </div>
-                                            <div className="flex mr-12 mt-4 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox" checked={trackerOptin}
-                                                           onClick={() => setTrackerOptin(!trackerOptin)}
-                                                    />
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Anytime a tracker stage is updated to move onto the next
-                                                    stage</label>
-                                            </div>
-                                            <div className="flex mr-12 mt-4 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox" checked={noteOptin}
-                                                           onChange={() => setNoteOptin(!noteOptin)}
-                                                    />
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Anytime a note is added</label>
-                                            </div>
-                                            <div className="flex mr-12 mt-4 check-mar">
-                                                <label className="container1">
-                                                    <input type="checkbox" checked={snapshotOptin}
-                                                           onChange={() => setSnapshotOptin(!snapshotOptin)}
-                                                    />
-                                                    <span className="checkmark"/>
-                                                </label>
-                                                <label>Anytime a snapshot is added</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex mt-4">
-                                        <div className="save-change-blue-btn">
-                                            <button onClick={() => saveSetting()} disabled={requesting}>SAVE CHANGES
-                                            </button>
-                                        </div>
-                                        <div className="ml-4 reset-default-gray-btn">
-                                            <button onClick={() => {
-                                                resetDefaults()
-                                            }}>RESET TO DEFAULT
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="green">
-                                        {message && message}
-                                    </div>
+                                    {/*<div className="manage-Automatic-Heading">*/}
+                                        {/*<h1>MANAGE AUTOMATIC NOTIFICATION SETTINGS</h1>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="mt-2 automatic-Text-Emails-Paragraph">*/}
+                                        {/*<p>Send automatic text message, emails, and push notifications when:</p>*/}
+                                    {/*</div>*/}
+                                    {/*<div*/}
+                                        {/*className="px-6 py-4 justify-center m-auto items-center content-center pl-0 pr-0 pb-0">*/}
+                                        {/*<div className="flex justify-center m-auto items-center content-center ">*/}
+                                            {/*<hr className="style2"/>*/}
+                                        {/*</div>*/}
+                                        {/*<div className="label pt-2">*/}
+                                            {/*<div className="flex mr-12 check-mar">*/}
+                                                {/*<label className="container1">*/}
+                                                    {/*<input type="checkbox" checked={appointmentCompleteOptin}*/}
+                                                           {/*onChange={() => setAppointmentCompleteOptin(!appointmentCompleteOptin)}/>*/}
+                                                    {/*<span className="checkmark"/>*/}
+                                                {/*</label>*/}
+                                                {/*<label>Tracker Completion</label>*/}
+                                            {/*</div>*/}
+                                            {/*<div className="flex mr-12 mt-4 check-mar">*/}
+                                                {/*<label className="container1">*/}
+                                                    {/*<input type="checkbox" checked={trackerOptin}*/}
+                                                           {/*onClick={() => setTrackerOptin(!trackerOptin)}*/}
+                                                    {/*/>*/}
+                                                    {/*<span className="checkmark"/>*/}
+                                                {/*</label>*/}
+                                                {/*<label>Anytime a tracker stage is updated to move onto the next*/}
+                                                    {/*stage</label>*/}
+                                            {/*</div>*/}
+                                            {/*<div className="flex mr-12 mt-4 check-mar">*/}
+                                                {/*<label className="container1">*/}
+                                                    {/*<input type="checkbox" checked={noteOptin}*/}
+                                                           {/*onChange={() => setNoteOptin(!noteOptin)}*/}
+                                                    {/*/>*/}
+                                                    {/*<span className="checkmark"/>*/}
+                                                {/*</label>*/}
+                                                {/*<label>Anytime a note is added</label>*/}
+                                            {/*</div>*/}
+                                            {/*<div className="flex mr-12 mt-4 check-mar">*/}
+                                                {/*<label className="container1">*/}
+                                                    {/*<input type="checkbox" checked={snapshotOptin}*/}
+                                                           {/*onChange={() => setSnapshotOptin(!snapshotOptin)}*/}
+                                                    {/*/>*/}
+                                                    {/*<span className="checkmark"/>*/}
+                                                {/*</label>*/}
+                                                {/*<label>Anytime a snapshot is added</label>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex mt-4">*/}
+                                        {/*<div className="save-change-blue-btn">*/}
+                                            {/*<button onClick={() => saveSetting()} disabled={requesting}>SAVE CHANGES*/}
+                                            {/*</button>*/}
+                                        {/*</div>*/}
+                                        {/*<div className="ml-4 reset-default-gray-btn">*/}
+                                            {/*<button onClick={() => {*/}
+                                                {/*resetDefaults()*/}
+                                            {/*}}>RESET TO DEFAULT*/}
+                                            {/*</button>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="green">*/}
+                                        {/*{message && message}*/}
+                                    {/*</div>*/}
 
-                                    <div className="cardHeight">
+                                    {/*<div className="cardHeight">*/}
 
-                                    </div>
-                                </div>
+                                    {/*</div>*/}
+                                {/*</div>*/}
 
 
-                            </div>
-                        </div>
+                            {/*</div>*/}
+                        {/*</div>*/}
 
 
                         <div className="w-1/2 px-2">
