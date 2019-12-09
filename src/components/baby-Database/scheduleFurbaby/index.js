@@ -72,7 +72,8 @@ const SectionFour = (props) => {
                 galleryPhotos: "[]",
                 medications: "[]",
                 notes: "[]",
-            }
+            },
+            type: "web"
         };
         setButton("Adding...");
         axios.post(apiPath + "/addAppointment", payload).then(res => {

@@ -185,7 +185,8 @@ const Treatmentplan = (props) => {
                     galleryPhotos: JSON.stringify([]),
                     medications: JSON.stringify([]),
                     notes: JSON.stringify([])
-                }
+                },
+                type: "web"
             };
             dispatch({
                 type: "SET_LOADER",
@@ -215,7 +216,6 @@ const Treatmentplan = (props) => {
 
                 }).catch(err => {
                 NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'Appointment Update.');
-                console.log("err", err.response);
                 dispatch({
                     type: "SET_LOADER",
                     payload: false
