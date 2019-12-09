@@ -167,11 +167,11 @@ const SectionFour = (props) => {
                                             <DatePicker
                                                 className="border py-2 px-3"
                                                 onChange={event => {
-                                                    setDate(timeZoneUS(event));
+                                                    setDate(event);
                                                     setDateValidation(false)
                                                 }}
                                                 style={dateValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                value={timeZoneUS(date)}
+                                                value={date}
                                                 disableClock
                                             />
                                             <div style={{height: "13px"}}>

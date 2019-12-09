@@ -3,7 +3,6 @@ import Layout from '../layout/container';
 import SmallLoader from '../../commoncomponents/smallLoader'
 import Style from './style';
 import DatePicker from 'react-date-picker';
-import {timeZoneUS} from '../functions/index';
 import {NotificationManager} from 'react-notifications';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
@@ -511,11 +510,11 @@ const Treatmentplan = (props) => {
                                                 <DatePicker
                                                     className="border py-2 px-3"
                                                     onChange={event => {
-                                                        setDob(timeZoneUS(event));
+                                                        setDob(event);
                                                         setDobValidation(false)
                                                     }}
                                                     style={dobValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                    value={timeZoneUS(dob)}
+                                                    value={dob}
                                                     disableClock
                                                 />
                                                 <div style={{height: "13px"}}>
@@ -619,11 +618,11 @@ const Treatmentplan = (props) => {
                                                 <DatePicker
                                                     className="border py-2 px-3"
                                                     onChange={event => {
-                                                        setDate(timeZoneUS(event));
+                                                        setDate(event);
                                                         setDateValidation(false)
                                                     }}
                                                     style={dateValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                    value={timeZoneUS(date)}
+                                                    value={date}
                                                     disableClock
                                                 />
                                                 <div style={{height: "13px"}}>

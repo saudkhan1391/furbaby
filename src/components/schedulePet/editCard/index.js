@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {apiPath} from "../../../config";
 import DatePicker from 'react-date-picker';
-import {timeZoneUS} from '../../functions';
 import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
 import Loader from "../../../commoncomponents/loader";
@@ -163,8 +162,8 @@ function EditCard(props) {
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Schedule Date</label>
                         <DatePicker
-                            onChange={event => setDate(timeZoneUS(event))}
-                            value={timeZoneUS(date)}
+                            onChange={event => setDate(event)}
+                            value={date}
                         />
                         {/*<input className="border py-2 px-3 h-10" value={date} onChange={event => setDate((new Date(event.target.value)).toISOString())} type="datetime-local" placeholder="06/22/2019 12:00 PM"/>*/}
                     </div>
