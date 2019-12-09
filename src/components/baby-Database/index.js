@@ -172,11 +172,11 @@ const Schedule = (props) => {
                                 </button>
                             </div>
                             <div className="px-2">
-                                <div className="carousel-container">
-                                    <Carousel responsive={responsive}>
+                                <div className="carousel-container flex flex-wrap flex-row">
+                                    {/*<Carousel responsive={responsive}>*/}
                                         {
                                             current.pets.map((item, index) => {
-                                                return (<div key={index} className="pl-0 pr-1">
+                                                return (<div key={index} className="pl-0 pr-1 m-1">
                                                     <div className="max-w-sm rounded overflow-hidden shadow-border">
                                                         <div className="px-6 py-4 flex justify-center m-auto pt-5">
                                                             <div className="img1">
@@ -197,7 +197,7 @@ const Schedule = (props) => {
                                                     </div>
                                                 </div>)
                                             })}
-                                    </Carousel>
+                                    {/*</Carousel>*/}
                                 </div>
                             </div>
                             {addedPopup && <AddFurBaby setAddedPopup={setAddedPopup} current={current}

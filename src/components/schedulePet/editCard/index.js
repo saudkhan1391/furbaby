@@ -37,9 +37,6 @@ function EditCard(props) {
         });
     };
 
-    console.log("status", status);
-
-
     const checkIn = () => {
         let data = {...showForm};
         data.appointmentStatus = status;
