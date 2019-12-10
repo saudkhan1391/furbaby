@@ -182,7 +182,12 @@ const SectionFour = (props) => {
                 NotificationManager.success('Payment Method Successfully Added.', 'Payment Method Update');
             }).catch(err => {
                 setShowLoader(false);
-                NotificationManager.error('Payment Method Error Occur.', 'Payment Method Update');
+                if(err.response&&err.response.data&&err.response.data.err&&err.response.data.err.raw&&err.response.data.err.raw.message){
+                    NotificationManager.error('Payment Method Error Occur.', 'Payment Method Update', 10000);
+                }
+                else {
+                    NotificationManager.error(err.response.data.err.raw.message, 'Payment Method Error', 10000);
+                }
             })
         }
     };
