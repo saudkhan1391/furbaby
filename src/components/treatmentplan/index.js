@@ -8,6 +8,7 @@ import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail} from "../functions/index";
+import Loader from "../../commoncomponents/loader";
 
 const Treatmentplan = (props) => {
     let {appointments, dispatch, clinic} = props;
@@ -42,7 +43,7 @@ const Treatmentplan = (props) => {
     const [dateValidation, setDateValidation] = useState(false);
     const [description, setDescription] = useState("");
     const [descriptionValidation, setDescriptionValidation] = useState(false);
-
+    const [showLoader, setMainLoader] = useState(false);
 
     const [custom, setCustom] = useState("");
     let defaultTrackers = clinic.trackers ? JSON.parse(clinic.trackers) : defaultTracker();
@@ -64,7 +65,6 @@ const Treatmentplan = (props) => {
         setValidationLastName(false);
         setPhone("");
         setPhoneValidation(false);
-
         setPetName("");
         setPetNameValidation(false);
         setMicrochip("");
@@ -119,9 +119,6 @@ const Treatmentplan = (props) => {
         if (!petName) {
             setPetNameValidation(true);
         }
-        if (!coverPhoto) {
-            setCoverPhotoValidation(true);
-        }
         if (!dob) {
             setDobValidation(true);
         }
@@ -143,10 +140,11 @@ const Treatmentplan = (props) => {
         if (!date) {
             setDateValidation(true);
         }
-        if (!firstName || !lastName || !phone || (!email || !validateEmail(email)) || !petName || !coverPhoto || !dob || !species || !breed || !description || !date) {
-            return
+        if (!firstName || !lastName || !phone || (!email || !validateEmail(email)) || !petName || !dob || !species || !breed || !description || !date) {
+            return;
         }
         else {
+            setMainLoader(true);
             let requestedData = {
                 petOwner: {
                     firstName: firstName ? firstName : "",
@@ -196,6 +194,7 @@ const Treatmentplan = (props) => {
                 .then(res => {
                     let final = [...appointments];
                     final.push(res.data.data.appointment);
+                    setMainLoader(false);
                     dispatch({
                         type: "SET_APPOINTMENTS",
                         payload: final
@@ -212,20 +211,21 @@ const Treatmentplan = (props) => {
                         type: "SET_LOADER",
                         payload: false
                     });
-                    NotificationManager.success('Added Successfully.', 'Appointment Update.');
+                    NotificationManager.success('Added Successfully.', "New Record");
 
                 }).catch(err => {
-                NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'Appointment Update.');
+                NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'New Record');
                 dispatch({
                     type: "SET_LOADER",
                     payload: false
                 })
+                setMainLoader(false);
             })
         }
     };
 
     const checkPetOwner = () => {
-        setLoader(true);
+        setMainLoader(true);
         axios.get(apiPath + '/findPetOwnerByEmail?email=' + email)
             .then(res => {
                 let data = {...res.data.data};
@@ -237,7 +237,7 @@ const Treatmentplan = (props) => {
                 setFirstName(data.firstName);
                 setLastName(data.lastName);
                 setPhone(data.workPhone);
-                setLoader(false);
+                setMainLoader(false);
             }).catch(err => {
             console.log("err", err);
             setUid("");
@@ -245,7 +245,7 @@ const Treatmentplan = (props) => {
             setFirstName("");
             setLastName("");
             setPhone("");
-            setLoader(false);
+            setMainLoader(false);
             dispatch({
                 type: "SET_LOADER",
                 payload: false
@@ -293,7 +293,7 @@ const Treatmentplan = (props) => {
 
     const setField = (value) => {
         setCustom(value)
-    }
+    };
 
 
     return (
@@ -308,23 +308,13 @@ const Treatmentplan = (props) => {
                 </div>
             </div>
             <hr className="style1"/>
-            <div className="px-2 mt-10">
+            <div className="px-2 mt-10 relative">
+                {
+                    showLoader &&
+                    <Loader backgroundColor="#ffffffc9"/>
+                }
                 <div className="flex -mx-2">
                     <div className="w-1/2 px-2 vr">
-                        {/*<div className="pl-10 pb-4 select-Furbaby-Schedule">*/}
-                        {/*<h1>STEP 1: SELECT FUR BABY TO SCHEDULE</h1>*/}
-                        {/*</div>*/}
-                        {/*<div className="flex h-12 ml-10 form">*/}
-                        {/*<input type="text" name="fname" placeholder="  Search for a schedule pet"/>*/}
-                        {/*<div className=" img">*/}
-                        {/*<img src={require('../../assets/images/search.png')} alt="pic"/>*/}
-                        {/*</div>*/}
-                        {/*</div>*/}
-                        {/*<div className="pl-10 mt-4">*/}
-                        {/*<button className="refreshBtn">CLICK TO REFRESH DATA FROM CONNECTED PRACTICE MANAGEMENT*/}
-                        {/*SOFTWARE*/}
-                        {/*</button>*/}
-                        {/*</div>*/}
                         <div className="pl-10 breeze mt-12 manually">
                             <h1>MANUALLY CREATE NEW FUR BABY</h1>
                         </div>
@@ -346,6 +336,7 @@ const Treatmentplan = (props) => {
                                                            setEmailValidation(false)
                                                        }}
                                                        value={email ? email : ""}
+                                                       style={emailValidation ? {borderColor: "red"} : {borderColor: ""}}
                                                 />
                                                 <div style={{height: "13px"}}>
                                                     {emailValidation && !email ?
@@ -362,17 +353,16 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className="h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Owner First Name</label>
+                                                <label className="mb-2" htmlFor="first_name">Owner First Name<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        defaultValue={firstName ? firstName : ""}
                                                        onChange={event => {
                                                            setFirstName(event.target.value);
                                                            setFirstNameValidation(false);
                                                        }}
-
-                                                    // style={firstNameValidation ? {borderColor: "red"} : {borderColor: ""}}
-                                                    //    style={uid ? {backgroundColor: "lightgray"} : {backgroundColor: ""}}
-                                                    // disabled={uid}
+                                                       disabled={uid}
+                                                       style={firstNameValidation ? {borderColor: "red"} : {borderColor: ""}}
                                                 />
                                                 <div style={{height: "13px"}}>
                                                     {firstNameValidation && <p style={{color: "red", fontSize: "12px"}}>
@@ -387,7 +377,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Owner Last Name</label>
+                                                <label className="mb-2" htmlFor="first_name">Owner Last Name<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        value={lastName ? lastName : ""}
                                                        onChange={event => {
@@ -410,7 +401,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Owner Phone Number</label>
+                                                <label className="mb-2" htmlFor="first_name">Owner Phone Number<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        disabled={uid}
                                                        autoCorrect={false}
@@ -436,7 +428,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Fur Baby Name</label>
+                                                <label className="mb-2" htmlFor="first_name">Fur Baby Name<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border lftW py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setPetName(event.target.value);
@@ -506,7 +499,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision calendar-div2">
-                                                <label className="mb-2" htmlFor="first_name">Fur Baby DOB</label>
+                                                <label className="mb-2" htmlFor="first_name">Fur Baby DOB<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <DatePicker
                                                     className="border py-2 px-3"
                                                     onChange={event => {
@@ -530,7 +524,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Species</label>
+                                                <label className="mb-2" htmlFor="first_name">Species<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setSpecies(event.target.value);
@@ -548,7 +543,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Breed</label>
+                                                <label className="mb-2" htmlFor="first_name">Breed<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setBreed(event.target.value);
@@ -571,7 +567,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className="h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Visit Reason</label>
+                                                <label className="mb-2" htmlFor="first_name">Visit Reason<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <select className="border py-2 px-3 " onChange={event => {
                                                     setValue(event.target.value);
                                                     setDescriptionValidation(false);
@@ -614,7 +611,8 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision calendar-div2">
-                                                <label className="mb-2" htmlFor="first_name">Schedule Date</label>
+                                                <label className="mb-2" htmlFor="first_name">Schedule Date<span
+                                                    style={{color: "red"}}>*</span></label>
                                                 <DatePicker
                                                     className="border py-2 px-3"
                                                     onChange={event => {
