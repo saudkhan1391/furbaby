@@ -102,8 +102,6 @@ const SectionTwo=(props) => {
         }
     };
 
-    console.log("medicationData", medicationData);
-
     return (
         <div>
             <div style={{"padding":"0 15px"}} className="container mx-auto">

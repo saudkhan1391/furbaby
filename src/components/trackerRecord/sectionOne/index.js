@@ -149,7 +149,7 @@ const SectionOne=(props) => {
             <div className="main flex mt-12">
                 <div className="profile mt-8 ml-8 flex mb-12">
                     <div className="flex-1 cen h-12 ml-4 max-w-sm">
-                        <div className="max-w-sm cenCard rounded overflow-hidden shadow-bord">
+                        <div className="cenCard rounded overflow-hidden shadow-bord">
                              <div className="px-6 py-4 flex justify-center m-auto pt-8">
 
                              <CircularProgressbarWithChildren
