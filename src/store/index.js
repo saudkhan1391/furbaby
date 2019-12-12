@@ -38,7 +38,7 @@ const reducer = (state, action) => {
                     item.galleryPhotos = galleryPhotos;
                 }
             });
-            let data = {...action.payload};
+            let data = {...JSON.parse(JSON.stringify({...action.payload}))};
             delete data.appointmentId;
             delete data.pet;
             delete data.petOwner;

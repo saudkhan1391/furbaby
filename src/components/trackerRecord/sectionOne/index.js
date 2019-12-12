@@ -53,7 +53,7 @@ const SectionOne=(props) => {
             setButton("UPDATING...");
             setDisabled(true);
             axios.post(apiPath+"/completeTrackerComponent", payload).then(res => {
-                let temp = {...current};
+                let temp = {...JSON.parse(JSON.stringify({...current}))};
                 delete temp.pet;
                 delete temp.petOwner;
                 axios.post(apiPath+"/appointmentStatusInHospital", {
