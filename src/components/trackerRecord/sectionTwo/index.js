@@ -100,7 +100,9 @@ const SectionTwo=(props) => {
         }else {
             return [""];
         }
-    }
+    };
+
+    console.log("medicationData", medicationData);
 
     return (
         <div>
