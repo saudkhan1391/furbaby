@@ -24,12 +24,11 @@ const trackerRecord = (props) => {
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
     let { name, coverPhoto } = current.pet;
     let { firstName, lastName, workPhone, email } = current.petOwner;
-    medications = medications ? JSON.parse(medications) : Meds;
-    food = food ? JSON.parse(food) : Foods;
+    medications = medications ? JSON.parse(medications) : [];
+    food = food ? JSON.parse(food) : [];
     pee = pee ? JSON.parse(pee) : [];
-    notes = notes ? JSON.parse(notes) : DefaultNotes;
+    notes = notes ? JSON.parse(notes) : [];
     galleryPhotos = galleryPhotos ? JSON.parse(galleryPhotos) : [];
-    console.log("current", current);
     return(
         <Layout>
             <SectionOne

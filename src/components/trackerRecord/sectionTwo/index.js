@@ -100,7 +100,7 @@ const SectionTwo=(props) => {
         }else {
             return [""];
         }
-    }
+    };
 
     return (
         <div>
