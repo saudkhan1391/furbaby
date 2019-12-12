@@ -118,7 +118,8 @@ function EditCard(props) {
                     !ownerPhone &&
                     <div className="w-screen phone-message">
                         <div className="flex flex-col mb-4 inputvision">
-                            <p>Owners phone number doesn't exist. <span onClick={() => setAddPhone(!addPhone)}>{!addPhone ? "Add" : "Remove"}</span></p>
+                            <p>Owners phone number doesn't exist. <span
+                                onClick={() => setAddPhone(!addPhone)}>{!addPhone ? "Add" : "Remove"}</span></p>
                         </div>
                     </div>
 
@@ -159,8 +160,10 @@ function EditCard(props) {
                     <div className="flex flex-col mb-4 inputvision">
                         <label className="mb-2" htmlFor="first_name">Schedule Date</label>
                         <DatePicker
-                            onChange={event => setDate(event)}
-                            value={date}
+                            onChange={(event) => {
+                                setDate(event)
+                            }}
+                            value={new Date(date)}
                         />
                         {/*<input className="border py-2 px-3 h-10" value={date} onChange={event => setDate((new Date(event.target.value)).toISOString())} type="datetime-local" placeholder="06/22/2019 12:00 PM"/>*/}
                     </div>
