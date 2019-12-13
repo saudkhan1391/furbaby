@@ -42,6 +42,7 @@ const reducer = (state, action) => {
             delete data.appointmentId;
             delete data.pet;
             delete data.petOwner;
+            data.completedDate = new Date().toISOString();
             firebase.database().ref("/appointments").child(appointmentId).set(data).then(res => {
             });
             return {...state, furBabies: update};

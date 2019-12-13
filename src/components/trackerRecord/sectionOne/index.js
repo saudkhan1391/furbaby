@@ -91,12 +91,10 @@ const SectionOne=(props) => {
                 });
             }
         }
-
         dispatch({
             type: "UPDATE_CURRENT_FURBABY",
             payload: current
         });
-
     };
 
     const calculate = () => {
@@ -289,7 +287,7 @@ const SectionOne=(props) => {
             }
         </div>
     );
-     
+
 }
 
 export default SectionOne;
