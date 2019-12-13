@@ -369,7 +369,8 @@ export default () => (
     }
     .mainWrapper{
         margin-right: 40px;
-        position: relative
+        position: relative;
+        min-height: 337px;
     }
     .mainWrapper:hover .extension {
         height: 49px;
