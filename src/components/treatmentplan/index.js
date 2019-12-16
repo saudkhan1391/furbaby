@@ -83,6 +83,13 @@ const Treatmentplan = (props) => {
         setCustom("");
     };
 
+    const detectPhone = (phone) => {
+        if(!!phone.indexOf("+1")){
+            return "+1"+phone;
+        } else {
+            return phone;
+        }
+    };
 
     const addCustomAppointment = () => {
         let mainData = [...trackerComponents];
@@ -149,7 +156,7 @@ const Treatmentplan = (props) => {
                 petOwner: {
                     firstName: firstName ? firstName : "",
                     lastName: lastName ? lastName : "",
-                    phone: phone ? phone : "",
+                    phone: phone ? detectPhone(phone) : "",
                     email: email ? email : "",
                     fax: "",
                     practiceId: "",
@@ -406,7 +413,7 @@ const Treatmentplan = (props) => {
                                                 <input className="border py-2 px-3 " type="text"
                                                        disabled={uid}
                                                        autoCorrect={false}
-                                                       placeholder=""
+                                                       placeholder="+1 123 456 7890"
                                                        value={phone}
                                                        onChange={event => {
                                                            setPhone(event.target.value);

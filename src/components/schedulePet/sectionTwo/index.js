@@ -57,7 +57,6 @@ const SectionTwo = (props) => {
         let temp = loadedDates.find(item => item === final);
         let appointmentsTemp = [...appointments];
         let loadedDatesTemp = [...loadedDates];
-
         if(!temp){
             showLoader(true);
             axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+final).then(res => {
