@@ -59,6 +59,8 @@ const reducer = (state, action) => {
             return {...state, clinic: action.payload};
         case "SET_LOGGEDIN":
             return {...state, loggedIn: action.payload};
+        case "SET_LOADED_DATES":
+            return {...state, loadedDates: action.payload};
         default:
             return state;
     }
@@ -81,7 +83,8 @@ export class FurbabyProvider extends Component {
         clinicId: null,
         users: [],
         role: null,
-        loggedIn: false
+        loggedIn: false,
+        loadedDates: []
     };
 
     render() {

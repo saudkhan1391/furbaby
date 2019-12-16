@@ -12,7 +12,7 @@ const App=() => {
             <FurbabyProvider>
                 <Routes/>
             </FurbabyProvider>
-            <NotificationContainer enterTimeout={60000} leaveTimeout={60000}/>
+            <NotificationContainer leaveTimeout={60000}/>
         </BrowserRouter>
     );
 };

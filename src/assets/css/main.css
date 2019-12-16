@@ -127,8 +127,7 @@ html {
     padding: 0 15px;
 }
 .loaderContainer{
-  height: 100vh;
-  margin-top: -8vh;
+  height: 100%;
   z-index: 2000;
 }
 .loaderContainer img{

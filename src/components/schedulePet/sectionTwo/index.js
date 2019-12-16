@@ -7,12 +7,16 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import EditForm from "../editCard";
 import ShowCount from "./showCount";
+import axios from "axios";
+import { apiPath } from "../../../config";
+import Loader from "../../../commoncomponents/loader";
 
 const SectionTwo = (props) => {
-    const { appointments, dispatch } = props;
+    const { appointments, dispatch, loadedDates, id } = props;
     const [showForm, setForm] = useState(null);
     const [date , setMainDate] = useState(new Date());
     const [schedule, setSchedule] = useState(false);
+    const [show, showLoader] = useState(false);
     const [all, setAll] = useState(null);
     const responsive = {
         superLargeDesktop: {
@@ -47,6 +51,33 @@ const SectionTwo = (props) => {
 
     let furBabies = appointments.filter(item => standardDate(item.startTime).standardDate === standardDate(date).standardDate);
 
+
+    const onDateChanged = (date) => {
+        let final = standardDate(date).fullYear+"-"+standardDate(date).monthNumber;
+        let temp = loadedDates.find(item => item === final);
+        let appointmentsTemp = [...appointments];
+        let loadedDatesTemp = [...loadedDates];
+
+        if(!temp){
+            showLoader(true);
+            axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+final).then(res => {
+                let main = res.data.data.appointments;
+                appointmentsTemp = [...appointmentsTemp, ...main];
+                dispatch({
+                    type: "SET_APPOINTMENTS",
+                    payload: appointmentsTemp
+                });
+                loadedDatesTemp.push(final);
+                dispatch({
+                    type: "SET_LOADED_DATES",
+                    payload: loadedDatesTemp
+                });
+                showLoader(false);
+            })
+        }
+
+    };
+
     return(
         <div>
             <div className="px-2 mt-10 sec1">
@@ -54,8 +85,15 @@ const SectionTwo = (props) => {
                     <div className="w-1/2 px-2">
                         <div className="h-12 ml-12 mL0">
                             <div className="calendar-div">
+                                {
+                                    show &&
+                                    <Loader backgroundColor="#ffffffc9"/>
+                                }
                                 <Calendar
                                     value={date && date}
+                                    onClickMonth={event => onDateChanged(event)}
+                                    onClickYear={event => onDateChanged(event)}
+                                    onActiveDateChange={event => onDateChanged(event.activeStartDate)}
                                     tileClassName="single-tile"
                                     onChange={event => {setMain(event); setForm(null)}}
                                     tileContent={(value) => {

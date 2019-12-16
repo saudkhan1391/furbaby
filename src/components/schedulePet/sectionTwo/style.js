@@ -154,6 +154,9 @@ export default () => (
       font-family:Lato;
       line-height: 1.125em;
     }
+    .calendar-div{
+        position: relative;
+    }
     abbr[title]{
       text-decoration:none;
     }

@@ -743,7 +743,7 @@ export default () => (
     border-radius: 3px;
     background-color: #32c5ff;
     padding: 15px 24px;
-    width: 120px
+
   }
   .attachmentbtn button{
     font-size: 12px;

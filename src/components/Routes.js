@@ -31,10 +31,10 @@ import Loader from "../commoncomponents/loader";
 import firebase from "../utils/firebase";
 import axios from "axios";
 import { apiPath } from "../config";
-
+import { standardDate } from "./functions";
 const Routes = (props) => {
     let { dispatch, loaded, history, location, clinicId, id } = props;
-
+    let date = new Date();
     const checkRole = (claims) => {
         if(claims.practiceAdmin){
             dispatch({
@@ -50,12 +50,13 @@ const Routes = (props) => {
     };
 
     useEffect(() => {
+        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 firebase.auth().currentUser.getIdTokenResult().then((token) => {
                     if (token.claims.practiceAdmin || token.claims.clinician) {
                         checkRole(token.claims);
-                        axios.get(apiPath+"/getClinicianData?clinicianUId="+user.uid).then(res => {
+                        axios.get(apiPath+"/getClinicianData?clinicianUId="+user.uid+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
                             let main = {...res.data.data};
                             main.uid = user.uid;
                             dispatch({
@@ -73,6 +74,10 @@ const Routes = (props) => {
                             dispatch({
                                 type: "SET_LOGGEDIN",
                                 payload: true
+                            });
+                            dispatch({
+                                type: "SET_LOADED_DATES",
+                                payload: loadedDate
                             });
                             if(location.pathname === "/" || location.pathname === "/login"){
                                 history.push("/dashboard");
@@ -101,7 +106,7 @@ const Routes = (props) => {
         });
         if(clinicId){
             firebase.database().ref("/clinics/"+clinicId).off('value');
-            firebase.database().ref("/appointments").off('value');
+            // firebase.database().ref("/appointments").off('value');
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -110,18 +115,18 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").on('value', () => {
-                if(id){
-                    axios.get(apiPath+"/getClinicianData?clinicianUId="+id).then(res => {
-                        let main = {...res.data.data};
-                        main.uid = id;
-                        dispatch({
-                            type: "SET_CLINIC_DATA",
-                            payload: main
-                        });
-                    });
-                }
-            });
+            // firebase.database().ref("/appointments").on('value', () => {
+            //     if(id){
+            //         axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            //             let main = {...res.data.data};
+            //             main.uid = id;
+            //             dispatch({
+            //                 type: "SET_CLINIC_DATA",
+            //                 payload: main
+            //             });
+            //         });
+            //     }
+            // });
         }
     }, [clinicId]);
 
