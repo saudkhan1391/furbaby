@@ -7,7 +7,7 @@ import {NotificationManager} from 'react-notifications';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
-import {defaultTracker, validateEmail} from "../functions/index";
+import {defaultTracker, validateEmail, detectPhone} from "../functions/index";
 import Loader from "../../commoncomponents/loader";
 
 const Treatmentplan = (props) => {
@@ -81,14 +81,6 @@ const Treatmentplan = (props) => {
         setDescription("");
         setDescriptionValidation(false);
         setCustom("");
-    };
-
-    const detectPhone = (phone) => {
-        if(!!phone.indexOf("+1")){
-            return "+1"+phone;
-        } else {
-            return phone;
-        }
     };
 
     const addCustomAppointment = () => {

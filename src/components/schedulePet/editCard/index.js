@@ -5,6 +5,8 @@ import DatePicker from 'react-date-picker';
 import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
 import Loader from "../../../commoncomponents/loader";
+import { detectPhone } from "../../functions";
+
 function EditCard(props) {
 
     let {setForm, showForm, dispatch, schedule, setSchedule} = props;
@@ -14,7 +16,7 @@ function EditCard(props) {
     const [statuses, setStatuses] = useState(appointmentStatus);
     const [text, setText] = useState(description);
     const [addPhone, setAddPhone] = useState(false);
-    const [phone, setPhone] = useState(null);
+    const [phone, setPhone] = useState("");
     const [load, setLoad] = useState(false);
     const [showHistory, setShowHistory] = useState(false);
     useEffect(() => {
@@ -53,7 +55,7 @@ function EditCard(props) {
         } else {
             payload = {
                 appointment: main,
-                workPhone: phone
+                workPhone: phone ? detectPhone(phone) : ""
             }
         }
 

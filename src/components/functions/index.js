@@ -186,3 +186,11 @@ export const convertObjectToArray = (main) => {
 
     return temp;
 };
+
+export const detectPhone = (phone) => {
+    if(!!phone.indexOf("+1")){
+        return "+1"+phone;
+    } else {
+        return phone;
+    }
+};
