@@ -109,7 +109,6 @@ const Routes = (props) => {
         });
         if(clinicId){
             firebase.database().ref("/clinics/"+clinicId).off('value');
-            // firebase.database().ref("/appointments").off('value');
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -118,18 +117,6 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            // firebase.database().ref("/appointments").on('value', () => {
-            //     if(id){
-            //         axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
-            //             let main = {...res.data.data};
-            //             main.uid = id;
-            //             dispatch({
-            //                 type: "SET_CLINIC_DATA",
-            //                 payload: main
-            //             });
-            //         });
-            //     }
-            // });
         }
     }, [clinicId]);
 

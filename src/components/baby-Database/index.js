@@ -6,11 +6,12 @@ import {Link} from 'react-router-dom';
 import Layout from '../layout/container';
 // import {imageExists} from '../functions/index';
 import {placeholderPet} from "../../config";
-import Carousel from "react-multi-carousel";
+// import Carousel from "react-multi-carousel";
 import AddFurBaby from './addFurbaby'
 import AddSchedule from './scheduleFurbaby'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
+import {NotificationManager} from 'react-notifications';
 const Schedule = (props) => {
     let {appointments, clinicId, dispatch, clinic} = props;
     const [showForm, setForm] = useState(false);
@@ -21,7 +22,17 @@ const Schedule = (props) => {
     const [searchResult, setSearchResult] = useState("null");
     const [currentPetId, setCurrentPet] = useState(null);
     const [search, setSearch] = useState("");
+    const [buttonText, setButton] = useState("SEND FUR BABY TRACKER INVITE");
 
+    const sendOwnerInvite = () => {
+        setButton("SENDING...");
+        axios.post(apiPath+"/sendOwnerInvite", {
+            id: current.id
+        }).then(res => {
+            setButton("SENT!");
+            NotificationManager.success('Invite has been sent to user.');
+        });
+    };
 
     const responsive = {
         superLargeDesktop: {
@@ -58,7 +69,6 @@ const Schedule = (props) => {
             if (res.data.data.length === 0) {
                 setSearchResult("notnull")
             } else {
-                console.log("res.data.data", res.data.data);
                 setSearchResult(res.data.data);
             }
         });
@@ -85,7 +95,7 @@ const Schedule = (props) => {
                             <Link to="/create-new">
                                 <button className="mr-4 manuallyBtn">MANUALLY ADD A FUR BABY</button>
                             </Link>
-                            <button className="sync-Btn mr-4">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>
+                            {/*<button className="sync-Btn mr-4">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>*/}
                         </div>
                     </div>
                     <div className="mt-2 forline-again1"/>
@@ -170,6 +180,9 @@ const Schedule = (props) => {
                             <div className="flex mt-4">
                                 <button className="btn1 ml-2" onClick={() => setAddedPopup(true)}>ADD ADDITIONAL FUR
                                     BABY
+                                </button>
+                                <button className="btn1 ml-2" disabled={buttonText === "SENDING..."} onClick={() => sendOwnerInvite()}>
+                                    {buttonText}
                                 </button>
                             </div>
                             <div className="px-2">
