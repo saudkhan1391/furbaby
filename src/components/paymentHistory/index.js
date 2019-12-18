@@ -5,7 +5,6 @@ function FormGroup(props) {
     let {visitHistory} = props;
     let [dropdown, setDropDown] = useState(null);
     let data = (visitHistory);
-    console.log("data", data);
     return <div>
         <h2 className="pdd-arround" id="focus">Payment History</h2>
         {

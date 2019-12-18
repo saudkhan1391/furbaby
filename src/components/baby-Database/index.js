@@ -58,6 +58,7 @@ const Schedule = (props) => {
             if (res.data.data.length === 0) {
                 setSearchResult("notnull")
             } else {
+                console.log("res.data.data", res.data.data);
                 setSearchResult(res.data.data);
             }
         });

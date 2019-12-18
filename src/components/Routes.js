@@ -26,6 +26,7 @@ import treatmentInprogress from "./treatmentInprogress";
 import treatmentComplete from "./treatmentComplete";
 import treatmentBoarder from "./treatmentBoarder";
 import updateBoarder from "./updateBoarder";
+import CreatePetOwner from "./createPetOwnerAuth";
 import clinicUsers from "./clinicUsers/container";
 import Loader from "../commoncomponents/loader";
 import firebase from "../utils/firebase";
@@ -93,7 +94,9 @@ const Routes = (props) => {
                     payload: user.uid
                 });
             } else {
-                history.push("/");
+                if(location.pathname.indexOf("/pet-owner-auth-create") === -1){
+                    history.push("/");
+                }
                 dispatch({
                     type: "SET_LOADED",
                     payload: true
@@ -145,6 +148,7 @@ const Routes = (props) => {
             <Route path={"/customize-notes"} component={CustomizeNotes}/>
             <Route path={"/schedule"} component={Schedulepet}/>
             <Route path={"/baby-Database"} component={Babydatabase}/>
+            <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
 
             <Route path={"/signup"} component={Home}/>
             <Route path={"/mainschedule"} component={Schedule}/>

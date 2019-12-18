@@ -1,7 +1,7 @@
 import React from "react";
 import Component from "./index";
 import { FurbabyConsumer } from '../../store';
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 const index = ({ match: {params: {id: mainId}} }) =>{
     return(
         <FurbabyConsumer>
