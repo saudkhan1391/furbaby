@@ -9,7 +9,7 @@ const SectionOne=()=>{
             <div className="flex w-1/2 h-12 ml-12 headingSchedule f-d-c">
                 <h1>FUR BABIES SCHEDULED FOR</h1>
                 <div className="ml-6 mt-2 date">
-                    <p>{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</p>
+                    <p>{date.dayNameHalf}, {date.monthName} {date.dateNumber}, {date.fullYear}</p>
                 </div>
             </div>
             </div>

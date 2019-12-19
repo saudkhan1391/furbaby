@@ -95,7 +95,7 @@ const SectionOne=(props)=>{
                         <Link to="/schedule">
                             <button className="chk-btn-background font-bold ml-12">CHECK-IN A SCHEDULED FUR BABY</button>
                         </Link>
-                        <label className="date-lbl float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</label>
+                        <label className="date-lbl float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.dateNumber}, {date.fullYear}</label>
                     </div>
 
                     <div className="mt-12">

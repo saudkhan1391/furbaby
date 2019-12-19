@@ -14,7 +14,7 @@ const SectionOne=()=>{
                     </Link>
                 </div>
                 <div className="w-1/2 h-12 ml-0 buttonBlue">
-                    <h1 className="january">{date.dayNameHalf}, {date.monthName} {date.monthNumber}, {date.fullYear}</h1>
+                    <h1 className="january">{date.dayNameHalf}, {date.monthName} {date.dateNumber}, {date.fullYear}</h1>
                 </div>
             </div>
             <div className=" flex mb-4 mt-10">
