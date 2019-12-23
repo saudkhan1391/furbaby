@@ -448,6 +448,156 @@ export default () => (
     .mt-0imp{
         margin-top: 0!important;
     }
+    .reviewBtn {
+        padding: 10px 40px 10px 40px;
+        border-radius: 4px;
+        border: solid 1px #9c1f60;
+        font-size: 10px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #9c1f60;
+    }
+    .treatment h1 {
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        color: #444444;
+    }
+    .treatment button {
+        border-radius: 4px;
+        border: solid 1px #9c1f60;
+        font-size: 10px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #9c1f60;
+        padding: 5px 16px;
+    }
+    .optional p {
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #6d7278;
+    }
+    .addCustom p {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #444444;
+        padding-bottom: 5px;
+    }
+    .fotText-area textarea {
+        resize: none;
+        border-radius: 4px;
+        border: solid 1px #dcdddf;
+        background-color: #ffffff;
+    }
+    .check-mar {
+        margin-right: 10%;
+        width: 324px;
+    }
+    label.container1 {
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #313541;
+        margin-bottom: 35px;
+    }
+    .container1 {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .container1 input:checked ~ .checkmark {
+        background-color: white;
+        border: 1px solid #0099fa;
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 23px;
+        width: 25px;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+        border: 1px solid #dfe6ee;
+    }
+    .container1 input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    .container1 .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid #0099fa;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .container1:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+    .container1 input:checked ~ .checkmark:after {
+        display: block;
+    }
+    .react-date-picker {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #6d7278;
+        border-radius: 4px;
+        border: solid 1px #dcdddf;
+    }
+    .react-date-picker__wrapper {
+        display: flex;
+        border: none;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+    }
     `}
 
     </style>

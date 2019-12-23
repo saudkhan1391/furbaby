@@ -12,7 +12,7 @@ import { apiPath } from "../../../config";
 import Loader from "../../../commoncomponents/loader";
 
 const SectionTwo = (props) => {
-    const { appointments, dispatch, loadedDates, id } = props;
+    const { appointments, dispatch, loadedDates, id, clinic } = props;
     const [showForm, setForm] = useState(null);
     const [date , setMainDate] = useState(new Date());
     const [schedule, setSchedule] = useState(false);
@@ -118,7 +118,7 @@ const SectionTwo = (props) => {
                             </div>
                             {
                                 showForm &&
-                                <EditForm setSchedule={setSchedule} schedule={schedule} setForm={setForm} showForm={showForm} dispatch={dispatch}/>
+                                <EditForm setSchedule={setSchedule} clinic={clinic} schedule={schedule} setForm={setForm} showForm={showForm} dispatch={dispatch}/>
                             }
                         </div>
                     </div>
