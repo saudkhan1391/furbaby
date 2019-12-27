@@ -405,7 +405,7 @@ const Treatmentplan = (props) => {
                                                 <input className="border py-2 px-3 " type="text"
                                                        disabled={uid}
                                                        autoCorrect={false}
-                                                       placeholder="+1 123 456 7890"
+                                                       placeholder="123 456 7890"
                                                        value={phone}
                                                        onChange={event => {
                                                            setPhone(event.target.value);
