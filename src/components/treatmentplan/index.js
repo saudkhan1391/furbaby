@@ -402,7 +402,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Owner Phone Number<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input className="border py-2 px-3 " type="number"
                                                        disabled={uid}
                                                        autoCorrect={false}
                                                        placeholder="1234567890"
