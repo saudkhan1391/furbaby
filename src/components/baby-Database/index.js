@@ -30,6 +30,9 @@ const Schedule = (props) => {
             id: current.id
         }).then(res => {
             setButton("SENT!");
+            setTimeout(() => {
+                setButton("SEND FUR BABY TRACKER INVITE");
+            }, 5000);
             NotificationManager.success('Invite has been sent to user.');
         });
     };
