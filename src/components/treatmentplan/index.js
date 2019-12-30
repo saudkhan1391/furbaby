@@ -376,7 +376,7 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Owner Last Name<span
+                                                <label className="mb-2 mt-2" htmlFor="first_name">Owner Last Name<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <input className="border py-2 px-3 " type="text"
                                                        value={lastName ? lastName : ""}
@@ -398,14 +398,15 @@ const Treatmentplan = (props) => {
                                         </div>
                                     </div>
                                     <div className="w-1/2 px-2">
-                                        <div className=" h-12">
+                                        <div className="">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Owner Phone Number<span
+                                                <label htmlFor="first_name">Owner Phone Number<span
                                                     style={{color: "red"}}>*</span></label>
+                                                <label><small>Please enter the 10-digit phone number in the format 0000000000</small></label>
                                                 <input className="border py-2 px-3 " type="number"
                                                        disabled={uid}
                                                        autoCorrect={false}
-                                                       placeholder="1234567890"
+                                                       placeholder="0000000000"
                                                        value={phone}
                                                        onChange={event => {
                                                            setPhone(event.target.value);
