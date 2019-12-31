@@ -9,6 +9,7 @@ import {placeholderPet} from "../../config";
 // import Carousel from "react-multi-carousel";
 import AddFurBaby from './addFurbaby'
 import AddSchedule from './scheduleFurbaby'
+import UpdatePetOwner from './updatePetOwner'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
 import {NotificationManager} from 'react-notifications';
@@ -17,6 +18,7 @@ const Schedule = (props) => {
     const [showForm, setForm] = useState(false);
     const [detail, setDetail] = useState(false);
     const [addedPopup, setAddedPopup] = useState(false);
+    const [updateRecord, setUpdateRecord] = useState(false);
     const [schedulePopup, setSchedulelPopup] = useState(false);
     const [current, setCurrent] = useState("");
     const [searchResult, setSearchResult] = useState("null");
@@ -35,26 +37,6 @@ const Schedule = (props) => {
             }, 5000);
             NotificationManager.success('Invite has been sent to user.');
         });
-    };
-
-    const responsive = {
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: {max: 4000, min: 3000},
-            items: 3,
-        },
-        desktop: {
-            breakpoint: {max: 3000, min: 1024},
-            items: 3,
-        },
-        tablet: {
-            breakpoint: {max: 1024, min: 464},
-            items: 2,
-        },
-        mobile: {
-            breakpoint: {max: 464, min: 0},
-            items: 1,
-        },
     };
 
 
@@ -84,6 +66,20 @@ const Schedule = (props) => {
             // scrollToDetail();
         });
     };
+
+    const updateCurrentValue = (item) => {
+        let data = [...searchResult];
+        data.forEach(main => {
+            if(main.id === item.id){
+                main.firstName = item.firstName;
+                main.lastName = item.lastName;
+                main.workPhone = item.workPhone;
+                main.email = item.email;
+            }
+        });
+        setSearchResult(data);
+        setCurrent(item);
+    }
 
 
     return (
@@ -145,8 +141,7 @@ const Schedule = (props) => {
                                                                 <img className="mb-1 ml-1 inline"
                                                                      src={require('../../assets/images/avatar.png')}/>
                                                                 <span
-                                                                    className="ml-1 amanda">{item.lastName}, {item.firstName}
-                                                                    | {item.workPhone}</span>
+                                                                    className="ml-1 amanda">{item.lastName}, {item.firstName} | {item.workPhone}</span>
                                                             </div>
                                                             <div>
                                                                 <button className="viewRecordsBtn"
@@ -177,8 +172,7 @@ const Schedule = (props) => {
                         {detail &&
                         <div className="w-1/2 px-2 pl-16">
                             <div className="holtHeading">
-                                <h1>{current.lastName}, {current.firstName}
-                                    | {current.workPhone}</h1>
+                                <h1>{current.lastName}, {current.firstName} | {current.workPhone}</h1>
                             </div>
                             <div className="flex mt-4">
                                 <button className="btn1 ml-2" onClick={() => setAddedPopup(true)}>ADD ADDITIONAL FUR
@@ -186,6 +180,9 @@ const Schedule = (props) => {
                                 </button>
                                 <button className="btn1 ml-2" disabled={buttonText === "SENDING..."} onClick={() => sendOwnerInvite()}>
                                     {buttonText}
+                                </button>
+                                <button className="btn1 ml-2" onClick={() => setUpdateRecord(true)}>
+                                    UPDATE PET OWNER RECORD
                                 </button>
                             </div>
                             <div className="px-2">
@@ -222,6 +219,8 @@ const Schedule = (props) => {
                             {schedulePopup &&
                             <AddSchedule current={current} clinicId={clinicId} setAddedPopup={setSchedulelPopup}
                                          petId={currentPetId} appointments={appointments} dispatch={dispatch} clinic={clinic}/>}
+                            {updateRecord &&
+                            <UpdatePetOwner updateCurrentValue={updateCurrentValue} setAddedPopup={setUpdateRecord} current={current}/>}
                         </div>}
                     </div>
 

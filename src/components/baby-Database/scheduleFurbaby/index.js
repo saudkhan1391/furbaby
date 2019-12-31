@@ -132,20 +132,20 @@ const SectionFour = (props) => {
                 </div>
                 <div className="container mx-auto">
                     <div className="flex mb-4">
-                        <div className="w-full mt-12">
+                        <div className="w-full mt-12 ml-10">
                             <div className="customMedication">
                                 <h1>ADD FURBABY SCHEDULE</h1>
                             </div>
                         </div>
                     </div>
-                    <div className="flex -mx-2 mt-8 ml-10">
+                    <div className="flex -mx-2">
                         <div>
                             <div className="flex -mx-2 mt-8 ml-10">
                                 <div className="w-1/2 px-2">
                                     <div className="h-12">
                                         <div className="flex flex-col mb-4 inputvision">
                                             <label className="mb-2" htmlFor="first_name">Visit Reason</label>
-                                            <select className="border py-2 px-3 " onChange={event => setValue(event.target.value)} style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}>
+                                            <select className="border py-2 px-3 height-36" onChange={event => setValue(event.target.value)} style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}>
                                                 <option value="" selected="">Select</option>
                                                 {
                                                     defaultTrackers.map((item, index) => {
@@ -234,16 +234,16 @@ const SectionFour = (props) => {
                     </div>
                     <br/>
                     <br/>
-                    <div className="flex justify-center h-32">
-                        <div className="flex justify-between w-80">
-                            <div className="savebtnText">
+                    <div className="flex ml-10 h-32">
+                        <div className="flex w-80">
+                            <div className="savebtnText mr-4">
                                 <button onClick={(event) => {
                                     addCustomAppointment()
                                 }}>{button}
                                 </button>
                             </div>
                             <div className="savebtnText">
-                                <button onClick={() => {
+                                <button className="bg-grey" onClick={() => {
                                     setAddedPopupClose()
                                 }}>Cancel
                                 </button>

@@ -390,9 +390,7 @@ const Treatmentplan = (props) => {
                                                     // style={uid?{}:{}}
                                                 />
                                                 <div style={{height: "13px"}}>
-                                                    {lastNameValidation && <p style={{color: "red", fontSize: 12}}>
-                                                        required
-                                                    </p>}
+                                                    {lastNameValidation && <p style={{color: "red", fontSize: 12}}>required</p>}
                                                 </div>
                                             </div>
                                         </div>
@@ -569,7 +567,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Visit Reason<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <select className="border py-2 px-3 " onChange={event => {
+                                                <select className="border py-2 px-3 height-36" onChange={event => {
                                                     setValue(event.target.value);
                                                     setDescriptionValidation(false);
                                                 }} style={descriptionValidation ? {borderColor: "red"} : {borderColor: ""}}>

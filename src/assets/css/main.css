@@ -137,3 +137,12 @@ html {
     width: 170px !important;
     height: 265px;
 }
+.bg-grey{
+  background-color: #6d7278!important;
+}
+.height-36{
+  height: 36px;
+}
+.red-color{
+  color: red;
+}

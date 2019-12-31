@@ -121,7 +121,7 @@ const SectionFour = (props) => {
                 </div>
                 <div className="container mx-auto">
                     <div className="flex mb-4">
-                        <div className="w-full mt-12">
+                        <div className="w-full mt-12 ml-12">
                             <div className="customMedication">
                                 <h1>MANUALLY CREATE NEW FUR BABY</h1>
                             </div>
@@ -261,16 +261,16 @@ const SectionFour = (props) => {
                     </div>
                     <br/>
                     <br/>
-                    <div className="flex justify-center h-32">
-                        <div className="flex justify-between w-80">
-                            <div className="savebtnText">
+                    <div className="flex ml-12 h-32">
+                        <div className="flex w-80">
+                            <div className="savebtnText mr-4">
                                 <button onClick={(event) => {
                                     addFurbaby()
                                 }}>{button}
                                 </button>
                             </div>
                             <div className="savebtnText">
-                                <button onClick={() => {
+                                <button className="bg-grey" onClick={() => {
                                     setAddedPopupClose()
                                 }}>Cancel
                                 </button>
