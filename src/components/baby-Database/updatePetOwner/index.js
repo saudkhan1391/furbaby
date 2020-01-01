@@ -27,7 +27,7 @@ const SectionFour = (props) => {
         main.firstName = firstName;
         main.lastName = lastName;
         main.email = email;
-        main.workPhone = (phone);
+        main.workPhone = detectPhone(phone);
         let temp = {...main};
         delete main.pets;
         setButton("UPDATING...");
