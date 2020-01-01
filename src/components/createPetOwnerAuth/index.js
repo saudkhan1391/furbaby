@@ -18,6 +18,7 @@ function createPetOwner({ match: {params: {id}} }) {
     let [invalid, setInValid] = useState(false);
     let [mainId, setId] = useState(null);
     let [buttonText, setButton] = useState("CREATE");
+    const [error, setError] = useState("");
     useEffect(() => {
         let temp = false;
         try{
@@ -61,6 +62,13 @@ function createPetOwner({ match: {params: {id}} }) {
                     setSuccess(true);
                     console.log("with phone res", res.data);
                     setButton("CREATED");
+                }).catch(err => {
+                    setButton("CREATE");
+                    if(err && err.response && err.response.data && err.response.data.err){
+                        setError(err.response.data.err);
+                    }else {
+                        setError("Something went wrong. Please contact your provider or try again later");
+                    }
                 });
             }
         }else {
@@ -68,8 +76,14 @@ function createPetOwner({ match: {params: {id}} }) {
             axios.post(apiPath+"/createAuth", payload).then(res => {
                 setSuccess(true);
                 setButton("CREATED");
-                console.log("without phone res", res.data);
-            });
+            }).catch(err => {
+                setButton("CREATE");
+                if(err && err.response && err.response.data && err.response.data.err){
+                    setError(err.response.data.err);
+                }else {
+                    setError("Something went wrong. Please contact your provider or try again later");
+                }
+            });;
         }
     };
 
@@ -157,6 +171,9 @@ function createPetOwner({ match: {params: {id}} }) {
                                         }
                                     </div>
                                 }
+                                <div className="error-message">
+                                    <p className="red">{error}</p>
+                                </div>
                                 <div className="flex justify-center mt-8">
                                     <button type="submit" className="activityBtn-popup" disabled={buttonText === "CREATING..."}>{buttonText}</button>
                                 </div>
