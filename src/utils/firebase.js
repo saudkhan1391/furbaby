@@ -7,7 +7,7 @@ let main = firebase.initializeApp({
     projectId: "fur-baby-tracker-dev",
     storageBucket: "fur-baby-tracker-dev.appspot.com",
     messagingSenderId: "887552431013",
-    appId: "1:887552431013:web:0a1a902f77f7034d2dce4c"
+    appId: "1:887552431013:web:e201f0d18e110e5d2dce4c"
 });
 
 export default main;
