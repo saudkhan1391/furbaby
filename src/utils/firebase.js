@@ -1,7 +1,7 @@
 import * as firebase from "firebase";
 
 let main = firebase.initializeApp({
-    apiKey: "AIzaSyCmwvE24ptDmbwTrhMu8qsZ6NEQG5HB2Dw",
+    apiKey: "AIzaSyBN5OzE9hrLbkVAFH-YAyU_m7ZHANQqfvY",
     authDomain: "fur-baby-tracker-dev.firebaseapp.com",
     databaseURL: "https://fur-baby-tracker-dev.firebaseio.com",
     projectId: "fur-baby-tracker-dev",
