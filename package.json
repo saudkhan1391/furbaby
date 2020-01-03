@@ -28,16 +28,22 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
+    "babel-jest": "^24.9.0",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
     "postcss-cli": "^6.1.3",
     "postcss-easy-import": "^3.0.0",
+    "puppeteer": "^2.0.0",
+    "regenerator-runtime": "^0.13.3",
     "tailwindcss": "^1.0.5"
   },
   "scripts": {
+    "test": "jest",
     "build:css": "postcss src/assets/css/main.css -o src/index.css",
     "watch:css": "postcss src/assets/css/main.css -o src/index.css -w",
     "start": "react-scripts start",
     "build": " react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }
