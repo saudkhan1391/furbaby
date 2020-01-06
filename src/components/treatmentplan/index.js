@@ -417,7 +417,7 @@ const Treatmentplan = (props) => {
                                                 <label htmlFor="first_name">Owner Phone Number<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <label><small>Please enter the 10-digit phone number in the format 0000000000</small></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input className="border py-2 px-3 " type="number"
                                                        disabled={uid}
                                                        autoCorrect={false}
                                                        placeholder="0000000000"
