@@ -179,7 +179,7 @@ export const convertObjectToArray = (main) => {
     if (main !== "[]") {
         for (let key in main) {
             if (main.hasOwnProperty(key)) {
-                temp.push(main[key]);
+                temp.push({...main[key], id: key});
             }
         }
     }

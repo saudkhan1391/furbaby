@@ -7,9 +7,8 @@ import {NotificationManager} from 'react-notifications';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
-import {defaultTracker, validateEmail, detectPhone} from "../functions/index";
+import {defaultTracker, validateEmail, detectPhone, convertObjectToArray} from "../functions/index";
 import Loader from "../../commoncomponents/loader";
-
 const Treatmentplan = (props) => {
     let {appointments, dispatch, clinic} = props;
     const [loader, setLoader] = useState(false);
@@ -25,7 +24,7 @@ const Treatmentplan = (props) => {
     const [lastName, setLastName] = useState("");
     const [lastNameValidation, setValidationLastName] = useState(false);
     const [phone, setPhone] = useState("");
-    const [phoneValidation, setPhoneValidation] = useState(false);
+    const [phoneValidation, setPhoneValidation] = useState("");
 
     const [petName, setPetName] = useState("");
     const [petNameValidation, setPetNameValidation] = useState(false);
@@ -110,7 +109,7 @@ const Treatmentplan = (props) => {
             setValidationLastName(true);
         }
         if (!phone) {
-            setPhoneValidation(true);
+            setPhoneValidation("required");
         }
         if (!email || !validateEmail(email)) {
             setEmailValidation(true)
@@ -140,6 +139,9 @@ const Treatmentplan = (props) => {
             setDateValidation(true);
         }
         if (!firstName || !lastName || !phone || (!email || !validateEmail(email)) || !petName || !dob || !species || !breed || !description || !date) {
+            return;
+        }
+        if(phoneValidation === "required" || phoneValidation === "This phone number is already in use by another user. Please select another phone number"){
             return;
         }
         else {
@@ -250,6 +252,20 @@ const Treatmentplan = (props) => {
                 payload: false
             })
         })
+    };
+
+    const checkPhoneNumber = () => {
+        if(phone){
+            setMainLoader(true);
+            firebase.database().ref("/petOwner").orderByChild('workPhone').equalTo(detectPhone(phone)).once('value', (snapshot) => {
+                let data = {...snapshot.val()};
+                data = convertObjectToArray(data);
+                if(data.length){
+                    setPhoneValidation("This phone number is already in use by another user. Please select another phone number");
+                }
+                setMainLoader(false);
+            });
+        }
     };
 
     const addPhoto = (event) => {
@@ -401,10 +417,11 @@ const Treatmentplan = (props) => {
                                                 <label htmlFor="first_name">Owner Phone Number<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <label><small>Please enter the 10-digit phone number in the format 0000000000</small></label>
-                                                <input className="border py-2 px-3 " type="number"
+                                                <input className="border py-2 px-3 " type="text"
                                                        disabled={uid}
                                                        autoCorrect={false}
                                                        placeholder="0000000000"
+                                                       onBlur={() => checkPhoneNumber()}
                                                        value={phone}
                                                        onChange={event => {
                                                            setPhone(event.target.value);
@@ -415,7 +432,7 @@ const Treatmentplan = (props) => {
                                                 />
                                                 <div style={{height: "13px"}}>
                                                     {phoneValidation && <p style={{color: "red", fontSize: 12}}>
-                                                        required
+                                                        {phoneValidation}
                                                     </p>}
                                                 </div>
                                             </div>
