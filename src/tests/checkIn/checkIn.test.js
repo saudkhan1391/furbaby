@@ -7,7 +7,7 @@ describe('Forms', () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
-            args: [`--window-size=1920,1080`,'--no-sandbox'], // new option
+            args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
 
         let obj = {
@@ -18,7 +18,10 @@ describe('Forms', () => {
 
         let contentloader = Common.waitForDocuemntLoad(page);
 
-        await page.setViewport({width: 1366, height: 588})
+        await page.setViewport({
+            width: 1366,
+            height: 588
+        })
         await page.goto(testingPath, obj);
         await contentloader;
 
@@ -55,7 +58,7 @@ describe('Forms', () => {
         await contentloader;
         await page.click('button.manuallyBtn');
         await contentloader;
-        
+
         //Fill form data
 
         // Owner email
@@ -113,7 +116,7 @@ describe('Forms', () => {
         await contentloader;
         await page.type('input#furBabyBreed', 'Molluscus');
         await contentloader;
-        
+
         // Pick date
         await page.click('.react-date-picker__inputGroup');
         await contentloader;
@@ -124,20 +127,18 @@ describe('Forms', () => {
         // Pick reason
         await page.select('#reasonFb', 'Ear Problem')
         await contentloader;
-        
+
         // Submit form
-        // await page.click('button.addBtn');
-        // await contentloader;
-        // await Common.delay(5000);
+        await page.click('button.addBtn');
+        await contentloader;
+        await Common.delay(5000);
 
         //Check for url
-        // await page.goto('http://localhost:3000/schedule')
-        // await contentloader;
-        // await page.waitForSelector('p.bluePress');
-        // expect('p.bluePress').toBe('CHECK IN');
-        // const app  = shallow(<App/>);
-        // expect(app.contains(<p class="bluePress">CHECK IN</p>)).toBe(true);
-        // expect('p.bluePress').text().toEqual('CHECK IN');
+        await page.goto('http://localhost:3000/schedule')
+        await contentloader;
+        await page.waitForSelector('p.bluePress');
+        const paraValue = await page.$eval('p.bluePress', e => e.innerHTML)
+        expect(paraValue).toBe('CHECK IN')
         await browser.close();
 
     }, 9000000);
