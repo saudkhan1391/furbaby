@@ -5,7 +5,7 @@ const CommonFunction = {
             setTimeout(resolve, time)
         });
     },
-    waitForDocuemntLoad : (page) => {
+    waitForDocumentLoad : (page) => {
         return page.waitForNavigation({
             timeout: 300000,
             waitUntil: "domcontentloaded"

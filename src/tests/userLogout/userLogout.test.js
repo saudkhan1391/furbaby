@@ -4,7 +4,7 @@ const testingPath = require('../config/config');
 const assert = require('assert');
 
 describe('Integration test', () => {
-    test('Login test', async () => {
+    test('Logout test', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
@@ -62,8 +62,17 @@ describe('Integration test', () => {
         assert(url === testingPath+'dashboard');
         await contentloader;
 
+        // Click on logout
+        await page.waitForSelector('p.headerPart');
+        await page.click('p.headerPart');
         await contentloader;
-        await browser.close();
+        await Common.delay(5000);
+
+        // Check logout complete
+        const homepageUrl = await page.url()
+        assert (homepageUrl === testingPath);
+        await contentloader;
+        await browser.close()
 
     }, 9000000);
 });

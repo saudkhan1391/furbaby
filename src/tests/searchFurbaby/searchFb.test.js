@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
-const testingPath = require('../config/config');
 const assert = require('assert');
+const testingPath = require('../config/config');
 
 describe('Integration test', () => {
-    test('Login test', async () => {
+    test('Search test', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
@@ -52,6 +52,7 @@ describe('Integration test', () => {
         await page.type('input.paInput', 'aqkhan88');
         await contentloader;
 
+
         // Login
         await page.click('button.btn-blue');
         await contentloader;
@@ -61,6 +62,24 @@ describe('Integration test', () => {
         const url = await page.url();
         assert(url === testingPath+'dashboard');
         await contentloader;
+
+        //Goto database
+        await page.goto(testingPath+'baby-database');
+        await page.waitForSelector('input');
+        await contentloader;
+
+
+        //Search
+        await page.tap('input');
+        await page.type('input', 'Smith');
+        await contentloader;
+        await page.keyboard.press(String.fromCharCode(13));
+        await contentloader;
+        await new Promise(res => setTimeout(() => {
+            expect(true).toBe(true)
+            res()
+        }, 37000));
+
 
         await contentloader;
         await browser.close();

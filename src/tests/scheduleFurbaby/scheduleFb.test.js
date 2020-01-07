@@ -4,7 +4,7 @@ const testingPath = require('../config/config');
 const assert = require('assert');
 
 describe('Integration test', () => {
-    test('Login test', async () => {
+    test('Schedule Furbaby', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
@@ -62,8 +62,41 @@ describe('Integration test', () => {
         assert(url === testingPath+'dashboard');
         await contentloader;
 
+        // Click on schedule furbaby 
+        await page.waitForSelector('button.chk-btn-background')
+        await page.click('button.chk-btn-background');
         await contentloader;
-        await browser.close();
+
+        // Check for url
+        const scheduleUrl = await page.url();
+        assert(scheduleUrl === testingPath+'schedule')
+        await contentloader;
+
+        await page.waitForSelector('.react-calendar__month-view__days > button:nth-child(4)');
+        await contentloader;
+        await page.click('.react-calendar__month-view__days button:nth-child(4)');
+        await contentloader;
+
+        // Hover to show controls
+        await page.waitForSelector('.mainWrapper')
+        await page.hover('.mainWrapper');
+        await page.waitForSelector('.extension > p')
+
+        // Click on visit
+        await page.click('.extension > p > span');
+
+        //Change status\
+        await page.waitForSelector('.inputvision select')
+        await page.select('.inputvision select', 'Confirmed');
+        
+        //Save changes
+        await page.click('button.saveBtn');
+        await contentloader;
+        await Common.delay(5000);
+
+        
+        await contentloader;
+        await browser.close()
 
     }, 9000000);
 });

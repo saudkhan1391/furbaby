@@ -1,8 +1,9 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
-// import {shallow} from 'enzyme';
+const assert = require('assert');
 const testingPath = require('../config/config');
-describe('Forms', () => {
+
+describe('Integration test', () => {
     test('Furbaby Checkin test', async () => {
         let browser = await puppeteer.launch({
             headless: false,
@@ -16,7 +17,7 @@ describe('Forms', () => {
 
         let page = await browser.newPage();
 
-        let contentloader = Common.waitForDocuemntLoad(page);
+        let contentloader = Common.waitForDocumentLoad(page);
 
         await page.setViewport({
             width: 1366,
@@ -51,6 +52,11 @@ describe('Forms', () => {
         await contentloader;
         await Common.delay(5000);
 
+        // Check dashboard is open
+        const url = await page.url();
+        assert(url === 'http://localhost:3000/dashboard');
+        await contentloader;
+
         // Goto Database
         await page.goto('http://localhost:3000/baby-database')
         await contentloader;
@@ -73,6 +79,10 @@ describe('Forms', () => {
         await page.waitForSelector('input#ownerFirst');
         await contentloader;
         await page.click('input#ownerFirst');
+        await new Promise(res => setTimeout(() => {
+            expect(true).toBe(true)
+            res()
+        }, 1700));
         await contentloader;
         await page.type('input#ownerFirst', 'Test');
         await contentloader;
@@ -101,6 +111,12 @@ describe('Forms', () => {
         await page.type('input#furBabyName', 'Pony');
         await contentloader;
 
+        // Pick date
+        await page.click('.firstDate');
+        await contentloader;
+        await page.click('button.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth');
+        await contentloader;
+
         // Furbaby specie
         await page.waitForSelector('input#furBabySpec');
         await contentloader;
@@ -116,13 +132,6 @@ describe('Forms', () => {
         await contentloader;
         await page.type('input#furBabyBreed', 'Molluscus');
         await contentloader;
-
-        // Pick date
-        await page.click('.react-date-picker__inputGroup');
-        await contentloader;
-        // await page.waitForSelector('.button.react-calendar__month-view__days__day');
-        // await page.click('.button.react-calendar__month-view__days__day');
-        // await contentloader;
 
         // Pick reason
         await page.select('#reasonFb', 'Ear Problem')
