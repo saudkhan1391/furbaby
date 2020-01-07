@@ -67,14 +67,14 @@ const sectionOne =()=>{
                         <div className="formMain">
                             <div className="form">
                                 <label>Email</label> <br/>
-                                <input type="email" onChange={event => setEmail(event.target.value)} required/>
+                                <input className="emInput" type="email" onChange={event => setEmail(event.target.value)} required/>
                             </div>
                         </div>
                         {
                             !recover &&
                             <div className="form">
                                 <label>Password</label> <br/>
-                                <input type="password" onChange={event => setPass(event.target.value)} required/>
+                                <input className="paInput" type="password" onChange={event => setPass(event.target.value)} required/>
                             </div>
                         }
                         <p className="text-red-500">{message}</p>
