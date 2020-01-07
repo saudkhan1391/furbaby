@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
-import {shallow} from 'enzyme';
+// import {shallow} from 'enzyme';
 const testingPath = require('../config/config');
 describe('Forms', () => {
     test('Furbaby Checkin test', async () => {
