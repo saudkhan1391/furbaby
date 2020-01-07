@@ -327,7 +327,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Owner Email <span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="ownerMail" className="border py-2 px-3 " type="text"
                                                        onBlur={() => checkPetOwner()}
                                                        autoCorrect={false}
                                                        onChange={event => {
@@ -354,7 +354,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Owner First Name<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="ownerFirst" className="border py-2 px-3 " type="text"
                                                        defaultValue={firstName ? firstName : ""}
                                                        onChange={event => {
                                                            setFirstName(event.target.value);
@@ -378,7 +378,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2 mt-2" htmlFor="first_name">Owner Last Name<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="ownerLast" className="border py-2 px-3 " type="text"
                                                        value={lastName ? lastName : ""}
                                                        onChange={event => {
                                                            setLastName(event.target.value);
@@ -401,7 +401,7 @@ const Treatmentplan = (props) => {
                                                 <label htmlFor="first_name">Owner Phone Number<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <label><small>Please enter the 10-digit phone number in the format 0000000000</small></label>
-                                                <input className="border py-2 px-3 " type="number"
+                                                <input id="pNumber" className="border py-2 px-3 " type="number"
                                                        disabled={uid}
                                                        autoCorrect={false}
                                                        placeholder="0000000000"
@@ -428,7 +428,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Fur Baby Name<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border lftW py-2 px-3 " type="text"
+                                                <input id="furBabyName" className="border lftW py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setPetName(event.target.value);
                                                            setPetNameValidation(false);
@@ -487,7 +487,7 @@ const Treatmentplan = (props) => {
                                         <div className=" h-12">
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Fur Baby Microchip</label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="furBabyMc" className="border py-2 px-3 " type="text"
                                                        onChange={event => setMicrochip(event.target.value)}
                                                 />
                                             </div>
@@ -524,7 +524,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Species<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="furBabySpec" className="border py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setSpecies(event.target.value);
                                                            setSpeciesValidation(false);
@@ -543,7 +543,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Breed<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <input className="border py-2 px-3 " type="text"
+                                                <input id="furBabyBreed" className="border py-2 px-3 " type="text"
                                                        onChange={event => {
                                                            setBreed(event.target.value);
                                                            setBreedValidation(false);
@@ -567,7 +567,7 @@ const Treatmentplan = (props) => {
                                             <div className="flex flex-col mb-4 inputvision">
                                                 <label className="mb-2" htmlFor="first_name">Visit Reason<span
                                                     style={{color: "red"}}>*</span></label>
-                                                <select className="border py-2 px-3 height-36" onChange={event => {
+                                                <select id="reasonFb" className="border py-2 px-3 height-36" onChange={event => {
                                                     setValue(event.target.value);
                                                     setDescriptionValidation(false);
                                                 }} style={descriptionValidation ? {borderColor: "red"} : {borderColor: ""}}>
