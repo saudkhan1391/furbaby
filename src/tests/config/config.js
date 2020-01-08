@@ -1,7 +1,7 @@
 
 module.exports ={
- path:'http://localhost:3000/',
- email:'development@redsqware.com',
- pass:'aqkhan88'
+ path:'https://furbaby-desktop.netlify.com/',
+ email:'engineering@redsqware.com',
+ pass:'furbaby123'
 
 }
