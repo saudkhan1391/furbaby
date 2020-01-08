@@ -97,7 +97,7 @@ function UpdateTracker(props) {
 
     return (
         <div id="simpleModal" className="modal">
-            <form onSubmit={(event) => updateContent(event)} className="notes-content">
+            <form onSubmit={(event) => updateContent(event)} className="notes-content" style={{"height":"658px","overflow-y": "scroll"}}>
                 <div className="flex justify-end">
                     <img onClick={()=>setShow(false)} src={require('../../../assets/images/close.png')} alt="pic"/>
                 </div>

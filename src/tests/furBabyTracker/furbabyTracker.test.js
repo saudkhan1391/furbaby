@@ -23,7 +23,7 @@ describe('Integration test', () => {
             width: 1366,
             height: 588
         })
-        await page.goto(config.path, obj);
+        await page.goto(config.devPath, obj);
         await contentloader;
 
         // Close Notification overlay start
@@ -59,7 +59,7 @@ describe('Integration test', () => {
 
         // Check dashboard is open
         const url = await page.url();
-        assert(url === config.path+'dashboard');
+        assert(url === config.devPath+'dashboard');
         await contentloader;
 
         //Click single item
@@ -106,7 +106,7 @@ describe('Integration test', () => {
             width: 1366,
             height: 588
         })
-        await page.goto(config.path, obj);
+        await page.goto(config.devPath, obj);
         await contentloader;
 
         // Click on login button
@@ -136,7 +136,7 @@ describe('Integration test', () => {
 
         // Check dashboard is open
         const url = await page.url();
-        assert(url === config.path+'dashboard');
+        assert(url === config.devPath+'dashboard');
         await contentloader;
 
         //Click single item
@@ -195,7 +195,7 @@ describe('Integration test', () => {
             width: 1366,
             height: 588
         })
-        await page.goto(config.path, obj);
+        await page.goto(config.devPath, obj);
         await contentloader;
 
         // Click on login button
@@ -225,7 +225,7 @@ describe('Integration test', () => {
 
         // Check dashboard is open
         const url = await page.url();
-        assert(url === config.path+'dashboard');
+        assert(url === config.devPath+'dashboard');
         await contentloader;
 
         //Click single item
@@ -255,5 +255,5 @@ describe('Integration test', () => {
         await contentloader;
         await browser.close();
 
-    }, 9000000);
+    }, 9000000)
 });

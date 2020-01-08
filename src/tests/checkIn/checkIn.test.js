@@ -72,8 +72,10 @@ describe('Integration test', () => {
         await contentloader;
         await page.click('input#ownerMail');
         await contentloader;
-        await page.type('input#ownerMail', 'test@test.com');
+        await page.type('input#ownerMail', 'test-user@fake-box.com');
         await contentloader;
+        
+        
 
         // Owner first name
         await page.waitForSelector('input#ownerFirst');
@@ -82,26 +84,26 @@ describe('Integration test', () => {
         await new Promise(res => setTimeout(() => {
             expect(true).toBe(true)
             res()
-        }, 1700));
-        await contentloader;
-        await page.type('input#ownerFirst', 'Test');
-        await contentloader;
+        }, 5000));
+        // await contentloader;
+        // await page.type('input#ownerFirst', 'Test');
+        // await contentloader;
 
         // Owner last name
-        await page.waitForSelector('input#ownerLast');
-        await contentloader;
-        await page.click('input#ownerLast');
-        await contentloader;
-        await page.type('input#ownerLast', 'User');
-        await contentloader;
+        // await page.waitForSelector('input#ownerLast');
+        // await contentloader;
+        // await page.click('input#ownerLast');
+        // await contentloader;
+        // await page.type('input#ownerLast', 'User');
+        // await contentloader;
 
         // Owner phone number
-        await page.waitForSelector('input#pNumber');
-        await contentloader;
-        await page.click('input#pNumber');
-        await contentloader;
-        await page.type('input#pNumber', '0123456789');
-        await contentloader;
+        // await page.waitForSelector('input#pNumber');
+        // await contentloader;
+        // await page.click('input#pNumber');
+        // await contentloader;
+        // await page.type('input#pNumber', '0123456789');
+        // await contentloader;
 
         // Furbaby name
         await page.waitForSelector('input#furBabyName');
@@ -114,6 +116,8 @@ describe('Integration test', () => {
         // Pick date
         await page.click('.firstDate');
         await contentloader;
+        await page.waitForSelector('button.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth');
+await contentloader;
         await page.click('button.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth');
         await contentloader;
 
