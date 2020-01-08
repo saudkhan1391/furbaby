@@ -154,13 +154,13 @@ describe('Integration test', () => {
 
         // Select dropdown value
         await page.waitForSelector('.inputvision select');
-        await page.select('.inputvision select', 'Weight')
+        await page.select('.inputvision select', 'Vitals')
         await contentloader;
 
         //Text area data
         await page.click('.fotText-area textarea');
         await contentloader;
-        await page.type('.fotText-area textarea', 'Lorem ipsum');
+        await page.type('.fotText-area textarea', 'Medication');
         await contentloader;
 
         //Update tracker 
