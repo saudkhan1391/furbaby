@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
 const assert = require('assert');
-const testingPath = require('../config/config');
+const config = require('../config/config');
 
 describe('Integration test', () => {
     test('Furbaby Checkin test', async () => {
@@ -23,7 +23,7 @@ describe('Integration test', () => {
             width: 1366,
             height: 588
         })
-        await page.goto(testingPath, obj);
+        await page.goto(config.path, obj);
         await contentloader;
 
         // Click on login button
@@ -37,13 +37,13 @@ describe('Integration test', () => {
         await contentloader;
         await page.click('input.emInput');
         await contentloader;
-        await page.type('input.emInput', 'development@redsqware.com');
+        await page.type('input.emInput', config.email);
         await contentloader;
 
         // Password
         await page.click('input.paInput');
         await contentloader;
-        await page.type('input.paInput', 'aqkhan88');
+        await page.type('input.paInput', config.pass);
         await contentloader;
 
 
@@ -54,11 +54,11 @@ describe('Integration test', () => {
 
         // Check dashboard is open
         const url = await page.url();
-        assert(url === 'http://localhost:3000/dashboard');
+        assert(url === config.path+'dashboard');
         await contentloader;
 
         // Goto Database
-        await page.goto('http://localhost:3000/baby-database')
+        await page.goto(config.path+'baby-database')
         await contentloader;
         await page.waitForSelector('button.manuallyBtn');
         await contentloader;
@@ -143,7 +143,7 @@ describe('Integration test', () => {
         await Common.delay(5000);
 
         //Check for url
-        await page.goto('http://localhost:3000/schedule')
+        await page.goto(config.path+'schedule')
         await contentloader;
         await page.waitForSelector('p.bluePress');
         const paraValue = await page.$eval('p.bluePress', e => e.innerHTML)

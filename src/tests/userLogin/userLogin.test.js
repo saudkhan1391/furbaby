@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
-const testingPath = require('../config/config');
+const config = require('../config/config');
 const assert = require('assert');
 
 describe('Integration test', () => {
@@ -23,7 +23,7 @@ describe('Integration test', () => {
             width: 1366,
             height: 588
         })
-        await page.goto(testingPath, obj);
+        await page.goto(config.path, obj);
         await contentloader;
 
         // Close Notification overlay start
@@ -43,13 +43,13 @@ describe('Integration test', () => {
         await contentloader;
         await page.click('input.emInput');
         await contentloader;
-        await page.type('input.emInput', 'development@redsqware.com');
+        await page.type('input.emInput', config.email);
         await contentloader;
 
         // Password
         await page.click('input.paInput');
         await contentloader;
-        await page.type('input.paInput', 'aqkhan88');
+        await page.type('input.paInput', config.pass);
         await contentloader;
 
         // Login
@@ -59,7 +59,7 @@ describe('Integration test', () => {
 
         // Check dashboard is open
         const url = await page.url();
-        assert(url === testingPath+'dashboard');
+        assert(url === config.path+'dashboard');
         await contentloader;
 
         await contentloader;
