@@ -4,7 +4,7 @@ const testingPath = require('../config/config');
 const assert = require('assert');
 
 describe('Integration test', () => {
-    test('Update tracker test', async () => {
+    test('Update tracker component', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
@@ -85,7 +85,7 @@ describe('Integration test', () => {
 
     }, 9000000);
 
-    test('Add tracker test', async () => {
+    test('Add tracker component', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
@@ -161,6 +161,89 @@ describe('Integration test', () => {
         await page.click('.fotText-area textarea');
         await contentloader;
         await page.type('.fotText-area textarea', 'Lorem ipsum');
+        await contentloader;
+
+        //Update tracker 
+        await page.waitForSelector('.activityBtn-popup');
+        await contentloader;
+        await page.click('.activityBtn-popup');
+        await Common.delay(5000);
+
+        await contentloader;
+        await browser.close();
+
+    }, 9000000);
+
+    test('Delete tracker component', async () => {
+        let browser = await puppeteer.launch({
+            headless: false,
+            ignoreHTTPSErrors: true,
+            args: [`--window-size=1920,1080`, '--no-sandbox'],
+        });
+        
+
+        let obj = {
+            timeout: 300000,
+        };
+
+        let page = await browser.newPage();
+
+        let contentloader = Common.waitForDocumentLoad(page);
+
+
+        await page.setViewport({
+            width: 1366,
+            height: 588
+        })
+        await page.goto(testingPath, obj);
+        await contentloader;
+
+        // Click on login button
+        await page.waitForSelector('button.btn-blue');
+        await contentloader;
+        await page.click('button.btn-blue');
+        await contentloader;
+
+        // Username
+        await page.waitForSelector('input.emInput');
+        await contentloader;
+        await page.click('input.emInput');
+        await contentloader;
+        await page.type('input.emInput', 'development@redsqware.com');
+        await contentloader;
+
+        // Password
+        await page.click('input.paInput');
+        await contentloader;
+        await page.type('input.paInput', 'aqkhan88');
+        await contentloader;
+
+        // Login
+        await page.click('button.btn-blue');
+        await contentloader;
+        await Common.delay(5000);
+
+        // Check dashboard is open
+        const url = await page.url();
+        assert(url === testingPath+'dashboard');
+        await contentloader;
+
+        //Click single item
+        await page.waitForSelector('div#abc');
+        await contentloader;
+        await page.click('div#abc');
+        await contentloader;
+
+        //Click on edit trackers
+        await page.waitForSelector('button.activity-popup-small');
+        await contentloader;
+        await page.click('button.activity-popup-small');
+        await contentloader;
+
+
+        // Uncheck checkboxes
+        await page.waitForSelector('.main-check-container input');
+        await page.click('.main-check-container input')
         await contentloader;
 
         //Update tracker 
