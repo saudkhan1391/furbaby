@@ -34,7 +34,7 @@ function card(props) {
         return (single * temp);
     };
     return (
-        <div className="flex-1 h-12 ml-4 max-w-sm">
+        <div id="abc" className="flex-1 h-12 ml-4 max-w-sm">
             <Link to={"/tracker-record/"+item.appointmentId}>
                 <div className="max-w-sm rounded overflow-hidden shadow-bord">
                     <div className="px-6 py-4 flex justify-center m-auto pt-8">

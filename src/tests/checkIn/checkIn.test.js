@@ -1,13 +1,14 @@
 const puppeteer = require('puppeteer');
 const Common = require("../utils/index");
-// import {shallow} from 'enzyme';
-const testingPath = require('../config/config');
-describe('Forms', () => {
+const assert = require('assert');
+const config = require('../config/config');
+
+describe('Integration test', () => {
     test('Furbaby Checkin test', async () => {
         let browser = await puppeteer.launch({
             headless: false,
             ignoreHTTPSErrors: true,
-            args: [`--window-size=1920,1080`,'--no-sandbox'], // new option
+            args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
 
         let obj = {
@@ -16,10 +17,13 @@ describe('Forms', () => {
 
         let page = await browser.newPage();
 
-        let contentloader = Common.waitForDocuemntLoad(page);
+        let contentloader = Common.waitForDocumentLoad(page);
 
-        await page.setViewport({width: 1366, height: 588})
-        await page.goto(testingPath, obj);
+        await page.setViewport({
+            width: 1366,
+            height: 588
+        })
+        await page.goto(config.path, obj);
         await contentloader;
 
         // Click on login button
@@ -33,13 +37,13 @@ describe('Forms', () => {
         await contentloader;
         await page.click('input.emInput');
         await contentloader;
-        await page.type('input.emInput', 'development@redsqware.com');
+        await page.type('input.emInput', config.email);
         await contentloader;
 
         // Password
         await page.click('input.paInput');
         await contentloader;
-        await page.type('input.paInput', 'aqkhan88');
+        await page.type('input.paInput', config.pass);
         await contentloader;
 
 
@@ -48,14 +52,19 @@ describe('Forms', () => {
         await contentloader;
         await Common.delay(5000);
 
+        // Check dashboard is open
+        const url = await page.url();
+        assert(url === config.path+'dashboard');
+        await contentloader;
+
         // Goto Database
-        await page.goto('http://localhost:3000/baby-database')
+        await page.goto(config.path+'baby-database')
         await contentloader;
         await page.waitForSelector('button.manuallyBtn');
         await contentloader;
         await page.click('button.manuallyBtn');
         await contentloader;
-        
+
         //Fill form data
 
         // Owner email
@@ -70,6 +79,10 @@ describe('Forms', () => {
         await page.waitForSelector('input#ownerFirst');
         await contentloader;
         await page.click('input#ownerFirst');
+        await new Promise(res => setTimeout(() => {
+            expect(true).toBe(true)
+            res()
+        }, 1700));
         await contentloader;
         await page.type('input#ownerFirst', 'Test');
         await contentloader;
@@ -98,6 +111,12 @@ describe('Forms', () => {
         await page.type('input#furBabyName', 'Pony');
         await contentloader;
 
+        // Pick date
+        await page.click('.firstDate');
+        await contentloader;
+        await page.click('button.react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth');
+        await contentloader;
+
         // Furbaby specie
         await page.waitForSelector('input#furBabySpec');
         await contentloader;
@@ -113,31 +132,22 @@ describe('Forms', () => {
         await contentloader;
         await page.type('input#furBabyBreed', 'Molluscus');
         await contentloader;
-        
-        // Pick date
-        await page.click('.react-date-picker__inputGroup');
-        await contentloader;
-        // await page.waitForSelector('.button.react-calendar__month-view__days__day');
-        // await page.click('.button.react-calendar__month-view__days__day');
-        // await contentloader;
 
         // Pick reason
         await page.select('#reasonFb', 'Ear Problem')
         await contentloader;
-        
+
         // Submit form
-        // await page.click('button.addBtn');
-        // await contentloader;
-        // await Common.delay(5000);
+        await page.click('button.addBtn');
+        await contentloader;
+        await Common.delay(5000);
 
         //Check for url
-        // await page.goto('http://localhost:3000/schedule')
-        // await contentloader;
-        // await page.waitForSelector('p.bluePress');
-        // expect('p.bluePress').toBe('CHECK IN');
-        // const app  = shallow(<App/>);
-        // expect(app.contains(<p class="bluePress">CHECK IN</p>)).toBe(true);
-        // expect('p.bluePress').text().toEqual('CHECK IN');
+        await page.goto(config.path+'schedule')
+        await contentloader;
+        await page.waitForSelector('p.bluePress');
+        const paraValue = await page.$eval('p.bluePress', e => e.innerHTML)
+        expect(paraValue).toBe('CHECK IN')
         await browser.close();
 
     }, 9000000);

@@ -517,7 +517,7 @@ const Treatmentplan = (props) => {
                                                 <label className="mb-2" htmlFor="first_name">Fur Baby DOB<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <DatePicker
-                                                    className="border py-2 px-3"
+                                                    className="border firstDate py-2 px-3"
                                                     onChange={event => {
                                                         setDob(event);
                                                         setDobValidation(false)
@@ -629,7 +629,7 @@ const Treatmentplan = (props) => {
                                                 <label className="mb-2" htmlFor="first_name">Schedule Date<span
                                                     style={{color: "red"}}>*</span></label>
                                                 <DatePicker
-                                                    className="border py-2 px-3"
+                                                    className="border secDate py-2 px-3"
                                                     onChange={event => {
                                                         setDate(event);
                                                         setDateValidation(false)
