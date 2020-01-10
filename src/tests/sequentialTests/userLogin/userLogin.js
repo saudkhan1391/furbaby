@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
-const Common = require("../utils/index");
-const config = require('../config/config');
+const Common = require("../../utils/index");
+const config = require('../../config/config');
 const assert = require('assert');
 
-describe('Integration test', () => {
+module.exports=( login = () => describe('Integration test', () => {
     test('Login test', async () => {
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
             args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
@@ -56,7 +56,7 @@ describe('Integration test', () => {
         await page.click('button.btn-blue');
         await contentloader;
         await Common.delay(5000);
-
+        
         // Check dashboard is open
         const url = await page.url();
         assert(url === config.path+'dashboard');
@@ -66,4 +66,4 @@ describe('Integration test', () => {
         await browser.close();
 
     }, 9000000);
-});
+}));

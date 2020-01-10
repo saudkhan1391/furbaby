@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
-const Common = require("../utils/index");
+const Common = require("../../utils/index");
+const config = require('../../config/config');
 const assert = require('assert');
-const config = require('../config/config');
 
-describe('Integration test', () => {
-    test('Search test', async () => {
+module.exports=( logout =() => describe('Integration test', () => {
+    test('Logout test', async () => {
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
             args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
@@ -43,7 +43,7 @@ describe('Integration test', () => {
         await contentloader;
         await page.click('input.emInput');
         await contentloader;
-        await page.type('input.emInput', config.email);
+        await page.type('input.emInput',config.email);
         await contentloader;
 
         // Password
@@ -51,7 +51,6 @@ describe('Integration test', () => {
         await contentloader;
         await page.type('input.paInput', config.pass);
         await contentloader;
-
 
         // Login
         await page.click('button.btn-blue');
@@ -63,26 +62,17 @@ describe('Integration test', () => {
         assert(url === config.path+'dashboard');
         await contentloader;
 
-        //Goto database
-        await page.goto(config.path+'baby-database');
-        await page.waitForSelector('input');
+        // Click on logout
+        await page.waitForSelector('p.headerPart');
+        await page.click('p.headerPart');
         await contentloader;
+        await Common.delay(5000);
 
-
-        //Search
-        await page.tap('input');
-        await page.type('input', 'Smith');
+        // Check logout complete
+        const homepageUrl = await page.url()
+        assert (homepageUrl === config.path);
         await contentloader;
-        await page.keyboard.press(String.fromCharCode(13));
-        await contentloader;
-        await new Promise(res => setTimeout(() => {
-            expect(true).toBe(true)
-            res()
-        }, 37000));
-
-
-        await contentloader;
-        await browser.close();
+        await browser.close()
 
     }, 9000000);
-});
+}));

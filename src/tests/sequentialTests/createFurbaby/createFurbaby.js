@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
-const Common = require("../utils/index");
+const Common = require("../../utils/index");
 const assert = require('assert');
-const config = require('../config/config');
+const config = require('../../config/config');
 
-describe('Integration test', () => {
-    test('Furbaby Checkin test', async () => {
+module.exports=( createFurbaby = () => describe('Integration test', () => {
+    test('Manualy create furbaby', async () => {
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
             args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
@@ -45,7 +45,6 @@ describe('Integration test', () => {
         await contentloader;
         await page.type('input.paInput', config.pass);
         await contentloader;
-
 
         // Login
         await page.click('button.btn-blue');
@@ -155,4 +154,4 @@ await contentloader;
         await browser.close();
 
     }, 9000000);
-});
+}));

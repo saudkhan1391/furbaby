@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
-const Common = require("../utils/index");
-const config = require('../config/config');
+const Common = require("../../utils/index");
 const assert = require('assert');
+const config = require('../../config/config');
 
-describe('Integration test', () => {
-    test('Schedule Furbaby', async () => {
+module.exports=( searchFb = () => describe('Integration test', () => {
+    test('Search test', async () => {
         let browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
             args: [`--window-size=1920,1080`, '--no-sandbox'], // new option
         });
@@ -52,6 +52,7 @@ describe('Integration test', () => {
         await page.type('input.paInput', config.pass);
         await contentloader;
 
+
         // Login
         await page.click('button.btn-blue');
         await contentloader;
@@ -62,41 +63,26 @@ describe('Integration test', () => {
         assert(url === config.path+'dashboard');
         await contentloader;
 
-        // Click on schedule furbaby 
-        await page.waitForSelector('button.chk-btn-background')
-        await page.click('button.chk-btn-background');
+        //Goto database
+        await page.goto(config.path+'baby-database');
+        await page.waitForSelector('input');
         await contentloader;
 
-        // Check for url
-        const scheduleUrl = await page.url();
-        assert(scheduleUrl === config.path+'schedule')
-        await contentloader;
 
-        await page.waitForSelector('.react-calendar__month-view__days > button:nth-child(4)');
+        //Search
+        await page.tap('input');
+        await page.type('input', 'Smith');
         await contentloader;
-        await page.click('.react-calendar__month-view__days button:nth-child(4)');
+        await page.keyboard.press(String.fromCharCode(13));
         await contentloader;
+        await new Promise(res => setTimeout(() => {
+            expect(true).toBe(true)
+            res()
+        }, 37000));
 
-        // Hover to show controls
-        await page.waitForSelector('.mainWrapper')
-        await page.hover('.mainWrapper');
-        await page.waitForSelector('.extension > p')
 
-        // Click on visit
-        await page.click('.extension > p > span');
-
-        //Change status\
-        await page.waitForSelector('.inputvision select')
-        await page.select('.inputvision select', 'Confirmed');
-        
-        //Save changes
-        await page.click('button.saveBtn');
         await contentloader;
-        await Common.delay(5000);
-
-        
-        await contentloader;
-        await browser.close()
+        await browser.close();
 
     }, 9000000);
-});
+}));
