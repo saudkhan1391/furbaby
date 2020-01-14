@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Style from './style';
 import axios from "axios";
-import {apiPath} from "../../config";
+import {searchPath, apiPath} from "../../config";
 import {Link} from 'react-router-dom';
 import Layout from '../layout/container';
 // import {imageExists} from '../functions/index';
@@ -50,11 +50,13 @@ const Schedule = (props) => {
         setForm(false);
         setDetail(false);
         setSearchResult([]);
-        axios.get(apiPath + "/advanceSearch?keyword=" + search).then(res => {
-            if (res.data.data.length === 0) {
+        axios.post(searchPath+"/search", {
+            keyword: search
+        }).then(res => {
+            if (res.data.length === 0) {
                 setSearchResult("notnull")
             } else {
-                setSearchResult(res.data.data);
+                setSearchResult(res.data);
             }
         });
     };

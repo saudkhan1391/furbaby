@@ -134,7 +134,7 @@ const Routes = (props) => {
             <Route path={"/treatment-plans"} component={TreatmentPlans}/>
             <Route path={"/customize-notes"} component={CustomizeNotes}/>
             <Route path={"/schedule"} component={Schedulepet}/>
-            <Route path={"/baby-Database"} component={Babydatabase}/>
+            <Route path={"/baby-database"} component={Babydatabase}/>
             <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
 
             <Route path={"/signup"} component={Home}/>
