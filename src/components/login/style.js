@@ -76,6 +76,7 @@ export default () => (
     border: solid 1px #dcdddf;
     background-color: #ffffff;
     font-size: 17px;
+    padding-left: 10px;
    }
    .form label{
     font-size: 14px;
