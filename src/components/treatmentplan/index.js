@@ -187,14 +187,12 @@ const Treatmentplan = (props) => {
                 },
                 type: "web"
             };
-            console.log("requestedData", requestedData);
             dispatch({
                 type: "SET_LOADER",
                 payload: true
             });
             axios.post(apiPath + '/addCustomAppointment', requestedData)
                 .then(res => {
-                    console.log("res.data.data", res.data.data);
                     let final = [...appointments];
                     final.push(res.data.data.appointment);
                     setMainLoader(false);

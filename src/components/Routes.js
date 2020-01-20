@@ -91,67 +91,53 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").off('child_added');
-            firebase.database().ref("/appointments").limitToLast(1).on('child_added', (snapshot) => {
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
                 if(take){
-                    let value = snapshot.val();
-                    value.appointmentId = snapshot.key;
-                    if(clinicId === value.clinicId){
-                        addCurrentAppointment(value);
-                    }
+                    getClinicData(id, false);
                 }else {
                     take = true;
                 }
             });
+
         }
     }, [clinicId]);
-
-
-    const addCurrentAppointment = async (appointment) => {
-        let pet = await firebase.database().ref('/pets').child(appointment.petId).once("value").then(res => {
-            return res.val();
-        });
-        let petOwner = await firebase.database().ref('/petOwner').child(appointment.petOwnerId).once("value").then(res => {
-            return res.val();
-        });
-        appointment.pet = pet;
-        appointment.petOwner = petOwner;
-        dispatch({
-            type: "ADD_APPOINTMENT",
-            payload: appointment
-        })
-    };
 
 
     const getClinicData = (id, value) => {
         let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
         axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let main = {...res.data.data};
-            main.uid = id;
-            dispatch({
-                type: "SET_CLINIC_DATA",
-                payload: main
-            });
-            dispatch({
-                type: "SET_LOADER",
-                payload: false
-            });
-            dispatch({
-                type: "SET_LOADED",
-                payload: true
-            });
-            dispatch({
-                type: "SET_LOGGEDIN",
-                payload: true
-            });
-            dispatch({
-                type: "SET_LOADED_DATES",
-                payload: loadedDate
-            });
             if(value){
+                main.uid = id;
+                dispatch({
+                    type: "SET_CLINIC_DATA",
+                    payload: main
+                });
+                dispatch({
+                    type: "SET_LOADER",
+                    payload: false
+                });
+                dispatch({
+                    type: "SET_LOADED",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOGGEDIN",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOADED_DATES",
+                    payload: loadedDate
+                });
                 if(location.pathname === "/" || location.pathname === "/login"){
                     history.push("/dashboard");
                 }
+            } else {
+                dispatch({
+                    type: "SET_APPOINTMENTS",
+                    payload: main.appointments
+                });
             }
 
         });

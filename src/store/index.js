@@ -12,6 +12,8 @@ const reducer = (state, action) => {
             return {...state, furBabies: action.payload};
         case "ADD_APPOINTMENT":
             return {...state, appointments: [...state.appointments, action.payload]};
+        case "REMOVE_APPOINTMENT":
+            return {...state, appointments: state.appointments.filter(item => item.appointmentId !== action.payload)};
         case "SET_APPOINTMENTS":
             return {...state, appointments: action.payload};
         case "SET_ROLE":
