@@ -36,6 +36,7 @@ function Tracker(props){
         else {
             newData[index].value = false;
         }
+        furBaby.appointmentStatus = "In Hospital";
         furBaby.trackingComponent = JSON.stringify(newData);
         setTracker(newData);
         setCurrent(furBaby);

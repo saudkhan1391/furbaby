@@ -51,39 +51,13 @@ const Routes = (props) => {
     };
 
     useEffect(() => {
-        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
+        let take = false;
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 firebase.auth().currentUser.getIdTokenResult().then((token) => {
                     if (token.claims.practiceAdmin || token.claims.clinician) {
                         checkRole(token.claims);
-                        axios.get(apiPath+"/getClinicianData?clinicianUId="+user.uid+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
-                            let main = {...res.data.data};
-                            main.uid = user.uid;
-                            dispatch({
-                                type: "SET_CLINIC_DATA",
-                                payload: main
-                            });
-                            dispatch({
-                                type: "SET_LOADER",
-                                payload: false
-                            });
-                            dispatch({
-                                type: "SET_LOADED",
-                                payload: true
-                            });
-                            dispatch({
-                                type: "SET_LOGGEDIN",
-                                payload: true
-                            });
-                            dispatch({
-                                type: "SET_LOADED_DATES",
-                                payload: loadedDate
-                            });
-                            if(location.pathname === "/" || location.pathname === "/login"){
-                                history.push("/dashboard");
-                            }
-                        });
+                        getClinicData(user.uid, true);
                     }else {
                         history.push("/");
                         firebase.auth().signOut();
@@ -117,8 +91,71 @@ const Routes = (props) => {
                     payload: data
                 })
             });
+            firebase.database().ref("/appointments").off('child_added');
+            firebase.database().ref("/appointments").limitToLast(1).on('child_added', (snapshot) => {
+                if(take){
+                    let value = snapshot.val();
+                    value.appointmentId = snapshot.key;
+                    if(clinicId === value.clinicId){
+                        addCurrentAppointment(value);
+                    }
+                }else {
+                    take = true;
+                }
+            });
         }
     }, [clinicId]);
+
+
+    const addCurrentAppointment = async (appointment) => {
+        let pet = await firebase.database().ref('/pets').child(appointment.petId).once("value").then(res => {
+            return res.val();
+        });
+        let petOwner = await firebase.database().ref('/petOwner').child(appointment.petOwnerId).once("value").then(res => {
+            return res.val();
+        });
+        appointment.pet = pet;
+        appointment.petOwner = petOwner;
+        dispatch({
+            type: "ADD_APPOINTMENT",
+            payload: appointment
+        })
+    };
+
+
+    const getClinicData = (id, value) => {
+        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
+        axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            let main = {...res.data.data};
+            main.uid = id;
+            dispatch({
+                type: "SET_CLINIC_DATA",
+                payload: main
+            });
+            dispatch({
+                type: "SET_LOADER",
+                payload: false
+            });
+            dispatch({
+                type: "SET_LOADED",
+                payload: true
+            });
+            dispatch({
+                type: "SET_LOGGEDIN",
+                payload: true
+            });
+            dispatch({
+                type: "SET_LOADED_DATES",
+                payload: loadedDate
+            });
+            if(value){
+                if(location.pathname === "/" || location.pathname === "/login"){
+                    history.push("/dashboard");
+                }
+            }
+
+        });
+    }
 
     return loaded ? (
         <Switch>

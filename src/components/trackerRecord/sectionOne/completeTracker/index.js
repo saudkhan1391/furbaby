@@ -4,13 +4,7 @@ function Tracker(props){
     const [value, setValue] = useState(false);
     let { title, data, setDisabled, furBaby, setCurrent , setTracker, setCurrentName } = props;
     useEffect(() => {
-        let temp = true;
-        data.forEach(item => {
-            if(!item.value){
-                temp = false;
-            }
-        });
-        setValue(temp);
+        setValue(furBaby.appointmentStatus === "Complete");
     }, [data]);
 
     const setCurrentVal = () => {
@@ -21,6 +15,8 @@ function Tracker(props){
                 item.value = true;
                 item.status = 3;
             });
+            furBaby.appointmentStatus = "Complete";
+            furBaby.show = "true";
             furBaby.trackingComponent = JSON.stringify(newData);
             setTracker(newData);
             setCurrent(furBaby);
