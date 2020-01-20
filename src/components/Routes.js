@@ -91,14 +91,14 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
-                if(take){
-                    getClinicData(id, false);
-                }else {
-                    take = true;
-                }
-            });
+            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
+            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
+            //     if(take){
+            //         getClinicData(id, false);
+            //     }else {
+            //         take = true;
+            //     }
+            // });
 
         }
     }, [clinicId]);
