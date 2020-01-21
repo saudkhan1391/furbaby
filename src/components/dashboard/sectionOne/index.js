@@ -49,7 +49,7 @@ const SectionOne=(props)=>{
                                 <img className="sch-img pl-4 pb-1 float-right mr-2 mt-2" src={require('../../../assets/images/next1.png')} alt="pic"/>
                             </div>
                             </Link>
-                            <Link to="">
+                            <Link to="/create-new">
                             <div className="pl-6 pt-6 pb-6">
                                 Add a Fur Baby to the Schedule
                                 <img className="sch-img pl-4 pb-1 float-right mr-2 mt-2" src={require('../../../assets/images/next1.png')} alt="pic"/>
