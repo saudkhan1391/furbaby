@@ -11,11 +11,11 @@ const Header=(props)=>{
     };
     let sidebar = document.getElementById('sBar');
     const openSidebar = ()=>{
-sidebar.style.display="block";
+        sidebar.style.display="block";
     }
     const closeSidebar = ()=>{
-      sidebar.style.display="none";
-          }
+        sidebar.style.display="none";
+    }
     const logOut = () => {
         firebase.auth().signOut();
         window.location.reload();
@@ -41,7 +41,7 @@ sidebar.style.display="block";
                             SCHEDULE
                         </Link>
                         {/*<a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">*/}
-                            {/*NOTIFICATIONS*/}
+                        {/*NOTIFICATIONS*/}
                         {/*</a>*/}
                         <Link to="/baby-database" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "+checkActive("database")}>
                             DATABASE
@@ -56,52 +56,52 @@ sidebar.style.display="block";
                         </p>
                     </div>
                     {/*<div className="mr-12 oval">*/}
-                        {/*<a  className="inline-block px-2 mt-4 lg:mt-0"><span className="span1">?</span></a>*/}
+                    {/*<a  className="inline-block px-2 mt-4 lg:mt-0"><span className="span1">?</span></a>*/}
                     {/*</div>*/}
                 </div>
             </nav>
             <navigation-mob>
-              <div className="mob-nav flex items-center justify-between ">
-                <div className="">
-                  <a href="../">
-                    <img style={{"cursor":"pointer"}}  src={require('../../assets/images/lArrow.png')} alt="pic"></img></a>
-                </div>
-                <div className="">
-                  <h3>CLINIC DASHBOARD</h3>
-                </div>
-                <div className="">
-                <img src={require('../../assets/images/ham.png')} onClick={()=>openSidebar()} alt="pic"></img>
-                </div>
-                <div id="sBar" onClick={()=>closeSidebar()} className="overlay-back">
-                <div  className="mob-hid">
-                <div className="mb-16 mob-logo"><img src="/static/media/fbt-grey.26cdd9f2.png" alt="pic"></img></div>
-                <div className="lg:flex-grow">
-                        <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
-                            CLINIC DASHBOARD
-                        </Link>
-                        <hr></hr>
-                        <Link to="/in-progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
-                            IN PROGRESS
-                        </Link>
-                        <hr></hr>
-                        <Link to="/schedule" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
-                            SCHEDULE
-                        </Link>
-                        <hr></hr>
-                        {/*<a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">*/}
-                            {/*NOTIFICATIONS*/}
-                        {/*</a>*/}
-                        <Link to="/baby-database" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
-                            DATABASE
-                        </Link>
-                        <hr></hr>
-                        <Link to="/tools-setting" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
-                            TOOLS & SETTINGS
-                        </Link>
+                <div className="mob-nav flex items-center justify-between ">
+                    <div className="">
+                        <a href="../">
+                            <img style={{"cursor":"pointer"}}  src={require('../../assets/images/lArrow.png')} alt="pic"/></a>
+                    </div>
+                    <div className="">
+                        <h3>CLINIC DASHBOARD</h3>
+                    </div>
+                    <div className="">
+                        <img src={require('../../assets/images/ham.png')} onClick={()=>openSidebar()} alt="pic"/>
+                    </div>
+                    <div id="sBar" onClick={()=>closeSidebar()} className="overlay-back">
+                        <div  className="mob-hid">
+                            <div className="mb-16 mob-logo"><img src="/static/media/fbt-grey.26cdd9f2.png" alt="pic"/></div>
+                            <div className="lg:flex-grow">
+                                <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
+                                    CLINIC DASHBOARD
+                                </Link>
+                                <hr></hr>
+                                <Link to="/in-progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                                    IN PROGRESS
+                                </Link>
+                                <hr></hr>
+                                <Link to="/schedule" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                                    SCHEDULE
+                                </Link>
+                                <hr></hr>
+                                {/*<a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">*/}
+                                {/*NOTIFICATIONS*/}
+                                {/*</a>*/}
+                                <Link to="/baby-database" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                                    DATABASE
+                                </Link>
+                                <hr></hr>
+                                <Link to="/tools-setting" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                                    TOOLS & SETTINGS
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-              </div>
             </navigation-mob>
             <Style />
         </div>

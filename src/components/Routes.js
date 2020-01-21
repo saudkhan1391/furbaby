@@ -51,39 +51,13 @@ const Routes = (props) => {
     };
 
     useEffect(() => {
-        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
+        let take = false;
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 firebase.auth().currentUser.getIdTokenResult().then((token) => {
                     if (token.claims.practiceAdmin || token.claims.clinician) {
                         checkRole(token.claims);
-                        axios.get(apiPath+"/getClinicianData?clinicianUId="+user.uid+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
-                            let main = {...res.data.data};
-                            main.uid = user.uid;
-                            dispatch({
-                                type: "SET_CLINIC_DATA",
-                                payload: main
-                            });
-                            dispatch({
-                                type: "SET_LOADER",
-                                payload: false
-                            });
-                            dispatch({
-                                type: "SET_LOADED",
-                                payload: true
-                            });
-                            dispatch({
-                                type: "SET_LOGGEDIN",
-                                payload: true
-                            });
-                            dispatch({
-                                type: "SET_LOADED_DATES",
-                                payload: loadedDate
-                            });
-                            if(location.pathname === "/" || location.pathname === "/login"){
-                                history.push("/dashboard");
-                            }
-                        });
+                        getClinicData(user.uid, true);
                     }else {
                         history.push("/");
                         firebase.auth().signOut();
@@ -117,8 +91,57 @@ const Routes = (props) => {
                     payload: data
                 })
             });
+            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
+            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
+            //     if(take){
+            //         getClinicData(id, false);
+            //     }else {
+            //         take = true;
+            //     }
+            // });
+
         }
     }, [clinicId]);
+
+
+    const getClinicData = (id, value) => {
+        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
+        axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            let main = {...res.data.data};
+            if(value){
+                main.uid = id;
+                dispatch({
+                    type: "SET_CLINIC_DATA",
+                    payload: main
+                });
+                dispatch({
+                    type: "SET_LOADER",
+                    payload: false
+                });
+                dispatch({
+                    type: "SET_LOADED",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOGGEDIN",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOADED_DATES",
+                    payload: loadedDate
+                });
+                if(location.pathname === "/" || location.pathname === "/login"){
+                    history.push("/dashboard");
+                }
+            } else {
+                dispatch({
+                    type: "SET_APPOINTMENTS",
+                    payload: main.appointments
+                });
+            }
+
+        });
+    }
 
     return loaded ? (
         <Switch>
@@ -134,7 +157,7 @@ const Routes = (props) => {
             <Route path={"/treatment-plans"} component={TreatmentPlans}/>
             <Route path={"/customize-notes"} component={CustomizeNotes}/>
             <Route path={"/schedule"} component={Schedulepet}/>
-            <Route path={"/baby-Database"} component={Babydatabase}/>
+            <Route path={"/baby-database"} component={Babydatabase}/>
             <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
 
             <Route path={"/signup"} component={Home}/>

@@ -37,15 +37,7 @@ const SectionOne=(props) => {
     }, [image]);
 
     const updateComponent = () => {
-        let main = true;
-        tracker.forEach(item => {
-            if(!item.value){
-                main = false
-            }
-        });
-        if(main) {
-            current.appointmentStatus = "Complete";
-            current.show = "true";
+        if(current.appointmentStatus === "Complete") {
             let payload = {
                 appointment: {...current, pet, petOwner},
                 status: true
@@ -70,7 +62,6 @@ const SectionOne=(props) => {
                 console.log("err.", err.response);
             });
         } else {
-            current.appointmentStatus = "In Hospital";
             let payload = {
                 appointment: {...current, pet, petOwner},
                 trackerName: currentName,
@@ -89,6 +80,12 @@ const SectionOne=(props) => {
                     setDisabled(false);
                     console.log("err.", err.response);
                 });
+            } else {
+                setButton("UPDATED");
+                NotificationManager.success('', 'Tracker Update');
+                setTimeout(() => {
+                    setButton("UPDATE");
+                }, 5000);
             }
         }
         dispatch({
