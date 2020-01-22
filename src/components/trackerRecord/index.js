@@ -18,11 +18,15 @@ const trackerRecord = (props) => {
             data.appointmentId = current.appointmentId;
             setFurBaby(data);
         });
+        firebase.database().ref("/pets/"+current.petId+"/coverPhoto").on('value', (snapshot) => {
+            setCoverPhoto(snapshot.val());
+        });
         setShow(true);
     }, [current]);
     let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = furBaby;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
-    let { name, coverPhoto } = current.pet;
+    let { name, coverPhoto: photo } = current.pet;
+    const [coverPhoto, setCoverPhoto] = useState(photo);
     let { firstName, lastName, workPhone, email } = current.petOwner;
     medications = medications ? JSON.parse(medications) : [];
     food = food ? JSON.parse(food) : [];
