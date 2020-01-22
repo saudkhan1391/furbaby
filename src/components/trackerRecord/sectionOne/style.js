@@ -2,6 +2,14 @@ import React from 'react';
 
 export default () => (
     <style>{`
+    .petName {
+        width: 170px;
+        // border-width:2px;
+        // text-overflow: ellipsis;
+        // word-wrap: break-word;
+        // overflow: hidden;
+        // height: 30px;
+    }
     .container {
         max-width: 1591px;
     }
