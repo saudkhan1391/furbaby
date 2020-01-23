@@ -7,21 +7,20 @@ function Tracker(props){
         setValue(furBaby.appointmentStatus === "Complete");
     }, [data]);
 
+
     const setCurrentVal = () => {
-        if(!value){
-            setDisabled(false);
-            let newData = [...data];
-            newData.forEach(item => {
-                item.value = true;
-                item.status = 3;
-            });
-            furBaby.appointmentStatus = "Complete";
-            furBaby.show = "true";
-            furBaby.trackingComponent = JSON.stringify(newData);
-            setTracker(newData);
-            setCurrent(furBaby);
-            setCurrentName(title);
-        }
+        setDisabled(false);
+        let newData = [...data];
+        newData.forEach(item => {
+            item.value = true;
+            item.status = 3;
+        });
+        furBaby.appointmentStatus = furBaby.appointmentStatus === "In Hospital" ? "Complete" : "In Hospital";
+        furBaby.show = "true";
+        furBaby.trackingComponent = JSON.stringify(newData);
+        setTracker(newData);
+        setCurrent(furBaby);
+        setCurrentName(title);
     };
 
     const setImage = () => {

@@ -6,9 +6,7 @@ const clinicUsers=(props) => {
     return(
         <div>
             <Layout>
-                <div>
-                    <SectionOne dispatch={dispatch} clinicId={clinicId} users={users}/>
-                </div>  
+                <SectionOne dispatch={dispatch} clinicId={clinicId} users={users}/>
             </Layout>
         </div>
     );

@@ -6,6 +6,7 @@ import { standardDate } from "../../functions";
 import { placeholderPet } from "../../../config";
 
 function card(props) {
+    // console.log(props,"schedulepet props")
     let { item, setForm, setSchedule } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
@@ -34,6 +35,11 @@ function card(props) {
         return (single * temp);
     };
 
+    const showBottom = (value) => {
+        setSchedule(value);
+        setForm(item);
+    }
+
     const showStatus = (value) => {
         let current = standardDate(new Date());
         current = new Date(current.standardDate);
@@ -60,11 +66,6 @@ function card(props) {
 
     };
 
-    const showBottom = (value) => {
-        setSchedule(value);
-        setForm(item);
-    }
-
     return (
         <div className="mainWrapper">
             <div className="shadow-bord-main">
@@ -80,16 +81,18 @@ function card(props) {
                         <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
                         {
                             calculate() === 100 &&
-                            <img src={require("../../../assets/images/completed.png")} className="completed" />
+                            <img src={require("../../../assets/images/completed.png")} alt="" className="completed" />
 
                         }
                     </CircularProgressbarWithChildren>
                 </div>
                 <div className="forText">
-                    <p>
-                        {pet.name}
+                    <div className="petName">
+                    <p >
+                        {pet.name}{" "}{item.petOwner.lastName}
                         <br/>
                     </p>
+                    </div>
                     <p className="normal">{pet.species}</p>
                 </div>
                 <div className="forText mt-0imp">

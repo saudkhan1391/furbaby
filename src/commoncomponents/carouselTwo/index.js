@@ -25,7 +25,7 @@ const responsive = {
 
 
 const CarouselTwo=(props) => {
-    let { appointments, dispatch } = props;
+    let { appointments } = props;
     return(
         <div>
             <div className="carousel-container">
