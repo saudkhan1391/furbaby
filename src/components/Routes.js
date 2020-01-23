@@ -50,6 +50,45 @@ const Routes = (props) => {
         }
     };
 
+    const getClinicData = (id, value) => {
+        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
+        axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            let main = {...res.data.data};
+            if(value){
+                main.uid = id;
+                dispatch({
+                    type: "SET_CLINIC_DATA",
+                    payload: main
+                });
+                dispatch({
+                    type: "SET_LOADER",
+                    payload: false
+                });
+                dispatch({
+                    type: "SET_LOADED",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOGGEDIN",
+                    payload: true
+                });
+                dispatch({
+                    type: "SET_LOADED_DATES",
+                    payload: loadedDate
+                });
+                if(location.pathname === "/" || location.pathname === "/login"){
+                    history.push("/dashboard");
+                }
+            } else {
+                dispatch({
+                    type: "SET_APPOINTMENTS",
+                    payload: main.appointments
+                });
+            }
+
+        });
+    }
+
     useEffect(() => {
         let take = false;
         firebase.auth().onAuthStateChanged((user) => {
@@ -103,45 +142,6 @@ const Routes = (props) => {
         }
     }, [clinicId]);
 
-
-    const getClinicData = (id, value) => {
-        let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
-        axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
-            let main = {...res.data.data};
-            if(value){
-                main.uid = id;
-                dispatch({
-                    type: "SET_CLINIC_DATA",
-                    payload: main
-                });
-                dispatch({
-                    type: "SET_LOADER",
-                    payload: false
-                });
-                dispatch({
-                    type: "SET_LOADED",
-                    payload: true
-                });
-                dispatch({
-                    type: "SET_LOGGEDIN",
-                    payload: true
-                });
-                dispatch({
-                    type: "SET_LOADED_DATES",
-                    payload: loadedDate
-                });
-                if(location.pathname === "/" || location.pathname === "/login"){
-                    history.push("/dashboard");
-                }
-            } else {
-                dispatch({
-                    type: "SET_APPOINTMENTS",
-                    payload: main.appointments
-                });
-            }
-
-        });
-    }
 
     return loaded ? (
         <Switch>

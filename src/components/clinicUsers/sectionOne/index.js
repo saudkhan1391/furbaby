@@ -22,19 +22,10 @@ const SectionOne = (props) => {
     const [workPhone, setWorkPhone] = useState("");
     const [workPhoneValidator, setWorkPhoneValidator] = useState(false);
     const [allUsers, setUsers] = useState(null);
-    const [userIndex, setUserIndex] = useState(0);
-    const [panel, setPanel] = useState(700);
     const [userData, setUserData] = useState({});
     const [button, setButton] = useState("ADD NEW USER");
     const [role, setRole] = useState("clinician");
-    useEffect(() => {
-        if (users.length === 0) {
-            addUsers();
-        } else {
-            setUsers(users);
-        }
 
-    }, [users]);
     const addUsers = () => {
         axios.post(apiPath + "/getAllClinicUsers", {
             clinicId: clinicId
@@ -46,6 +37,15 @@ const SectionOne = (props) => {
             setUsers(res.data.data);
         })
     };
+
+    useEffect(() => {
+        if (users.length === 0) {
+            addUsers();
+        } else {
+            setUsers(users);
+        }
+
+    }, [users]);
 
     const deleteUser = (id) => {
         if (window.confirm("Are you sure you want to delete this user?")) {
@@ -156,7 +156,7 @@ const SectionOne = (props) => {
                                    type="text" value={firstName}
                                    onChange={(event) => {
                                        setFirstName(event.target.value);
-                                       firstNameValidator ? setFirstNameValidator(false) : "";
+                                       setFirstNameValidator(false);
                                    }}/>
                             <div style={{height: "13px"}}>
                                 {firstNameValidator && <p style={{color: "red", fontSize: 12}}>
@@ -171,7 +171,7 @@ const SectionOne = (props) => {
                                    value={lastName ? lastName : ""}
                                    onChange={(event) => {
                                        setLastName(event.target.value);
-                                       lastNameValidator ? setLastNameValidator(false) : "";
+                                       setLastNameValidator(false);
                                    }}
                                    style={lastNameValidator ? {borderColor: "red"} : {borderColor: ""}}
                             />
@@ -187,7 +187,7 @@ const SectionOne = (props) => {
                                    value={email}
                                    onChange={(event) => {
                                        setEmail(event.target.value);
-                                       emailValidator ? setEmailValidator(false) : "";
+                                       setEmailValidator(false);
                                    }}
                                    style={emailValidator ? {borderColor: "red"} : {borderColor: ""}}
                             />
@@ -204,7 +204,7 @@ const SectionOne = (props) => {
                                    value={workPhone}
                                    onChange={(event) => {
                                        setWorkPhone(event.target.value);
-                                       workPhoneValidator ? setWorkPhoneValidator(false) : "";
+                                       setWorkPhoneValidator(false);
                                    }}
                                    style={workPhoneValidator ? {borderColor: "red"} : {borderColor: ""}}
                             />
@@ -221,7 +221,7 @@ const SectionOne = (props) => {
                                    value={jobTitle}
                                    onChange={(event) => {
                                        setJobTitle(event.target.value);
-                                       jobTitleValidator ? setJobTitleValidator(false) : "";
+                                       setJobTitleValidator(false);
                                    }}
                                    style={jobTitleValidator ? {borderColor: "red"} : {borderColor: ""}}
                             />

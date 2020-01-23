@@ -93,7 +93,7 @@ function editUser(props) {
                                type="text" value={firstName}
                                onChange={(event) => {
                                    setFirstName(event.target.value);
-                                   firstNameValidator ? setFirstNameValidator(false) : "";
+                                   setFirstNameValidator(false);
                                }}/>
                         <div style={{height: "13px"}}>
                             {firstNameValidator && <p style={{color: "red", fontSize: 12}}>
@@ -108,7 +108,7 @@ function editUser(props) {
                                value={lastName ? lastName : ""}
                                onChange={(event) => {
                                    setLastName(event.target.value);
-                                   lastNameValidator ? setLastNameValidator(false) : "";
+                                   setLastNameValidator(false);
                                }}
                                style={lastNameValidator ? {borderColor: "red"} : {borderColor: ""}}
                         />
@@ -124,7 +124,7 @@ function editUser(props) {
                                value={email}
                                onChange={(event) => {
                                    setEmail(event.target.value);
-                                   emailValidator ? setEmailValidator(false) : "";
+                                   setEmailValidator(false);
                                }}
                                style={emailValidator ? {borderColor: "red"} : {borderColor: ""}}
                         />
@@ -141,7 +141,7 @@ function editUser(props) {
                                value={workPhone}
                                onChange={(event) => {
                                    setWorkPhone(event.target.value);
-                                   workPhoneValidator ? setWorkPhoneValidator(false) : "";
+                                   setWorkPhoneValidator(false);
                                }}
                                style={workPhoneValidator ? {borderColor: "red"} : {borderColor: ""}}
                         />
@@ -158,7 +158,7 @@ function editUser(props) {
                                value={jobTitle}
                                onChange={(event) => {
                                    setJobTitle(event.target.value);
-                                   jobTitleValidator ? setJobTitleValidator(false) : "";
+                                   setJobTitleValidator(false);
                                }}
                                style={jobTitleValidator ? {borderColor: "red"} : {borderColor: ""}}
                         />

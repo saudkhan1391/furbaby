@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import Style from './resetUserPopupStyle'
 import { NotificationManager} from 'react-notifications';
@@ -72,7 +72,7 @@ function editUser(props) {
                                value={password}
                                onChange={(event) => {
                                    setPassword(event.target.value);
-                                   passwordValidator ? setPasswordValidator("") : "";
+                                   setPasswordValidator("");
                                }}
                         />
                         <div style={{height: "13px"}}>
@@ -90,7 +90,7 @@ function editUser(props) {
                                value={rPassword}
                                onChange={(event) => {
                                    setRPassword(event.target.value);
-                                   rPasswordValidator ? setRPasswordValidator("") : ""
+                                   setRPasswordValidator("");
                                }}
                         />
                         <div style={{height: "13px"}}>

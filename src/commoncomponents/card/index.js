@@ -50,7 +50,7 @@ function card(props) {
                             <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
                             {
                                 calculate() === 100 &&
-                                <img src={require("../../assets/images/completed.png")} className="completed" />
+                                <img src={require("../../assets/images/completed.png")} alt="" className="completed" />
 
                             }
                         </CircularProgressbarWithChildren>

@@ -3,7 +3,7 @@ import { convertObjectToArray, standardDate } from "../../../functions";
 import Style from "./style";
 
 function History({ showForm }) {
-    let { pet: { visitHistory, name } } = showForm;
+    let { pet: { visitHistory } } = showForm;
     let [dropdown, setDropDown] = useState(null);
     let data = convertObjectToArray(visitHistory);
 
