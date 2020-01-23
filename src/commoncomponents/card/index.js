@@ -6,6 +6,7 @@ import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progr
 import 'react-circular-progressbar/dist/styles.css';
 import { placeholderPet } from "../../config";
 function card(props) {
+    // console.log(props,"props of dashboard")
     let { item } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
@@ -56,7 +57,7 @@ function card(props) {
                     </div>
                     <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText">
                         <p>
-                            {pet.name}
+                            {pet.name}{" "}{item.petOwner.lastName}
                             <br/>
                             <span className="normal">{pet.species}</span>
                         </p>

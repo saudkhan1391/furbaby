@@ -43,7 +43,7 @@ const trackerRecord = (props) => {
                 furBaby={furBaby}
                 dispatch={dispatch}
                 name={name}
-                treatment={appointmentType}
+                treatment={description}
                 image={coverPhoto}
                 petOwnerNote={petOwnerNote}
                 startTime={startTime}

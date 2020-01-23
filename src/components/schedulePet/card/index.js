@@ -6,6 +6,7 @@ import { standardDate } from "../../functions";
 import { placeholderPet } from "../../../config";
 
 function card(props) {
+    // console.log(props,"schedulepet props")
     let { item, setForm, setSchedule } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
@@ -86,10 +87,12 @@ function card(props) {
                     </CircularProgressbarWithChildren>
                 </div>
                 <div className="forText">
-                    <p>
-                        {pet.name}
+                    <div className="petName">
+                    <p >
+                        {pet.name}{" "}{item.petOwner.lastName}
                         <br/>
                     </p>
+                    </div>
                     <p className="normal">{pet.species}</p>
                 </div>
                 <div className="forText mt-0imp">
