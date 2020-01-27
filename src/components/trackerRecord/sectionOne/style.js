@@ -19,6 +19,9 @@ export default () => (
         border-radius: 50%;
         background-position: center;
         background-size: cover;
+        position: absolute;
+        top: 22px;
+        left: 22px;
     }
     .lbl-2 {
         width: 494px;
