@@ -89,7 +89,7 @@ function createPetOwner({ match: {params: {id}} }) {
 
     return (
         <div id="simpleModal" className="modal">
-            <div className="relative modal-content">
+            <div className="relative modal-content overflow-auto">
                 {
                     !data.uid ? !success ? <div>
                         {
