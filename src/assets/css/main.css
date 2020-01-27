@@ -103,6 +103,18 @@ html {
   top: unset;
   left: unset;
 }
+.tcPage .CircularProgressbar {
+    margin-left: unset;
+}
+.tcPage .coverPhoto {
+  top: unset;
+  left: unset;
+}
+.tcPage .completed {
+  top: unset;
+  left: unset;
+}
+
 
 .inProgFur.forline {
   border-bottom: 2px solid #f0f0f0;
