@@ -774,10 +774,10 @@
         height: auto !important;
     }
 
-    .sec1 .completed {
+    /* .sec1 .completed {
         top: 5px;
         left: 5px;
-    }
+    } */
 
     .cardForm .allButtons {
         display: flex;
@@ -1363,10 +1363,10 @@
         height: auto !important;
     }
 
-    .sec1 .completed {
+    /* .sec1 .completed {
         top: 5px;
         left: 5px;
-    }
+    } */
 
     .cardForm .allButtons {
         display: flex;
@@ -1951,11 +1951,11 @@
     .sec1 .h-12 {
         height: auto !important;
     }
-
+/* 
     .sec1 .completed {
         top: 5px;
         left: 5px;
-    }
+    } */
 
     .cardForm .allButtons {
         display: flex;
@@ -2537,10 +2537,10 @@
         height: auto !important;
     }
 
-    .sec1 .completed {
+    /* .sec1 .completed {
         top: 5px;
         left: 5px;
-    }
+    } */
 
     .cardForm .allButtons {
         display: flex;
