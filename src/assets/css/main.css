@@ -64,10 +64,44 @@ html {
   width: 109px !important;
     margin-left: 13px;
 }
-
+.progressDiv .completed { 
+  position: absolute;
+  top: 0px;
+  left: unset; 
+  width: 110px; 
+  height: 106px; 
+  border-radius: 50%; 
+} 
 .progressDiv .coverPhoto {
       margin-bottom: -70px;
-    margin-left: -9px;
+    margin-left: 3px;
+}
+.progressDiv .CircularProgressbar { 
+    width: 109px !important; 
+    margin-left: 19px; 
+}
+.cardForm .coverPhoto{
+  top: unset;
+  left: unset;
+
+}
+.cardForm .CircularProgressbar {
+  margin-left: unset;
+}
+.cardForm .completed {
+  top: unset;
+  left: unset;
+}
+.right-body .CircularProgressbar {
+  margin-left: unset;
+}
+.right-body .coverPhoto {
+  top: unset;
+  left: unset;
+}
+.right-body .completed {
+  top: unset;
+  left: unset;
 }
 
 .inProgFur.forline {
@@ -113,7 +147,7 @@ html {
 
 .progressDiv .completed {
   top: 39px;
-  ;
+  
 }
 
 .tcPage .coverPhoto {
