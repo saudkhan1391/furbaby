@@ -113,6 +113,7 @@ html {
 .tcPage .completed {
   top: unset;
   left: unset;
+  z-index: 1;
 }
 
 
