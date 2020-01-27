@@ -18,11 +18,14 @@ function card(props) {
             let { trackingComponent: tracker } = main;
             setData(tracker ? JSON.parse(tracker): []);
         });
-
         firebase.database().ref("/pets/"+item.petId).on('value', (snapshot) => {
             let main = {...snapshot.val()};
             setPet(main);
         });
+        return () => {
+            firebase.database().ref("/pets/"+item.petId).off('value');
+            firebase.database().ref("/appointments/"+item.appointmentId).off('value');
+        }
     },[item]);
     const calculate = () => {
         let single = 100/data.length;

@@ -83,7 +83,7 @@ function createPetOwner({ match: {params: {id}} }) {
                 }else {
                     setError("Something went wrong. Please contact your provider or try again later");
                 }
-            });;
+            });
         }
     };
 

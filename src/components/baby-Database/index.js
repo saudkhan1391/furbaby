@@ -13,6 +13,9 @@ import UpdatePetOwner from './updatePetOwner'
 import "react-multi-carousel/lib/styles.css";
 import Loader from '../../commoncomponents/smallLoader';
 import {NotificationManager} from 'react-notifications';
+import ShowSingle from "./showSingle";
+
+
 const Schedule = (props) => {
     let {appointments, clinicId, dispatch, clinic} = props;
     const [showForm, setForm] = useState(false);
@@ -193,26 +196,9 @@ const Schedule = (props) => {
                                     {/*<Carousel responsive={responsive}>*/}
                                         {
                                             current.pets.map((item, index) => {
-                                                return (<div key={index} className="pl-0 pr-1 m-1">
-                                                    <div className="max-w-sm rounded overflow-hidden shadow-border">
-                                                        <div className="px-6 py-4 flex justify-center m-auto pt-5">
-                                                            <div className="img1">
-                                                                <img style={{width: "130px", height: "130px"}}
-                                                                     src={item.coverPhoto ? item.coverPhoto : placeholderPet}/>
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            className="px-6 pt-10 py-5 flex justify-center m-auto items-center content-center forText">
-                                                            <p>{item.name}<br></br>
-                                                                <span className="newVisitButton" onClick={() => {
-                                                                    setCurrentPet(item.id)
-                                                                    setSchedulelPopup(true)
-                                                                }}><button
-                                                                    className="mt-6">SCHEDULE NEW VISIT</button></span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>)
+                                                return (
+                                                    <ShowSingle key={index} item={item} placeholder={placeholderPet} setCurrentPet={setCurrentPet} setSchedulelPopup={setSchedulelPopup}/>
+                                                )
                                             })}
                                     {/*</Carousel>*/}
                                 </div>

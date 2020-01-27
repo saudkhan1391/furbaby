@@ -14,9 +14,6 @@ const SectionOne=(props)=>{
 
             <div className="container mx-auto resp-main-dash" style={{"padding":"0 15px"}}>
                 <section className="left-col w-1/5">
-                    {/*<div>*/}
-                        {/*<button className="btn-background mt-10 font-bold">SYNC TO PRACTICE MANAGEMENT SOFTWARE</button>*/}
-                    {/*</div>*/}
                     <div>
                         <div className="schedule-table mt-10">
                             <div className="rectangle pt-2">
@@ -103,17 +100,6 @@ const SectionOne=(props)=>{
                         {/*<button className="snd-btn-background  font-bold float-right">SEND GLOBAL MESSAGE</button>*/}
                     </div>
                     <div className="hr ml-12 mt-4"/>
-
-                    {/*<div className="mt-8">*/}
-                        {/*<label className="font-bold ml-12 lbl-3">BOARDERS</label>*/}
-                        {/*<button className="view-btn-background  font-bold float-right">VIEW All</button>*/}
-                        {/*<button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>*/}
-                        {/*<button className="mass-btn-background  font-bold float-right mr-4">MASS UPDATE</button>*/}
-                    {/*</div>*/}
-
-
-                    {/*<Carousel />*/}
-                    {/*<div className="hr ml-12 mt-12"/>*/}
 
 
                     <div className="mt-8">

@@ -121,7 +121,6 @@ const Routes = (props) => {
             }
         });
         if(clinicId){
-            firebase.database().ref("/clinics/"+clinicId).off('value');
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -130,7 +129,6 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
             firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
                 if(take){
                     getClinicData(id, false);
@@ -139,6 +137,10 @@ const Routes = (props) => {
                 }
             });
 
+        }
+        return () => {
+            firebase.database().ref("/clinics/"+clinicId).off('value');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
         }
     }, [clinicId]);
 
