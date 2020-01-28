@@ -345,7 +345,6 @@ const Treatmentplan = (props) => {
                                                     style={{color: "red"}}>*</span></label>
                                                 <input id="ownerMail" className="border py-2 px-3 " type="text"
                                                        onBlur={() => checkPetOwner()}
-                                                       autoCorrect={false}
                                                        onChange={event => {
                                                            setEmail(event.target.value);
                                                            setEmailValidation(false)
@@ -419,7 +418,6 @@ const Treatmentplan = (props) => {
                                                 <label><small>Please enter the 10-digit phone number in the format 0000000000</small></label>
                                                 <input id="pNumber" className="border py-2 px-3 " type="number"
                                                        disabled={uid}
-                                                       autoCorrect={false}
                                                        placeholder="0000000000"
                                                        onBlur={() => checkPhoneNumber()}
                                                        value={phone}
@@ -588,7 +586,7 @@ const Treatmentplan = (props) => {
                                                     setValue(event.target.value);
                                                     setDescriptionValidation(false);
                                                 }} style={descriptionValidation ? {borderColor: "red"} : {borderColor: ""}}>
-                                                    <option value="" selected="">Select</option>
+                                                    <option value="">Select</option>
                                                     {
                                                         defaultTrackers.map((item, index) => {
                                                             return <option key={index} label={item.name}
