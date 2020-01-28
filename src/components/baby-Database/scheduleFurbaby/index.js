@@ -146,7 +146,7 @@ const SectionFour = (props) => {
                                         <div className="flex flex-col mb-4 inputvision">
                                             <label className="mb-2" htmlFor="first_name">Visit Reason</label>
                                             <select className="border py-2 px-3 height-36" onChange={event => setValue(event.target.value)} style={descriptionValidator ? {borderColor: "red"} : {borderColor: ""}}>
-                                                <option value="" selected="">Select</option>
+                                                <option value="">Select</option>
                                                 {
                                                     defaultTrackers.map((item, index) => {
                                                         return <option key={index} label={item.name} value={item.name}/>

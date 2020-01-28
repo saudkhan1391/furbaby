@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Style from "./style";
-import LinesEllipsis from 'react-lines-ellipsis';
 import {
   CircularProgressbarWithChildren,
   buildStyles
@@ -65,17 +64,13 @@ const SectionOne = props => {
       };
       setButton("UPDATING...");
       setDisabled(true);
-      axios
-        .post(apiPath + "/completeTrackerComponent", payload)
-        .then(res => {
+      axios.post(apiPath + "/completeTrackerComponent", payload).then(res => {
           let temp = { ...JSON.parse(JSON.stringify({ ...current })) };
           delete temp.pet;
           delete temp.petOwner;
-          axios
-            .post(apiPath + "/appointmentStatusInHospital", {
+          axios.post(apiPath + "/appointmentStatusInHospital", {
               appointment: temp
-            })
-            .then(res => {
+            }).then(res => {
               setButton("UPDATED");
               NotificationManager.success(
                 "Furbaby appointment has been successfully completed",
@@ -99,14 +94,16 @@ const SectionOne = props => {
       setButton("UPDATING...");
       setDisabled(true);
       if (currentStatus) {
-        axios
-          .post(apiPath + "/changeTrackerComponentStatus", payload)
-          .then(res => {
+        axios.post(apiPath + "/changeTrackerComponentStatus", payload).then(res => {
             setButton("UPDATED");
             NotificationManager.success("", "Tracker Update");
             setTimeout(() => {
               setButton("UPDATE");
             }, 5000);
+              dispatch({
+                  type: "UPDATE_CURRENT_FURBABY",
+                  payload: current
+              });
           })
           .catch(err => {
             setDisabled(false);
@@ -115,15 +112,15 @@ const SectionOne = props => {
       } else {
         setButton("UPDATED");
         NotificationManager.success("", "Tracker Update");
+          dispatch({
+              type: "UPDATE_CURRENT_FURBABY",
+              payload: current
+          });
         setTimeout(() => {
           setButton("UPDATE");
         }, 5000);
       }
     }
-    dispatch({
-      type: "UPDATE_CURRENT_FURBABY",
-      payload: current
-    });
   };
 
   const calculate = () => {
@@ -231,25 +228,16 @@ const SectionOne = props => {
                 </CircularProgressbarWithChildren>
               </div>
               <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText flex-col flex">
-                <p className="petName1">
-                  {/* <span style="display: block; width: 100px; overflow: hidden; word-wrap: break-word; text-overflow: ellipsis;"> */}
-                  <div className="petName">
-                    {/* <LinesEllipsis
-                      text={name +" "+ petOwner.lastName}
-                      maxLine="2"
-                      ellipsis={name+" "+lastName+ "..."} 
-                      trimRight
-                      basedOn="letters"
-                      lineHeight='14'
-                    /> */}
+                <div className="petName1">
+                  <p className="petName">
                     {name} {petOwner.lastName}
-                  </div>
+                  </p>
                   <br />
                   <span className="normal">
                     Todays Visit <br />
-                    {treatment == "" ? "N/A" : treatment}
+                    {treatment === "" ? "N/A" : treatment}
                   </span>
-                </p>
+                </div>
                 <label className="mt-4">
                   <span className="text-sm leading-normal activity-popup-small">
                     ADD COVER PHOTO
