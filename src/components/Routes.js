@@ -121,6 +121,9 @@ const Routes = (props) => {
             }
         });
         if(clinicId){
+            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo("-LriNdcv8W30HhcqU_Q7").once("value", (snapshot) => {
+            //     console.log("snapshot", snapshot.val());
+            // });
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
