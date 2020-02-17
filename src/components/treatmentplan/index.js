@@ -9,8 +9,11 @@ import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
 import {defaultTracker, validateEmail, detectPhone, convertObjectToArray} from "../functions/index";
 import Loader from "../../commoncomponents/loader";
+import { withRouter } from "react-router-dom";
+import uuid from "uuid";
+
 const Treatmentplan = (props) => {
-    let {appointments, dispatch, clinic} = props;
+    let { appointments, dispatch, clinic, history } = props;
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
 
@@ -213,6 +216,7 @@ const Treatmentplan = (props) => {
                         payload: false
                     });
                     NotificationManager.success('Added Successfully.', "New Record");
+                    history.push("/schedule");
 
                 }).catch(err => {
                 NotificationManager.error('Something went wrong, Please check your internet or try again later.', 'New Record');
@@ -269,9 +273,10 @@ const Treatmentplan = (props) => {
     };
 
     const addPhoto = (event) => {
+        let uid = uuid();
         const file = event.target.files[0];
         const storage = firebase.storage();
-        const imageRef = storage.ref('furBabyCoverPhotos');
+        const imageRef = storage.ref('furBabyCoverPhotos').child(uid);
         let data = imageRef.put(file);
         data.on('state_changed', (snapshot) => {
             setCoverPhoto("loader");
@@ -715,4 +720,4 @@ const Treatmentplan = (props) => {
         </Layout>
     );
 }
-export default Treatmentplan;
+export default withRouter(Treatmentplan);
