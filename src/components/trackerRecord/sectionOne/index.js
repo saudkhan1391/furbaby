@@ -46,7 +46,6 @@ const SectionOne = props => {
   const [button, setButton] = useState("UPDATE");
   const [photo, setPhoto] = useState(image);
   let dropDate = standardDate(new Date(startTime));
-
   useEffect(() => {
     setCurrent(furBaby);
     setTracker(data);
@@ -196,10 +195,10 @@ const SectionOne = props => {
                     rotation: 0,
                     strokeLinecap: "rounded",
                     pathTransitionDuration: 0.5,
-                    pathColor: calculate() === 100 ? "#8bc53f" : "#32c5ff"
+                    pathColor: furBaby.appointmentStatus === "Complete" ? "#8bc53f" : "#32c5ff"
                   })}
                 >
-                  {calculate() === 100 && (
+                  {furBaby.appointmentStatus === "Complete" && (
                     <img
                       src={require("../../../assets/images/completed.png")}
                       className="completed"

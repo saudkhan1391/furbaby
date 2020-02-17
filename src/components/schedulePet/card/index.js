@@ -87,7 +87,7 @@ function card(props) {
               rotation: 0,
               strokeLinecap: "rounded",
               pathTransitionDuration: 1,
-              pathColor: calculate() === 100 ? "#8bc53f" : "#32c5ff"
+              pathColor: item.appointmentStatus === "Complete" ? "#8bc53f" : "#32c5ff"
             })}
           >
             <div
@@ -99,7 +99,7 @@ function card(props) {
                   ")"
               }}
             />
-            {calculate() === 100 && (
+            {item.appointmentStatus === "Complete" && (
               <img
                 src={require("../../../assets/images/completed.png")}
                 className="completed"
