@@ -930,7 +930,12 @@ export default () => (
 .react-calendar__tile--active{
   width:10px !important;
 }
-
+.border-red{
+    border-color: red;
+}
+.react-date-picker__calendar.react-date-picker__calendar--open{
+    top: 36px!important;
+}
 
 
     `}

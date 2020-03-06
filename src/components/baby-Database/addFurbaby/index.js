@@ -24,9 +24,9 @@ const SectionFour = (props) => {
         if (!petName) {
             setPetNameValidation(true);
         }
-        if (!coverPhoto) {
-            setCoverPhotoValidation(true);
-        }
+        // if (!coverPhoto) {
+        //     setCoverPhotoValidation(true);
+        // }
         if (!dob) {
             setDobValidation(true);
         }
@@ -203,12 +203,11 @@ const SectionFour = (props) => {
                                 <div className="flex flex-col mb-4 inputvision calendar-div2">
                                     <label className="mb-2" htmlFor="first_name">Fur Baby DOB</label>
                                     <DatePicker
-                                        className="border py-2 px-3"
+                                        className={"border py-2 px-3 " + (dobValidation ? "border-red" : "")}
                                         onChange={event => {
                                             setDob(event);
                                             setDobValidation(false)
                                         }}
-                                        style={dobValidation ? {borderColor: "red"} : {borderColor: ""}}
                                         value={dob}
                                         disableClock
                                     />
