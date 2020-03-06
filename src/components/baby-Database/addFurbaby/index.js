@@ -36,8 +36,8 @@ const SectionFour = (props) => {
         if (!breed) {
             setBreedValidation(true);
         }
-        if (!petName || !coverPhoto || !dob || !species || !breed) {
-            return
+        if (!petName || !dob || !species || !breed) {
+            return;
         }
         else {
             let payload = {
