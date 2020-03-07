@@ -263,9 +263,12 @@ const SectionFour = (props) => {
                     <div className="flex ml-12 h-32">
                         <div className="flex w-80">
                             <div className="savebtnText mr-4">
-                                <button onClick={(event) => {
-                                    addFurbaby()
-                                }}>{button}
+                                <button
+                                    onClick={(event) => {
+                                        addFurbaby()
+                                    }}
+                                    disabled={button === "Adding"}
+                                >{button}
                                 </button>
                             </div>
                             <div className="savebtnText">

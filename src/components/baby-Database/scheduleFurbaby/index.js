@@ -237,9 +237,12 @@ const SectionFour = (props) => {
                     <div className="flex ml-10 h-32">
                         <div className="flex w-80">
                             <div className="savebtnText mr-4">
-                                <button onClick={(event) => {
-                                    addCustomAppointment()
-                                }}>{button}
+                                <button
+                                    onClick={(event) => {
+                                        addCustomAppointment()
+                                    }}
+                                    disabled={button === "Adding..."}
+                                >{button}
                                 </button>
                             </div>
                             <div className="savebtnText">

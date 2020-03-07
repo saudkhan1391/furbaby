@@ -71,6 +71,7 @@ export default () => (
         background-color: #ffffff;
         width:100%;
         min-height:152px;
+        padding-bottom: 20px;
     }
     .forCard-border2{
         border: solid 1px #e5e5e4;
