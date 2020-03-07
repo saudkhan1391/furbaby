@@ -35,7 +35,6 @@ function EditCard(props) {
         }
     }, [schedule, startTime, appointmentStatus, description]);
 
-    console.log("showForm", showForm);
 
     const setLoader = () => {
         setForm(false);
