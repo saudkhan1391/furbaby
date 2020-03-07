@@ -10,7 +10,7 @@ import { detectPhone, defaultTracker } from "../../functions";
 function EditCard(props) {
 
     let {setForm, showForm, dispatch, schedule, setSchedule, clinic} = props;
-    let {description, startTime, appointmentStatus, petOwner: {phone: ownerPhone}, trackingComponent} = showForm;
+    let {description, startTime, appointmentStatus, petOwner: {workPhone: ownerPhone}, trackingComponent} = showForm;
     const [date, setDate] = useState(startTime);
     const [status, setStatus] = useState(appointmentStatus);
     const [statuses, setStatuses] = useState(appointmentStatus);
@@ -34,6 +34,8 @@ function EditCard(props) {
             setStatus("In Hospital");
         }
     }, [schedule, startTime, appointmentStatus, description]);
+
+    console.log("showForm", showForm);
 
     const setLoader = () => {
         setForm(false);
