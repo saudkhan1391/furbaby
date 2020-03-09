@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { placeholderPet } from "../../config";
+import { calculate } from "../../components/functions";
+
 function card(props) {
     // console.log(props,"props of dashboard")
     let { item } = props;
@@ -27,23 +29,13 @@ function card(props) {
             firebase.database().ref("/appointments/"+item.appointmentId).off('value');
         }
     },[item]);
-    const calculate = () => {
-        let single = 100/data.length;
-        let temp = 0;
-        data.forEach(item => {
-            if(item.value === true) {
-                temp++;
-            }
-        });
-        return (single * temp);
-    };
     return (
         <div id="abc" className="flex-1 h-12 ml-4 max-w-sm">
             <Link to={"/tracker-record/"+item.appointmentId}>
                 <div className="max-w-sm rounded overflow-hidden shadow-bord">
                     <div className="px-6 py-4 flex justify-center m-auto pt-8">
                         <CircularProgressbarWithChildren
-                            value={calculate()}
+                            value={calculate(data, item)}
                             styles={buildStyles({
                                 rotation: 0,
                                 strokeLinecap: 'rounded',

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../../../utils/firebase";
-import {
-  CircularProgressbarWithChildren,
-  buildStyles
-} from "react-circular-progressbar";
+import {CircularProgressbarWithChildren, buildStyles} from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { standardDate } from "../../functions";
+import { standardDate, calculate } from "../../functions";
 import { placeholderPet } from "../../../config";
 
 function card(props) {
-  // console.log(props,"schedulepet props")
   let { item, setForm, setSchedule } = props;
   let { trackingComponent } = item;
   const [pet, setPet] = useState(item.pet);
@@ -35,21 +31,10 @@ function card(props) {
         setPet(main);
       });
   }, [item]);
-  const calculate = () => {
-    let single = 100 / data.length;
-    let temp = 0;
-    data.forEach(item => {
-      if (item.value === true) {
-        temp++;
-      }
-    });
-    return single * temp;
-  };
-
     const showBottom = (value) => {
         setSchedule(value);
         setForm(item);
-    }
+    };
 
     const showStatus = (value) => {
         let current = standardDate(new Date());
@@ -82,7 +67,7 @@ function card(props) {
       <div className="shadow-bord-main">
         <div className="upCard">
           <CircularProgressbarWithChildren
-            value={calculate()}
+            value={calculate(data, item)}
             styles={buildStyles({
               rotation: 0,
               strokeLinecap: "rounded",

@@ -7,6 +7,7 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { placeholderPet } from "../../../config";
+import { calculate } from "../../../components/functions";
 
 function card(props) {
   let { item } = props;
@@ -34,27 +35,17 @@ function card(props) {
         setPet(main);
       });
   }, [item]);
-  const calculate = () => {
-    let single = 100 / data.length;
-    let temp = 0;
-    data.forEach(item => {
-      if (item.value === true) {
-        temp++;
-      }
-    });
-    return single * temp;
-  };
   return (
     <Link to={"/tracker-record/" + item.appointmentId}>
       <div className="shadow-bord">
         <div className="">
           <CircularProgressbarWithChildren
-            value={calculate()}
+            value={calculate(data, item)}
             styles={buildStyles({
               rotation: 0,
               strokeLinecap: "rounded",
               pathTransitionDuration: 1,
-              pathColor: calculate() === 100 ? "#8bc53f" : "#32c5ff"
+                pathColor: item.appointmentStatus === "Complete" ? "#8bc53f" :"#32c5ff"
             })}
           >
               {/* <div style={{borderWidth:9, alignSelf:"center",marginLeft:25}}> */}
@@ -67,7 +58,7 @@ function card(props) {
                   ")"
               }}
             />
-            {calculate() === 100 && (
+            {item.appointmentStatus === "Complete" && (
               <img
                 alt=""
                 src={require("../../../assets/images/completed.png")}

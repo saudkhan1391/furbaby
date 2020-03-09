@@ -194,3 +194,17 @@ export const detectPhone = (phone) => {
         return phone;
     }
 };
+
+export const calculate = (data, furBaby) => {
+    let single = 100 / (data.length + 1);
+    let temp = 0;
+    data.forEach(item => {
+        if (item.value === true) {
+            temp++;
+        }
+    });
+    if(furBaby.appointmentStatus === "Complete"){
+        temp++;
+    }
+    return single * temp;
+};

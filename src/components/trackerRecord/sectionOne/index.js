@@ -9,7 +9,7 @@ import axios from "axios";
 import { apiPath, placeholderPet } from "../../../config";
 import Single from "./singleTracker";
 import CompleteTracker from "./completeTracker";
-import { standardDate } from "../../functions";
+import { standardDate, calculate } from "../../functions";
 import { Link } from "react-router-dom";
 import UpdateTracker from "../updateTracker";
 import { NotificationManager } from "react-notifications";
@@ -122,17 +122,6 @@ const SectionOne = props => {
     }
   };
 
-  const calculate = () => {
-    let single = 100 / data.length;
-    let temp = 0;
-    data.forEach(item => {
-      if (item.value === true) {
-        temp++;
-      }
-    });
-    return single * temp;
-  };
-
   const addPhotoImage = event => {
     let uid = uuid();
     const file = event.target.files[0];
@@ -190,7 +179,7 @@ const SectionOne = props => {
             <div className="cenCard rounded overflow-hidden shadow-bord">
               <div className="px-6 py-4 flex justify-center m-auto pt-8">
                 <CircularProgressbarWithChildren
-                  value={calculate()}
+                  value={calculate(data, furBaby)}
                   styles={buildStyles({
                     rotation: 0,
                     strokeLinecap: "rounded",
