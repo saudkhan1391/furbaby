@@ -132,7 +132,17 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
+            firebase.database().ref("/appointments").limitToLast(1).orderByChild('clinicId').equalTo(clinicId).on('child_added', (snapshot) => {
+                console.log("child added", snapshot.val());
+                if(take){
+                    getClinicData(id, false);
+                }else {
+                    take = true;
+                }
+            });
+
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_changed', (snapshot) => {
+                console.log("child changed", snapshot.val());
                 if(take){
                     getClinicData(id, false);
                 }else {
