@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {Switch, Route, withRouter} from "react-router-dom";
-import Home from './home';
 import About from './main';
 import Login from './login/container';
 import Schedule from './schedule';
@@ -87,7 +86,7 @@ const Routes = (props) => {
             }
 
         });
-    }
+    };
 
     useEffect(() => {
         let take = false;
@@ -164,7 +163,7 @@ const Routes = (props) => {
             <Route path={"/schedule"} component={Schedulepet}/>
             <Route path={"/baby-database"} component={Babydatabase}/>
             <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
-            <Route path={"/signup"} component={Home}/>
+
             <Route path={"/mainschedule"} component={Schedule}/>
             <Route path={"/schedulePageOne"} component={SchedulePageOne}/>
             <Route path={"/severalboarding"} component={Severalboarding}/>
