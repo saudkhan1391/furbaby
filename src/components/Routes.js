@@ -121,9 +121,6 @@ const Routes = (props) => {
             }
         });
         if(clinicId){
-            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo("-LriNdcv8W30HhcqU_Q7").once("value", (snapshot) => {
-            //     console.log("snapshot", snapshot.val());
-            // });
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -132,21 +129,27 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_added', (snapshot) => {
-                console.log("child added", snapshot.val());
+            firebase.database().ref("/appointments").limitToLast(1).orderByChild('clinicId').equalTo(clinicId).on('child_added', (snapshot) => {
                 if(take){
-                    // getClinicData(id, false);
+                    console.log("child added last : "+ snapshot.key +" : ", snapshot.val() );
                 }else {
                     take = true;
                 }
             });
             firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_changed', (snapshot) => {
-                console.log("child changed", snapshot.val());
-                if(take){
-                    // getClinicData(id, false);
-                }else {
-                    take = true;
-                }
+                console.log("child changed : "+ snapshot.key + "  ", snapshot.val());
+                let data = snapshot.val();
+                data.appointmentId = snapshot.key;
+                dispatch({
+                    type: "UPDATE_CURRENT_FURBABY",
+                    payload: data
+                });
+            });
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_removed', (snapshot) => {
+                dispatch({
+                    type: "REMOVE_APPOINTMENT",
+                    payload: snapshot.key
+                });
             });
 
         }

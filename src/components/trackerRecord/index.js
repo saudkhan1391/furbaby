@@ -13,11 +13,12 @@ const trackerRecord = (props) => {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        firebase.database().ref("/appointments/"+current.appointmentId).on('value', (snapshot) => {
-            let data = {...snapshot.val()};
-            data.appointmentId = current.appointmentId;
-            setFurBaby(data);
-        });
+        // firebase.database().ref("/appointments/"+current.appointmentId).on('value', (snapshot) => {
+        //     let data = {...snapshot.val()};
+        //     data.appointmentId = current.appointmentId;
+        //     setFurBaby(data);
+        // });
+        setFurBaby(current);
         firebase.database().ref("/pets/"+current.petId+"/coverPhoto").on('value', (snapshot) => {
             setCoverPhoto(snapshot.val());
         });

@@ -25,7 +25,7 @@ const reducer = (state, action) => {
 
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
-            let { appointmentId, trackingComponent, food, medications, notes, pee, galleryPhotos, appointmentStatus, show, startTime, description } = action.payload;
+            let { appointmentId, trackingComponent, food, medications, notes, staffNotes, pee, galleryPhotos, appointmentStatus, show, startTime, description, endTime, appointmentType } = action.payload;
             update.forEach(item => {
                 if(item.appointmentId === appointmentId){
                     item.trackingComponent = trackingComponent;
@@ -34,12 +34,17 @@ const reducer = (state, action) => {
                     item.medications = medications;
                     item.notes = notes;
                     item.appointmentStatus = appointmentStatus;
+                    item.appointmentType = appointmentType;
                     if(show){
                         item.show = show;
+                    }
+                    if(item.appointmentType === "Boarding"){
+                        item.endTime = endTime;
                     }
                     item.startTime = startTime;
                     item.description = description;
                     item.galleryPhotos = galleryPhotos;
+                    item.staffNotes = staffNotes;
                 }
             });
             let data = {...JSON.parse(JSON.stringify({...action.payload}))};
