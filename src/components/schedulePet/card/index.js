@@ -14,15 +14,7 @@ function card(props) {
   );
 
   useEffect(() => {
-    firebase
-      .database()
-      .ref("/appointments/" + item.appointmentId)
-      .on("value", snapshot => {
-        let main = { ...snapshot.val() };
-        let { trackingComponent: tracker } = main;
-        setData(tracker ? JSON.parse(tracker) : []);
-      });
-
+    setData(trackingComponent ? JSON.parse(trackingComponent): []);
     firebase
       .database()
       .ref("/pets/" + item.petId)
@@ -30,7 +22,7 @@ function card(props) {
         let main = { ...snapshot.val() };
         setPet(main);
       });
-  }, [item]);
+  }, [item, trackingComponent]);
     const showBottom = (value) => {
         setSchedule(value);
         setForm(item);

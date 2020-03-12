@@ -13,28 +13,15 @@ function card(props) {
   let { item } = props;
   let { trackingComponent } = item;
   const [pet, setPet] = useState(item.pet);
-  const [data, setData] = useState(
-    trackingComponent ? JSON.parse(trackingComponent) : []
-  );
+  const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent) : []);
 
   useEffect(() => {
-    firebase
-      .database()
-      .ref("/appointments/" + item.appointmentId)
-      .on("value", snapshot => {
-        let main = { ...snapshot.val() };
-        let { trackingComponent: tracker } = main;
-        setData(tracker ? JSON.parse(tracker) : []);
-      });
-
-    firebase
-      .database()
-      .ref("/pets/" + item.petId)
-      .on("value", snapshot => {
-        let main = { ...snapshot.val() };
-        setPet(main);
-      });
-  }, [item]);
+      setData(trackingComponent ? JSON.parse(trackingComponent): []);
+      firebase.database().ref("/pets/" + item.petId).on("value", snapshot => {
+            let main = { ...snapshot.val() };
+            setPet(main);
+          });
+  }, [item, trackingComponent]);
   return (
     <Link to={"/tracker-record/" + item.appointmentId}>
       <div className="shadow-bord">
