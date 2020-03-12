@@ -55,7 +55,6 @@ const reducer = (state, action) => {
             });
             return {...state, furBabies: update};
         case "REMOVE_CURRENT_FURBABY":
-            firebase.database().ref("/appointments").child(action.payload).remove().then(res => {});
             let fin = [...state.appointments];
             let temp = fin.filter(item => item.appointmentId !== action.payload);
             return {...state, appointments: temp};

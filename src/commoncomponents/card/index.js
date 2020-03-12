@@ -8,27 +8,21 @@ import { placeholderPet } from "../../config";
 import { calculate } from "../../components/functions";
 
 function card(props) {
-    // console.log(props,"props of dashboard")
     let { item } = props;
     let { trackingComponent } = item;
     const [pet, setPet] = useState(item.pet);
     const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
 
     useEffect(() => {
-        firebase.database().ref("/appointments/"+item.appointmentId).on('value', (snapshot) => {
-            let main = {...snapshot.val()};
-            let { trackingComponent: tracker } = main;
-            setData(tracker ? JSON.parse(tracker): []);
-        });
+        setData(trackingComponent ? JSON.parse(trackingComponent): []);
         firebase.database().ref("/pets/"+item.petId).on('value', (snapshot) => {
             let main = {...snapshot.val()};
             setPet(main);
         });
         return () => {
             firebase.database().ref("/pets/"+item.petId).off('value');
-            firebase.database().ref("/appointments/"+item.appointmentId).off('value');
         }
-    },[item]);
+    },[item, trackingComponent]);
     return (
         <div id="abc" className="flex-1 h-12 ml-4 max-w-sm">
             <Link to={"/tracker-record/"+item.appointmentId}>

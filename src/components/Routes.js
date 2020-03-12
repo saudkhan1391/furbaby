@@ -87,7 +87,7 @@ const Routes = (props) => {
             }
 
         });
-    }
+    };
 
     useEffect(() => {
         let take = false;
@@ -131,13 +131,14 @@ const Routes = (props) => {
             });
             firebase.database().ref("/appointments").limitToLast(1).orderByChild('clinicId').equalTo(clinicId).on('child_added', (snapshot) => {
                 if(take){
-                    console.log("child added last : "+ snapshot.key +" : ", snapshot.val() );
+                    let data = snapshot.val();
+                    data.appointmentId = snapshot.key;
+                    addAppointment(data);
                 }else {
                     take = true;
                 }
             });
             firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_changed', (snapshot) => {
-                console.log("child changed : "+ snapshot.key + "  ", snapshot.val());
                 let data = snapshot.val();
                 data.appointmentId = snapshot.key;
                 dispatch({
@@ -159,6 +160,25 @@ const Routes = (props) => {
         }
     }, [clinicId]);
 
+    const addAppointment = async (data) => {
+        let { petId, petOwnerId } = data;
+        let pet = await firebase.database().ref('/pets/' + petId)
+            .once("value").then( snapshot => {
+                return snapshot.val();
+            });
+        let petOwner = await firebase.database().ref('/petOwner/' + petOwnerId)
+            .once("value").then( snapshot => {
+                return snapshot.val();
+            });
+        data.pet = pet;
+        data.petOwner = petOwner;
+        if(petId && petOwnerId && pet && petOwner){
+            dispatch({
+                type: "ADD_APPOINTMENT",
+                payload: data
+            });
+        }
+    };
 
     return loaded ? (
         <Switch>

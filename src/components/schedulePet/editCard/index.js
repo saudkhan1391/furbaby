@@ -6,6 +6,7 @@ import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
 import Loader from "../../../commoncomponents/loader";
 import { detectPhone, defaultTracker } from "../../functions";
+import firebase from "../../../utils/firebase";
 
 function EditCard(props) {
 
@@ -141,10 +142,7 @@ function EditCard(props) {
 
     const removeFromSchedule = (id) => {
         if (window.confirm('Are you sure you want to delete this?')) {
-            dispatch({
-                type: "REMOVE_CURRENT_FURBABY",
-                payload: id
-            });
+            firebase.database().ref("/appointments").child(id).remove();
             setLoader();
         }
     };
