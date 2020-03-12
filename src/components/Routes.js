@@ -156,7 +156,9 @@ const Routes = (props) => {
         }
         return () => {
             firebase.database().ref("/clinics/"+clinicId).off('value');
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_changed');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_removed');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_added');
         }
     }, [clinicId]);
 
