@@ -7,7 +7,7 @@ import {NotificationManager} from 'react-notifications';
 import axios from 'axios';
 import firebase from "../../utils/firebase";
 import {apiPath} from '../../config';
-import {defaultTracker, validateEmail, detectPhone, convertObjectToArray} from "../functions/index";
+import {defaultTracker, validateEmail, detectPhone, convertObjectToArray, standardDate} from "../functions/index";
 import Loader from "../../commoncomponents/loader";
 import { withRouter } from "react-router-dom";
 import uuid from "uuid";
@@ -16,7 +16,7 @@ const Treatmentplan = (props) => {
     let { appointments, dispatch, clinic, history } = props;
     const [loader, setLoader] = useState(false);
     const [show, setShow] = useState(false);
-
+    let currentDate = standardDate(new Date());
 
     const [email, setEmail] = useState("");
     const [emailValidation, setEmailValidation] = useState(false);
@@ -323,7 +323,7 @@ const Treatmentplan = (props) => {
                     <h1>FUR BABIES SCHEDULED FOR</h1>
 
                     <div className="ml-6 mt-2 date">
-                        <p>TODAY, January 15, 2019</p>
+                        <p>{currentDate.dayName}, {currentDate.monthName} {currentDate.dateNumber}, {currentDate.fullYear}</p>
                     </div>
                 </div>
             </div>
