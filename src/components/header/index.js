@@ -70,7 +70,7 @@ const Header=(props)=>{
                         <h3>CLINIC DASHBOARD</h3>
                     </div>
                     <div className="">
-                        <img src={require('../../assets/images/ham.png')} onClick={()=>openSidebar()} alt="pic"/>
+                        <img src={require('../../assets/images/menu.png')} onClick={()=>openSidebar()} alt="pic"/>
                     </div>
                     <div id="sBar" onClick={()=>closeSidebar()} className="overlay-back">
                         <div  className="mob-hid">
@@ -95,10 +95,15 @@ const Header=(props)=>{
                                     DATABASE
                                 </Link>
                                 <hr></hr>
+
                                 <Link to="/tools-setting" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                     TOOLS & SETTINGS
                                 </Link>
-                            </div>
+                                <hr></hr> 
+                                <Link to="/login"  onClick={() => logOut()} className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
+                                LOGOUT
+                                </Link>
+                                </div>
                         </div>
                     </div>
                 </div>

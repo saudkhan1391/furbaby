@@ -226,7 +226,7 @@ const SectionOne = props => {
                     {treatment === "" ? "N/A" : treatment}
                   </span>
                 </div>
-                <label className="mt-4">
+                <label className="mt-4 add-cov-mob" >
                   <span className="text-sm leading-normal activity-popup-small">
                     ADD COVER PHOTO
                   </span>
@@ -242,7 +242,7 @@ const SectionOne = props => {
           <div className="data-div flex-2">
             <div className="flex justify-between ">
               <label className=" ml-12 flex-1">Dropped Off @</label>
-              <p className="text-end inline flex-1">
+              <p className="text-end inline ">
                 {dropDate.time} <span className="pl-8" />
                 {dropDate.standardDate}{" "}
               </p>

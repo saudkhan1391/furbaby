@@ -116,7 +116,7 @@ const Schedule = (props) => {
                                 return (
                                     <div key={index} className="w-1/2 pr-2">
                                         <div className="bordersBoxes h-14 mt-2">
-                                            <div className="flex px-4 py-3 justify-between">
+                                            <div className="flex px-4 py-3 justify-between treat-plan-card">
                                                 <div>
                                                     <div className="flex">
                                                         <label className="container1">

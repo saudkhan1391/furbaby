@@ -467,7 +467,7 @@ const Treatmentplan = (props) => {
                                     <div className="w-1/2 px-2">
                                         <div className="">
                                             <div className="flex flex-col mb-4 inputvision">
-                                                <label className="mb-2" htmlFor="first_name">Furbaby Image</label>
+                                                <label className="mb-2" htmlFor="first_name">Fur Baby Image</label>
                                                 {/*<input className="border py-2 px-3 " type="text"*/}
                                                 {/*value={coverPhoto}*/}
                                                 {/*onChange={event => setCoverPhoto(event.target.value)}*/}
@@ -697,7 +697,7 @@ const Treatmentplan = (props) => {
                                 </div>
                         }
 
-                        <div className="flex dbAllB mb-4 mt-5 ml-12 h-24 allButtons">
+                        <div className="flex dbAllB mb-4 mt-5 ml-12 h-24 allButtons create-n-button">
                             <div className="w-1/4 h-12">
                                 <div>
                                     <button className="addBtn" onClick={() => addCustomAppointment()}>ADD TO SCHEDULE

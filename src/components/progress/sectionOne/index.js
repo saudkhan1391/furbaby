@@ -25,7 +25,7 @@ const SectionOne=()=>{
                     {/*<button>SEND GLOBAL MESSAGE</button>*/}
                 {/*</div>*/}
             </div>
-            <div className="ml-12 forline"/>
+            <div className="ml-12 forline inp-forline"/>
             <Style/>
         </div>
 
