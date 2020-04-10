@@ -24,7 +24,7 @@ const SectionOne = (props) => {
     const [allUsers, setUsers] = useState(null);
     const [userData, setUserData] = useState({});
     const [button, setButton] = useState("ADD NEW USER");
-    const [role, setRole] = useState("clinician");
+    const [role, setRole] = useState("staff");
 
     const addUsers = () => {
         axios.post(apiPath + "/getAllClinicUsers", {
@@ -239,7 +239,7 @@ const SectionOne = (props) => {
                                         setRole(event.target.value);
                                     }}
                             >
-                                <option value="clinician">Staff</option>
+                                <option value="staff">Staff</option>
                                 <option value="practiceManager">Practice Manager</option>
                                 <option value="veterinarian">Veterinarian</option>
                             </select>
@@ -255,7 +255,7 @@ const SectionOne = (props) => {
                 </div>
                 <div className="overFlowDiv">
                     <table className="mb-12 table-data">
-                        <th></th>
+                        <th/>
                         <th className="text-left head-text pb-2">User Name</th>
                         <th className="text-left head-text">Email</th>
                         <th className="text-left head-text">Job Title</th>
@@ -273,13 +273,13 @@ const SectionOne = (props) => {
                         {/*workPhone: "+923333333333"}}*/}
                         {users && users.length !== 0 && users.map((sin, index) => <tr key={index}
                                                                                       className="data-back-g">
-                            <td className="py-5 pl-5 img"></td>
+                            <td className="py-5 pl-5 img"/>
                             <td className="py-5 pr-5 pl-0 text">{sin.firstName}</td>
                             <td className="py-5 email text">{sin.email}</td>
                             <td className="py-5 pr-5 text">{sin.jobTitle ? sin.jobTitle : "-"}</td>
                             <td className="py-5 pr-5 text">
                               <div className="flex">
-                                <div className="oval-g mr-3"></div>
+                                <div className="oval-g mr-3"/>
                                 {sin.role}
                                 </div>
                             </td>

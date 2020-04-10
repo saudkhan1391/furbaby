@@ -176,7 +176,8 @@ function editUser(props) {
                                     setRole(event.target.value);
                                 }}
                         >
-                            <option value="clinician">Staff</option>
+                            <option value=""/>
+                            <option value="staff">Staff</option>
                             <option value="practiceManager">Practice Manager</option>
                             <option value="veterinarian">Veterinarian</option>
                         </select>
