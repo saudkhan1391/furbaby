@@ -188,7 +188,7 @@ function EditCard(props) {
                     <div className="w-screen px-2">
                         <div className="flex flex-col mb-4 inputvision">
                             <label className="mb-2" htmlFor="first_name">Owner Phone</label>
-                            <input value={phone} className="border py-2 px-3 h-10" type="text"
+                            <input value={phone} className="border py-2 px-3 h-10" type="number" placeholder="0000000000"
                                    onChange={event => setPhone(event.target.value)}/>
                         </div>
                     </div>
