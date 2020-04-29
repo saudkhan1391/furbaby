@@ -25,10 +25,15 @@ const reducer = (state, action) => {
 
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
+            let data = {...JSON.parse(JSON.stringify({...action.payload}))}; //
             let { appointmentId, trackingComponent, food, medications, notes, pee, galleryPhotos, appointmentStatus, show, startTime, description } = action.payload;
             update.forEach(item => {
                 if(item.appointmentId === appointmentId){
                     item.trackingComponent = trackingComponent;
+                    if(item.startTime !== startTime){ //
+                        item.startTime_clinicId = startTime + ' ' + item.clinicId;
+                        data.startTime_clinicId = startTime + ' ' + item.clinicId
+                    }
                     item.food = food;
                     item.pee = pee ? pee : "[]";
                     item.medications = medications;
@@ -42,7 +47,6 @@ const reducer = (state, action) => {
                     item.galleryPhotos = galleryPhotos;
                 }
             });
-            let data = {...JSON.parse(JSON.stringify({...action.payload}))};
             delete data.appointmentId;
             delete data.pet;
             delete data.petOwner;
