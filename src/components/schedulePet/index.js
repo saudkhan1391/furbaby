@@ -4,12 +4,12 @@ import SectionTwo from './sectionTwo';
 import Layout from '../layout/container';
 
 const Schedulepet = (props) => {
-    let {appointments, dispatch, clinic, loadedDates, id, appointmentsLoaded} = props;
+    let {appointments, dispatch, clinic, loadedDates, id, appointmentsLoaded, clinicId} = props;
     return (
         <Layout>
             <div className="cardSett">
                 <SectionOne/>
-                <SectionTwo appointmentsLoaded={appointmentsLoaded} appointments={appointments} id={id} dispatch={dispatch} clinic={clinic} loadedDates={loadedDates}/>
+                <SectionTwo appointmentsLoaded={appointmentsLoaded} clinicId={clinicId} appointments={appointments} id={id} dispatch={dispatch} clinic={clinic} loadedDates={loadedDates}/>
             </div>
         </Layout>
     );

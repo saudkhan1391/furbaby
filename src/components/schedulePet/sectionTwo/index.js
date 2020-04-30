@@ -12,7 +12,7 @@ import { apiPath } from "../../../config";
 import Loader from "../../../commoncomponents/loader";
 
 const SectionTwo = (props) => {
-    const { appointments, dispatch, loadedDates, id, clinic, appointmentsLoaded } = props;
+    const { appointments, dispatch, loadedDates, clinic, appointmentsLoaded, clinicId } = props;
     const [showForm, setForm] = useState(null);
     const [date , setMainDate] = useState(new Date());
     const [schedule, setSchedule] = useState(false);
@@ -59,7 +59,7 @@ const SectionTwo = (props) => {
         let loadedDatesTemp = [...loadedDates];
         if(!temp){
             showLoader(true);
-            axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+final).then(res => {
+            axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+final).then(res => {
                 let main = res.data.data.appointments;
                 appointmentsTemp = [...appointmentsTemp, ...main];
                 dispatch({
