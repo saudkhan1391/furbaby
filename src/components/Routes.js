@@ -98,7 +98,7 @@ const Routes = (props) => {
         axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             dispatch({
                 type: "SET_APPOINTMENTS",
-                payload: res.data..data.appointments
+                payload: res.data.data.appointments
             });
         }).catch(err => {
             dispatch({
