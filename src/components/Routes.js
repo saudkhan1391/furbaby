@@ -94,8 +94,8 @@ const Routes = (props) => {
         });
     };
 
-    const getAppointments = (id) =>{
-        axios.get(apiPath+"/getClinicAppointments?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+    const getAppointments = () =>{
+        axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             dispatch({
                 type: "SET_APPOINTMENTS",
                 payload: res.data.appointments
