@@ -31,8 +31,18 @@ const reducer = (state, action) => {
                 if(item.appointmentId === appointmentId){
                     item.trackingComponent = trackingComponent;
                     if(item.startTime !== startTime){ //
+                        let time = startTime;
+                        let day = time.slice(0, 10);
+                        let month = time.slice(0,7);
+                        let year = time.slice(0,4);
+                        item.year_month_day_clinicId = day + '_' + item.clinicId;
+                        item.year_month_clinicId = month + '_' + item.clinicId;
+                        item.year_clinicId = year + '_' + item.clinicId;
+                        data.year_month_day_clinicId = day + '_' + item.clinicId;
+                        data.year_month_clinicId = month + '_' + item.clinicId;
+                        data.year_clinicId = year + '_' + item.clinicId;
                         item.startTime_clinicId = startTime + ' ' + item.clinicId;
-                        data.startTime_clinicId = startTime + ' ' + item.clinicId
+                        data.startTime_clinicId = startTime + ' ' + item.clinicId;
                     }
                     item.food = food;
                     item.pee = pee ? pee : "[]";
