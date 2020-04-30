@@ -15,13 +15,13 @@ const reducer = (state, action) => {
         case "REMOVE_APPOINTMENT":
             return {...state, appointments: state.appointments.filter(item => item.appointmentId !== action.payload)};
         case "SET_APPOINTMENTS":
-            return {...state, appointments: action.payload};
+            return {...state, appointments: action.payload, appointmentsLoaded: true};
         case "SET_ROLE":
             return {...state, role: action.payload};
         case "SET_CLINIC_DATA":
-            let { appointments, clinic, clinician, uid } = action.payload;
+            let { clinic, clinician, uid } = action.payload;
             let { clinicId } = clinician;
-            return {...state, appointments, clinic : clinic, clinician, clinicId, id: uid};
+            return {...state, clinic : clinic, clinician, clinicId, id: uid};
 
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
@@ -91,7 +91,8 @@ export class FurbabyProvider extends Component {
         users: [],
         role: null,
         loggedIn: false,
-        loadedDates: []
+        loadedDates: [],
+        appointmentsLoaded: false
     };
 
     render() {

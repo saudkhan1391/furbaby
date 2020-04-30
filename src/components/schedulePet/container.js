@@ -5,8 +5,8 @@ const index = () =>{
     return(
         <FurbabyConsumer>
             {
-                ({id, dispatch, loaded, appointments, clinic, loadedDates}) => (
-                    <Component loaded={loaded} dispatch={dispatch} id={id} clinic={clinic} loadedDates={loadedDates} appointments={appointments}/>
+                ({id, dispatch, loaded, appointments, clinic, loadedDates, appointmentsLoaded}) => (
+                    <Component loaded={loaded} dispatch={dispatch} id={id} clinic={clinic} appointmentsLoaded={appointmentsLoaded} loadedDates={loadedDates} appointments={appointments}/>
                 )
             }
         </FurbabyConsumer>

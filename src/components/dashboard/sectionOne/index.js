@@ -3,9 +3,10 @@ import Style from './style';
 import CarouselTwo from '../../../commoncomponents/carouselTwo';
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
+import Loader from "../../../commoncomponents/loader";
 
 const SectionOne=(props)=>{
-    let { appointments, dispatch } = props;
+    let { appointments, dispatch, appointmentsLoaded } = props;
     let inHospital = appointments.filter(item => (item.appointmentStatus === "In Hospital"));
     let complete = appointments.filter(item => (item.appointmentStatus === "Complete"));
     let date = standardDate(new Date());
@@ -87,32 +88,35 @@ const SectionOne=(props)=>{
                         </div>
                     </div>
                 </section>
-                <section className="right-body w-4/5">
-                    <div className="mt-10">
-                        <Link to="/schedule">
-                            <button className="chk-btn-background font-bold ml-12">CHECK-IN A SCHEDULED FUR BABY</button>
-                        </Link>
-                        <label className="date-lbl float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.dateNumber}, {date.fullYear}</label>
-                    </div>
+                {
+                    appointmentsLoaded ?
 
-                    <div className="mt-12">
-                        <label className="font-bold ml-12 lbl-2">IN PROGRESS</label>
-                        {/*<button className="snd-btn-background  font-bold float-right">SEND GLOBAL MESSAGE</button>*/}
-                    </div>
-                    <div className="hr ml-12 mt-4"/>
+                    <section className="right-body w-4/5">
+                        <div className="mt-10">
+                            <Link to="/schedule">
+                                <button className="chk-btn-background font-bold ml-12">CHECK-IN A SCHEDULED FUR BABY</button>
+                            </Link>
+                            <label className="date-lbl float-right font-bold">{date.dayNameHalf}, {date.monthName} {date.dateNumber}, {date.fullYear}</label>
+                        </div>
+
+                        <div className="mt-12">
+                            <label className="font-bold ml-12 lbl-2">IN PROGRESS</label>
+                            {/*<button className="snd-btn-background  font-bold float-right">SEND GLOBAL MESSAGE</button>*/}
+                        </div>
+                        <div className="hr ml-12 mt-4"/>
 
 
-                    <div className="mt-8">
-                        <label className="font-bold ml-12 lbl-3">TREATMENTS</label>
-                        <Link to="/in-progress" >
-                            <button className="view-btn-background  font-bold float-right">VIEW All</button>
-                        </Link>
-                        {/*<button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>*/}
+                        <div className="mt-8">
+                            <label className="font-bold ml-12 lbl-3">TREATMENTS</label>
+                            <Link to="/in-progress" >
+                                <button className="view-btn-background  font-bold float-right">VIEW All</button>
+                            </Link>
+                            {/*<button className="mass-bord-btn-background  font-bold float-right mr-4">SEND MASS BOARDER MESSAGE</button>*/}
 
-                    </div>
-                    <CarouselTwo appointments={inHospital} dispatch={dispatch} />
-                    {
-                        complete.length !== 0 &&
+                        </div>
+                        <CarouselTwo appointments={inHospital} dispatch={dispatch} />
+                        {
+                            complete.length !== 0 &&
                             <div id="abc">
                                 <div className="mt-8">
                                     <label className="font-bold ml-12 lbl-3">TREATMENTS</label>
@@ -127,8 +131,11 @@ const SectionOne=(props)=>{
                                 <div className="hr ml-12 mt-4"/>
                                 <CarouselTwo appointments={complete} dispatch={dispatch} />
                             </div>
-                    }
-                </section>
+                        }
+                    </section> : <div className="right-body w-4/5 relative">
+                        <Loader/>
+                        </div>
+                }
             </div>
 
 

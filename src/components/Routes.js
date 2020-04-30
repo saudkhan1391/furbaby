@@ -49,6 +49,12 @@ const Routes = (props) => {
         }
     };
 
+    useEffect(() => {
+        if(clinicId){
+            getAppointments(clinicId);
+        }
+    }, [clinicId]);
+
     const getClinicData = (id, value) => {
         let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
         axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
@@ -87,6 +93,20 @@ const Routes = (props) => {
 
         });
     };
+
+    const getAppointments = (id) =>{
+        axios.get(apiPath+"/getClinicAppointments?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: res.data.appointments
+            });
+        }).catch(err => {
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: []
+            });
+        })
+    }
 
     useEffect(() => {
         let take = false;
@@ -133,7 +153,7 @@ const Routes = (props) => {
             });
             firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
                 if(take){
-                    getClinicData(id, false);
+                    getAppointments(clinicId);
                 }else {
                     take = true;
                 }

@@ -12,7 +12,7 @@ import { apiPath } from "../../../config";
 import Loader from "../../../commoncomponents/loader";
 
 const SectionTwo = (props) => {
-    const { appointments, dispatch, loadedDates, id, clinic } = props;
+    const { appointments, dispatch, loadedDates, id, clinic, appointmentsLoaded } = props;
     const [showForm, setForm] = useState(null);
     const [date , setMainDate] = useState(new Date());
     const [schedule, setSchedule] = useState(false);
@@ -77,7 +77,7 @@ const SectionTwo = (props) => {
 
     };
 
-    return(
+    return appointmentsLoaded ? (
         <div>
             <div className="px-2 mt-10 sec1">
                 <div className="flex res-d -mx-2">
@@ -126,6 +126,8 @@ const SectionTwo = (props) => {
             </div>
             <Style/>
         </div>
-    );
+    ): <div className="relative ml-12 mx-auto h-64">
+        <Loader/>
+    </div>
 };
 export default SectionTwo;

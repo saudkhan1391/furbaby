@@ -5,9 +5,9 @@ const index = () =>{
     return(
         <FurbabyConsumer>
             {
-                ({id, dispatch, loaded, appointments}) => {
+                ({id, dispatch, loaded, appointments, appointmentsLoaded}) => {
                     let final = appointments.filter(item => (item.appointmentStatus === "In Hospital"));
-                    return <Component loaded={loaded} dispatch={dispatch} appointments={final}/>
+                    return <Component loaded={loaded} dispatch={dispatch} appointments={final} appointmentsLoaded={appointmentsLoaded}/>
                 }
             }
         </FurbabyConsumer>
