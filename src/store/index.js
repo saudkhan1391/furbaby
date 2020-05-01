@@ -16,6 +16,9 @@ const reducer = (state, action) => {
             return {...state, appointments: state.appointments.filter(item => item.appointmentId !== action.payload)};
         case "SET_APPOINTMENTS":
             return {...state, appointments: action.payload, appointmentsLoaded: true};
+        case "ALL_APPOINTMENTS_ADDED":
+            console.log("ALL_APPOINTMENTS_ADDED");
+            return {...state, appointmentsLoaded: true};
         case "SET_ROLE":
             return {...state, role: action.payload};
         case "SET_CLINIC_DATA":
@@ -26,7 +29,7 @@ const reducer = (state, action) => {
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
             let data = {...JSON.parse(JSON.stringify({...action.payload}))}; //
-            let { appointmentId, trackingComponent, food, medications, notes, pee, galleryPhotos, appointmentStatus, show, startTime, description } = action.payload;
+            let { appointmentId, trackingComponent, food, medications, notes, staffNotes, pee, galleryPhotos, appointmentStatus, show, startTime, description, endTime, appointmentType } = action.payload;
             update.forEach(item => {
                 if(item.appointmentId === appointmentId){
                     item.trackingComponent = trackingComponent;
@@ -49,12 +52,17 @@ const reducer = (state, action) => {
                     item.medications = medications;
                     item.notes = notes;
                     item.appointmentStatus = appointmentStatus;
+                    item.appointmentType = appointmentType;
                     if(show){
                         item.show = show;
+                    }
+                    if(item.appointmentType === "Boarding"){
+                        item.endTime = endTime;
                     }
                     item.startTime = startTime;
                     item.description = description;
                     item.galleryPhotos = galleryPhotos;
+                    item.staffNotes = staffNotes;
                 }
             });
             delete data.appointmentId;
@@ -64,7 +72,6 @@ const reducer = (state, action) => {
             });
             return {...state, furBabies: update};
         case "REMOVE_CURRENT_FURBABY":
-            firebase.database().ref("/appointments").child(action.payload).remove().then(res => {});
             let fin = [...state.appointments];
             let temp = fin.filter(item => item.appointmentId !== action.payload);
             return {...state, appointments: temp};

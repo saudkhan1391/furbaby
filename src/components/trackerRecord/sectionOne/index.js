@@ -218,7 +218,7 @@ const SectionOne = props => {
               <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText flex-col flex">
                 <div className="petName1">
                   <p className="petName">
-                    {name} {petOwner.lastName}
+                    {name} {lastName}
                   </p>
                   <br />
                   <span className="normal">

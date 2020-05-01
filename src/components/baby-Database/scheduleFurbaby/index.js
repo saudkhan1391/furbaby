@@ -77,12 +77,12 @@ const SectionFour = (props) => {
         };
         setButton("Adding...");
         axios.post(apiPath + "/addAppointment", payload).then(res => {
-            let final = [...appointments];
-            final.push(res.data.pet);
-            dispatch({
-                type: "SET_APPOINTMENTS",
-                payload: final
-            });
+            // let final = [...appointments];
+            // final.push(res.data.pet);
+            // dispatch({
+            //     type: "SET_APPOINTMENTS",
+            //     payload: final
+            // });
             NotificationManager.success('FurBaby has been successfully scheduled', 'Schedule Update.');
             setAddedPopupClose();
             setButton("ADD TO SCHEDULE")

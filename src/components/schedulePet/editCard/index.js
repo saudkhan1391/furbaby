@@ -6,11 +6,12 @@ import {NotificationManager} from 'react-notifications';
 import History from "./historyCard";
 import Loader from "../../../commoncomponents/loader";
 import { detectPhone, defaultTracker } from "../../functions";
+import firebase from "../../../utils/firebase";
 
 function EditCard(props) {
 
     let {setForm, showForm, dispatch, schedule, setSchedule, clinic} = props;
-    let {description, startTime, appointmentStatus, petOwner: {workPhone: ownerPhone}, trackingComponent} = showForm;
+    let {description, startTime, appointmentStatus, trackingComponent} = showForm;
     const [date, setDate] = useState(startTime);
     const [status, setStatus] = useState(appointmentStatus);
     const [statuses, setStatuses] = useState(appointmentStatus);
@@ -19,6 +20,8 @@ function EditCard(props) {
     const [phone, setPhone] = useState("");
     const [load, setLoad] = useState(false);
     const [show, setShow] = useState(false);
+    const [showPhone, setShowPhone] = useState(false);
+    const [ownerPhone, setOwnerPhone] = useState(null);
     const [trackerComponents, setTrackerComponent] = useState(JSON.parse(trackingComponent));
     const [showHistory, setShowHistory] = useState(false);
     let defaultTrackers = clinic.trackers ? JSON.parse(clinic.trackers) : defaultTracker();
@@ -33,6 +36,10 @@ function EditCard(props) {
         if (schedule) {
             setStatus("In Hospital");
         }
+        firebase.database().ref("/petOwner/"+showForm.petOwnerId+"/workPhone").on('value', (snapshot) => {
+            setOwnerPhone(snapshot.val());
+            setShowPhone(true);
+        });
     }, [schedule, startTime, appointmentStatus, description]);
 
 
@@ -141,10 +148,7 @@ function EditCard(props) {
 
     const removeFromSchedule = (id) => {
         if (window.confirm('Are you sure you want to delete this?')) {
-            dispatch({
-                type: "REMOVE_CURRENT_FURBABY",
-                payload: id
-            });
+            firebase.database().ref("/appointments").child(id).remove();
             setLoader();
         }
     };
@@ -174,7 +178,7 @@ function EditCard(props) {
         <div className="px-2 relative pb-10">
             <div className="flex flex-wrap -mx-2 mt-8">
                 {
-                    !ownerPhone &&
+                    showPhone && !ownerPhone &&
                     <div className="w-screen phone-message mb-4">
                         <div className="flex flex-col mb-4 inputvision">
                             <p>Owners phone number doesn't exist. <span
@@ -184,7 +188,7 @@ function EditCard(props) {
 
                 }
                 {
-                    !ownerPhone && addPhone &&
+                    showPhone && !ownerPhone && addPhone &&
                     <div className="w-screen px-2">
                         <div className="flex flex-col mb-4 inputvision">
                             <label className="mb-2" htmlFor="first_name">Owner Phone</label>

@@ -10,68 +10,75 @@ import DefaultNotes from "../../jsons/notes.json";
 const trackerRecord = (props) => {
     let { current, dispatch, clinic } = props;
     const [furBaby, setFurBaby] = useState(current);
-    const [show, setShow] = useState(false);
+    const [owner, setOwner] = useState({});
+    const [petData, setPet] = useState({});
 
     useEffect(() => {
-        firebase.database().ref("/appointments/"+current.appointmentId).on('value', (snapshot) => {
-            let data = {...snapshot.val()};
-            data.appointmentId = current.appointmentId;
-            setFurBaby(data);
+        setFurBaby(current);
+        firebase.database().ref("/pets/"+current.petId).on('value', (snapshot) => {
+            setPet(snapshot.val());
         });
-        firebase.database().ref("/pets/"+current.petId+"/coverPhoto").on('value', (snapshot) => {
-            setCoverPhoto(snapshot.val());
+        firebase.database().ref("/petOwner/"+current.petOwnerId).on('value', (snapshot) => {
+            setOwner(snapshot.val());
         });
-        setShow(true);
     }, [current]);
-    let { trackingComponent, medications, food, pee, notes, appointmentType, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = furBaby;
+    let { trackingComponent, medications, food, pee, notes, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = current;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];
-    let { name, coverPhoto: photo } = current.pet;
-    const [coverPhoto, setCoverPhoto] = useState(photo);
-    let { firstName, lastName, workPhone, email } = current.petOwner;
+
+    let { name, coverPhoto } = petData;
+
+    let { firstName, lastName, workPhone, email } = owner;
+
     medications = medications ? JSON.parse(medications) : [];
     food = food ? JSON.parse(food) : [];
     pee = pee ? JSON.parse(pee) : [];
     notes = notes ? JSON.parse(notes) : [];
     galleryPhotos = galleryPhotos ? JSON.parse(galleryPhotos) : [];
-    return(
+    return (
         <Layout>
-            <SectionOne
-                pet={current.pet}
-                petOwner={current.petOwner}
-                petId={current.petId}
-                data={tracker}
-                furBaby={furBaby}
-                dispatch={dispatch}
-                name={name}
-                treatment={description}
-                image={coverPhoto}
-                petOwnerNote={petOwnerNote}
-                startTime={startTime}
-                firstName={firstName}
-                lastName={lastName}
-                phone={workPhone}
-                email={email}
-                clinic={clinic}
-            />
-            <SectionTwo
-                foodData={food}
-                lastName={lastName}
-                name={name}
-                furBaby={furBaby}
-                dispatch={dispatch}
-                medicationData={medications}
-                notes={notes}
-                pee={pee}
-                image={coverPhoto}
-                galleryPhotos={galleryPhotos}
-                clinic={clinic}
-                DefaultNotes={DefaultNotes}
-                Foods={Foods}
-                Meds={Meds}
-                description={description}
-                current={current}
-                staffNotes={staffNotes}
-            />
+            {
+                current &&
+                <SectionOne
+                    pet={current.pet}
+                    petOwner={current.petOwner}
+                    petId={current.petId}
+                    data={tracker}
+                    furBaby={furBaby}
+                    dispatch={dispatch}
+                    name={name}
+                    treatment={description}
+                    image={coverPhoto}
+                    petOwnerNote={petOwnerNote}
+                    startTime={startTime}
+                    firstName={firstName}
+                    lastName={lastName}
+                    phone={workPhone}
+                    email={email}
+                    clinic={clinic}
+                />
+            }
+            {
+                current &&
+                <SectionTwo
+                    foodData={food}
+                    lastName={lastName}
+                    name={name}
+                    furBaby={furBaby}
+                    dispatch={dispatch}
+                    medicationData={medications}
+                    notes={notes}
+                    pee={pee}
+                    image={coverPhoto}
+                    galleryPhotos={galleryPhotos}
+                    clinic={clinic}
+                    DefaultNotes={DefaultNotes}
+                    Foods={Foods}
+                    Meds={Meds}
+                    description={description}
+                    current={current}
+                    staffNotes={staffNotes}
+                />
+            }
         </Layout>
     );
 }

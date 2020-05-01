@@ -2,9 +2,9 @@ import React from 'react';
 
 export default () => (
     <style>{`
-    .petName {
-        width: 170px;
-    }
+    // .petName {
+    //     width: 170px;
+    // }
     .container {
         max-width: 1591px;
     }

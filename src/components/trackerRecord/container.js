@@ -8,7 +8,7 @@ const index = ({ match: {params: {id: mainId}} }) =>{
             {
                 ({id, dispatch, appointments, clinic}) => {
                     const current = appointments.find(item => item.appointmentId === mainId);
-                    return <Component id={id} dispatch={dispatch} current={current} clinic={clinic}/>
+                    return current && <Component id={id} dispatch={dispatch} current={current} clinic={clinic}/>
                 }
             }
         </FurbabyConsumer>

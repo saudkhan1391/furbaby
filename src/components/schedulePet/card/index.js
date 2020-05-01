@@ -4,33 +4,26 @@ import {CircularProgressbarWithChildren, buildStyles} from "react-circular-progr
 import "react-circular-progressbar/dist/styles.css";
 import { standardDate, calculate } from "../../functions";
 import { placeholderPet } from "../../../config";
-
+import { MyLoader } from "../../functions/helper";
 function card(props) {
   let { item, setForm, setSchedule } = props;
   let { trackingComponent } = item;
-  const [pet, setPet] = useState(item.pet);
+  const [pet, setPet] = useState("");
+    const [owner, setOwner] = useState("");
   const [data, setData] = useState(
     trackingComponent ? JSON.parse(trackingComponent) : []
   );
 
   useEffect(() => {
-    firebase
-      .database()
-      .ref("/appointments/" + item.appointmentId)
-      .on("value", snapshot => {
-        let main = { ...snapshot.val() };
-        let { trackingComponent: tracker } = main;
-        setData(tracker ? JSON.parse(tracker) : []);
-      });
-
-    firebase
-      .database()
-      .ref("/pets/" + item.petId)
-      .on("value", snapshot => {
+    setData(trackingComponent ? JSON.parse(trackingComponent): []);
+    firebase.database().ref("/pets/" + item.petId).on("value", snapshot => {
         let main = { ...snapshot.val() };
         setPet(main);
       });
-  }, [item]);
+      firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").once('value', (snapshot) => {
+          setOwner(snapshot.val());
+      });
+  }, [item, trackingComponent]);
     const showBottom = (value) => {
         setSchedule(value);
         setForm(item);
@@ -80,7 +73,7 @@ function card(props) {
               style={{
                 backgroundImage:
                   "url(" +
-                  (pet.coverPhoto ? pet.coverPhoto : placeholderPet) +
+                  (pet && pet.coverPhoto ? pet.coverPhoto : placeholderPet) +
                   ")"
               }}
             />
@@ -92,25 +85,32 @@ function card(props) {
             )}
           </CircularProgressbarWithChildren>
         </div>
-        <div className="forText">
-          <div className="petName">
-            <p>
-              {pet.name} {item.petOwner.lastName}
-              <br />
-            </p>
-          </div>
-          <p className="normal">{pet.species}</p>
-        </div>
-        <div className="forText mt-0imp">
-          {showStatus(item.appointmentStatus)}
-        </div>
+          {
+              pet ?
+              <div className="forText">
+                  <div className="petName">
+                      <p>
+                          {pet.name} {owner}
+                          <br />
+                      </p>
+                  </div>
+                  <p className="normal">{pet.species}</p>
+              </div> : <div className="forText"><MyLoader/></div>
+          }
+          {
+              pet &&
+              <div className="forText mt-0imp">
+                  {showStatus(item.appointmentStatus)}
+              </div>
+          }
       </div>
       {
-        <div className="extension">
-          <p>
-            Edit: <span onClick={() => showBottom(false)}>Visit</span>
-          </p>
-        </div>
+          pet &&
+            <div className="extension">
+              <p>
+                Edit: <span onClick={() => showBottom(false)}>Visit</span>
+              </p>
+            </div>
       }
     </div>
   );

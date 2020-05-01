@@ -145,7 +145,7 @@ export default () => (
       height: 109px;
       border-radius: 50%;
   }
-    .carousel-cont a{
+    .carousel-cont a, .carousel-cont .without-link{
         border: 1px solid #8080801c;
         padding: 27px 13px 17px 13px;
         width: 172px;

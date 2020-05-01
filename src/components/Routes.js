@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import {Switch, Route, withRouter} from "react-router-dom";
 import About from './main';
 import Login from './login/container';
@@ -32,7 +32,6 @@ import firebase from "../utils/firebase";
 import axios from "axios";
 import { apiPath } from "../config";
 import { standardDate } from "./functions";
-import { setAppointment } from "./functions/helper";
 
 const Routes = (props) => {
     let { dispatch, loaded, history, location, clinicId, id } = props;
@@ -97,14 +96,14 @@ const Routes = (props) => {
     };
 
     const getAppointments = () =>{
-        axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+        axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let data = res.data.data.appointments;
             dispatch({
                 type: "SET_APPOINTMENTS",
-                payload: res.data.data.appointments
+                payload: data
             });
-            // data.forEach(item => {
-            //     setAppointment(item, dispatch);
+            // data.forEach((item, index) => {
+            //     setAppointment(item, dispatch, index, (data.length-1));
             // })
         }).catch(err => {
             dispatch({
@@ -146,9 +145,6 @@ const Routes = (props) => {
             }
         });
         if(clinicId){
-            // firebase.database().ref("/appointments").orderByChild('clinicId').equalTo("-LriNdcv8W30HhcqU_Q7").once("value", (snapshot) => {
-            //     console.log("snapshot", snapshot.val());
-            // });
             firebase.database().ref("/clinics/"+clinicId).on('value', (snapshot) => {
                 let data = {...snapshot.val()};
                 data.clinicId = clinicId;
@@ -157,52 +153,91 @@ const Routes = (props) => {
                     payload: data
                 })
             });
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('value', (snapshot) => {
+            firebase.database().ref("/appointments").limitToLast(1).orderByChild('clinicId').equalTo(clinicId).on('child_added', (snapshot) => {
                 if(take){
-                    getAppointments(clinicId);
+                    let data = snapshot.val();
+                    data.appointmentId = snapshot.key;
+                    addAppointment(data);
                 }else {
                     take = true;
                 }
+            });
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_changed', (snapshot) => {
+                let data = snapshot.val();
+                data.appointmentId = snapshot.key;
+                dispatch({
+                    type: "UPDATE_CURRENT_FURBABY",
+                    payload: data
+                });
+            });
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).on('child_removed', (snapshot) => {
+                dispatch({
+                    type: "REMOVE_APPOINTMENT",
+                    payload: snapshot.key
+                });
             });
 
         }
         return () => {
             firebase.database().ref("/clinics/"+clinicId).off('value');
-            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('value');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_changed');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_removed');
+            firebase.database().ref("/appointments").orderByChild('clinicId').equalTo(clinicId).off('child_added');
         }
     }, [clinicId]);
 
+    const addAppointment = async (data) => {
+        let { petId, petOwnerId } = data;
+        let pet = await firebase.database().ref('/pets/' + petId)
+            .once("value").then( snapshot => {
+                return snapshot.val();
+            });
+        let petOwner = await firebase.database().ref('/petOwner/' + petOwnerId)
+            .once("value").then( snapshot => {
+                return snapshot.val();
+            });
+        data.pet = pet;
+        data.petOwner = petOwner;
+        if(petId && petOwnerId && pet && petOwner){
+            dispatch({
+                type: "ADD_APPOINTMENT",
+                payload: data
+            });
+        }
+    };
 
     return loaded ? (
         <Switch>
             <Route path={"/"} exact component={About}/>
-            <Route path={"/login"} component={Login}/>
-            <Route path={"/dashboard"} component={Dashboard}/>
-            <Route path={"/tracker-record/:id"} component={trackerRecord}/>
-            <Route path={"/in-progress"} component={Progress}/>
-            <Route path={"/completed"} component={Completed}/>
-            <Route path={"/create-new"} component={Treatmentplan}/>
-            <Route path={"/tools-setting"} component={Toolssetting}/>
-            <Route path={"/foods-and-medications"} component={Foodmeds}/>
-            <Route path={"/treatment-plans"} component={TreatmentPlans}/>
-            <Route path={"/customize-notes"} component={CustomizeNotes}/>
-            <Route path={"/schedule"} component={Schedulepet}/>
-            <Route path={"/baby-database"} component={Babydatabase}/>
-            <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
+            <Suspense fallback={<span/>}>
+                <Route path={"/login"} component={Login}/>
+                <Route path={"/dashboard"} component={Dashboard}/>
+                <Route path={"/tracker-record/:id"} component={trackerRecord}/>
+                <Route path={"/in-progress"} component={Progress}/>
+                <Route path={"/completed"} component={Completed}/>
+                <Route path={"/create-new"} component={Treatmentplan}/>
+                <Route path={"/tools-setting"} component={Toolssetting}/>
+                <Route path={"/foods-and-medications"} component={Foodmeds}/>
+                <Route path={"/treatment-plans"} component={TreatmentPlans}/>
+                <Route path={"/customize-notes"} component={CustomizeNotes}/>
+                <Route path={"/schedule"} component={Schedulepet}/>
+                <Route path={"/baby-database"} component={Babydatabase}/>
+                <Route path={"/pet-owner-auth-create/:id"} component={CreatePetOwner}/>
 
-            <Route path={"/mainschedule"} component={Schedule}/>
-            <Route path={"/schedulePageOne"} component={SchedulePageOne}/>
-            <Route path={"/severalboarding"} component={Severalboarding}/>
-            <Route path={"/singlepet"} component={Singlepet}/>
-            <Route path={"/globalmass"} component={Globalmass}/>
-            <Route path={"/massmessage"} component={Massmessage}/>
-            <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
-            <Route path={"/database-form"} component={Databaseform}/>
-            <Route path={"/treatment-inprogress"} component={treatmentInprogress} />
-            <Route path={"/treatment-complete"} component={treatmentComplete} />
-            <Route path={"/treatment-boarder"} component={treatmentBoarder} />
-            <Route path={"/update-boarder"} component={updateBoarder} />
-            <Route path={"/clinic-users"} component={clinicUsers} />
+                <Route path={"/mainschedule"} component={Schedule}/>
+                <Route path={"/schedulePageOne"} component={SchedulePageOne}/>
+                <Route path={"/severalboarding"} component={Severalboarding}/>
+                <Route path={"/singlepet"} component={Singlepet}/>
+                <Route path={"/globalmass"} component={Globalmass}/>
+                <Route path={"/massmessage"} component={Massmessage}/>
+                <Route path={"/treatment-mass-message"} component={Treatmentmassmesseage}/>
+                <Route path={"/database-form"} component={Databaseform}/>
+                <Route path={"/treatment-inprogress"} component={treatmentInprogress} />
+                <Route path={"/treatment-complete"} component={treatmentComplete} />
+                <Route path={"/treatment-boarder"} component={treatmentBoarder} />
+                <Route path={"/update-boarder"} component={updateBoarder} />
+                <Route path={"/clinic-users"} component={clinicUsers} />
+            </Suspense>
         </Switch>
     ) : <Loader/>
 }

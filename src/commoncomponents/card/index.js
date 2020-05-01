@@ -6,59 +6,70 @@ import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progr
 import 'react-circular-progressbar/dist/styles.css';
 import { placeholderPet } from "../../config";
 import { calculate } from "../../components/functions";
+import { MyLoader } from "../../components/functions/helper";
 
 function card(props) {
-    // console.log(props,"props of dashboard")
     let { item } = props;
     let { trackingComponent } = item;
-    const [pet, setPet] = useState(item.pet);
+    const [pet, setPet] = useState(null);
+    const [owner, setOwner] = useState("");
     const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
 
     useEffect(() => {
-        firebase.database().ref("/appointments/"+item.appointmentId).on('value', (snapshot) => {
-            let main = {...snapshot.val()};
-            let { trackingComponent: tracker } = main;
-            setData(tracker ? JSON.parse(tracker): []);
-        });
+        setData(trackingComponent ? JSON.parse(trackingComponent): []);
         firebase.database().ref("/pets/"+item.petId).on('value', (snapshot) => {
             let main = {...snapshot.val()};
             setPet(main);
         });
+        firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").once('value', (snapshot) => {
+            setOwner(snapshot.val());
+        });
         return () => {
             firebase.database().ref("/pets/"+item.petId).off('value');
-            firebase.database().ref("/appointments/"+item.appointmentId).off('value');
+            firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").off('value');
         }
-    },[item]);
-    return (
-        <div id="abc" className="flex-1 h-12 ml-4 max-w-sm">
-            <Link to={"/tracker-record/"+item.appointmentId}>
-                <div className="max-w-sm rounded overflow-hidden shadow-bord">
-                    <div className="px-6 py-4 flex justify-center m-auto pt-8">
-                        <CircularProgressbarWithChildren
-                            value={calculate(data, item)}
-                            styles={buildStyles({
-                                rotation: 0,
-                                strokeLinecap: 'rounded',
-                                pathTransitionDuration: 1,
-                                pathColor: item.appointmentStatus === "Complete" ? "#8bc53f" :"#32c5ff"
-                            })}>
-                            <div className="coverPhoto" style={{backgroundImage: "url("+(pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
-                            {
-                                item.appointmentStatus === "Complete" &&
-                                <img src={require("../../assets/images/completed.png")} alt="" className="completed" />
+    },[item, trackingComponent]);
 
-                            }
-                        </CircularProgressbarWithChildren>
-                    </div>
+    const Inside = () => (
+        <div className="max-w-sm rounded overflow-hidden shadow-bord">
+            <div className="px-6 py-4 flex justify-center m-auto pt-8">
+                <CircularProgressbarWithChildren
+                    value={calculate(data, item)}
+                    styles={buildStyles({
+                        rotation: 0,
+                        strokeLinecap: 'rounded',
+                        pathTransitionDuration: 1,
+                        pathColor: item.appointmentStatus === "Complete" ? "#8bc53f" :"#32c5ff"
+                    })}>
+                    <div className="coverPhoto" style={{backgroundImage: "url("+(pet && pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
+                    {
+                        item.appointmentStatus === "Complete" &&
+                        <img src={require("../../assets/images/completed.png")} alt="" className="completed" />
+
+                    }
+                </CircularProgressbarWithChildren>
+            </div>
+            {
+                pet ?
                     <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText">
                         <p>
-                            {pet.name}{" "}{item.petOwner.lastName}
+                            {pet.name}{" "}{owner}
                             <br/>
                             <span className="normal">{pet.species}</span>
                         </p>
-                    </div>
-                </div>
-            </Link>
+                    </div> : <div className="pl-8 pt-2 py-4 flex justify-center m-auto items-center content-center forText"><MyLoader/></div>
+            }
+        </div>
+    )
+
+    return (
+        <div id="abc" className="flex-1 h-12 ml-4 max-w-sm">
+            {
+                pet ?
+                    <Link to={"/tracker-record/"+item.appointmentId}>
+                        <Inside/>
+                    </Link> : <Inside/>
+            }
             <Style/>
         </div>
     )

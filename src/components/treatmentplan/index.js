@@ -196,13 +196,13 @@ const Treatmentplan = (props) => {
             });
             axios.post(apiPath + '/addCustomAppointment', requestedData)
                 .then(res => {
-                    let final = [...appointments];
-                    final.push(res.data.data.appointment);
+                    // let final = [...appointments];
+                    // final.push(res.data.data.appointment);
                     setMainLoader(false);
-                    dispatch({
-                        type: "SET_APPOINTMENTS",
-                        payload: final
-                    });
+                    // dispatch({
+                    //     type: "SET_APPOINTMENTS",
+                    //     payload: final
+                    // });
                     setFirstName("");
                     setLastName("");
                     setEmail("");
