@@ -25,13 +25,20 @@ html {
   flex: 1 !important;
   justify-content: center !important;
 }
-
+.notification-container{
+  z-index: 99;
+}
+.notification-container.notification-container-empty{
+  z-index: 6;
+}
 .bg-main {
   color: white;
   width: 584px;
   margin: auto;
 }
-
+.logout{
+  z-index: 9;
+}
 .loaderContainer {
   position: absolute;
   top: 0;

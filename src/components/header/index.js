@@ -50,7 +50,7 @@ const Header=(props)=>{
                             TOOLS & SETTINGS
                         </Link>
                     </div>
-                    <div className="mr-12 cursor-pointer">
+                    <div className="mr-12 cursor-pointer relative logout">
                         <p onClick={() => logOut()} className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
                             LOGOUT
                         </p>

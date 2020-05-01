@@ -32,6 +32,8 @@ import firebase from "../utils/firebase";
 import axios from "axios";
 import { apiPath } from "../config";
 import { standardDate } from "./functions";
+import { setAppointment } from "./functions/helper";
+
 const Routes = (props) => {
     let { dispatch, loaded, history, location, clinicId, id } = props;
     let date = new Date();
@@ -96,10 +98,14 @@ const Routes = (props) => {
 
     const getAppointments = () =>{
         axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
+            let data = res.data.data.appointments;
             dispatch({
                 type: "SET_APPOINTMENTS",
                 payload: res.data.data.appointments
             });
+            // data.forEach(item => {
+            //     setAppointment(item, dispatch);
+            // })
         }).catch(err => {
             dispatch({
                 type: "SET_APPOINTMENTS",
