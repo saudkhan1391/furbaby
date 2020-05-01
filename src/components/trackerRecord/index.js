@@ -21,6 +21,10 @@ const trackerRecord = (props) => {
         firebase.database().ref("/petOwner/"+current.petOwnerId).on('value', (snapshot) => {
             setOwner(snapshot.val());
         });
+        return () => {
+            firebase.database().ref("/pets/"+current.petId).off();
+            firebase.database().ref("/petOwner/"+current.petOwnerId).off();
+        }
     }, [current]);
     let { trackingComponent, medications, food, pee, notes, petOwnerNote, startTime, galleryPhotos, description, staffNotes } = current;
     let tracker =  trackingComponent ? JSON.parse(trackingComponent) : [];

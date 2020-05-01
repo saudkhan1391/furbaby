@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { convertObjectToArray, standardDate } from "../../../functions";
 import Style from "./style";
+import firebase from "../../../../utils/firebase";
 
 function History({ showForm }) {
-    let { pet: { visitHistory } } = showForm;
+    let [visitHistory, setVisitHistory] = useState([]);
+    let [name, setName] = useState(null);
     let [dropdown, setDropDown] = useState(null);
-    let data = convertObjectToArray(visitHistory);
-
+    useEffect(() => {
+        firebase.database().ref("/pets/"+showForm.petId).once('value', (snapshot) => {
+            let { visitHistory, name } = snapshot.val();
+            setVisitHistory(convertObjectToArray(visitHistory));
+            setName(name);
+        })
+    });
+    let data = visitHistory;
     return <div className="history-container">
         {
             data.length !== 0 ?
