@@ -17,7 +17,6 @@ const reducer = (state, action) => {
         case "SET_APPOINTMENTS":
             return {...state, appointments: action.payload, appointmentsLoaded: true};
         case "ALL_APPOINTMENTS_ADDED":
-            console.log("ALL_APPOINTMENTS_ADDED");
             return {...state, appointmentsLoaded: true};
         case "SET_ROLE":
             return {...state, role: action.payload};
@@ -29,10 +28,11 @@ const reducer = (state, action) => {
         case "UPDATE_CURRENT_FURBABY":
             let update = [...state.appointments];
             let data = {...JSON.parse(JSON.stringify({...action.payload}))}; //
-            let { appointmentId, trackingComponent, food, medications, notes, staffNotes, pee, galleryPhotos, appointmentStatus, show, startTime, description, endTime, appointmentType } = action.payload;
+            let { appointmentId, trackingComponent, food, medications, notes, staffNotes, pee, galleryPhotos, appointmentStatus, show, startTime, description, endTime, appointmentType, petOwnerNote } = action.payload;
             update.forEach(item => {
                 if(item.appointmentId === appointmentId){
                     item.trackingComponent = trackingComponent;
+                    item.petOwnerNote = petOwnerNote;
                     if(item.startTime !== startTime){ //
                         let time = startTime;
                         let day = time.slice(0, 10);
