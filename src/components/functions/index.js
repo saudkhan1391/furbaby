@@ -75,8 +75,10 @@ export const standardDate = dat => {
     let monthNumber = ("0" + (newDate.getMonth() + 1)).slice(-2);
     let fullYear = newDate.getFullYear();
     let standardDate = monthNumber + "-" + dateNumber + "-" + fullYear;
+    let standardDateUS = monthNumber + "/" + dateNumber + "/" + fullYear;
     return {
         standardDate: standardDate,
+        standardDateUS: standardDateUS,
         time: time,
         hours: hours,
         minutes: minutes,

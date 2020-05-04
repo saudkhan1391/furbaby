@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './style';
-import CarouselTwo from '../../../commoncomponents/carouselTwo';
+import CarouselTwo from '../../../commoncomponents/appointmentTableView';
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
 import Loader from "../../../commoncomponents/loader";
@@ -133,7 +133,7 @@ const SectionOne=(props)=>{
                             </div>
                         }
                     </section> : <div className="right-body w-4/5 relative">
-                        <Loader/>
+                        <Loader text="Please wait while the records load"/>
                         </div>
                 }
             </div>

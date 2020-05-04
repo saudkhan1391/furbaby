@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from "../../utils/firebase";
-import ContentLoader from "react-content-loader";
+import Loader from "react-content-loader";
 
 export const setAppointment = async (data, dispatch, index, length) => {
     let { petId, petOwnerId } = data;
@@ -30,7 +30,7 @@ export const setAppointment = async (data, dispatch, index, length) => {
 };
 
 export const MyLoader = () => (
-    <ContentLoader
+    <Loader
         speed={2}
         width={168}
         height={45}
@@ -40,5 +40,18 @@ export const MyLoader = () => (
     >
         <rect x="20" y="5" rx="3" ry="3" width="88" height="6" />
         <rect x="37" y="23" rx="3" ry="3" width="52" height="6" />
-    </ContentLoader>
+    </Loader>
+)
+
+export const ContentLoader = () => (
+    <Loader
+        speed={2}
+        width={150}
+        height={12}
+        viewBox="0 0 150 12"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+    >
+        <rect x="6" y="1" rx="0" ry="0" width="106" height="8" />
+    </Loader>
 )

@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from "react";
+import Style from "./style";
+import firebase from "../../utils/firebase";
+import { Link } from "react-router-dom";
+import {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { placeholderPet } from "../../config";
+import { calculate, standardDate } from "../../components/functions";
+import { ContentLoader } from "../../components/functions/helper";
+
+function card(props) {
+    let { item, index } = props;
+    let { trackingComponent } = item;
+    const [pet, setPet] = useState(null);
+    const [owner, setOwner] = useState("");
+    const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
+
+    useEffect(() => {
+        setData(trackingComponent ? JSON.parse(trackingComponent): []);
+        firebase.database().ref("/pets/"+item.petId).on('value', (snapshot) => {
+            let main = {...snapshot.val()};
+            setPet(main);
+        });
+        firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").once('value', (snapshot) => {
+            setOwner(snapshot.val());
+        });
+        return () => {
+            firebase.database().ref("/pets/"+item.petId).off('value');
+            firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").off('value');
+        }
+    },[item, trackingComponent]);
+
+    const Inside = () => (
+        <div className="flex m-auto">
+            <CircularProgressbarWithChildren
+                value={calculate(data, item)}
+                styles={buildStyles({
+                    rotation: 0,
+                    strokeLinecap: 'rounded',
+                    pathTransitionDuration: 1,
+                    pathColor: item.appointmentStatus === "Complete" ? "#8bc53f" :"#32c5ff"
+                })}>
+                <div className="coverPhoto" style={{backgroundImage: "url("+(pet && pet.coverPhoto ? pet.coverPhoto: placeholderPet)+")"}}/>
+                {
+                    item.appointmentStatus === "Complete" &&
+                    <img src={require("../../assets/images/completed.png")} alt="" className="completed" />
+
+                }
+            </CircularProgressbarWithChildren>
+            <Style/>
+        </div>
+    )
+
+    return  <tr className={index%2 === 0 ? "bg-gray-100" : ""}>
+        <td className="px-4 py-2"><Inside/></td>
+        <td className="px-4 py-2">{pet?(pet.name+" "+owner):<ContentLoader/>}</td>
+        <td className="px-4 py-2">{pet?(pet.species):<ContentLoader/>}</td>
+        <td className="px-4 py-2">{standardDate(item.startTime).standardDateUS}</td>
+        <td className="px-4 py-2"><button><Link to={"/tracker-record/"+item.appointmentId}>Edit</Link></button></td>
+    </tr>
+}
+
+export default card;
