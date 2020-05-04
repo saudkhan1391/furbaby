@@ -66,8 +66,8 @@ const reducer = (state, action) => {
                 }
             });
             delete data.appointmentId;
-            delete data.pet;
-            delete data.petOwner;
+            // delete data.pet;
+            // delete data.petOwner;
             firebase.database().ref("/appointments").child(appointmentId).set(data).then(res => {
             });
             return {...state, furBabies: update};

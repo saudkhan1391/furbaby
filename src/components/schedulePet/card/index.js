@@ -7,22 +7,17 @@ import { placeholderPet } from "../../../config";
 import { MyLoader } from "../../functions/helper";
 function card(props) {
   let { item, setForm, setSchedule } = props;
-  let { trackingComponent } = item;
-  const [pet, setPet] = useState("");
-    const [owner, setOwner] = useState("");
+  let { trackingComponent, pet:petData, petOwner } = item;
+  const [pet, setPet] = useState(petData);
+    const [owner, setOwner] = useState(petOwner);
   const [data, setData] = useState(
     trackingComponent ? JSON.parse(trackingComponent) : []
   );
 
   useEffect(() => {
     setData(trackingComponent ? JSON.parse(trackingComponent): []);
-    firebase.database().ref("/pets/" + item.petId).on("value", snapshot => {
-        let main = { ...snapshot.val() };
-        setPet(main);
-      });
-      firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").once('value', (snapshot) => {
-          setOwner(snapshot.val());
-      });
+    setPet(petData);
+    setOwner(petOwner);
   }, [item, trackingComponent]);
     const showBottom = (value) => {
         setSchedule(value);
@@ -90,7 +85,7 @@ function card(props) {
               <div className="forText">
                   <div className="petName">
                       <p>
-                          {pet.name} {owner}
+                          {pet.name} {owner.lastName}
                           <br />
                       </p>
                   </div>
