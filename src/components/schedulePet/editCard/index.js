@@ -36,8 +36,10 @@ function EditCard(props) {
         if (schedule) {
             setStatus("In Hospital");
         }
-        let { workPhone } = petOwner;
-        setOwnerPhone(workPhone);
+        if(petOwner){
+            let { workPhone } = petOwner;
+            setOwnerPhone(workPhone);
+        }
         firebase.database().ref("/petOwner/"+showForm.petOwnerId+"/workPhone").once('value', (snapshot) => {
             setOwnerPhone(snapshot.val());
             setShowPhone(true);

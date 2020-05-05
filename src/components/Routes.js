@@ -164,7 +164,10 @@ const Routes = (props) => {
                 if(take){
                     let data = snapshot.val();
                     data.appointmentId = snapshot.key;
-                    addAppointment(data);
+                    dispatch({
+                        type: "ADD_APPOINTMENT",
+                        payload: data
+                    });
                 }else {
                     take = true;
                 }
@@ -193,25 +196,6 @@ const Routes = (props) => {
         }
     }, [clinicId]);
 
-    const addAppointment = async (data) => {
-        let { petId, petOwnerId } = data;
-        let pet = await firebase.database().ref('/pets/' + petId)
-            .once("value").then( snapshot => {
-                return snapshot.val();
-            });
-        let petOwner = await firebase.database().ref('/petOwner/' + petOwnerId)
-            .once("value").then( snapshot => {
-                return snapshot.val();
-            });
-        data.pet = pet;
-        data.petOwner = petOwner;
-        if(petId && petOwnerId && pet && petOwner){
-            dispatch({
-                type: "ADD_APPOINTMENT",
-                payload: data
-            });
-        }
-    };
 
     return loaded ? (
         <Switch>
