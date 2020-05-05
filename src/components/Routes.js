@@ -99,10 +99,10 @@ const Routes = (props) => {
     const getAppointments = () =>{
         axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let data = res.data.data.appointments;
-            // dispatch({
-            //     type: "SET_APPOINTMENTS",
-            //     payload: data
-            // });
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: data
+            });
             data.length !== 0 ? data.forEach((item, index) => {
                 setAppointment(item, dispatch, index, (data.length-1));
             }):  dispatch({
