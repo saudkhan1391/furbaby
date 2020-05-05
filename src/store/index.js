@@ -17,14 +17,15 @@ const reducer = (state, action) => {
         case "SET_APPOINTMENTS":
             if (action.diff === "daily") {
                 if (state.appointments.length === 0) {
-                    return {...state, appointments: action.payload, appointmentsLoaded: action.payload.length !== 0 };
+                    let temp = action.payload.find(item => (item.appointmentStatus === "In Hospital"));
+                    return {...state, appointments: action.payload, appointmentsLoaded: !!temp, loadedSchedule: true };
                 }
                 return {...state};
             } else {
-                return {...state, appointments: action.payload, appointmentsLoaded: true};
+                return {...state, appointments: action.payload, appointmentsLoaded: true, loadedSchedule: true};
             }
         case "ALL_APPOINTMENTS_ADDED":
-            return {...state, appointmentsLoaded: true};
+            return {...state, appointmentsLoaded: true, loadedSchedule: true};
         case "SET_ROLE":
             return {...state, role: action.payload};
         case "SET_CLINIC_DATA":
@@ -116,7 +117,8 @@ export class FurbabyProvider extends Component {
         role: null,
         loggedIn: false,
         loadedDates: [],
-        appointmentsLoaded: false
+        appointmentsLoaded: false,
+        loadedSchedule: false
     };
 
     render() {
