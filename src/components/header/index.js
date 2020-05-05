@@ -20,8 +20,8 @@ const Header=(props)=>{
         firebase.auth().signOut();
         dispatch({
             type: "RESET_ALL"
-        })
-        // window.location.reload();
+        });
+        window.location.reload();
     };
 
     return (
