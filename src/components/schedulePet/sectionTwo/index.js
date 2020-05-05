@@ -59,12 +59,13 @@ const SectionTwo = (props) => {
         let loadedDatesTemp = [...loadedDates];
         if(!temp){
             showLoader(true);
-            axios.get(apiPath+"/getClinicAppointments?clinicId="+clinicId+"&date="+final).then(res => {
+            axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+final).then(res => {
                 let main = res.data.data.appointments;
                 appointmentsTemp = [...appointmentsTemp, ...main];
                 dispatch({
                     type: "SET_APPOINTMENTS",
-                    payload: appointmentsTemp
+                    payload: appointmentsTemp,
+                    diff: "monthly"
                 });
                 loadedDatesTemp.push(final);
                 dispatch({

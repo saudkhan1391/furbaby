@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './style';
-import CarouselTwo from '../../../commoncomponents/appointmentTableView';
+import CarouselTwo from '../../../commoncomponents/carouselTwo';
 import { standardDate } from "../../functions";
 import { Link } from "react-router-dom";
 import Loader from "../../../commoncomponents/loader";

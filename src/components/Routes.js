@@ -57,63 +57,56 @@ const Routes = (props) => {
         }
     }, [clinicId]);
 
-    const getClinicData = (id, value) => {
+    const getClinicData = (id) => {
         let loadedDate = [standardDate(date).fullYear+"-"+standardDate(date).monthNumber];
         axios.get(apiPath+"/getClinicianData?clinicianUId="+id+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let main = {...res.data.data};
-            if(value){
-                main.uid = id;
-                dispatch({
-                    type: "SET_CLINIC_DATA",
-                    payload: main
-                });
-                dispatch({
-                    type: "SET_LOADER",
-                    payload: false
-                });
-                dispatch({
-                    type: "SET_LOADED",
-                    payload: true
-                });
-                dispatch({
-                    type: "SET_LOGGEDIN",
-                    payload: true
-                });
-                dispatch({
-                    type: "SET_LOADED_DATES",
-                    payload: loadedDate
-                });
-                if(location.pathname === "/" || location.pathname === "/login"){
-                    history.push("/dashboard");
-                }
-            } else {
-                dispatch({
-                    type: "SET_APPOINTMENTS",
-                    payload: main.appointments
-                });
+            main.uid = id;
+            dispatch({
+                type: "SET_CLINIC_DATA",
+                payload: main
+            });
+            dispatch({
+                type: "SET_LOADER",
+                payload: false
+            });
+            dispatch({
+                type: "SET_LOADED",
+                payload: true
+            });
+            dispatch({
+                type: "SET_LOGGEDIN",
+                payload: true
+            });
+            dispatch({
+                type: "SET_LOADED_DATES",
+                payload: loadedDate
+            });
+            if(location.pathname === "/" || location.pathname === "/login"){
+                history.push("/dashboard");
             }
 
         });
     };
 
     const getAppointments = () =>{
+        axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber+"-"+standardDate(date).dateNumber).then(res => {
+            let data = res.data.data.appointments;
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: data,
+                diff: "daily"
+            });
+        }).catch(err => {
+        });
         axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let data = res.data.data.appointments;
             dispatch({
                 type: "SET_APPOINTMENTS",
-                payload: data
+                payload: data,
+                diff: "monthly"
             });
-            // data.length !== 0 ? data.forEach((item, index) => {
-            //     setAppointment(item, dispatch, index, (data.length-1));
-            // }):  dispatch({
-            //     type: "ALL_APPOINTMENTS_ADDED",
-            //     payload: data
-            // });
         }).catch(err => {
-            dispatch({
-                type: "SET_APPOINTMENTS",
-                payload: []
-            });
         })
     }
 
@@ -124,7 +117,7 @@ const Routes = (props) => {
                 firebase.auth().currentUser.getIdTokenResult().then((token) => {
                     if (token.claims.practiceAdmin || token.claims.clinician) {
                         checkRole(token.claims);
-                        getClinicData(user.uid, true);
+                        getClinicData(user.uid);
                     }else {
                         history.push("/");
                         firebase.auth().signOut();

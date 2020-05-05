@@ -15,7 +15,14 @@ const reducer = (state, action) => {
         case "REMOVE_APPOINTMENT":
             return {...state, appointments: state.appointments.filter(item => item.appointmentId !== action.payload)};
         case "SET_APPOINTMENTS":
-            return {...state, appointments: action.payload, appointmentsLoaded: true};
+            if (action.diff === "daily") {
+                if (state.appointments.length === 0) {
+                    return {...state, appointments: action.payload, appointmentsLoaded: true};
+                }
+                return {...state};
+            } else {
+                return {...state, appointments: action.payload, appointmentsLoaded: true};
+            }
         case "ALL_APPOINTMENTS_ADDED":
             return {...state, appointmentsLoaded: true};
         case "SET_ROLE":
