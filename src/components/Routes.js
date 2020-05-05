@@ -103,12 +103,12 @@ const Routes = (props) => {
                 type: "SET_APPOINTMENTS",
                 payload: data
             });
-            data.length !== 0 ? data.forEach((item, index) => {
-                setAppointment(item, dispatch, index, (data.length-1));
-            }):  dispatch({
-                type: "ALL_APPOINTMENTS_ADDED",
-                payload: data
-            });
+            // data.length !== 0 ? data.forEach((item, index) => {
+            //     setAppointment(item, dispatch, index, (data.length-1));
+            // }):  dispatch({
+            //     type: "ALL_APPOINTMENTS_ADDED",
+            //     payload: data
+            // });
         }).catch(err => {
             dispatch({
                 type: "SET_APPOINTMENTS",

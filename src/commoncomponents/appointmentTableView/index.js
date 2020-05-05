@@ -21,7 +21,7 @@ const CarouselTwo=(props) => {
     }, [appointments.length]);
 
     const rearrangeData = (appointments, flag) => {
-        let final = restructorData(appointments, 20);
+        let final = restructorData(appointments, 2);
         if(flag){
             setCurrent(final[selectedPage]);
         }
