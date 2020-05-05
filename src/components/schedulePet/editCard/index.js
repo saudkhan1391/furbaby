@@ -11,7 +11,7 @@ import firebase from "../../../utils/firebase";
 function EditCard(props) {
 
     let {setForm, showForm, dispatch, schedule, setSchedule, clinic} = props;
-    let {description, startTime, appointmentStatus, trackingComponent} = showForm;
+    let {description, startTime, appointmentStatus, trackingComponent, petOwner} = showForm;
     const [date, setDate] = useState(startTime);
     const [status, setStatus] = useState(appointmentStatus);
     const [statuses, setStatuses] = useState(appointmentStatus);
@@ -36,11 +36,13 @@ function EditCard(props) {
         if (schedule) {
             setStatus("In Hospital");
         }
-        firebase.database().ref("/petOwner/"+showForm.petOwnerId+"/workPhone").on('value', (snapshot) => {
+        let { workPhone } = petOwner;
+        setOwnerPhone(workPhone);
+        firebase.database().ref("/petOwner/"+showForm.petOwnerId+"/workPhone").once('value', (snapshot) => {
             setOwnerPhone(snapshot.val());
             setShowPhone(true);
         });
-    }, [schedule, startTime, appointmentStatus, description]);
+    }, [schedule, startTime, appointmentStatus, description, petOwner]);
 
 
     const setLoader = () => {
