@@ -17,7 +17,7 @@ const reducer = (state, action) => {
         case "SET_APPOINTMENTS":
             if (action.diff === "daily") {
                 if (state.appointments.length === 0) {
-                    return {...state, appointments: action.payload, appointmentsLoaded: true};
+                    return {...state, appointments: action.payload, appointmentsLoaded: action.payload.length !== 0 };
                 }
                 return {...state};
             } else {

@@ -8,17 +8,28 @@ import { MyLoader } from "../../functions/helper";
 function card(props) {
   let { item, setForm, setSchedule } = props;
   let { trackingComponent, pet:petData, petOwner } = item;
-  const [pet, setPet] = useState(petData);
-    const [owner, setOwner] = useState(petOwner);
+  const [owner, setOwner] = useState(petOwner ? petOwner : {});
+  const [pet, setPet] = useState(petData ? petData : {});
   const [data, setData] = useState(
     trackingComponent ? JSON.parse(trackingComponent) : []
   );
 
-  useEffect(() => {
-    setData(trackingComponent ? JSON.parse(trackingComponent): []);
-    setPet(petData);
-    setOwner(petOwner);
-  }, [item, trackingComponent]);
+    useEffect(() => {
+        setData( trackingComponent ? JSON.parse(trackingComponent): []);
+        if(petData && petOwner){
+            setPet(petData);
+            setOwner(petOwner);
+        } else {
+            firebase.database().ref("/pets/" + item.petId).once("value", snapshot => {
+                let main = { ...snapshot.val() };
+                setPet(main);
+            });
+            firebase.database().ref("/petOwner/"+item.petOwnerId).once('value', (snapshot) => {
+                setOwner(snapshot.val());
+            });
+        }
+    }, [item, trackingComponent, petData, petOwner]);
+
     const showBottom = (value) => {
         setSchedule(value);
         setForm(item);

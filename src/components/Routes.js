@@ -108,7 +108,7 @@ const Routes = (props) => {
             });
         }).catch(err => {
         })
-    }
+    };
 
     useEffect(() => {
         let take = false;

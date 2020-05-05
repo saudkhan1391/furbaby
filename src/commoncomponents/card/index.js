@@ -10,25 +10,26 @@ import { MyLoader } from "../../components/functions/helper";
 
 function card(props) {
     let { item } = props;
-    let { trackingComponent } = item;
-    const [pet, setPet] = useState(null);
-    const [owner, setOwner] = useState("");
+    let { trackingComponent, pet: petData, petOwner } = item;
+    const [owner, setOwner] = useState(petOwner ? petOwner : {});
+    const [pet, setPet] = useState(petData ? petData : {});
     const [data, setData] = useState(trackingComponent ? JSON.parse(trackingComponent): []);
 
     useEffect(() => {
-        setData(trackingComponent ? JSON.parse(trackingComponent): []);
-        firebase.database().ref("/pets/"+item.petId).on('value', (snapshot) => {
-            let main = {...snapshot.val()};
-            setPet(main);
-        });
-        firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").once('value', (snapshot) => {
-            setOwner(snapshot.val());
-        });
-        return () => {
-            firebase.database().ref("/pets/"+item.petId).off('value');
-            firebase.database().ref("/petOwner/"+item.petOwnerId+"/lastName").off('value');
+        setData( trackingComponent ? JSON.parse(trackingComponent): []);
+        if(petData && petOwner){
+            setPet(petData);
+            setOwner(petOwner);
+        } else {
+            firebase.database().ref("/pets/" + item.petId).once("value", snapshot => {
+                let main = { ...snapshot.val() };
+                setPet(main);
+            });
+            firebase.database().ref("/petOwner/"+item.petOwnerId).once('value', (snapshot) => {
+                setOwner(snapshot.val());
+            });
         }
-    },[item, trackingComponent]);
+    }, [item, trackingComponent, petData, petOwner]);
 
     const Inside = () => (
         <div className="max-w-sm rounded overflow-hidden shadow-bord">
@@ -53,7 +54,7 @@ function card(props) {
                 pet ?
                     <div className="px-6 pt-2 py-4 flex justify-center m-auto items-center content-center forText">
                         <p>
-                            {pet.name}{" "}{owner}
+                            {pet.name}{" "}{owner.lastName}
                             <br/>
                             <span className="normal">{pet.species}</span>
                         </p>
