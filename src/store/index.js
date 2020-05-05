@@ -15,14 +15,18 @@ const reducer = (state, action) => {
         case "REMOVE_APPOINTMENT":
             return {...state, appointments: state.appointments.filter(item => item.appointmentId !== action.payload)};
         case "SET_APPOINTMENTS":
-            if (action.diff === "daily" && !state.monthlyLoaded) {
-                if (state.appointments.length === 0) {
-                    let temp = action.payload.find(item => (item.appointmentStatus === "In Hospital"));
-                    return {...state, appointments: action.payload, appointmentsLoaded: !!temp, loadedSchedule: true };
+            if(!state.monthlyLoaded){
+                if (action.diff === "daily") {
+                    if (state.appointments.length === 0) {
+                        let temp = action.payload.find(item => (item.appointmentStatus === "In Hospital"));
+                        return {...state, appointments: action.payload, appointmentsLoaded: !!temp, loadedSchedule: true };
+                    }
+                    return {...state};
+                } else {
+                    return {...state, appointments: action.payload, appointmentsLoaded: true, monthlyLoaded: true, loadedSchedule: true};
                 }
-                return {...state};
             } else {
-                return {...state, appointments: action.payload, appointmentsLoaded: true, monthlyLoaded: true, loadedSchedule: true};
+                return {...state};
             }
         case "ALL_APPOINTMENTS_ADDED":
             return {...state, appointmentsLoaded: true, loadedSchedule: true};
