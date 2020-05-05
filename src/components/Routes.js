@@ -98,6 +98,11 @@ const Routes = (props) => {
                 diff: "daily"
             });
         }).catch(err => {
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: [],
+                diff: "daily"
+            });
         });
         axios.get(apiPath+"/getClinicAppointmentsData?clinicId="+clinicId+"&date="+standardDate(date).fullYear+"-"+standardDate(date).monthNumber).then(res => {
             let data = res.data.data.appointments;
@@ -107,6 +112,11 @@ const Routes = (props) => {
                 diff: "monthly"
             });
         }).catch(err => {
+            dispatch({
+                type: "SET_APPOINTMENTS",
+                payload: [],
+                diff: "monthly"
+            });
         })
     };
 

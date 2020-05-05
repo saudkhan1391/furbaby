@@ -63,9 +63,8 @@ const SectionTwo = (props) => {
                 let main = res.data.data.appointments;
                 appointmentsTemp = [...appointmentsTemp, ...main];
                 dispatch({
-                    type: "SET_APPOINTMENTS",
-                    payload: appointmentsTemp,
-                    diff: "monthly"
+                    type: "ADD_BULK_APPOINTMENTS",
+                    payload: appointmentsTemp
                 });
                 loadedDatesTemp.push(final);
                 dispatch({

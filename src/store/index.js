@@ -28,6 +28,8 @@ const reducer = (state, action) => {
             } else {
                 return {...state};
             }
+        case "ADD_BULK_APPOINTMENTS":
+            return {...state, appointments: action.payload };
         case "ALL_APPOINTMENTS_ADDED":
             return {...state, appointmentsLoaded: true, loadedSchedule: true};
         case "SET_ROLE":
