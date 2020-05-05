@@ -169,7 +169,7 @@ const Schedule = (props) => {
                                                         })}
                                                 </div>)
                                         }) : searchResult !== "null" && searchResult !== "notnull" && searchResult.length === 0 ?
-                                            <Loader/> : searchResult === "notnull" ?
+                                            <Loader /> : searchResult === "notnull" ?
                                                 <div><h1>No Result Found</h1></div> : <div/>}
                                 </div>
                             </div>

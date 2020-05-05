@@ -28,7 +28,7 @@ const SectionTwo =(props)=>{
             <Style/>
         </div>
     ): <div className="relative ml-12 mx-auto  h-64">
-        <Loader/>
+        <Loader text="Please wait while the records load"/>
     </div>
 }
 export default SectionTwo;

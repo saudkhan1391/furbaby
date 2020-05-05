@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Header from '../header';
 
 const Layout=(props) => {
-    let { children } = props;
+    let { children, dispatch } = props;
     return (
         <div>
-            <Header/>
+            <Header dispatch={dispatch}/>
             {children}
         </div>
     )

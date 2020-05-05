@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import firebase from "../../utils/firebase";
 
 const Header=(props)=>{
-    let { location } = props;
+    let { location, dispatch } = props;
     const checkActive = (value) => {
         return location.pathname.indexOf(value) !== -1 ? "active" : "";
     };
@@ -18,7 +18,10 @@ const Header=(props)=>{
     }
     const logOut = () => {
         firebase.auth().signOut();
-        window.location.reload();
+        dispatch({
+            type: "RESET_ALL"
+        })
+        // window.location.reload();
     };
 
     return (
@@ -79,27 +82,27 @@ const Header=(props)=>{
                                 <Link to="/dashboard" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart"}>
                                     CLINIC DASHBOARD
                                 </Link>
-                                <hr></hr>
+                                <hr/>
                                 <Link to="/in-progress" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                     IN PROGRESS
                                 </Link>
-                                <hr></hr>
+                                <hr/>
                                 <Link to="/schedule" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                     SCHEDULE
                                 </Link>
-                                <hr></hr>
+                                <hr/>
                                 {/*<a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-12 headerPart">*/}
                                 {/*NOTIFICATIONS*/}
                                 {/*</a>*/}
                                 <Link to="/baby-database" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                     DATABASE
                                 </Link>
-                                <hr></hr>
+                                <hr/>
 
                                 <Link to="/tools-setting" className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                     TOOLS & SETTINGS
                                 </Link>
-                                <hr></hr> 
+                                <hr/>
                                 <Link to="/login"  onClick={() => logOut()} className={"block mt-4 lg:inline-block lg:mt-0 text-teal-200  mr-12 headerPart "}>
                                 LOGOUT
                                 </Link>

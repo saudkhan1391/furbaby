@@ -93,6 +93,9 @@ const reducer = (state, action) => {
             return {...state, loggedIn: action.payload};
         case "SET_LOADED_DATES":
             return {...state, loadedDates: action.payload};
+        case "RESET_ALL":
+            console.log("working");
+            return {...state, id: null, currentFurBaby: "1", furBabies: [], medications: [], food: [], loaded: false, clinician: null, clinic: null, appointments: [], clinicId: null, users: [], role: null, loggedIn: false, loadedDates: [], appointmentsLoaded: false, loadedSchedule: false  };
         default:
             return state;
     }
